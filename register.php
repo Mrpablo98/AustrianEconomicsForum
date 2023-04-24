@@ -19,16 +19,18 @@
                 <img class="logo" src="img/Captura de pantalla 2023-04-22 214534.png">
             </div>
             <div class="form">  
-                <form action="validate-login.php" method="POST" class="container1">
+                <form action="validate-register.php" method="POST" class="container1">
                     <div class="container">
                         
                         <div class="inputText">
+                            <input placeholder="E-mail" type="email" name="email" id="email">
                             <input placeholder="Nombre de usuario" type="text" name="username" id="username">
                             <input placeholder="Contraseña" type="password" name="password" id="password">
+                            <input placeholder="Repite contraseña" type="password" name="password" id="Rpassword">
                         </div>
                     </div>
-                    <button class="loginButton" type="submit">Log in</button>
-                    <button class="registerButton" type="submit"><a href="register.php" class="linkNoneStyle" >Regístrate</a></button>
+                    <button class="registerButton" type="submit">Regístrate</button>
+                    <button class="loginButton"><a class="linkNoneStyle" href="index.php">Log-in</a></button>
                 </form>
             </div>
         </div>
