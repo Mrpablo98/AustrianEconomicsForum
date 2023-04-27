@@ -3,14 +3,14 @@ body {
     font-size: 0.75vw;
     background-color: #0A0C10;
 
+
 }
 
 
 @media(min-width: 768px) {
     .Login-Logo {
         display: flex;
-        flex-grow: 10;
-        width: 100vw;
+        width: 100%;
 
     }
 
@@ -26,8 +26,7 @@ body {
         display: flex;
         justify-content: left;
         align-items: center;
-        height: 57vh;
-        width: 50vw;
+        -width: 50vw;
 
     }
 
@@ -144,20 +143,28 @@ body {
         margin-bottom: 2vh;
     }
 
-    .disclaimer-container {
-        display: flex;
-        flex-direction: column;
+    .disclaimer-datos-container {
+        display: none;
+        position: absolute;
         align-items: center;
         width: 100%;
         background-color: #0A0C10;
 
     }
 
+    .disclaimer-expresion-container {
+        display: none;
+        position: absolute;
+        align-items: center;
+        width: 100%;
+        background-color: #0A0C10;
+    }
+
     .disclaimer-links-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
     }
 
     .disclaimer-link {
@@ -169,16 +176,22 @@ body {
 
     }
 
-    footer {
+    .container-all {
+        height: 90vh;
+    }
+
+
+    .footer {
         color: white;
         background-color: #3F3F3F;
         width: 100%;
         height: 10vh;
-        position: relative;
         bottom: 0;
+        margin-top: 50px;
+
     }
 
-    footer p {
+    .footer p {
         text-align: center;
         margin-top: 2vh;
     }
@@ -291,6 +304,23 @@ body {
         margin: 0 auto;
     }
 
+    .disclaimer-datos-container {
+        display: none;
+        position: absolute;
+        align-items: center;
+        width: 100%;
+        background-color: #0A0C10;
+
+    }
+
+    .disclaimer-expresion-container {
+        display: none;
+        position: absolute;
+        align-items: center;
+        width: 100%;
+        background-color: #0A0C10;
+    }
+
     .titleDisclaimer {
         color: white;
         font-size: 3.3vw;
@@ -323,14 +353,16 @@ body {
 
     }
 
-    footer {
+    .container-all {
+        height: 85vh;
+    }
+
+    .footer {
         color: white;
         background-color: #3F3F3F;
         width: 100%;
         height: 10vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-top: 50px;
 
     }
 

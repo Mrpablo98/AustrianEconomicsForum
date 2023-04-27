@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log-in | AustrianEconomicsForum</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div>
+    <div class="container-all">
         <div class="title">
             <p class="titleText">AustrianEconomicsForum</p>
         </div>
@@ -28,15 +28,15 @@
                         </div>
                     </div>
                     <button class="loginButton" type="submit">Log in</button>
-                    <button class="registerButton" type="submit"><a href="register.php" class="linkNoneStyle" >Regístrate</a></button>
+                   <a href="register.html" class="linkNoneStyle" > <button class="registerButton" type="button">Regístrate</button></a>
                     <div class="disclaimer-links-container">
-                        <p class="disclaimer-link" id="disclaimer-datos">Tratamiento de tus datos</p>
-                        <p class="disclaimer-link" id="disclaimer-expresion">Libertad de expresión en la plataforma</p>
+                        <p class="disclaimer-link" id="disclaimer-datos">Tratamiento de datos</p>
+                        <p class="disclaimer-link" id="disclaimer-expresion">Libertad de expresión</p>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="disclaimer-container">
+        <div class="disclaimer-datos-container" id="disclaimer-datos-text">
             <p class="titleDisclaimer">Responsabilidad en el Tratamiento de Datos en AustrianEconomicsForum</p>  
             <p class="disclaimer">
                 Bienvenido a "AsutrianEconomicsForum", un espacio donde la libertad, la responsabilidad individual y la protección de tus datos son nuestras prioridades.<br>
@@ -65,11 +65,45 @@
                     ¡Regístrate y comienza a disfrutar de la experiencia de una red social basada en los principios del libertarismo y la escuela austríaca!
             </p>
         </div>
+        <div class="disclaimer-expresion-container" id="disclaimer-expresion-text">
+            <p class="titleDisclaimer"> Libertad de Expresión en AustrianEconomicsForum</p>
+            <p class="disclaimer">
+                En AustrianEconomicsForum, valoramos y promovemos activamente la libertad de <br>
+                expresión como uno de nuestros pilares fundamentales. Creemos que cada voz, cada idea, y<br>
+                cada perspectiva merecen ser escuchadas, y nos esforzamos por proporcionar un espacio<br>
+                en el que esa diversidad de pensamiento pueda florecer.<br>
+            </p>
+            <p class="disclaimer">
+                Nuestro compromiso con la libertad de expresión se basa en los principios del libertarismo y <br>
+                la escuela austríaca de economía, que enfatizan la importancia de la autonomía individual y <br>
+                la libre asociación. Como plataforma, proporcionamos las herramientas necesarias para que <br>
+                nuestros usuarios compartan sus ideas, opiniones y experiencias sin temor a la censura.<br>
+            </p>
+            <p class="disclaimer">
+                Sin embargo, también entendemos que la verdadera libertad de expresión no puede existir <br>
+                sin respeto y responsabilidad. Por lo tanto, aunque incentivamos el debate y la discusión, <br>
+                también esperamos que nuestros usuarios se traten con respeto y consideración mutua. <br>
+                No toleramos el acoso, la discriminación ni ninguna forma de conducta<br>
+                que atente contra la dignidad de nuestros usuarios.<br>
+            </p>
+            <p class="disclaimer">
+                En AustrianEconomicsForum, puedes expresarte libremente, siempre y cuando tu <br>
+                expresión no infrinja los derechos de los demás ni viole nuestras normas de conducta.<br>
+                Valoramos la diversidad de ideas y creemos que solo a través de un intercambio abierto y <br>
+                respetuoso de puntos de vista podemos crecer como individuos y como comunidad.<br>
+            </p>
+            <p class="disclaimer">
+                Por lo tanto, te invitamos a alzar tu voz, a compartir tus ideas y a participar activamente en <br>
+                nuestra comunidad. Juntos, podemos hacer de AustrianEconomicsForum un espacio de <br>
+                diálogo, aprendizaje y crecimiento personal.<br>
+            </p>
+        </div>
+        
     </div> 
-    <footer>
+    <div class="footer">
                 <p>© 2023 AustrianEconomicsForum</p>
-</footer>
-
+    </div>
+<script src="js/disclaimers.js"></script>
 </body>
 
 </html>
