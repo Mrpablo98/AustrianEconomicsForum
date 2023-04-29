@@ -2,7 +2,7 @@
 include("connection.php");
 extract($_POST);
 $password=trim($_POST['password']);
-$sql = $mysqli->prepare("SELECT * FROM usuarios WHERE nombre = ?");
+$sql = $mysqli->prepare('SELECT * FROM usuarios WHERE nombre = ?');
 $sql->bind_param("s", $username);
 
 // Ejecuta la consulta

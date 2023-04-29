@@ -30,7 +30,7 @@ if(!$error){
         die("Error de conexion".$mysqli->connect_error);
     }else{
         $password_hash=password_hash($password, PASSWORD_DEFAULT);
-        $sql=$mysqli->prepare("INSERT INTO usuarios (nombre,email,password_hash,fecha_registro) VALUES (?,?,?,?)");
+        $sql=$mysqli->prepare('INSERT INTO usuarios (nombre,email,password_hash,fecha_registro) VALUES (?,?,?,?)');
         if ($sql === false) {
             die("Error preparing statement: " . $mysqli->error);
         }
