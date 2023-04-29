@@ -1,8 +1,10 @@
 <?php 
 extract($_POST);
+$password=trim($_POST['password']);
+$Rpassword=trim($_POST['Rpassword']);
 $error=false;
 
-if(!isset($username) || strlen($username) < 6){
+if(!isset($username) || strlen($username) < 4){
     $error=true;
     
 }
@@ -19,16 +21,11 @@ if(!isset($Rpassword) || $password != $Rpassword){
 }
 
 
-$server="localhost";
-$usernamebd="root";
-$password="root";
-$db="austrianeconomicsforum";
-
-
+include("connection.php");
 
 if(!$error){
 
-    $mysqli=new mysqli($server,$usernamebd,$password,$db);
+   
     if($mysqli->connect_error){
         die("Error de conexion".$mysqli->connect_error);
     }else{
@@ -42,7 +39,13 @@ if(!$error){
         if($sql->execute()==false){
             echo "Error al ejecutar la consulta".$sql->error;
         }else{
-            echo "Usuario registrado correctamente";
+            session_start();
+            $_SESSION['user']=[
+                'username' => $username,
+            ];
+            
+    
+            header("Location: index.php");
         }
     }
 }

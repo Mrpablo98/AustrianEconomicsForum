@@ -78,13 +78,16 @@ body {
 
     }
 
-    input {
+    .inputText  input {
         width: 100%;
         border-radius: 5px;
         border: 0.3px solid black;
         height: 2vw;
-        background-color: #4f4e46;
+        background-color: #262626;
         color: white;
+    }
+    .inputText input:focus{
+        outline: none;
     }
 
     .loginButton {
@@ -196,7 +199,7 @@ body {
         gap:1vw;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         padding: 10px;
-        position:fixed;
+        position:sticky;
     }
     .menu_logo{
         width: 10vw;
@@ -212,6 +215,7 @@ body {
         border-radius:10px;
         padding-left:5px;
         margin-bottom: 1.5vh;
+        color: white;
     }
     .navbar > a{
         color: white;
@@ -220,11 +224,38 @@ body {
     .menu_item:hover{
         background-color: #1F2833;
     }
+    #search-button{
+        cursor:pointer;
+    }
     .index-perfil-img{
         width: 1vw;
         border-radius: 50%;
     }
-
+    .search-bar-container{
+        width:84%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height: 0px;
+        background-color: #0A0C10;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        right:0;
+        transition: 1s all;
+    }
+    .search-bar{
+        background-color: #262626;
+        color:grey;
+        border:none;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 1vw;
+    }
+    .search-bar:focus{
+        outline: none;
+    }
     /*footer*/
     footer {
         color: white;
@@ -232,6 +263,8 @@ body {
         width: 100%;
         height: 10vh;
         margin-top: 4vh;
+        position: absolute;
+        bottom: 0;
 
     }
 
@@ -397,7 +430,7 @@ body {
 
     }
 
-    .container-all {
+    .container-all-log {
         height: 85vh;
     }
 
@@ -407,6 +440,8 @@ body {
         width: 100%;
         height: 10vh;
         margin-top: 5vh;
+        position: absolute;
+        bottom: 0;
 
     }
 
