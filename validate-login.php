@@ -28,8 +28,8 @@ if ($result->num_rows > 0) {
 
        /* header("Location: index.php");*/
     } else {
-        
-        echo "Contraseña incorrecta: $password<br>Contraseña correcta: $user[password_hash]<br> Ususario: $user[nombre]";
+        $contraseña=password_hash($password, PASSWORD_DEFAULT);
+        echo "Contraseña incorrecta: $password<br>Contraseña incorrecta hasheada: $contraseña<br>Contraseña correcta: $user[password_hash]<br> Ususario: $user[nombre]";
         /*header("Location: log-in.html?error=password");*/
     }
 } else {
