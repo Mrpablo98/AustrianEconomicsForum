@@ -34,6 +34,7 @@ if(!$error){
         if ($sql === false) {
             die("Error preparing statement: " . $mysqli->error);
         }
+        date_default_timezone_set('Europe/Madrid');
         $fecha_registro=date("Y-m-d H:i:s");
         $sql->bind_param("ssss",$username,$email,$password_hash,$fecha_registro);
         if($sql->execute()==false){
