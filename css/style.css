@@ -212,6 +212,7 @@ body {
         padding-left:5px;
         margin-bottom: 1.5vh;
         color: white;
+        transition: all 0.5s;
     }
     .navbar > a{
         color: white;
@@ -224,11 +225,11 @@ body {
         cursor:pointer;
     }
     .index-perfil-img{
-        width: 1vw;
+        width: 30px;
         border-radius: 50%;
     }
     .search-bar-container{
-        width:84%;
+        width:85%;
         display:flex;
         justify-content:center;
         align-items:center;
@@ -239,15 +240,18 @@ body {
         top: 0;
         right:0;
         transition: 1s all;
+        z-index: -1;
     }
     .search-bar{
         background-color: #262626;
         color:grey;
         border:none;
-        border-radius: 10px;
+        border-radius: 5px;
         padding-left: 10px;
         padding-right: 10px;
-        font-size: 1vw;
+        font-size: 1rem;
+        height: 2.7vh;
+        width: 20vw;
     }
     .search-bar:focus{
         outline: none;
