@@ -199,7 +199,7 @@ body {
         gap:1vw;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         padding: 10px;
-        position:sticky;
+        position:fixed;
     }
     .menu_logo{
         width: 100%;
@@ -286,7 +286,7 @@ body {
         gap:1vw;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         padding: 10px;
-        position:sticky;
+        position:fixed;
     }
     .menu_logo{
         width: 100%;
