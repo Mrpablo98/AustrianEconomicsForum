@@ -1,6 +1,6 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 0.75vw;
+    font-size: 1rem;
     background-color: #0A0C10;
 
 
@@ -40,7 +40,7 @@ body {
 
     .titleText {
         color: white;
-        font-size: 2vw;
+        font-size: 1rem;
         text-align: center;
         font-family: 'Courier New', Courier, monospace;
         text-decoration: underline;
@@ -93,13 +93,11 @@ body {
     .loginButton {
         width: 15vw;
         height: 2.5vw;
-        font-size: 1vw;
+        font-size: 1rem;
         border-radius: 5px;
         border: 0.3px solid black;
         background-color: #1877F2;
         color: black;
-        font-weight: bold;
-        font-size: 0.75vw;
         margin: 0 auto;
         cursor: pointer;
         color: white;
@@ -108,12 +106,10 @@ body {
     .registerButton {
         width: 15vw;
         height: 2.5vw;
-        font-size: 1vw;
+        font-size: 1rem;
         border-radius: 5px;
         border: 0.3px solid black;
         background-color: #05b932;
-        font-weight: bold;
-        font-size: 0.75vw;
         margin: 0 auto;
         cursor: pointer;
         color: white;
@@ -134,21 +130,21 @@ body {
 
     .titleDisclaimer {
         color: white;
-        font-size: 1.3vw;
+        font-size: 2rem;
         font-family: 'Courier New', Courier, monospace;
         text-decoration: underline;
     }
 
     .disclaimer {
         color: white;
-        font-size: 0.75vw;
+        font-size: 1rem;
         font-family: 'Courier New', Courier, monospace;
         padding: 20px;
     }
 
     .disclaimerList {
         color: white;
-        font-size: 0.75vw;
+        font-size: 1rem;
         font-family: 'Courier New', Courier, monospace;
     }
 
@@ -181,7 +177,7 @@ body {
     }
 
     .disclaimer-link {
-        font-size: 1.2vh;
+        font-size: 0.75rem;
         color: white;
         text-decoration: underline;
         text-align: center;
@@ -280,7 +276,7 @@ body {
         display:flex;
         flex-direction: column;
         align-items:center;
-        width:15%;
+        width:10%;
         height:100vh;
         background-color:#0A0C10;
         gap:1vw;
@@ -304,6 +300,12 @@ body {
         margin-bottom: 1.5vh;
         color: white;
         height: 50px;
+    }
+    .menu_item i{
+        margin:0 auto;
+    }
+    .menu_item img{
+        margin: 0 auto;
     }
     .navbar:first-child{
         color: white;
@@ -351,7 +353,7 @@ body {
 
 @media(max-width: 768px) {
     body {
-        font-size: 3.5vw;
+        font-size: 1rem;
         background-size: auto 100%;
 
     }
@@ -437,12 +439,11 @@ body {
     .loginButton {
         width: 30vw;
         height: 5.5vw;
-        font-size: 2vw;
+        font-size: 0.75rem;
         border-radius: 5px;
         border: 0.3px solid black;
         background-color: #1877F2;
         color: black;
-        font-weight: bold;
         margin: 0 auto;
         cursor: pointer;
         color: white;
@@ -451,12 +452,10 @@ body {
     .registerButton {
         width: 30vw;
         height: 5.5vw;
-        font-size: 2vw;
+        font-size: 0.75rem;
         border-radius: 5px;
         border: 0.3px solid black;
         background-color: #05b932;
-        font-weight: bold;
-        font-size: 2vw;
         margin: 0 auto;
         cursor: pointer;
         color: white;
@@ -486,7 +485,7 @@ body {
 
     .titleDisclaimer {
         color: white;
-        font-size: 3.3vw;
+        font-size: 2rem;
         text-align: center;
         font-family: 'Courier New', Courier, monospace;
         text-decoration: underline;
@@ -495,7 +494,7 @@ body {
 
     .disclaimer {
         color: white;
-        font-size: 3vw;
+        font-size: 1rem;
         font-family: 'Courier New', Courier, monospace;
         padding: 20px;
 
@@ -503,7 +502,7 @@ body {
 
     .disclaimerList {
         color: white;
-        font-size: 3vw;
+        font-size: 1rem;
         font-family: 'Courier New', Courier, monospace;
     }
 
@@ -537,7 +536,7 @@ body {
         display:flex;
         align-items:center;
         justify-content: center;
-        gap:13vw;
+        gap:10vw;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
     }
     .menu_item{
@@ -619,7 +618,7 @@ body {
     }
 
     .disclaimer-link {
-        font-size: 1.1vh;
+        font-size: 0.75rem;
         color: white;
         text-decoration: underline;
         text-align: center;

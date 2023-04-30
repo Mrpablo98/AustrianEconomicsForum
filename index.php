@@ -39,7 +39,7 @@
                 </div></a>
 
                 <a href="perfil.php" ><div class="menu_item">
-                    <img src="img/Captura de pantalla 2023-04-22 214534.png" class="index-perfil-img"><p>Perfil de: <?php echo $user['username']; ?></p>
+                    <img src="img/Captura de pantalla 2023-04-22 214534.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
                 </div></a>
             
             </nav>
