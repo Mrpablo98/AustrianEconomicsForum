@@ -2,7 +2,8 @@
 
 $server="localhost";
 $usernamebd="root";
-$passwordbd="!q[Oux6ww!t]R\l+";
+$passwordbd="root";
+/*!q[Oux6ww!t]R\l+*/
 $db="austrianeconomicsforum";
 
 $mysqli=new mysqli($server,$usernamebd,$passwordbd,$db);
