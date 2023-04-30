@@ -2,10 +2,10 @@
 
 $server="localhost";
 $usernamebd="root";
-$password="root";
+$passwordbd="!q[Oux6ww!t]R\l+";
 $db="austrianeconomicsforum";
 
-$mysqli=new mysqli($server,$usernamebd,$password,$db);
+$mysqli=new mysqli($server,$usernamebd,$passwordbd,$db);
 
 if ($mysqli->connect_error) {
     die('Error de Conexión (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);

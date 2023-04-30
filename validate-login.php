@@ -26,10 +26,9 @@ if ($result->num_rows > 0) {
         ];
         echo $_SESSION['user']['username'];
 
-       /* header("Location: index.php");*/
+        header("Location: index.php");
     } else {
-        echo "Contraseña incorrecta: $password<br>Contraseña correcta: $user[password_hash]<br> Ususario: $user[nombre]";
-        /*header("Location: log-in.html?error=password");*/
+        header("Location: log-in.html?error=password");
     }
 } else {
     echo "El usuario no existe";
