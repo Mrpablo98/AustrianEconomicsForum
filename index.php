@@ -13,6 +13,9 @@
     <?php
     session_start();
         $user=$_SESSION['user'];
+        if(!isset($user)){
+            header("Location: log-in.html");
+        }
     
     ?>
     <div class="container-all-index">
