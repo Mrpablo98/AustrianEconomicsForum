@@ -13,7 +13,7 @@
     <?php
     session_start();
         $user=$_SESSION['user'];
-        if(!isset($user)){
+        if(!isset($user['username'])){
             header("Location: log-in.html");
         }
     
