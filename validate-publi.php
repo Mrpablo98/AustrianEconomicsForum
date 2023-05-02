@@ -1,12 +1,14 @@
 <?php
-extract($_POST);
+
 require 'vendor/autoload.php';
 include('connection.php');
 use Google\Cloud\Storage\StorageClient;
 
 function upload_file($bucketName, $objectName, $source)
 {
-    $tipo=mime_content_type($source);
+    $finfo=finfo_open(FILEINFO_MIME_TYPE);
+    $tipo=finfo_file($finfo, $source);
+    finfo_close($finfo);
     $storage = new StorageClient([
         'projectId' => 'hardy-baton-385508',
         'keyFilePath' => 'C:\MAMP\htdocs\AustrianEconomicsForum\hardy-baton-385508-d23cdb6005cc.json'
@@ -25,7 +27,12 @@ function upload_file($bucketName, $objectName, $source)
     ];
 
 }
-$datos=upload_file('austrian-economics-forum', $title, $body);
+extract($_POST);
+$title=trim($_POST['title']);
+$body=trim($_POST['body']);
+if(isset($_FILES['file'])) {
+    $datos=upload_file('austrian-economics-forum', 'post-prueba', $_FILES['file']['tmp_name']);
+}
 $sql=$mysqli->prepare("INSERT INTO posts (titulo, contenido, tipo, url_recurso) VALUES (?,?,?,?)");
 $sql->bind_param("ssss", $title, $body, $datos['tipo'], $datos['url']);
 $sql->execute();
