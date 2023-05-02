@@ -1,5 +1,13 @@
 {
     "require": {
         "google/cloud-storage": "^1.31"
+    },
+    "config": {
+
+        "platform-check": false,
+        
+        "platform": {
+            "php": "7.1.0"
+        }
     }
 }
