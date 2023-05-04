@@ -55,7 +55,7 @@
             </form>
         </div>
         <div class="content-container">
-            <?php getElpais(); ?>
+            <?php getElMundo(); ?>
         </div>
     </div>
     <script src="js/search.js"></script>

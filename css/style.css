@@ -201,7 +201,7 @@ body {
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         padding: 10px;
         position: fixed;
-        z-index: 1;
+        z-index: 10;
     }
 
     .menu_logo {
@@ -254,7 +254,7 @@ body {
         top: 0;
         right: 0;
         transition: 1s all;
-        z-index: -1;
+        z-index: 5;
     }
 
     .search-bar {
@@ -337,6 +337,15 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 30px;
+    }
+
+    .news1 p {
+        width: 60%;
+    }
+
+    .news1 h2 {
+        width: 60%;
     }
 
     .news2 {
@@ -346,6 +355,15 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 30px;
+    }
+
+    .news2 p {
+        width: 60%;
+    }
+
+    .news2 h2 {
+        width: 60%;
     }
 
     /*footer*/
