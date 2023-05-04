@@ -8,6 +8,7 @@
     <title>AustrianEconomicsForum</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icon.png">
     <script src="https://kit.fontawesome.com/7fc86cc57f.js" crossorigin="anonymous"></script>
 </head>
 
@@ -52,7 +53,7 @@
 
                 <a href="perfil.php">
                     <div class="menu_item">
-                        <img src="img/Captura de pantalla 2023-04-22 214534.png" class="index-perfil-img">
+                        <img src="img/icon.png" class="index-perfil-img">
                         <p><?php echo $user['username']; ?></p>
                     </div>
                 </a>
