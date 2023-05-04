@@ -54,7 +54,7 @@ class Noticia {
             
             echo "<p>$description</p>";
         
-            echo '-------------------------------------' . PHP_EOL;
+           
             echo "</div>";
             $i++;
         }
@@ -90,7 +90,7 @@ class Noticia {
                 echo "<img src='$media_content_url' width='50%' height='auto'>";
             }
             echo "<p>$description</p>";
-            echo '-------------------------------------' . PHP_EOL;
+           
             echo "</div>";
             $i++;
 

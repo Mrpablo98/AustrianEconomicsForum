@@ -477,6 +477,100 @@ body {
     .menu_item p {
         display: none;
     }
+
+    .content-container {
+        width: 88%;
+        background-color: #0A0C10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        color: white;
+        position: absolute;
+        right: 0;
+        z-index: 0;
+
+    }
+
+    /*publicar*/
+
+
+    .public-form {
+        margin: 0 auto;
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2vh;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 10px;
+        padding: 20px;
+
+    }
+
+    .input {
+        border-radius: 5px;
+        border: 0.3px solid black;
+        height: 2vw;
+        background-color: #262626;
+        color: white;
+        width: 100%;
+    }
+
+    .input-file {
+        color: white;
+    }
+
+    .public-form button {
+        position: absolute;
+        right: 5px;
+        bottom: -35px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    /*Noticias*/
+    .news1 {
+        background-color: #0A0C10;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .news1 p {
+        width: 60%;
+    }
+
+    .news1 h2 {
+        width: 60%;
+    }
+
+    .news2 {
+        background-color: #1a1e27;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .news2 p {
+        width: 60%;
+    }
+
+    .news2 h2 {
+        width: 60%;
+    }
+
 }
 
 @media(max-width: 768px) {
@@ -651,6 +745,21 @@ body {
         height: 85vh;
     }
 
+    .content-container {
+        width: 100%;
+        background-color: #0A0C10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        color: white;
+        position: absolute;
+        right: 0;
+        z-index: 0;
+
+    }
+
     /*Index*/
     .menu {
         display: flex;
@@ -660,6 +769,7 @@ body {
         bottom: 0;
         width: 100%;
         background-color: #0A0C10;
+        z-index: 5;
     }
 
     .menu_logo {
@@ -714,6 +824,7 @@ body {
         top: 0;
         right: 0;
         transition: 1s all;
+        z-index: 3;
     }
 
     .search-bar {
@@ -732,6 +843,84 @@ body {
 
     .menu_item p {
         display: none;
+    }
+
+    /*publicar*/
+
+
+    .public-form {
+        margin: 0 auto;
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2vh;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 10px;
+        padding: 20px;
+
+    }
+
+    .input {
+        border-radius: 5px;
+        border: 0.3px solid black;
+        height: 2vw;
+        background-color: #262626;
+        color: white;
+        width: 100%;
+    }
+
+    .input-file {
+        color: white;
+    }
+
+    .public-form button {
+        position: absolute;
+        right: 5px;
+        bottom: -35px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    /*Noticias*/
+    .news1 {
+        background-color: #0A0C10;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .news1 p {
+        width: 60%;
+    }
+
+    .news1 h2 {
+        width: 60%;
+    }
+
+    .news2 {
+        background-color: #1a1e27;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .news2 p {
+        width: 60%;
+    }
+
+    .news2 h2 {
+        width: 60%;
     }
 
 
