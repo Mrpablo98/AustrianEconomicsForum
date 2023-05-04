@@ -274,10 +274,11 @@ body {
 
     /*publicar*/
     .content-container {
-        width: 85%;
+        width: 60%;
         background-color: #0A0C10;
-        margin-left: 15%;
+        margin: 0 auto;
         padding-top: 100px;
+        color: white;
     }
 
     .public-form {
@@ -317,6 +318,8 @@ body {
     textarea {
         resize: none;
     }
+
+
 
     /*footer*/
     footer {
@@ -684,6 +687,7 @@ body {
     .menu_item p {
         display: none;
     }
+
 
     footer {
         color: white;

@@ -17,7 +17,7 @@
         if(!isset($user['username']) || strlen($user['username']) < 4){
             header("Location: log-in.html");
         }
-    
+        include('rss-periodicos.php');
     ?>
     <div class="container-all-index">
         <div class="menu">
@@ -53,6 +53,9 @@
             <form>
                 <input placeholder="Search..." class="search-bar" type="text">
             </form>
+        </div>
+        <div class="content-container">
+            <?php getElpais(); ?>
         </div>
     </div>
     <script src="js/search.js"></script>

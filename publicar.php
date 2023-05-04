@@ -51,6 +51,10 @@
                     </div>
                 </a>
 
+                <a href="noticias.php" ><div class="menu_item">
+                <i class="fa-sharp fa-solid fa-newspaper"></i><p>Noticias</p>
+                </div></a>
+
                 <a href="perfil.php">
                     <div class="menu_item">
                         <img src="img/icon.png" class="index-perfil-img">
