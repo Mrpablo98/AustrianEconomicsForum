@@ -47,7 +47,7 @@ class Noticia {
                 echo "<video src='$media_content_url' width='50%' height='auto' controls></video>";
             }else if(strlen($media_content_url)==0){
 
-                echo "<div width='50%' height='50px' style='color:black; background-color:white;'><p style='margin:0 auto;'>No hay imágen disponible.</p></div>";
+                echo "<div width='50%' height='50px' style='color:white; background-color:#444654; display:flex; justify-content:center; align-items:center;'><i class='fa-sharp fa-solid fa-eye-slash fa-xl' style='color: #eff0f0;'></i><p style='text-align:center;'>No hay imágen disponible.</p></div>";
             }else{
                 echo "<img src='$media_content_url' width='50%' height='auto'>";
             }
@@ -85,7 +85,7 @@ class Noticia {
                 echo "<video src='$media_content_url' width='50%' height='auto' controls></video>";
             }else if(strlen($media_content_url)==0){
 
-                echo "<div width='50%' height='50px' style='color:black; background-color:white;'><p style='margin:0 auto;'>No hay imágen disponible.</p></div>";
+                echo "<div width='50%' height='50px' style='color:white; background-color:#444654; display:flex; justify-content:center; align-items:center;'><i class='fa-sharp fa-solid fa-eye-slash fa-xl' style='color: #eff0f0;'></i><p style='text-align:center;'>No hay imágen disponible.</p></div>";
             }else{
                 echo "<img src='$media_content_url' width='50%' height='auto'>";
             }
