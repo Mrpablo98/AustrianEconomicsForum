@@ -435,6 +435,23 @@ class Noticia {
             echo "</div>";
             $i++;
         }
+        
+    }
+    function getNews(){
+        $elmundo=getElMundo();
+        $elpais=getElPais();
+        $lavanguardia=getLaVanguardia();
+        $elperiodico=getElPeriodico();
+        $lavoz=getLaVoz();
+        $nos=getNos();
+        $economista=getElEconomista();
+        $libertad=getLibreMercado();
+        $noticias=array_merge($elmundo, $elpais, $lavanguardia, $elperiodico, $lavoz, $nos, $economista, $libertad);
+        usort($noticias, function($a, $b) {
+            return $b->fecha - $a->fecha;
+        });
+
+        return $noticias;
     }
     
     

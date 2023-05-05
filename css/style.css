@@ -322,7 +322,20 @@ body {
     .public-form button {
         position: absolute;
         right: 5px;
-        bottom: -35px;
+        bottom: -45px;
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        width: 150px;
+        height: 30px;
+        border-radius: 20px;
+    }
+
+    .public-form button:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        cursor: pointer;
     }
 
     textarea {
@@ -577,7 +590,7 @@ body {
     body {
         font-size: 1rem;
         background-size: auto 100%;
-
+        width: 100%;
     }
 
     .logo-container {
@@ -753,9 +766,8 @@ body {
         justify-content: center;
         align-items: center;
         margin-top: 100px;
-        color: white;
-        position: absolute;
         right: 0;
+        color: white;
         z-index: 0;
 
     }
@@ -768,7 +780,9 @@ body {
         position: fixed;
         bottom: 0;
         width: 100%;
+        height: 100px;
         background-color: #0A0C10;
+        border-top: 1px solid rgba(255, 255, 255, 0.301);
         z-index: 5;
     }
 
@@ -781,15 +795,15 @@ body {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 10vw;
-        border-top: 1px solid rgba(255, 255, 255, 0.301);
+        justify-content: space-between;
+        gap: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .menu_item {
         display: flex;
         align-items: center;
-        gap: 15px;
         border-radius: 10px;
         padding-left: 5px;
         margin-bottom: 1.5vh;
@@ -848,10 +862,11 @@ body {
     /*publicar*/
 
 
+
     .public-form {
         margin: 0 auto;
         position: relative;
-        width: 50%;
+        width: 300px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -866,7 +881,7 @@ body {
     .input {
         border-radius: 5px;
         border: 0.3px solid black;
-        height: 2vw;
+        height: 30px;
         background-color: #262626;
         color: white;
         width: 100%;
