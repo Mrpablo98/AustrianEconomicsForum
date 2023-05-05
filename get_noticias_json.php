@@ -1,5 +1,5 @@
 <?php
-include("rss-periodicos.php");
+include_once 'rss-periodicos.php';
 // Obtén todas las noticias (recuerda reemplazar esto con tu función real para obtener noticias)
 $Listanoticias = getNews();
 

@@ -56,6 +56,17 @@
             </form>
         </div>
         <div class="content-container">
+            <form class='form-periodicos' action='rss-periodicos.php' method='POST'>
+                <input type="checkbox">La voz de galicia</input>
+                <input type="checkbox">LibreMercado</input>
+                <input type="checkbox">El económista</input>
+                <input type="checkbox">El periódico</input>
+                <input type="checkbox">Nós diario</input>
+                <input type="checkbox">La vanguardia</input>
+                <input type="checkbox">El país</input>
+                <input type="checkbox">El mundo</input>
+                <button type="submit">Filtrar</button>
+            </form>
             <?php getAllNews(); ?>
             
         </div>

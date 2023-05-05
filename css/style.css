@@ -354,7 +354,8 @@ body {
     }
 
     .news1 p {
-        width: 60%;
+        max-width: 70%;
+        text-align: center;
     }
 
     .news1 h2 {
@@ -372,11 +373,23 @@ body {
     }
 
     .news2 p {
-        width: 60%;
+        max-width: 70%;
+        text-align: center;
     }
 
     .news2 h2 {
         width: 60%;
+
+    }
+
+    .news1 img {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .news2 img {
+        width: 50%;
+        margin: 0 auto;
     }
 
     /*footer*/
@@ -560,6 +573,7 @@ body {
 
     .news1 p {
         width: 60%;
+        text-align: center;
     }
 
     .news1 h2 {
@@ -578,10 +592,22 @@ body {
 
     .news2 p {
         width: 60%;
+        text-align: center;
     }
 
     .news2 h2 {
         width: 60%;
+
+    }
+
+    .news1 img {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .news2 img {
+        width: 50%;
+        margin: 0 auto;
     }
 
 }
@@ -796,7 +822,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 40px;
+        gap: 5px;
         margin-left: 20px;
         margin-right: 20px;
     }
@@ -914,6 +940,7 @@ body {
 
     .news1 p {
         width: 60%;
+        text-align: center;
     }
 
     .news1 h2 {
@@ -932,10 +959,22 @@ body {
 
     .news2 p {
         width: 60%;
+        text-align: center;
     }
 
     .news2 h2 {
         width: 60%;
+
+    }
+
+    .news1 img {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .news2 img {
+        width: 50%;
+        margin: 0 auto;
     }
 
 
