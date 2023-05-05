@@ -55,7 +55,7 @@
             </form>
         </div>
         <div class="content-container">
-            <?php getElMundo(); ?>
+            <?php getAllNews(); ?>
         </div>
     </div>
     <script src="js/search.js"></script>
