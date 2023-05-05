@@ -411,7 +411,7 @@ class Noticia {
         });
         $i=0;
         foreach($noticias as $noticia){
-            setlocale(LC_TIME, 'es_ES.UTF-8'); // Establece la configuración regional en español
+            setlocale(LC_TIME, 'es_ES', 'es_ES.UTF-8', 'Spanish_Spain', 'Spanish'); // Establece la configuración regional en español
             $fecha_formateada = strftime("%A, %d de %B de %Y", $noticia->fecha);
             
             if($i%2==0){
