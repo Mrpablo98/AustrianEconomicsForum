@@ -6,9 +6,9 @@ use Google\Cloud\Storage\StorageClient;
 
 function upload_file($bucketName, $objectName, $source)
 {
-    $finfo=finfo_open(FILEINFO_MIME_TYPE);
-    $tipo=finfo_file($finfo, $source);
-    finfo_close($finfo);
+    //$finfo=finfo_open(FILEINFO_MIME_TYPE);
+    //$tipo=finfo_file($finfo, $source);
+    //finfo_close($finfo);
     $storage = new StorageClient([
         'projectId' => 'hardy-baton-385508',
         'keyFilePath' => 'C:\MAMP\htdocs\AustrianEconomicsForum\hardy-baton-385508-d23cdb6005cc.json'

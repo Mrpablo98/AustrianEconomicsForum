@@ -275,17 +275,17 @@ body {
 
     .content-container {
         width: 85%;
-        background-color: #0A0C10;
+        background-color: #191F26;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
         color: white;
         position: absolute;
         right: 0;
         z-index: 0;
-
+        min-height: 100vh;
+        margin-top: 50px
     }
 
     /*publicar*/
@@ -331,8 +331,24 @@ body {
         border-radius: 20px;
     }
 
+    .normal_button {
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        width: 150px;
+        height: 30px;
+        border-radius: 20px;
+    }
+
+    .normal_button:hover {
+        background-color: #0BF0FF;
+        color: black;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
     .public-form button:hover {
-        background-color: white;
+        background-color: #0BF0FF;
         color: black;
         border: 2px solid black;
         cursor: pointer;
@@ -343,6 +359,17 @@ body {
     }
 
     /*Noticias*/
+
+    .news {
+        background-color: #1a1e27;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
     .news1 {
         background-color: #0A0C10;
         width: 100%;
@@ -353,43 +380,47 @@ body {
         gap: 30px;
     }
 
-    .news1 p {
-        max-width: 70%;
-        text-align: center;
+
+
+    .mediaNews {
+        width: 50%;
+        margin: 0 auto;
     }
 
-    .news1 h2 {
-        width: 60%;
-    }
-
-    .news2 {
-        background-color: #1a1e27;
-        width: 100%;
+    .NomediaNews {
+        width: 30%;
+        height: 100px;
+        background-color: #444654;
+        margin: 0 auto;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 10px;
+        padding: 10px;
     }
 
-    .news2 p {
-        max-width: 70%;
+    .newsTitle {
         text-align: center;
-    }
-
-    .news2 h2 {
-        width: 60%;
-
-    }
-
-    .news1 img {
-        width: 50%;
+        max-width: 70%;
         margin: 0 auto;
     }
 
-    .news2 img {
-        width: 50%;
-        margin: 0 auto;
+    .newsDescription {
+        max-width: 85%;
+    }
+
+    .form-periodicos {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        gap: 10px;
+    }
+
+    #loading {
+        width: 30%;
+        height: auto;
     }
 
     /*footer*/
@@ -600,10 +631,7 @@ body {
 
     }
 
-    .news1 img {
-        width: 50%;
-        margin: 0 auto;
-    }
+
 
     .news2 img {
         width: 50%;

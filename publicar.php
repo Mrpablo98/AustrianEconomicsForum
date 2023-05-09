@@ -75,7 +75,7 @@
                 <textarea id='body' name='body' class='input' maxlength='1000' placeholder='Texto del post...' style="height:150px;"></textarea>
                 <input class="input-file" id='file' name='file' type="file" accept="image/*, video/*, audio/*,  text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf">
                 <input class='input' type='text' id='hagstag' name='hagstag' placeholder='Introduce temáticas relacionadas con el post: #inflacion #pesoargentino #2023'>
-                <button type="submit">Publicar</button>
+                <button type="submit" class='normal_button'>Publicar</button>
             </form>
         </div>
         <script src="js/search.js"></script>

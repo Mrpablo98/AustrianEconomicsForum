@@ -55,9 +55,9 @@
                 <input placeholder="Search..." class="search-bar" type="text">
             </form>
         </div>
-        <div class="content-container">
-            <form class='form-periodicos' action='rss-periodicos.php' method='POST'>
-                <input type="checkbox">La voz de galicia</input>
+        <div class="content-container" id='newsContainer'>
+            <form class='form-periodicos' id='form-periodicos' action='rss-periodicos.php' method='POST'>
+                <input type="checkbox" >La voz de galicia</input>
                 <input type="checkbox">LibreMercado</input>
                 <input type="checkbox">El económista</input>
                 <input type="checkbox">El periódico</input>
@@ -65,13 +65,15 @@
                 <input type="checkbox">La vanguardia</input>
                 <input type="checkbox">El país</input>
                 <input type="checkbox">El mundo</input>
-                <button type="submit">Filtrar</button>
+                <button type="submit" class='normal_button'>Filtrar</button>
             </form>
-            <?php getAllNews(); ?>
+           <img src='img/gif_loading.gif' id='loading'>
+            <?php //getAllNews(); ?>
             
         </div>
     </div>
     <script src="js/search.js"></script>
+    <script src='rss-periodicos.js'></script>
     <!--<script src="js/scroll_load_news.js"></script>-->
 </body>
 </html>
