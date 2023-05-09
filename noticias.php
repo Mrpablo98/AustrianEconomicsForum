@@ -57,14 +57,14 @@
         </div>
         <div class="content-container" id='newsContainer'>
             <form class='form-periodicos' id='form-periodicos' action='rss-periodicos.php' method='POST'>
-                <input type="checkbox" >La voz de galicia</input>
-                <input type="checkbox">LibreMercado</input>
-                <input type="checkbox">El económista</input>
-                <input type="checkbox">El periódico</input>
-                <input type="checkbox">Nós diario</input>
-                <input type="checkbox">La vanguardia</input>
-                <input type="checkbox">El país</input>
-                <input type="checkbox">El mundo</input>
+                <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz'>La voz de galicia</input>
+                <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado'>LibreMercado</input>
+                <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista'>El económista</input>
+                <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico'>El periódico</input>
+                <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario'>Nós diario</input>
+                <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVnguardia'>La vanguardia</input>
+                <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais'>El país</input>
+                <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo'>El mundo</input>
                 <button type="submit" class='normal_button'>Filtrar</button>
             </form>
            <img src='img/gif_loading.gif' id='loading'>

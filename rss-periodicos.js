@@ -45,7 +45,7 @@ function getNoticiasFromFeed(url) {
                     else if(url.includes('nosdiario')) fuente='NòsDiario';
                     else if(url.includes('elperiodico')) fuente='Elperiodico';
                     else if(url.includes('eleconomista')) fuente='ElEconómista';
-                    titulo=titulo+'-'+fuente;
+                    titulo=titulo+' - '+fuente;
                     noticias.push(new Noticia(titulo, descripcion, link, mediaUrl, fecha, fuente));
                 }
 
@@ -67,11 +67,12 @@ function getNoticiasFromFeedElMundo(url) {
                     var titulo = item.getElementsByTagName('title')[0].textContent;
                     var descripcion = item.getElementsByTagName('media:description')[0].textContent;
                     var link = item.getElementsByTagName('link')[0].textContent;
-                    var fecha = convertUnixToSpanishDate(new Date(item.getElementsByTagName('pubDate')[0].textContent).getTime() / 1000);
+                    var fecha = new Date(item.getElementsByTagName('pubDate')[0].textContent).getTime() / 1000;
                     var mediaUrlNode = item.getElementsByTagName('media:content')[0];
                     var mediaUrl = mediaUrlNode ? mediaUrlNode.getAttribute('url') : '';
-
-                    noticias.push(new Noticia(titulo, descripcion, link, mediaUrl, fecha, 'ElMundo'));
+                    var fuente='ElMundo';
+                    titulo=titulo+' - '+fuente;
+                    noticias.push(new Noticia(titulo, descripcion, link, mediaUrl, fecha, fuente));
                 }
 
                 resolve(noticias);
@@ -159,6 +160,24 @@ async function getLaVoz() {
 
     return news;
 }
+async function getPeriodicos(arrayEconomia, arrayInternacional) {
+    var news = [];
+    for(let i=0; i<arrayEconomia.length; i++) {
+        let urlEconomia = arrayEconomia[i];
+        let urlInternacional = arrayInternacional[i];
+        let noticiasEconomia=[];
+        let noticiasInternacional=[];
+        if(urlEconomia.includes('elmundo')){
+            noticiasEconomia = await getNoticiasFromFeedElMundo(urlEconomia);
+            noticiasInternacional = await getNoticiasFromFeedElMundo(urlInternacional);
+        }else{
+            noticiasEconomia = await getNoticiasFromFeed(urlEconomia);
+            let noticiasInternacional = await getNoticiasFromFeed(urlInternacional);
+        }
+        news = news.concat(noticiasEconomia, noticiasInternacional);
+    }
+    return news;
+}
 async function getAllNews() {
     let elPais = await getElPais();
     let elMundo = await getElMundo();
@@ -176,7 +195,7 @@ async function getAllNews() {
     return newsFinal;
 }
 let currentPage = 1;
-const noticiasPorPagina = 15;
+const noticiasPorPagina = 10;
 
 function displayNews(news) {
     let i = 0;
@@ -196,9 +215,14 @@ function displayNews(news) {
         let EnlaceTitle= document.createElement('a');
         EnlaceTitle.setAttribute('target', '_blank');
         EnlaceTitle.setAttribute('class', 'EnlaceTitle');
-        EnlaceTitle.setAttribute('href', noticia.enlace);
+        EnlaceTitle.setAttribute('href', noticia.link);
         newsTitle.setAttribute('class', 'newsTitle');
-        newsTitle.textContent = noticia.titulo + ' - ' + noticia.fuente;
+
+
+
+        
+
+        newsTitle.textContent = noticia.titulo;
         let media;
         if(noticia.mediaUrl.includes('.mp4')){
             media = document.createElement('video');
@@ -221,19 +245,26 @@ function displayNews(news) {
             media.appendChild(icon);
             media.appendChild(mediaText);
         }
-        newsDate= document.createElement('p');
-        newsDate.setAttribute('class', 'newsDate');
-        newsDate.textContent = convertUnixToSpanishDate(noticia.fecha);
-        newsTitle.textContent = noticia.titulo;
-        newsDescription.setAttribute('class', 'newsDescription');
-        newsDescription.textContent = noticia.descripcion;
-        newsContainer.appendChild(newsDiv);
-        newsDiv.appendChild(EnlaceTitle);
-        EnlaceTitle.appendChild(newsTitle);
-        newsDiv.appendChild(media);
-        newsDiv.appendChild(newsDescription);
-        newsDiv.appendChild(newsDate);
+        
+            newsDate= document.createElement('p');
+            newsDate.setAttribute('class', 'newsDate');
+            newsDate.textContent = convertUnixToSpanishDate(noticia.fecha);
+            newsTitle.textContent = noticia.titulo;
+            newsDescription.setAttribute('class', 'newsDescription');
+            newsDescription.textContent = noticia.descripcion;
+            newsContainer.appendChild(newsDiv);
+            newsDiv.appendChild(EnlaceTitle);
+            EnlaceTitle.appendChild(newsTitle);
+            if(noticia.link.includes('elperiodico')){
+                newsDiv.innerHTML = "<a target='_blank' href="+noticia.link+"><h2>"+noticia.titulo+"</h2></a>" + noticia.descripcion;
+            }else{
+                
+                newsDiv.appendChild(media);
+                newsDiv.appendChild(newsDescription);
+                newsDiv.appendChild(newsDate);
+        }
         i++;
+        currentPage++;
     });
     
 }
@@ -251,7 +282,6 @@ window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   
     if (scrollTop + clientHeight >= scrollHeight - 5) {
-      currentPage++;
       newsArray.then((noticias) => displayNews(noticias));
     }
   });
@@ -273,7 +303,7 @@ else if (values.includes('ElMundo')){
     linksEconomia.push('rss-proxy.php?url=https://www.elmundo.es/rss/economia.xml');
     linksInternacional.push('rss-proxy.php?url=https://www.elmundo.es/rss/internacional.xml');
 }
-else if (values.includes('ElEconómista')){
+else if (values.includes('ElEconomista')){
     linksEconomia.push('rss-proxy.php?url=https://www.eleconomista.es/rss/rss-economia.php');
     linksInternacional.push('rss-proxy.php?url=https://www.eleconomista.es/rss/rss-flash-del-dia.php');
 }
@@ -302,6 +332,7 @@ else if (values.includes('NosDiario')){
 QuitarFiltro();
 const newsArray=getAllNews();
 newsArray.then(noticias =>{ 
+    console.log(noticias);
     displayNews(noticias);
     MostrarFiltro();
 });

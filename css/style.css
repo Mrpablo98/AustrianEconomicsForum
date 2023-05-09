@@ -380,6 +380,26 @@ body {
         gap: 30px;
     }
 
+    .news p {
+        max-width: 85%;
+    }
+
+    .news h2 {
+        max-width: 70%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .news1 p {
+        max-width: 85%;
+    }
+
+    .news1 h2 {
+        max-width: 70%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
 
 
     .mediaNews {
