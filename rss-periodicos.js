@@ -34,7 +34,7 @@ function getNoticiasFromFeed(url) {
                     var descripcion = item.getElementsByTagName('description')[0].textContent;
                     var link = item.getElementsByTagName('link')[0].textContent;
                     var fecha = (new Date(item.getElementsByTagName('pubDate')[0].textContent).getTime() / 1000);
-                    var mediaUrlNode = item.getElementsByTagName('enclosure')[0] || item.getElementsByTagName('media:content')[0];
+                    var mediaUrlNode = /*item.getElementsByTagName('enclosure')[0] ||*/ item.getElementsByTagName('media:content')[0];
                     var mediaUrl = mediaUrlNode ? mediaUrlNode.getAttribute('url') : '';
                     var fuente='';
                     if(url.includes('libertaddigital')) fuente='LibreMercado';
@@ -230,7 +230,7 @@ function displayNews(news) {
             media.setAttribute('controls', 'true');
             media.setAttribute('class', 'mediaNews');
             
-        }else if(noticia.mediaUrl.includes('.jpg') || noticia.mediaUrl.includes('.png')){
+        }else if(noticia.mediaUrl.includes('.jpg') || noticia.mediaUrl.includes('.png') || noticia.mediaUrl.includes('.jpeg')){
             media = document.createElement('img');
             media.setAttribute('src', noticia.mediaUrl);
             media.setAttribute('class', 'mediaNews');
