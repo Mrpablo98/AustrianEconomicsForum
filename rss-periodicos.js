@@ -15,7 +15,7 @@ function parseXml(xmlStr) {
 
 
 function convertUnixToSpanishDate(unixTimestamp) {
-    var date = new Date(unixTimestamp * 1000); // La fecha en JavaScript se maneja en milisegundos, por eso se multiplica por 1000
+    var date = new Date(unixTimestamp * 1000);
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Madrid' };
     return date.toLocaleString('es-ES', options);
 }
