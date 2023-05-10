@@ -4,6 +4,7 @@ const disclaimerDatos=document.getElementById('disclaimer-datos');
 const disclaimerExpresion=document.getElementById('disclaimer-expresion');
 const containerExpresion=document.getElementById('disclaimer-expresion-text');
 const footer=document.getElementById('footer');
+const menu=document.getElementById('menu');
 let datos=false;
 let expresion=false;
 disclaimerDatos.addEventListener('click',()=>{

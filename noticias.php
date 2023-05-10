@@ -20,8 +20,36 @@
         }
         include('rss-periodicos.php');
     ?>
+    
     <div class="container-all-index">
-        <div class="menu">
+        
+        <div class="search-bar-container" id="search-bar-container">
+            <form>
+                <input placeholder="Search..." class="search-bar" type="text">
+            </form>
+        </div>
+        <div class="content-container" id='newsContainer'>
+            <form class='form-periodicos' id='form-periodicos' action='rss-periodicos.php' method='POST'>
+                <div class='form-container'>
+                    <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz' checked='true'>La voz de galicia</input>
+                    <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true'>LibreMercado</input>
+                    <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'>El económista</input>
+                    <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'>El periódico</input>
+                </div>
+                <div class='form-container'>
+                    <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'>Nós diario</input>
+                    <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVnguardia' checked='true'>La vanguardia</input>
+                    <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'>El país</input>
+                    <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'>El mundo</input>
+                </div>
+                <button type="submit" class='normal_button'>Filtrar</button>
+            </form>
+           <img src='img/gif_loading.gif' id='loading'>
+           
+            
+        </div>
+    </div>
+    <div class="menu" id="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">
                 <a href="index.php" ><div class="menu_item">
@@ -50,30 +78,8 @@
             
             </nav>
         </div>
-        <div class="search-bar-container" id="search-bar-container">
-            <form>
-                <input placeholder="Search..." class="search-bar" type="text">
-            </form>
-        </div>
-        <div class="content-container" id='newsContainer'>
-            <form class='form-periodicos' id='form-periodicos' action='rss-periodicos.php' method='POST'>
-                <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz'>La voz de galicia</input>
-                <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado'>LibreMercado</input>
-                <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista'>El económista</input>
-                <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico'>El periódico</input>
-                <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario'>Nós diario</input>
-                <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVnguardia'>La vanguardia</input>
-                <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais'>El país</input>
-                <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo'>El mundo</input>
-                <button type="submit" class='normal_button'>Filtrar</button>
-            </form>
-           <img src='img/gif_loading.gif' id='loading'>
-            <?php //getAllNews(); ?>
-            
-        </div>
-    </div>
     <script src="js/search.js"></script>
     <script src='rss-periodicos.js'></script>
-    <!--<script src="js/scroll_load_news.js"></script>-->
+    
 </body>
 </html>

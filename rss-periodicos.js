@@ -286,6 +286,14 @@ window.addEventListener('scroll', () => {
     }
   });
 
+  window.addEventListener('touchmove', () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
+      newsArray.then((noticias) => displayNews(noticias));
+    }
+  });
+
 
 const filtro= document.getElementById('form-periodicos');
 const inputs= document.querySelectorAll('#form-periodicos input');
