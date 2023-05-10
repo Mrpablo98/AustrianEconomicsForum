@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icon.png">
     <script src="https://kit.fontawesome.com/7fc86cc57f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
     <?php

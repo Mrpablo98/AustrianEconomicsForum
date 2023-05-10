@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+
+        $('#search').on('input', function() {
+            var searchQuery = $(this).val();
+            $.ajax({
+                url: 'search.php',
+                method: 'POST',
+                data: {
+                    search: searchQuery
+                },
+                success: function(data) {
+                    $('#result').html(data);
+                }
+            });
+        });
+
+    
+
 const buttonSearch=document.getElementById('search-button');
 const searchContainer=document.getElementById('search-bar-container');
 
@@ -16,7 +34,5 @@ buttonSearch.addEventListener('click',()=>{
 
 });
 
-
-
-
 });
+
