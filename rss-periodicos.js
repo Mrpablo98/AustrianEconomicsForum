@@ -101,16 +101,8 @@ async function getPeriodicos(arrayEconomia, arrayInternacional) {
     return news;
 }
 async function getAllNews(arrayEconomia, arrayInternacional) {
-    /*let elPais = await getElPais();
-    let elMundo = await getElMundo();
-    let libreMercado = await getLibreMercado();
-    let laVanguardia = await getLaVanguardia();
-    let elPeriodico = await getElPeriodico();
-    let elEconómista = await getElEconómista();
-    let nos = await getNos();
-    let laVoz = await getLaVoz();*/
+    
     let noticias= await getPeriodicos(arrayEconomia, arrayInternacional);
-    //var news = elPais.concat(elMundo, libreMercado, laVanguardia, elPeriodico, elEconómista, nos, laVoz);
     newsFinal= noticias.sort(function(a,b){
         return b.fecha - a.fecha;
     });
@@ -202,14 +194,6 @@ window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   
     if (scrollTop + clientHeight >= scrollHeight - 5) {
-      newsArray.then((noticias) => displayNews(noticias));
-    }
-  });
-
-  window.addEventListener('touchmove', () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  
-    if (scrollTop + clientHeight >= scrollHeight - 10) {
       newsArray.then((noticias) => displayNews(noticias));
     }
   });
