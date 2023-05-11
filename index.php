@@ -1,3 +1,12 @@
+
+<?php
+    session_start();
+        $user=$_SESSION['user'];
+        if(!isset($user['username']) || strlen($user['username']) < 4){
+            header("Location: log-in.html");
+        }
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,14 +22,7 @@
 
 </head>
 <body>
-    <?php
-    session_start();
-        $user=$_SESSION['user'];
-        if(!isset($user['username']) || strlen($user['username']) < 4){
-            header("Location: log-in.html");
-        }
     
-    ?>
     <div class="container-all-index">
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
@@ -50,9 +52,17 @@
                 </div></a>
             
             </nav>
+            <div class='options-container'>
+                <div class='closed-options' id='options-container'>
+                    <form class='session-destroy'>
+                        <button type='submit' class='normal_button'>Cerrar sesión</button>
+                    </form>
+                </div>
+                <div class='menu_item options' id='options-button'><i class="fa-sharp fa-solid fa-bars"></i><p>Opciones</p></div>
+            </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form>
+            <form method='POST' action='session-destroy.php'>
                 <input placeholder="Search..." class="search-bar" type="text">
             </form>
         </div>
@@ -62,5 +72,6 @@
         </div>
     </div>
     <script src="js/search.js"></script>
+    <script src='js/options.js'></script>
 </body>
 </html>

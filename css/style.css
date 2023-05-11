@@ -1,16 +1,23 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1rem;
-    background-color: #191F26;
+    background-color: #0A0C10;
 
 
 
 }
 
 
+
+
 @media(min-width: 768px) {
 
     /*Log-in | Register*/
+    .container-all-log {
+        background-color: #0A0C10;
+    }
+
+
     .Login-Logo {
         display: flex;
         width: 100%;
@@ -194,7 +201,6 @@ body {
     .menu {
         display: flex;
         flex-direction: column;
-        align-items: center;
         width: 15%;
         height: 100vh;
         background-color: #0A0C10;
@@ -203,6 +209,14 @@ body {
         padding: 10px;
         position: fixed;
         z-index: 10;
+    }
+
+    .options-container {
+        position: absolute;
+        bottom: 20px;
+        margin-bottom: 50px;
+        width: 90%;
+        cursor: pointer;
     }
 
     .menu_logo {
@@ -274,6 +288,27 @@ body {
         outline: none;
     }
 
+    .closed-options {
+        height: 0px;
+        overflow: hidden;
+        background-color: #444654;
+        transition: all 1s;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+
+    }
+
+    .open-options {
+        height: 50px;
+        overflow: hidden;
+        background-color: #444654;
+        transition: all 1s;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+    }
+
     .content-container {
         width: 85%;
         background-color: #191F26;
@@ -286,7 +321,6 @@ body {
         right: 0;
         z-index: 0;
         min-height: 100vh;
-        margin-top: 50px
     }
 
     /*publicar*/
@@ -300,6 +334,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         gap: 2vh;
+        background-color: #0A0C10;
         align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 10px;
@@ -387,6 +422,22 @@ body {
 
     .news1 img {
         width: 25%;
+    }
+
+    .news a {
+        text-decoration: none;
+    }
+
+    .news1 a {
+        text-decoration: none;
+    }
+
+    .news h2:hover {
+        text-decoration: underline;
+    }
+
+    .news1 h2:hover {
+        text-decoration: underline;
     }
 
     .news p {
@@ -485,6 +536,10 @@ body {
 }
 
 @media(min-width:768px) and (max-width: 1263px) {
+
+    .container-all-log {
+        background-color: #0A0C10;
+    }
 
     /*Index*/
     .menu {
@@ -585,7 +640,6 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
         color: white;
         position: absolute;
         right: 0;
@@ -604,6 +658,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         gap: 2vh;
+        background-color: #0A0C10;
         align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 10px;
@@ -758,6 +813,10 @@ body {
         background-size: auto 100%;
         width: 100%;
         background-color: #191F26;
+    }
+
+    .container-all-log {
+        background-color: #0A0C10;
     }
 
     .logo-container {
@@ -935,7 +994,6 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
         right: 0;
         color: white;
         z-index: 0;
@@ -1048,11 +1106,12 @@ body {
     .public-form {
         margin: 0 auto;
         position: relative;
-        width: 300px;
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 2vh;
+        background-color: #0A0C10;
         align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 10px;
@@ -1078,6 +1137,7 @@ body {
         right: 5px;
         bottom: -35px;
     }
+
 
     textarea {
         resize: none;
@@ -1182,6 +1242,7 @@ body {
         width: 70%;
         font-size: 0.75em;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: auto;
@@ -1191,7 +1252,6 @@ body {
 
     .form-container {
         display: flex;
-        flex-direction: column;
         gap: 10px;
         align-items: center;
         justify-content: center;

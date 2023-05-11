@@ -33,16 +33,24 @@
         <div class="content-container" id='newsContainer'>
             <div class='form-periodicos' id='form-periodicos'>
                 <div class='form-container'>
-                    <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz' checked='true'>La voz de galicia</input>
-                    <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true' >LibreMercado</input>
-                    <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'>El económista</input>
-                    <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'>El periódico</input>
+                    <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz' checked='true'></input>
+                    <label for="LaVoz">La voz de galicia</label>
+                    <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true' ></input>
+                    <label for="LibreMercado">Libre mercado</label>
+                    <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'></input>
+                    <label for="ElEconomista">El económista</label>
+                    <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'></input>
+                    <label for="ElPeriodico">El periódico</label>
                 </div>
                 <div class='form-container'>
-                    <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'>Nós diario</input>
-                    <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'>La vanguardia</input>
-                    <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'>El país</input>
-                    <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'>El mundo</input>
+                    <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'></input>
+                    <label for="NosDiario">Nòs Diario</label>
+                    <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'></input>
+                    <label for="LaVanguardia">La Vanguardia</label>
+                    <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'></input>
+                    <label for="ElPais">El País</label>
+                    <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'></input>
+                    <label for="ElMundo">El Mundo</label>
                 </div>
                 <button type="submit" class='normal_button' id='filtrar'>Filtrar</button>
             </div>

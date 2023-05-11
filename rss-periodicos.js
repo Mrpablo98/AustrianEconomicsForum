@@ -295,7 +295,7 @@ newsArray.then(noticias =>{
 });
 
 
-  // Mostrar las noticias al cargar la página
+  //Mostrar las noticias al cargar la página
 
 QuitarFiltro();
 let [linksEconomia, linksInternacional]=enlaces();
