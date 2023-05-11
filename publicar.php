@@ -65,6 +65,14 @@
                 </a>
 
             </nav>
+            <div class='options-container'>
+                <div class='closed-options' id='options-container'>
+                    <form class='session-destroy'>
+                        <button type='submit' class='normal_button'>Cerrar sesión</button>
+                    </form>
+                </div>
+                <div class='menu_item options' id='options-button'><i class="fa-sharp fa-solid fa-bars"></i><p>Opciones</p></div>
+            </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
             <form>
@@ -81,6 +89,7 @@
             </form>
         </div>
         <script src="js/search.js"></script>
+        <script src='js/options.js'></script>
 </body>
 
 </html>
