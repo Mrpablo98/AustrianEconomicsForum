@@ -66,7 +66,7 @@
 
             </nav>
             <div class='options-container'>
-                    <form class='closed-options' id='options-form'>
+                    <form class='closed-options' id='options-form' methos='POST' action='session-destroy.php'>
                         <ul class='closed-options'id='options-container'>
                             <li class='options-item'><button type='submit' class='options-button'>Cerrar sesión</button></li>
                             <li class='options-item'>Modo Día</li>
