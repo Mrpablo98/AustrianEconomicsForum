@@ -160,7 +160,7 @@ body {
         font-family: 'Courier New', Courier, monospace;
     }
 
-    li {
+    .disclaimerList li {
         margin-bottom: 2vh;
     }
 
@@ -291,7 +291,7 @@ body {
     .closed-options {
         height: 0px;
         overflow: hidden;
-        background-color: #444654;
+        background-color: #1F2833;
         transition: all 1s;
         display: flex;
         align-items: center;
@@ -299,14 +299,46 @@ body {
 
     }
 
+    .open-options li {
+        text-align: center;
+        align-items: center;
+    }
+
     .open-options {
-        height: 50px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 0;
         overflow: hidden;
-        background-color: #444654;
+        background-color: #1F2833;
         transition: all 1s;
         display: flex;
         align-items: center;
         border-radius: 10px;
+        list-style: none;
+        width: 100%;
+    }
+
+    .options-item {
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        padding: 10px;
+        width: 100%;
+    }
+
+    .options-item:hover {
+        font-weight: bold;
+    }
+
+    .options-button {
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    .options-button:hover {
+        font-weight: bold;
+        cursor: pointer;
     }
 
     .content-container {
@@ -375,6 +407,8 @@ body {
         height: 30px;
         border-radius: 20px;
     }
+
+
 
     .normal_button:hover {
         background-color: #0BF0FF;

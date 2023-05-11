@@ -53,12 +53,14 @@
             
             </nav>
             <div class='options-container'>
-                <div class='closed-options' id='options-container'>
-                    <form class='session-destroy'>
-                        <button type='submit' class='normal_button'>Cerrar sesión</button>
+                    <form class='closed-options' id='options-form'>
+                        <ul class='closed-options'id='options-container'>
+                            <li class='options-item'><button type='submit' class='options-button'>Cerrar sesión</button></li>
+                            <li class='options-item'>Modo Día</li>
+                        </ul>
+                        
                     </form>
-                </div>
-                <div class='menu_item options' id='options-button'><i class="fa-sharp fa-solid fa-bars"></i><p>Opciones</p></div>
+                <div class='menu_item options' id='options-button'><i id='bars' class="fa-sharp fa-solid fa-bars"></i><p>Opciones</p></div>
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
