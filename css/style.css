@@ -452,11 +452,11 @@ body {
     }
 
     .news img {
-        width: 25%;
+        width: 400px;
     }
 
     .news1 img {
-        width: 25%;
+        width: 400px;
     }
 
     .news a {
@@ -482,7 +482,7 @@ body {
     }
 
     .news p img {
-        width: 50%;
+        width: 400px;
         margin: 0 auto;
     }
 
@@ -499,7 +499,7 @@ body {
     }
 
     .news1 p img {
-        width: 50%;
+        width: 400px;
         margin: 0 auto;
     }
 
@@ -517,8 +517,8 @@ body {
     }
 
     .NomediaNews {
-        width: 30%;
-        height: 100px;
+        width: 400px;
+        height: 223.95px;
         background-color: #444654;
         margin: 0 auto;
         display: flex;
