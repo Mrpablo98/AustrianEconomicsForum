@@ -20,7 +20,7 @@
         if(!isset($user['username']) || strlen($user['username']) < 4){
             header("Location: log-in.html");
         }
-        include('rss-periodicos.php');
+        
     ?>
     
     <div class="container-all-index">
