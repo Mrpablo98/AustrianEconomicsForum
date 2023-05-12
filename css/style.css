@@ -669,7 +669,7 @@ body {
     }
 
     .content-container {
-        width: 88%;
+        width: 89%;
         background-color: #191F26;
         display: flex;
         flex-direction: column;
@@ -746,11 +746,27 @@ body {
     }
 
     .news img {
-        width: 25%;
+        width: 400px;
     }
 
     .news1 img {
-        width: 25%;
+        width: 400px;
+    }
+
+    .news a {
+        text-decoration: none;
+    }
+
+    .news1 a {
+        text-decoration: none;
+    }
+
+    .news h2:hover {
+        text-decoration: underline;
+    }
+
+    .news1 h2:hover {
+        text-decoration: underline;
     }
 
     .news p {
@@ -760,7 +776,7 @@ body {
     }
 
     .news p img {
-        width: 50%;
+        width: 400px;
         margin: 0 auto;
     }
 
@@ -777,7 +793,7 @@ body {
     }
 
     .news1 p img {
-        width: 50%;
+        width: 400px;
         margin: 0 auto;
     }
 
@@ -795,8 +811,8 @@ body {
     }
 
     .NomediaNews {
-        width: 30%;
-        height: 100px;
+        width: 400px;
+        height: 223.95px;
         background-color: #444654;
         margin: 0 auto;
         display: flex;
@@ -817,27 +833,19 @@ body {
     }
 
     .form-periodicos {
-        width: 70%;
+        width: 100%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: auto;
+        height: 80px;
         gap: 10px;
-        margin-bottom: 30px;
-    }
-
-    .form-container {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
     }
 
     #loading {
         width: 30%;
         height: auto;
     }
+
 
 
 }
@@ -1037,11 +1045,11 @@ body {
 
     }
 
-    .normal_button {
+    .public_button {
         background-color: black;
         color: white;
         border: 1px solid white;
-        width: 150px;
+        width: 50%;
         height: 30px;
         border-radius: 20px;
     }
@@ -1061,6 +1069,7 @@ body {
         background-color: #0A0C10;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         z-index: 5;
+        gap: 5vw;
     }
 
 
@@ -1071,11 +1080,11 @@ body {
     }
 
     .navbar {
-        width: 100%;
+        width: auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10vw;
+        gap: 5vw;
     }
 
     .menu_item {
@@ -1134,12 +1143,84 @@ body {
         display: none;
     }
 
+    .options {
+        height: 48px;
+        width: 20px;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .options-container form {
+        position: absolute;
+        top: -130px;
+        right: 20px;
+        width: auto;
+    }
+
+    .closed-options {
+        height: 0px;
+        overflow: hidden;
+        background-color: #1F2833;
+        transition: all 1s;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+
+    }
+
+    .open-options li {
+        text-align: center;
+        align-items: center;
+    }
+
+    .open-options {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 0;
+        overflow: hidden;
+        background-color: #1F2833;
+        transition: all 1s;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        list-style: none;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .options-item {
+        color: white;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .options-item:hover {
+        font-weight: bold;
+    }
+
+    .options-button {
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    .options-button:hover {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
     /*publicar*/
 
 
 
     .public-form {
-        margin: 0 auto;
+        margin-top: 30%;
         position: relative;
         width: 50%;
         display: flex;
@@ -1165,14 +1246,9 @@ body {
 
     .input-file {
         color: white;
+        width: 70%;
+        font-size: 0.75em;
     }
-
-    .public-form button {
-        position: absolute;
-        right: 5px;
-        bottom: -35px;
-    }
-
 
     textarea {
         resize: none;
@@ -1313,10 +1389,6 @@ body {
     footer p {
         text-align: center;
         margin-top: 2vh;
-    }
-
-    li {
-        margin-bottom: 2vh;
     }
 
     .disclaimer-links-container {

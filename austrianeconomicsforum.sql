@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 29, 2023 at 09:53 PM
+-- Generation Time: May 12, 2023 at 08:34 AM
 -- Server version: 5.7.24
--- PHP Version: 7.4.16
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,6 @@ CREATE TABLE `posts` (
   `usuario_id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `contenido` text NOT NULL,
-  `tipo` enum('video','imagen','archivo','texto') NOT NULL,
   `url_recurso` varchar(255) DEFAULT NULL,
   `fecha_publicacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -96,17 +95,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password_hash`, `fecha_registro`) VALUES
-(1, 'TheFirstOne', 'primerUsuario@primero.com', '$2y$10$bcSCUGHlWfVGGnceGv5m6u4MIqj5.NfhPDLCDgOE7Kd4ww7pCVoPu', '2023-04-29 15:15:25'),
-(3, 'TheSecondOne', 'segundoUsuario@primero.com', '$2y$10$mns8CGqxMrjt1aNJBrXW1OUp5IlBadKZ6FN23Gfg0M65UW3ESeKo6', '2023-04-29 15:17:46'),
-(4, 'pablo', 'pablo@hotmail.com', '$2y$10$hjM9EdPUmp0XmWpm.SaGI.DkpEeBly72g.E6OtNG9u6dObACzKLny', '2023-04-29 18:12:24'),
-(5, 'prueba', 'prueba@prueba.com', '$2y$10$7Qh3G2LO4NRrgNPoqpkDm.Mj0IZi0nWp/yMH.fN69svCO.eS25Niu', '2023-04-29 18:14:01'),
-(6, 'prueba1', 'prueba1@gmail.com', '$2y$10$pXtHZqC5w2VX1dST2f8tsuI.0KeG6vq.Zufg6cW3RW/rKAOLP6wp.', '2023-04-29 18:30:01'),
-(7, 'prueba2', 'prueba2@gmail.es', '$2y$10$C0JfTX0RQRNT.t0ifveVt.r1SZBEmZMvR.4DEFqofFdWQGZzEkjO6', '2023-04-29 18:31:29'),
-(8, 'prueba3', 'prueba3@gmail.es', '$2y$10$YRoHxRtVHO7IqH6sEPj5DuzUxJqXQ6gktOEA4lcHrKK0ko1mdq5Ou', '2023-04-29 18:41:35'),
-(9, 'prueba4', 'prueba4@gmail.es', '$2y$10$usw0Omrv1tFYVFC6eXSQuua7fvlqxgQzlkKq30/o4E7J94jt6kFn6', '2023-04-29 18:42:05'),
-(11, 'prueba5', 'prueba5@gmail.es', '$2y$10$CFEAoxaJ5UZvpfvKyEdi/upB8clWwzJrg4rDseOLqgR4IOYZiX.cm', '2023-04-29 18:43:23'),
-(12, 'trim', 'trim@gmail.com', '$2y$10$64iBXZHZrgqJXmvnbzkFZem3qXJQaJvDGTCeb.VYXOpMEVjUviEni', '2023-04-29 19:16:54'),
-(13, 'hash', 'hash@gmail.com', '$2y$10$1w0NMqceOWi.FnvTN3FjEesqbXSsSrUQRL5U.ODmJrSAF0pZetg3S', '2023-04-29 19:44:19');
+(14, 'pablo', 'pabloskyisan1998@gmail.com', '$2y$10$5I1xnwCFCrMVmHIrmCr3iuZoue/SHEAD4VchPe6o9vRHyXYW6cLTO', '2023-05-02 07:09:37');
 
 --
 -- Indexes for dumped tables
@@ -175,7 +164,7 @@ ALTER TABLE `post_likes_dislikes`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

@@ -58,7 +58,7 @@
                         </ul>
                         
                     </form>
-                <div class='menu_item options' id='options-button'><i id='bars' class="fa-sharp fa-solid fa-bars"></i><p>Opciones</p></div>
+                <div class='menu_item options' id='options-button'><i id='bars' class="fa-sharp fa-solid fa-bars fa-lg"></i><p>Opciones</p></div>
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">

@@ -1,6 +1,19 @@
 
 <?php
+include('validate-publi.php');
+header('Content-Type: ' . $tipo);
+header('Content-Disposition: inline; filename="' . $fileName . '"');
+readfile($url); // Mostrar el contenido del archivo
     session_start();
+    include("connection.php");
+    $userId=$_SESSION['user']['user-id'];
+    $sql = $mysqli->prepare('SELECT * FROM posts WHERE usuario_id = ?');
+    $sql->bind_param("i", $userId);
+    $sql->execute();
+    $result=$sql->get_result();
+    
+
+  
         $user=$_SESSION['user'];
         if(!isset($user['username']) || strlen($user['username']) < 4){
             header("Location: log-in.html");
@@ -70,6 +83,24 @@
         </div>
         <div id='result'></div>
         <div class="content-container">
+            <?php
+            $j=0;
+            for($i=0;$i<$result->num_rows;$i++){
+                if($j%2==0){
+                    echo "<div class='post-container'>";
+                    
+                }
+                else{
+                    echo "<div class='post-container1'>";
+                }
+                echo "<h2>{$post['titulo']}</h2>";
+                $post=$result->fetch_assoc();
+
+                echo $post['titulo'];
+                echo "</div>";
+                $i++;
+            }
+            ?>
             
         </div>
     </div>
