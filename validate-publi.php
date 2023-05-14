@@ -45,10 +45,10 @@ if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
     $tipo='archivo';
     $fecha=date("Y-m-d H:i:s");
-    if(strpos($fileType, 'application')!==false || strpos($_FILES['file']['type'], 'text')!==false){$tipo=='archivo';}
-    if(strpos($fileType, 'image')!==false){$tipo=='imagen';}
-    if(strpos($fileType, 'video')!==false){$tipo=='video';}
-    $datos=upload_file('austrian-economics-forum', 'post-prueba', $fileName, $tipo);
+    if(strpos($fileType, 'application')!==false || strpos($_FILES['file']['type'], 'text')!==false){$tipo='archivo';}
+    if(strpos($fileType, 'image')!==false){$tipo='imagen';}
+    if(strpos($fileType, 'video')!==false){$tipo='video';}
+    $datos=upload_file('austrian-economics-forum', $fileName, $fileName, $tipo);
    
 }
 $sql=$mysqli->prepare("INSERT INTO posts (usuario_id, titulo, contenido, url_recurso, tipo, fecha_publicacion) VALUES (?,?,?,?,?,?)");
