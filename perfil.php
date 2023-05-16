@@ -9,14 +9,15 @@
     }
     if(isset($_GET['Iduser'])){
         $userId=$_GET['Iduser'];
-        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $userId");
+        $user1=$user['user-id'];
+        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $userId AND aceptada = 1");
         $numamigos=mysqli_num_rows($resultFriens);
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $userId");
         $numPosts=mysqli_num_rows($resultPosts);
     }else{
         $id=$user['user-id'];
         $userId='';
-        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id");
+        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id AND aceptada = 1");
         $numamigos=mysqli_num_rows($resultFriens);
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $id");
         $numPosts=mysqli_num_rows($resultPosts);
@@ -96,8 +97,9 @@
                 <div class='perfil-name'>
                     <p style='color:white; '><?php if($userId==''){ echo $user['username'];} ?></p>
                     <?php if($userId==''){echo "<button class='normal_button'>Editar perfil</button>";}else{
-                        echo "<button class='normal_button'>Solicitar amistad</button>";
+                        echo "<a href='new_friend.php?user1=$user1&user2=$userId'><button class='normal_button'>Solicitar amistad</button></a>";
                     } ?>
+                    
                 </div>
                 <div class='perfil-numbers'>
                     <p style='color:white'><?php echo $numamigos ?> contactos</p>
