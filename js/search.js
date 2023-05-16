@@ -1,23 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-
-        $('#search').on('input', function() {
-            var searchQuery = $(this).val();
-            $.ajax({
-                url: 'search.php',
-                method: 'POST',
-                data: {
-                    search: searchQuery
-                },
-                success: function(data) {
-                    $('#result').html(data);
-                }
-            });
-        });
-
+    
+    document.getElementById('search-bar').addEventListener('input', function() {
+        var searchQuery = this.value;
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'search.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (this.status === 200) {
+                console.log(this.responseText);
+                resultCont.style.display='block';
+                document.getElementById('result').innerHTML = this.responseText;
+            } else {
+                console.error('Hubo un error en la solicitud:', this.status, this.statusText);
+            }
+        };
+        xhr.onerror = function() {
+            console.error('Hubo un error al hacer la solicitud:', this.status, this.statusText);
+        };
+        xhr.send('search=' + encodeURIComponent(searchQuery));
+    });
     
 
 const buttonSearch=document.getElementById('search-button');
+const resultCont=document.getElementById('result');
 const searchContainer=document.getElementById('search-bar-container');
 
 let drop=false;
@@ -29,6 +35,7 @@ buttonSearch.addEventListener('click',()=>{
     }else{
         searchContainer.style.height='0vh';
         searchContainer.style.border='none';
+        resultCont.style.display='none';
         drop=false;
     }
 

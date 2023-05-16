@@ -64,8 +64,9 @@
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form method='POST' action='session-destroy.php'>
-                <input placeholder="Search..." class="search-bar" type="text">
+            <form>
+                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
+                <button class='search-button normal_button' id='search-button2'>Buscar</button>
             </form>
         </div>
         <div id='result'></div>

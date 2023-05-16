@@ -1,3 +1,8 @@
+function getQueryParam(name) {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+var id=getQueryParam('Iduser');
 var start = 0;
 var limit = 15;
 var loading=false;
@@ -5,7 +10,7 @@ function loadPosts() {
     if(loading){return;}
     loading=true;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', `posts-perfil.php?start=${start}&limit=${limit}`, true);  // Reemplaza esto con la ruta a tu script PHP
+    xhr.open('GET', `posts-perfil.php?start=${start}&limit=${limit}&id=${id}`, true);  // Reemplaza esto con la ruta a tu script PHP
 
     xhr.onload = function() {
         if (this.status === 200) {

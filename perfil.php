@@ -18,6 +18,7 @@ readfile($url); // Mostrar el contenido del archivo*/
         $numPosts=mysqli_num_rows($resultPosts);
     }else{
         $id=$user['user-id'];
+        $userId='';
         $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id");
         $numamigos=mysqli_num_rows($resultFriens);
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $id");
@@ -86,8 +87,9 @@ readfile($url); // Mostrar el contenido del archivo*/
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form method='POST' action='session-destroy.php'>
-                <input placeholder="Search..." class="search-bar" type="text">
+            <form>
+                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
+                <button class='search-button normal_button' id='search-button2'>Buscar</button>
             </form>
         </div>
         <div id='result'></div>
@@ -95,7 +97,7 @@ readfile($url); // Mostrar el contenido del archivo*/
             <img class='perfil-photo' src='img/icon.png'>
             <div class='perfil-data'>
                 <div class='perfil-name'>
-                    <p style='color:white; '><?php if(!$userId){ echo $user['username'];} ?></p>
+                    <p style='color:white; '><?php if($userId==''){ echo $user['username'];} ?></p>
                     <button class='normal_button'>Editar perfil</button>
                 </div>
                 <div class='perfil-numbers'>

@@ -25,9 +25,10 @@
     
     <div class="container-all-index">
         
-        <div class="search-bar-container" id="search-bar-container">
-            <form>
+    <div class="search-bar-container" id="search-bar-container">
+            <form method='POST' action='search.php'>
                 <input placeholder="Search..." class="search-bar" type="text">
+                <button type='submit' class='search-button normal_button'>Buscar</button>
             </form>
         </div>
         <div class="content-container" id='newsContainer'>
@@ -98,6 +99,7 @@
                 <div class='menu_item options' id='options-button'><i id='bars' class="fa-sharp fa-solid fa-bars fa-lg"></i><p>Opciones</p></div>
             </div>
         </div>
+        
     <script src="js/search.js"></script>
     <script src='rss-periodicos.js'></script>
     <script src='js/options.js'></script>

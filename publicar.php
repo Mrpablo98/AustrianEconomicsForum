@@ -77,8 +77,9 @@
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form>
+            <form method='POST' action='search.php'>
                 <input placeholder="Search..." class="search-bar" type="text">
+                <button type='submit' class='search-button normal_button'>Buscar</button>
             </form>
         </div>
         <div class="content-container">
