@@ -1,9 +1,6 @@
 
 <?php
-/*include('validate-publi.php');
-header('Content-Type: ' . $tipo);
-header('Content-Disposition: inline; filename="' . $fileName . '"');
-readfile($url); // Mostrar el contenido del archivo*/
+
     session_start();
     require("connection.php");
     $user=$_SESSION['user'];

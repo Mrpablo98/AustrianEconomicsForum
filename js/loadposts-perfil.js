@@ -10,7 +10,7 @@ function loadPosts() {
     if(loading){return;}
     loading=true;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', `posts-perfil.php?start=${start}&limit=${limit}&id=${id}`, true);  // Reemplaza esto con la ruta a tu script PHP
+    xhr.open('GET', `posts-perfil.php?start=${start}&limit=${limit}&id=${id}`, true);  
 
     xhr.onload = function() {
         if (this.status === 200) {
@@ -50,13 +50,6 @@ window.addEventListener('scroll', () => {
     }
   });
 
-/*var observer = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) {
-        loadPosts();
-    }
-}, { threshold: 1.0 });*/
-
-//observer.observe(document.querySelector('#posts')); 
 
 
 
