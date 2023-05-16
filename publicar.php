@@ -75,10 +75,11 @@
         </div>
         <div class="search-bar-container" id="search-bar-container">
             <form method='POST' action='search.php'>
-                <input placeholder="Search..." class="search-bar" type="text">
+                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
                 <button type='submit' class='search-button normal_button'>Buscar</button>
             </form>
         </div>
+        <div id='result'></div>
         <div class="content-container">
             <form class='public-form' action="validate-publi.php" method='POST' enctype="multipart/form-data">
                 <input class='input' id='title' name='title' type='text' placeholder='Título del post...'>

@@ -40,6 +40,9 @@ buttonSearch.addEventListener('click',()=>{
     }
 
 });
+document.addEventListener('click',function(e){
+    resultCont.style.display='none';
+});
 
 });
 
