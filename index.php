@@ -47,7 +47,7 @@
                 <i class="fa-sharp fa-solid fa-newspaper"></i><p>Noticias</p>
                 </div></a>
 
-                <a href="perfil.php" ><div class="menu_item">
+                <a href="perfil.php?" ><div class="menu_item">
                     <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
                 </div></a>
             

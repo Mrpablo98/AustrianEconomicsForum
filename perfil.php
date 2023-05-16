@@ -5,20 +5,17 @@ header('Content-Type: ' . $tipo);
 header('Content-Disposition: inline; filename="' . $fileName . '"');
 readfile($url); // Mostrar el contenido del archivo*/
     session_start();
+    $user=$_SESSION['user'];
+    if(!isset($user['username']) || strlen($user['username']) < 4){
+        header("Location: log-in.html");
+    }
+
     include("connection.php");
-    $userId=$_SESSION['user']['user-id'];
-    $sql = $mysqli->prepare('SELECT * FROM posts WHERE usuario_id = ?');
-    $sql->bind_param("i", $userId);
-    $sql->execute();
-    $result=$sql->get_result();
+    
     
 
   
-        $user=$_SESSION['user'];
-        if(!isset($user['username']) || strlen($user['username']) < 4){
-            header("Location: log-in.html");
-        }
-    
+       
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,10 +79,9 @@ readfile($url); // Mostrar el contenido del archivo*/
             </form>
         </div>
         <div id='result'></div>
-        <div class="content-container">
-            <img style='width:500px; height:auto;' src='https://storage.googleapis.com/austrian-economics-forum/Captura%20de%20pantalla%202023-05-13%20232025.png?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=AMk%2FEGMgc2TjVQKW%2F18%2BF8PEhyt5epoKXGref9CI%2FFlHkgD%2Bb5rOHdWQ1dVLpsK3ugJCJPUw%2FPq1Uff9I%2BAK8qGcY58886cCI2e7X%2FBaPqt55%2BCQxX%2BZGow1vgGsiI4HPd4PQYzVbTat24yKYJK0xjL5j3q%2FHI0f1R1q%2Fc5EBC7b6MZqOqvv3K226kO%2BUCb99EKLGJl1958KKAGOD1vfoY%2BL4zGN7Be6OZF1u%2FDUD5uXOpD%2FhSQeNc8NLjKROl3G09Cxp0Lfq5MUikO95ebj5SPaAP67TIbdVDJL70PJJGMyEF1GFMrq3dBCKWiGdG8PgSL0uEXSx5Yj1Ir%2BsWrH%2Fw%3D%3D&generation=1684019527266317'>
+        <div class="content-container" id='posts'>
             <?php
-            $j=0;
+            /*$j=0;
             for($i=0;$i<$result->num_rows;$i++){
                 if($j%2==0){
                     echo "<div class='post-container'>";
@@ -94,17 +90,20 @@ readfile($url); // Mostrar el contenido del archivo*/
                 else{
                     echo "<div class='post-container1'>";
                 }
-                $post=$result->fetch_assoc();
-
+                $post=$Postresult->fetch_assoc();
+                $url=$post['url_recurso'];
                 echo "<h2 style='text-align:center;'>".$post['titulo']."</h2>".'<br>';
-                echo $post['contenido'];
+                echo "<img src='$url' style='width:400px; height:auto; margin:0 auto;'><br>";
+                echo "<p style='text-align:center;'>".$post['contenido'] , "</p>";
                 echo "</div>";
-                $i++;
-            }
+                $j++;
+            }*/
             ?>
+
             
         </div>
     </div>
+    <script src=js/loadposts-perfil.js></script>
     <script src="js/search.js"></script>
     <script src='js/options.js'></script>
 </body>
