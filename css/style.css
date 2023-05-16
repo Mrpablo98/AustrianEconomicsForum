@@ -343,7 +343,7 @@ body {
     }
 
     .content-container {
-        width: 85%;
+        width: 84%;
         background-color: #191F26;
         display: flex;
         flex-direction: column;
@@ -550,6 +550,39 @@ body {
     #loading {
         width: 30%;
         height: auto;
+    }
+
+    /*perfil*/
+    .perfil-header {
+        width: 83.5%;
+        margin-right: 0;
+        margin-left: auto;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .perfil-photo {
+        width: 200px;
+        height: auto;
+
+    }
+
+    .perfil-data {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+
+    }
+
+    .perfil-name {
+        display: flex;
+        gap: 30px;
+    }
+
+    .perfil-numbers {
+        display: flex;
+        gap: 30px;
     }
 
     /*footer*/

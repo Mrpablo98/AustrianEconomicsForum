@@ -5,16 +5,28 @@ header('Content-Type: ' . $tipo);
 header('Content-Disposition: inline; filename="' . $fileName . '"');
 readfile($url); // Mostrar el contenido del archivo*/
     session_start();
+    require("connection.php");
     $user=$_SESSION['user'];
     if(!isset($user['username']) || strlen($user['username']) < 4){
         header("Location: log-in.html");
     }
+    if(isset($_GET['Iduser'])){
+        $userId=$_GET['Iduser'];
+        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $userId");
+        $numamigos=mysqli_num_rows($resultFriens);
+        $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $userId");
+        $numPosts=mysqli_num_rows($resultPosts);
+    }else{
+        $id=$user['user-id'];
+        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id");
+        $numamigos=mysqli_num_rows($resultFriens);
+        $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $id");
+        $numPosts=mysqli_num_rows($resultPosts);
+    }
 
-    include("connection.php");
+   
     
     
-
-  
        
     ?>
 <!DOCTYPE html>
@@ -79,28 +91,20 @@ readfile($url); // Mostrar el contenido del archivo*/
             </form>
         </div>
         <div id='result'></div>
+        <div class='perfil-header'>
+            <img class='perfil-photo' src='img/icon.png'>
+            <div class='perfil-data'>
+                <div class='perfil-name'>
+                    <p style='color:white; '><?php if(!$userId){ echo $user['username'];} ?></p>
+                    <button class='normal_button'>Editar perfil</button>
+                </div>
+                <div class='perfil-numbers'>
+                    <p style='color:white'><?php echo $numamigos ?> contactos</p>
+                    <p style='color:white'><?php echo $numPosts ?> publicaciones</p>
+                </div>
+            </div>
+        </div>
         <div class="content-container" id='posts'>
-            <?php
-            /*$j=0;
-            for($i=0;$i<$result->num_rows;$i++){
-                if($j%2==0){
-                    echo "<div class='post-container'>";
-                    
-                }
-                else{
-                    echo "<div class='post-container1'>";
-                }
-                $post=$Postresult->fetch_assoc();
-                $url=$post['url_recurso'];
-                echo "<h2 style='text-align:center;'>".$post['titulo']."</h2>".'<br>';
-                echo "<img src='$url' style='width:400px; height:auto; margin:0 auto;'><br>";
-                echo "<p style='text-align:center;'>".$post['contenido'] , "</p>";
-                echo "</div>";
-                $j++;
-            }*/
-            ?>
-
-            
         </div>
     </div>
     <script src=js/loadposts-perfil.js></script>

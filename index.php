@@ -48,7 +48,7 @@
                 </div></a>
 
                 <a href="perfil.php?" ><div class="menu_item">
-                    <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
+                    <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; $id=$user['user-id']?></p><p id='user-id' style='visibility:hidden;'><?php echo $id?></p>
                 </div></a>
             
             </nav>
