@@ -1,8 +1,9 @@
+document.addEventListener('DOMContentLoaded', function() {
 function getQueryParam(name) {
     var urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
-var id=getQueryParam('Iduser');
+var id=getQueryParam('id');
 var start = 0;
 var limit = 15;
 var loading=false;
@@ -51,5 +52,5 @@ window.addEventListener('scroll', () => {
   });
 
 
-
+});
 

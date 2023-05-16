@@ -67,7 +67,7 @@
                 <i class="fa-sharp fa-solid fa-newspaper"></i><p>Noticias</p>
                 </div></a>
 
-                <a href="perfil.php" ><div class="menu_item">
+                <a <?php  echo "href='perfil.php?id=$id'"?> ><div class="menu_item">
                     <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
                 </div></a>
             
@@ -95,7 +95,9 @@
             <div class='perfil-data'>
                 <div class='perfil-name'>
                     <p style='color:white; '><?php if($userId==''){ echo $user['username'];} ?></p>
-                    <button class='normal_button'>Editar perfil</button>
+                    <?php if($userId==''){echo "<button class='normal_button'>Editar perfil</button>";}else{
+                        echo "<button class='normal_button'>Solicitar amistad</button>";
+                    } ?>
                 </div>
                 <div class='perfil-numbers'>
                     <p style='color:white'><?php echo $numamigos ?> contactos</p>

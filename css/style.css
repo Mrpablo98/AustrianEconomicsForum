@@ -377,6 +377,7 @@ body {
     .search-link p {
         padding: 10px;
         margin: 0;
+        border-radius: 10px;
     }
 
     .search-link p:hover {
@@ -740,6 +741,35 @@ body {
         position: absolute;
         right: 0;
         z-index: 0;
+
+    }
+
+    #result {
+        position: absolute;
+        top: 40px;
+        right: 41.5%;
+        width: 20%;
+        height: 200px;
+        background-color: white;
+        color: black;
+        z-index: 10;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .search-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .search-link p {
+        padding: 10px;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    .search-link p:hover {
+        background-color: #93969b;
 
     }
 
@@ -1276,6 +1306,36 @@ body {
         cursor: pointer;
     }
 
+    #result {
+        position: absolute;
+        top: 40px;
+        right: 41.5%;
+        width: 20%;
+        height: 200px;
+        background-color: white;
+        color: black;
+        z-index: 10;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .search-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .search-link p {
+        padding: 10px;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    .search-link p:hover {
+        background-color: #93969b;
+
+    }
+
+
     /*publicar*/
 
 
@@ -1432,6 +1492,49 @@ body {
     #loading {
         width: 100%;
         height: auto;
+    }
+
+    /*perfil*/
+    .perfil-header {
+        width: 100%;
+        margin-right: 0;
+        margin-left: auto;
+        display: flex;
+        background-color: #0A0C10;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .perfil-photo {
+        width: 200px;
+        height: auto;
+
+    }
+
+    .perfil-data {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+
+    }
+
+    .perfil-name {
+        display: flex;
+        gap: 30px;
+    }
+
+    .perfil-numbers {
+        display: flex;
+        gap: 30px;
+    }
+
+    .normal_button {
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        width: 150px;
+        height: 30px;
+        border-radius: 20px;
     }
 
 

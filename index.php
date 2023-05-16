@@ -5,7 +5,7 @@
         if(!isset($user['username']) || strlen($user['username']) < 4){
             header("Location: log-in.html");
         }
-    
+        $id=$user['user-id'];
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,8 +47,8 @@
                 <i class="fa-sharp fa-solid fa-newspaper"></i><p>Noticias</p>
                 </div></a>
 
-                <a href="perfil.php?" ><div class="menu_item">
-                    <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; $id=$user['user-id']?></p><p id='user-id' style='visibility:hidden;'><?php echo $id?></p>
+                <a <?php  echo "href='perfil.php?id=$id'"?> ><div class="menu_item">
+                    <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
                 </div></a>
             
             </nav>
