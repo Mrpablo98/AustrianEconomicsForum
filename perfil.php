@@ -11,9 +11,9 @@
         $userId=$_GET['Iduser'];
         $user1=$user['user-id'];
         $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $userId AND aceptada = 1");
-        $numamigos=mysqli_num_rows($resultFriens);
+        if($resultFriens){$numamigos=mysqli_num_rows($resultFriens);}else{echo 'Error: ' . mysqli_error($mysqli);};
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $userId");
-        $numPosts=mysqli_num_rows($resultPosts);
+        if($resultPosts){$numPosts=mysqli_num_rows($resultPosts);}else{echo 'Error: ' . mysqli_error($mysqli);};
     }else{
         $id=$user['user-id'];
         $userId='';

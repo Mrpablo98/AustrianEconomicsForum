@@ -12,5 +12,5 @@ if (isset($_POST['search'])) {
         $users[] = '<a class="search-link" href="perfil.php?Iduser=' . $row['id'] . '">'.'<p >' . $row['nombre'] . '</p>' . '</a>';
     }
     
-    echo implode("<br>", $users);
+    echo implode( $users);
 }
