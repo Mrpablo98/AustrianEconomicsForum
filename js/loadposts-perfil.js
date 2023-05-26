@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 '<div>' +
                                                     '<form>' +
                                                         '<input class="coment-input" type="text" name="comentario" placeholder="Comentario" required>' +
-                                                        '<button type="submit" name="submit" class="coment-button">Comentar</button>' +
+                                                        '<button type="submit" name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
                                                     '</form>' +
                                                 '</div>' +
                                             '</div>' +
@@ -182,9 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.addEventListener('click',function(){
             let completePost=icon.parentElement;
             let alert=completePost.parentElement;
-            if (completePost !== null) {
-                completePost.classList.add('invisible');
-            }
             if(alert!==null){
                 alert.classList.add('invisible');
             }

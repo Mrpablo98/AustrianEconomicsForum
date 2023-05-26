@@ -708,13 +708,13 @@ body {
 
     .complete-Post {
         background-color: black;
-        width: 1200px;
+        width: 80%;
+        height: 80%;
     }
 
     .complete-post-image {
         width: 100%;
         display: flex;
-        overflow: hidden;
     }
 
     .complete-post-image p {
@@ -723,11 +723,20 @@ body {
     }
 
     .complete-post-image img {
-        width: 50%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .complete-post-image div {
+        width: 100%;
+    }
+
+    .complete-post-image div p {
+        width: 100%;
     }
 
     .coments {
-        width: 700px;
+        width: 100%;
         height: 75%;
         background-color: black;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
