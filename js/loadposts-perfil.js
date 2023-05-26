@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 '<p>' + post.contenido + '</p>' +
                                             '</div>' +
                                         '</div>' +
+                                        '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
                                    '</div>';
     
                     document.querySelector('#posts').innerHTML += postHtml;  
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function attachListeners() {
       let moreIcons=document.querySelectorAll('.more-icon');
-    
+        let closeIcons=document.querySelectorAll('.closeIcon');
       moreIcons.forEach(function(icon){
         icon.addEventListener('click',function(){
             let post=icon.parentElement.parentElement;
@@ -167,6 +168,17 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
         });
       });
+      closeIcons.forEach(function(icon){
+        icon.addEventListener('click',function(){
+            let post=icon.parentElement.previousElementSibling;
+            let completePost=post.nextElementSibling;
+            if (completePost !== null) {
+                completePost.classList.add('invisible');
+            }
+            document.body.style.overflow = 'auto';
+            console.log('click');
+        })
+    });
     }
     function loadComents(id) {
         var xhr = new XMLHttpRequest();

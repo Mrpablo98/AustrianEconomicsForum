@@ -613,7 +613,7 @@ body {
     }
 
     .post {
-        width: 1000px;
+        width: 50%;
         height: 300px;
         background-color: #0e0f11;
         border-radius: 5%;
@@ -624,18 +624,18 @@ body {
     }
 
     .post:hover {
-        width: 1110px;
+        width: 55%;
         height: 350px;
     }
 
     .post-image {
-        width: 300px;
+        width: 30%;
         display: flex;
         align-items: center;
     }
 
     .post-content {
-        width: 500px;
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -661,7 +661,6 @@ body {
 
     .post img:hover {
         cursor: pointer;
-        width: 110%;
         height: 320px;
     }
 
@@ -669,7 +668,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 200px;
+        width: 20%;
     }
 
     .post-arrow i {
@@ -682,6 +681,17 @@ body {
         cursor: pointer;
         font-size: 70px;
 
+    }
+
+    .fa-times {
+        font-size: 50px;
+        position: absolute;
+        top: 10px;
+        right: 250px;
+    }
+
+    .fa-times:hover {
+        cursor: pointer;
     }
 
     .complete-post {
@@ -1034,6 +1044,148 @@ body {
         height: auto;
     }
 
+    /*perfil*/
+    .perfil-header {
+        width: 83.5%;
+        margin-right: 0;
+        margin-left: auto;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .perfil-photo {
+        width: 200px;
+        height: auto;
+
+    }
+
+    .perfil-data {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+
+    }
+
+    .perfil-name {
+        display: flex;
+        gap: 30px;
+    }
+
+    .perfil-numbers {
+        display: flex;
+        gap: 30px;
+    }
+
+    .post {
+        width: 1000px;
+        height: 300px;
+        background-color: #0e0f11;
+        border-radius: 5%;
+        display: flex;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        transition: all 0.5s;
+
+    }
+
+    .post:hover {
+        width: 1110px;
+        height: 350px;
+    }
+
+    .post-image {
+        width: 300px;
+        display: flex;
+        align-items: center;
+    }
+
+    .post-content {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .post:first-child {
+        margin-top: 50px;
+    }
+
+    .post:last-child {
+        margin-bottom: 50px;
+    }
+
+    .post img {
+        width: 100%;
+        height: 290px;
+        border-radius: 5%;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.301);
+        transition: all 0.5s;
+    }
+
+    .post img:hover {
+        cursor: pointer;
+        width: 110%;
+        height: 320px;
+    }
+
+    .post-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+    }
+
+    .post-arrow i {
+        font-size: 50px;
+        margin: 0 10px;
+        transition: all 0.5s;
+    }
+
+    .fa-chevron-right:hover {
+        cursor: pointer;
+        font-size: 70px;
+
+    }
+
+    .fa-times {
+        font-size: 50px;
+        position: absolute;
+        top: 10px;
+        right: 250px;
+    }
+
+    .fa-times:hover {
+        cursor: pointer;
+    }
+
+    .complete-post {
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .complete-Post {
+        background-color: black;
+        width: 1200px;
+    }
+
+    .complete-post-image img {
+        width: 500px;
+    }
+
+
+    .invisible {
+        display: none;
+        visibility: none;
+    }
 
 
 }
