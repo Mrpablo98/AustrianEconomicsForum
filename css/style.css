@@ -711,8 +711,44 @@ body {
         width: 1200px;
     }
 
+    .complete-post-image {
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .complete-post-image p {
+        border-bottom: rgba(255, 255, 255, 0.301);
+        padding: 10px;
+    }
+
     .complete-post-image img {
-        width: 500px;
+        width: 50%;
+    }
+
+    .coments {
+        width: 700px;
+        height: 75%;
+        background-color: black;
+        border-top: 1px solid rgba(255, 255, 255, 0.301);
+        display: flex;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        transition: all 0.5s;
+        margin-top: 20px;
+        margin-right: 5px;
+    }
+
+    .coment-input {
+        width: 85%;
+        border-radius: 5px;
+        border: 0.3px solid black;
+        height: 2vw;
+        background-color: #262626;
+        color: white;
+    }
+
+    .coment-button {
+        width: 14%;
     }
 
 

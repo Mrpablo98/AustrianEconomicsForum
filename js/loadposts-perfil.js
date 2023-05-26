@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if(content.length>100){
                         content=content.substring(0,100)+"...";
                     }
-                    var postHtml = '<div class="post">' +
+                    var postHtml = '<div class="post" data-id="'+post.id+'">' +
                                        '<div class="post-content">' +
                                        '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                        '<p style="text-align:center;">' + content + '</p>' +
@@ -123,18 +123,28 @@ document.addEventListener('DOMContentLoaded', function() {
                                    '<div class="complete-post invisible">' +
                                         '<div class="complete-Post ">' +
                                           '<div class="complete-post-content">' +
-                                            '<h2>' + post.titulo + '</h2>' +
-                                            
+                                            '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                           '</div>' +
                                             '<div class="complete-post-image invisible">' +
                                                 '<img src="' + post.url_recurso + '" />' +
+                                                '<div>' +
                                                 '<p>' + post.contenido + '</p>' +
+                                                '<div class="coments">' +
+                                                    
+                                                '</div>' +
+                                                '<div>' +
+                                                    '<form>' +
+                                                        '<input class="coment-input" type="text" name="comentario" placeholder="Comentario" required>' +
+                                                        '<button type="submit" name="submit" class="coment-button">Comentar</button>' +
+                                                    '</form>' +
+                                                '</div>' +
                                             '</div>' +
                                         '</div>' +
                                         '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
                                    '</div>';
     
-                    document.querySelector('#posts').innerHTML += postHtml;  
+                    document.querySelector('#posts').innerHTML += postHtml; 
+                    loadComents(post.id); 
                 });
                 if(data.length === 15){start += limit;}else{start+=data.length;}
                 loading=false;
@@ -170,10 +180,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       closeIcons.forEach(function(icon){
         icon.addEventListener('click',function(){
-            let post=icon.parentElement.previousElementSibling;
-            let completePost=post.nextElementSibling;
+            let completePost=icon.parentElement;
+            let alert=completePost.parentElement;
             if (completePost !== null) {
                 completePost.classList.add('invisible');
+            }
+            if(alert!==null){
+                alert.classList.add('invisible');
             }
             document.body.style.overflow = 'auto';
             console.log('click');
@@ -199,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('#coments').innerHTML = comentHtml;  
             } else {
                
-                console.error('Hubo un error al obtener los posts:', this.status, this.statusText);
+                console.error('Hubo un error al obtener los comentarios:', this.status, this.statusText);
             }
         };
     
@@ -212,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
     loadPosts();
+
     
     window.addEventListener('scroll', () => {
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
