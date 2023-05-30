@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
     }
-    var comentsContainer=document.getElementById('coments');
+    
     var id=getQueryParam('id');
     var selectedPostId = null;
     var start = 0;
@@ -49,17 +49,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 '<div>' +
                                                 '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                                 '<p>' + post.contenido + '</p>' +
-                                                '<div class="coments">' +
+                                                '<div id="coments" class="coments">' +
                                                     
                                                 '</div>' +
                                                 '<div class="like-container">' +
-                                                    '<img class="like" src="img/like_icon.svg">' +
+                                                    '<img  class="like" src="img/like_icon.svg">' +
                                                 '</div>' +
                                                 '<div>' +
-                                                    '<form action="coment.php" method="POST">' +
+                                                    '<form>' +
                                                         '<input type="hidden" name="postId" value="'+post.id+'">' +
                                                         '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
-                                                        '<button type="submit" id="coment-button" name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
+                                                        '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
                                                     '</form>' +
                                                 '</div>' +
                                             '</div>' +
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function attachListeners() {
         let moreIcons=document.querySelectorAll('.more-icon');
+        var comentsContainer=document.querySelectorAll('.coment');
             let closeIcons=document.querySelectorAll('.closeIcon');
         moreIcons.forEach(function(icon){
             icon.addEventListener('click',function(){
@@ -117,11 +118,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('click');
             })
         });
-        document.querySelector("#comment-button").addEventListener("click", function(){
+        comentsContainer.forEach(function(coment){
+            coment.addEventListener('scroll', () => {
+                const { scrollTop, scrollHeight, clientHeight } = coment;
+            
+                if (scrollTop + clientHeight >= scrollHeight - 5) {
+                loadComents(selectedPostId);
+                }
+            });
+        });
+        document.querySelector(".coment-button").addEventListener("click", function(){
             var comentario = document.getElementById("comentario").value; 
             if(comentario.length>0){
             console.log(comentario);
-            fetch('ruta/hacia/tu/coment.php', {
+            fetch('coment.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -140,15 +150,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }else{
             alert("No puedes enviar un comentario vacio");
         }
-        document.querySelector('#like').addEventListener('click', function(){
-            fetch('ruta/hacia/tu/like.php', {
+        document.querySelector('.like').addEventListener('click', function(){
+            var like=true;
+            if(this.src == 'img/like_icon.png'){
+                like=false;
+            }
+            fetch('like.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: new URLSearchParams({
                     'postId': selectedPostId,
-                    'userId': userId
+                    'userId': userId,
+                    'liked' : like
                 })
             })
             .then(response => response.text())
@@ -162,6 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (data == 'Unliked') {
            
             likeImage.src = 'img/like_icon.png';
+        }else{
+            console.log(data);
         }
             })
             .catch((error) => {
@@ -169,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         }); 
+        
     }
     function loadComents(id) {
         var xhr = new XMLHttpRequest();
@@ -179,10 +197,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 var data = JSON.parse(this.responseText);
                 let comentHtml="";
                 data.forEach(function(coment) {
-                    comentHtml+='<div class="coment">' +
+                    comentHtml+='<div id="coments" class="coment">' +
                     '<div class="coment-content">' +
-                    '<h2 style="text-align:center;">' + coment.nombre + '</h2>' +
-                    '<p style="text-align:center;">' + coment.contenido + '</p>' +
+                    '<h2 style="padding:10px; margin:0;">' + coment.username + '</h2>' +
+                    '<p style="style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
                     '</div>' +
                     '</div>';
                 });
@@ -214,13 +232,13 @@ document.addEventListener('DOMContentLoaded', function() {
         loadPosts();
         }
     });
-    comentsContainer.addEventListener('scroll', () => {
+   /* comentsContainer.addEventListener('scroll', () => {
         const { scrollTop, scrollHeight, clientHeight } = comentsContainer;
     
         if (scrollTop + clientHeight >= scrollHeight - 5) {
         loadComents(selectedPostId);
         }
-    });
+    });*/
     
 
 });

@@ -732,6 +732,8 @@ body {
     .complete-post-image p {
         border-bottom: rgba(255, 255, 255, 0.301);
         padding: 10px;
+        margin: 0;
+        padding-left: 50px;
     }
 
     .complete-post-image img {
@@ -755,10 +757,26 @@ body {
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
         display: flex;
+        flex-direction: column;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         transition: all 0.5s;
         margin-top: 20px;
         margin-right: 5px;
+    }
+
+    .coment-content {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .coment-content:hover {
+        cursor: pointer;
+        background-color: #444654;
     }
 
     .coment-input {
