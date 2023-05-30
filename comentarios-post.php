@@ -2,9 +2,9 @@
 session_start();
 include("connection.php");
 
-$start = isset($_GET['start']) ? intval($_GET['start']) : 0;
-$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 15;
-$postId = isset($_GET['id']) ? intval($_GET['id']) : $postId;
+$start = isset($_GET['startComent']) ? intval($_GET['startComent']) : 0;
+$limit = isset($_GET['limitComent']) ? intval($_GET['limitComent']) : 15;
+$postId = isset($_GET['postId']) ? intval($_GET['postId']) : $postId;
 $sql = $mysqli->prepare('SELECT * FROM comentarios WHERE post_id = ? LIMIT ?, ?');
 $sql->bind_param("iii", $postId, $start, $limit);
 $sql->execute();
