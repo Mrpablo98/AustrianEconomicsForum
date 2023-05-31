@@ -5,9 +5,11 @@ $userId=$_SESSION['user']['user-id'];
 $username=$_SESSION['user']['username'];
 $comentario=$_POST['comentario'];
 $postId=$_POST['postId'];
-$sql='INSERT INTO comentarios (contenido, post_id, usuario_id, username) VALUES (?, ?, ?, ?)';
+$sql='INSERT INTO comentarios (post_id, usuario_id, contenido, username) VALUES (?, ?, ?, ?)';
 $sql=$mysqli->prepare($sql);
-$sql->bind_param("siis", $comentario, $postId, $userId, $username);
+if(!$sql){echo 'Error: ' . $mysqli->error;}
+$sql->bind_param("iiss", $postId, $userId, $comentario, $username);
 $sql->execute();
+echo json_encode($sql->error);
 $sql->close();
 $mysqli->close();

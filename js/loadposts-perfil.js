@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.text())
             .then(data => {console.log(data)
                 loadComents(selectedPostId);
-                comentario.value="";}
+                comentario.innerHTML="";}
             )
             .catch((error) => {
             console.error('Error:', error);
