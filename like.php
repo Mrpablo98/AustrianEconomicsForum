@@ -12,8 +12,7 @@ if($liked){
     $sql='INSERT INTO post_likes_dislikes (post_id, usuario_id) VALUES (?, ?)';
     $action='liked';
 }
-$sql='INSERT INTO post_likes_dislikes (post_id, usuario_id) VALUES (?, ?)';
-$action='liked';
+
     $sql=$mysqli->prepare($sql);
     $sql->bind_param("ii", $postId, $userId);
     $sql->execute();

@@ -18,7 +18,6 @@
         $row = mysqli_fetch_assoc($result);
         if ($row) {
             $username = $row['nombre'];
-            echo $username;
         } else {
             echo "No se encontró ningún usuario con ese ID";
         }
@@ -33,7 +32,6 @@
         $row = mysqli_fetch_assoc($result);
         if ($row) {
             $username = $row['nombre'];
-            echo $username;
         } else {
             echo "No se encontró ningún usuario con ese ID";
         }
@@ -112,7 +110,7 @@
             <div class='perfil-data'>
                 <div class='perfil-name'>
                     <p style='color:white; '><?php  echo $username; ?></p>
-                    <?php if($userId==''){echo "<button class='normal_button'>Editar perfil</button>";}else{
+                    <?php $id=$_GET['id']; if($id==$user['user-id']){echo "<button class='normal_button'>Editar perfil</button>";}else{
                         echo "<a href='new_friend.php?user1=$user1&user2=$userId'><button class='normal_button'>Solicitar amistad</button></a>";
                     } ?>
                     

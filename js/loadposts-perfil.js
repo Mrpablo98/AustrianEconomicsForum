@@ -44,21 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                 '</div>' +
                                 '<div class="cortina-post invisible">' +
                                         '<div class="complete-Post ">' +
-                                        '<div class="complete-post-content">' +
-                                            
-                                        '</div>' +
                                             '<div class="complete-post-image invisible">' +
                                                 '<img src="' + post.url_recurso + '" />' +
-                                                '<div>' +
-                                                '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
+                                                '<div>'+
+                                                '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
+                                                '<div class="overflow-post-content">' +
                                                 '<p>' + post.contenido + '</p>' +
                                                 '<div id="coments' +post.id + '" class="coments"'+'>' +
                                                     
                                                 '</div>' +
+                                                '</div>' +
                                                 '<div class="like-container">' +
                                                     '<img  class="like" src="img/like_icon.svg">' +
                                                 '</div>' +
-                                                '<div>' +
+                                                '<div class="comentar-container">' +
                                                     '<form class="form-coment">' +
                                                         '<input type="hidden" name="postId" value="'+post.id+'">' +
                                                         '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
@@ -255,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 data.forEach(function(coment) {
                     comentHtml+='<div id="coments" class="coment">' +
                     '<div class="coment-content">' +
-                    '<a href=perfil.php?id='+ coment.usuario_id +'><h2 style="padding:10px; margin:0;">' + coment.username + '</h2></a>' +
+                    '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +
                     '<p style="style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
                     '</div>' +
                     '</div>';
