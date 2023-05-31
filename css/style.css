@@ -2048,7 +2048,7 @@ body {
         margin-left: auto;
         display: flex;
         background-color: #0A0C10;
-        gap: 30px;
+        gap: 5px;
         justify-content: center;
     }
 
@@ -2079,14 +2079,14 @@ body {
         background-color: black;
         color: white;
         border: 1px solid white;
-        width: 150px;
+        width: 120px;
         height: 30px;
         border-radius: 20px;
     }
 
     .post {
-        width: 50%;
-        height: 300px;
+        width: auto;
+        height: auto;
         background-color: #0e0f11;
         border-radius: 5%;
         display: flex;
@@ -2098,10 +2098,6 @@ body {
 
     }
 
-    .post:hover {
-        width: 55%;
-        height: 350px;
-    }
 
     .post-image {
         width: 30%;
@@ -2128,16 +2124,12 @@ body {
 
     .post img {
         width: 100%;
-        height: 290px;
+        height: 150px;
         border-radius: 5%;
         object-fit: contain;
         transition: all 0.5s;
     }
 
-    .post img:hover {
-        cursor: pointer;
-        height: 320px;
-    }
 
     .post-arrow {
         display: flex;

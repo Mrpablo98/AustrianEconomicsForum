@@ -4,11 +4,11 @@ session_start();
 $userId=$_SESSION['user']['user-id'];
 $postId=$_POST['postId'];
 $liked=$_POST['liked'];
-if($liked){
+if($liked=="true"){
     $sql='DELETE FROM post_likes_dislikes WHERE post_id = ? AND usuario_id = ?';
     $action="unliked";
     
-}else if(!$liked){
+}else{
     $sql='INSERT INTO post_likes_dislikes (post_id, usuario_id) VALUES (?, ?)';
     $action='liked';
 }

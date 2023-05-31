@@ -13,23 +13,24 @@ document.addEventListener('DOMContentLoaded', function() {
     var startComent=0;
     var limitComent=25;
     var loading=false;
-    function loadPosts() {
+    async function loadPosts() {
         if(loading){return;}
         loading=true;
         var xhr = new XMLHttpRequest();
         xhr.open('GET', `posts-perfil.php?start=${start}&limit=${limit}&id=${id}`, true);  
 
-        xhr.onload = function() {
+        xhr.onload = async function() {
             if (this.status === 200) {
                 var data = JSON.parse(this.responseText);
                 for(var i=start;i<data.length;i++){
                     
                 }
-                data.forEach(function(post) {
+                for(const post of data) {
                     let content=post.contenido;
                     if(content.length>100){
                         content=content.substring(0,100)+"...";
                     }
+                    Likesrc= await checkLikeButton(post.id);
                     var postHtml = '<div class="post" data-id="'+post.id+'">' +
                                     '<div class="post-content">' +
                                     '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 '</div>' +
                                                 '</div>' +
                                                 '<div class="like-container">' +
-                                                    '<img  class="like" src="img/like_icon.svg">' +
+                                                    '<img  class="like" src="'+ Likesrc +'">' +
                                                 '</div>' +
                                                 '<div class="comentar-container">' +
                                                     '<form class="form-coment">' +
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     document.querySelector('#posts').innerHTML += postHtml; 
                     
-                });
+                };
                 if(data.length === 15){start += limit;}else{start+=data.length;}
                 loading=false;
                 attachListeners();
@@ -87,6 +88,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         xhr.send();
     }
+
+    async function checkLikeButton(postId) {
+        let response= await fetch('check_like.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'postId': postId
+            })
+        });
+        let data = await response.text();
+        return data;
+    }
+
     function handleMoreIconClick(icon){
       
         let post=icon.parentElement.parentElement;
@@ -104,14 +120,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.body.style.overflow = 'hidden';
         
                     // Select the specific comments container for the opened post
+                    let comentsContainerOverflow = completePost.querySelector('.overflow-post-content');
                     let comentsContainer = completePost.querySelector('.coments');
                     comentsContainer.innerHTML = "";
                     console.log('clickMore');
                     if(startComent==0){loadComents(selectedPostId);}
         
                     // Apply the scroll listener to the specific comments container
-                    comentsContainer.addEventListener('scroll', () => {
-                        const { scrollTop, scrollHeight, clientHeight } = comentsContainer;
+                    comentsContainerOverflow.addEventListener('scroll', () => {
+                        const { scrollTop, scrollHeight, clientHeight } = comentsContainerOverflow;
                         if (scrollTop + clientHeight >= scrollHeight - 5) {
                             loadComents(selectedPostId);
                         }
@@ -173,19 +190,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     'liked' : like2
                 })
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
                 console.log(data);
-  
+                
            
-            if (data === 'liked') {
+            if (data === "liked") {
+                like.style.transition = "all 0.5s";
+                like.src = 'img/like2_icon.svg';
+                like.style.transform = "scale(1.5)";
+                setTimeout(function() {like.style.transform = "scale(1)";}, 500);
+                
+
+            } else if (data === "unliked") {
             
-                like.src = 'http://localhost/AustrianEconomicsForum/img/like2_icon2.svg';
-            } else if (data === 'unliked') {
-            
-                like.src = 'http://localhost/AustrianEconomicsForum/img/like_icon.svg';
+                like.src = 'img/like_icon.svg';
             }else{
-                console.log(data);
+                console.log("error");
             }
             })
             .catch((error) => {
