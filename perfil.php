@@ -14,15 +14,31 @@
         if($resultFriens){$numamigos=mysqli_num_rows($resultFriens);}else{echo 'Error: ' . mysqli_error($mysqli);};
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $userId");
         if($resultPosts){$numPosts=mysqli_num_rows($resultPosts);}else{echo 'Error: ' . mysqli_error($mysqli);};
+        $result=mysqli_query($mysqli,"SELECT nombre FROM usuarios WHERE id = $userId");
+        $row = mysqli_fetch_assoc($result);
+        if ($row) {
+            $username = $row['nombre'];
+            echo $username;
+        } else {
+            echo "No se encontró ningún usuario con ese ID";
+        }
     }else{
-        $id=$user['user-id'];
+        $id=$_GET['id'];
         $userId='';
         $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id AND aceptada = 1");
-        $numamigos=mysqli_num_rows($resultFriens);
+        if($resultFriens){$numamigos=mysqli_num_rows($resultFriens);}else{echo 'Error: ' . mysqli_error($mysqli);};
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $id");
-        $numPosts=mysqli_num_rows($resultPosts);
+        if($resultPosts){$numPosts=mysqli_num_rows($resultPosts);}else{echo 'Error: ' . mysqli_error($mysqli);};
+        $result=mysqli_query($mysqli,"SELECT nombre FROM usuarios WHERE id = $id");
+        $row = mysqli_fetch_assoc($result);
+        if ($row) {
+            $username = $row['nombre'];
+            echo $username;
+        } else {
+            echo "No se encontró ningún usuario con ese ID";
+        }
     }
-
+    
    
     
     
@@ -95,7 +111,7 @@
             <img class='perfil-photo' src='img/icon.png'>
             <div class='perfil-data'>
                 <div class='perfil-name'>
-                    <p style='color:white; '><?php if($userId==''){ echo $user['username'];} ?></p>
+                    <p style='color:white; '><?php  echo $username; ?></p>
                     <?php if($userId==''){echo "<button class='normal_button'>Editar perfil</button>";}else{
                         echo "<a href='new_friend.php?user1=$user1&user2=$userId'><button class='normal_button'>Solicitar amistad</button></a>";
                     } ?>
