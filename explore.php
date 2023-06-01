@@ -45,6 +45,12 @@
                 <i class="fa-sharp fa-solid fa-newspaper"></i><p>Noticias</p>
                 </div></a>
 
+                <div class="menu_item " id="notificacion">
+                <i class="fa-solid fa-bell" style="color: #f2f2f2;"></i><p>Notificaciones</p>
+                <div id="noti-ball"></div>
+                </div>
+                <div class="lista-peticiones" id="lista-peticiones"></div>
+
                 <a <?php  echo "href='perfil.php?id=$id'"?> ><div class="menu_item">
                     <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
                 </div></a>
@@ -68,11 +74,13 @@
             </form>
         </div>
         <div id='result'></div>
-        <div class="content-container">
+        <div class="content-container" id='posts'>
             
         </div>
     </div>
     <script src="js/search.js"></script>
     <script src='js/options.js'></script>
+    <script src='js/loadposts-explore.js'></script>
+    <script src='js/peticiones-amistad.js'></script>
 </body>
 </html>

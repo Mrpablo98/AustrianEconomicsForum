@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(loading){return;}
         loading=true;
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', `posts-perfil.php?start=${start}&limit=${limit}&id=${id}`, true);  
+        xhr.open('GET', `posts-index.php?start=${start}&limit=${limit}&id=${id}`, true);  
 
         xhr.onload = async function() {
             if (this.status === 200) {
