@@ -42,11 +42,11 @@
                 </div></a>
 
                 <a href="noticias.php" ><div class="menu_item">
-                <i class="fa-sharp fa-solid fa-newspaper"></i><p>Noticias</p>
+                <i class="fa-sharp fa-solid fa-newspaper fa-lg"></i><p>Noticias</p>
                 </div></a>
 
                 <div class="menu_item " id="notificacion">
-                <i class="fa-solid fa-bell" style="color: #f2f2f2;"></i><p>Notificaciones</p>
+                <i class="fa-solid fa-bell fa-lg" style="color: #f2f2f2;"></i><p>Notificaciones</p>
                 <div id="noti-ball"></div>
                 </div>
                 <div class="lista-peticiones" id="lista-peticiones"></div>

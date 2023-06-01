@@ -22,11 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
     xhr.send(); 
    
    };
+   var noti=false;
     function attachListeners(){
         notificacion.addEventListener('click',()=>{
             let listaPeticiones=document.getElementById('lista-peticiones');
-            listaPeticiones.style.visibility='visible';
-            listaPeticiones.style.height='auto';
+            if(noti==false){
+                listaPeticiones.style.visibility='visible';
+                listaPeticiones.style.height='auto';
+                noti=true;
+            }else{
+                listaPeticiones.style.visibility='hidden';
+                listaPeticiones.style.height='0px';
+                noti=false;
+            }
     
     
         });
