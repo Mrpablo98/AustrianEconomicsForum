@@ -61,7 +61,7 @@
                 <i class="fa-solid fa-bell" style="color: #f2f2f2;"></i><p>Notificaciones</p>
                 <div id="noti-ball"></div>
                 </div>
-                <div class="lista-peticiones" id="lista-peticiones"></div>
+                <div class="lista-peticiones" id="lista-peticiones"><p style="text-align:center;">No tienes notificaciones pendientes.</p></div>
 
                 <a <?php  echo "href='perfil.php?id=$id'"?> ><div class="menu_item">
                     <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>

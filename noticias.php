@@ -36,23 +36,23 @@
             <div class='form-periodicos' id='form-periodicos'>
                 <div class='form-container'>
                     <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz' checked='true'></input>
-                    <label for="LaVoz">La voz de galicia</label>
+                    <label for="LaVoz"><img src="img/LaVoz.png"></label>
                     <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true' ></input>
-                    <label for="LibreMercado">Libre mercado</label>
+                    <label for="LibreMercado"><img src="img/LibreMercado.png"></label>
                     <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'></input>
-                    <label for="ElEconomista">El económista</label>
+                    <label for="ElEconomista"><img src="img/eleconomista-logo.png"></label>
                     <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'></input>
-                    <label for="ElPeriodico">El periódico</label>
+                    <label for="ElPeriodico"><img src="img/elPeriodico.png"></label>
                 </div>
                 <div class='form-container'>
                     <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'></input>
-                    <label for="NosDiario">Nòs Diario</label>
+                    <label for="NosDiario"><img src="img/Nós_Diario.png"></label>
                     <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'></input>
-                    <label for="LaVanguardia">La Vanguardia</label>
+                    <label for="LaVanguardia"><img src="img/LaVanguardia.png"></label>
                     <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'></input>
-                    <label for="ElPais">El País</label>
+                    <label for="ElPais"><img src="img/ElPais.png"></label>
                     <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'></input>
-                    <label for="ElMundo">El Mundo</label>
+                    <label for="ElMundo"><img src="img/ElMundo.png"></label>
                 </div>
                 <button type="submit" class='normal_button' id='filtrar'>Filtrar</button>
             </div>
@@ -88,7 +88,7 @@
                 <i class="fa-solid fa-bell" style="color: #f2f2f2;"></i><p>Notificaciones</p>
                 <div id="noti-ball"></div>
                 </div>
-                <div class="lista-peticiones" id="lista-peticiones"></div>
+                <div class="lista-peticiones" id="lista-peticiones"><p style="text-align:center;">No tienes notificaciones pendientes.</p></div>
 
                 <a <?php  echo "href='perfil.php?id=$id'"?> ><div class="menu_item">
                     <img src="img/icon.png" class="index-perfil-img"><p><?php echo $user['username']; ?></p>
