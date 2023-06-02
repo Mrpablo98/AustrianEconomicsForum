@@ -937,7 +937,7 @@ body {
 
     .coment-button {
         width: 12%;
-        background-color: #111010;
+        background-color: black;
         border: none;
         height: 4vh;
         border-radius: 10%;
@@ -954,10 +954,15 @@ body {
     }
 
     .like-container img {
-        margin-right: 50px;
         color: #ffffff;
         overflow: hidden;
         width: 30px;
+    }
+
+    .like-container p {
+        margin-right: 10px;
+        font-size: 0.5em;
+        padding-left: 5px;
     }
 
     .like-container img:hover {

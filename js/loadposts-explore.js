@@ -27,6 +27,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 for(const post of data) {
                     let content=post.contenido;
+                    try {
+                        const response = await fetch('php/count-likes.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: 'postId=' + post.id
+                        });
+                        
+                        const data = await response.text();
+                        console.log(data);
+                        $numLikes=data;  
+                        
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
                     if(content.length>100){
                         content=content.substring(0,100)+"...";
                     }
@@ -57,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 '</div>' +
                                                 '<div class="like-container">' +
                                                     '<img  class="like" src="'+ Likesrc +'">' +
+                                                    '<p class="numLikes">' + $numLikes + ' likes' + '</p>' +
                                                 '</div>' +
                                                 '<div class="comentar-container">' +
                                                     '<form class="form-coment">' +
