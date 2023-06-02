@@ -71,12 +71,11 @@
         </div>
         <div class="search-bar-container" id="search-bar-container">
             <form>
-                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
+                <input placeholder="Search..." class="search-bar" id='search-bar' type="text"></input>
                 <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
-                <div id='result'></div>
             </form>
         </div>
-        
+        <div id='result'></div>
         <div class="content-container" id='posts'>
             
         </div>

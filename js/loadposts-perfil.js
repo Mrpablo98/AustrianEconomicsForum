@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                         
                         const data = await response.text();
-                        console.log(data);
                         numLikes=data;  
                         
                     } catch (error) {
@@ -160,10 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto';
         console.log('click');
     }
-    function handleComentClick(coment){
+    /*function handleComentClick(coment){
         event.preventDefault();
         var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
         var coment1= coment.closest('.form-coment').querySelector('.coment-input');
+        var comentContainer=document.getElementById('coments7');
+        var scroll=comentContainer.parentElement;
+        console.log(comentContainer);
             if(comentario.length>0){
             fetch('coment.php', {
                 method: 'POST',
@@ -176,17 +178,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             })
             .then(response => response.text())
-            .then(data => {console.log(data)
-                loadComents(selectedPostId);
-                coment1.innerHTML="";}
-            )
+            .then(data => {console.log(data)})
+            .then(coment1.value="")
+            .then(loadComents(selectedPostId))
+            .then(scroll.scrollTop = scroll.scrollHeight)
             .catch((error) => {
             console.error('Error:', error);
             });
         }else{
             alert("No puedes enviar un comentario vacio");
         }
+    }*/
+  
+
+function handleComentClick(coment){
+    event.preventDefault();
+    var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
+    var coment1= coment.closest('.form-coment').querySelector('.coment-input');
+        if(comentario.length>0){
+        fetch('coment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'comentario': comentario,
+                'postId': selectedPostId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            var lastComentHtml = '<div id="coments" class="coment">' +
+                '<div class="coment-content">' +
+                '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
+                '<p style="style="padding-left:50px; margin:0;">' + comentario + '</p>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
+        })
+        .then(coment1.value="")
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }else{
+        alert("No puedes enviar un comentario vacio");
     }
+}
 
     function handleLikeClick(like){
         var countLikes=like.closest('.like-container').querySelector('.numLikes');
@@ -293,13 +331,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.status === 200) {
                 var data = JSON.parse(this.responseText);
                 let comentHtml="";
+
                 data.forEach(function(coment) {
+                    console.log(coment);
                     comentHtml+='<div id="coments" class="coment">' +
                     '<div class="coment-content">' +
                     '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +
                     '<p style="style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
                     '</div>' +
                     '</div>';
+                    
                 });
                 document.getElementById('coments'+selectedPostId).innerHTML += comentHtml; 
                 if(data.length === limitComent) { startComent += limitComent; } else { startComent += data.length; }

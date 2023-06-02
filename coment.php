@@ -10,6 +10,7 @@ $sql=$mysqli->prepare($sql);
 if(!$sql){echo 'Error: ' . $mysqli->error;}
 $sql->bind_param("iiss", $postId, $userId, $comentario, $username);
 $sql->execute();
-echo json_encode($sql->error);
+echo json_encode(array('username' => $username, 'id' => $userId));
+
 $sql->close();
 $mysqli->close();

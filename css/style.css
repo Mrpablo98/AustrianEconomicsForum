@@ -351,7 +351,7 @@ body {
         padding-right: 10px;
         font-size: 1rem;
         height: 2.7vh;
-        width: 20vw;
+        width: 350px;
     }
 
     .search-bar:focus {
@@ -434,15 +434,19 @@ body {
 
     #result {
         position: absolute;
-        top: 40px;
-        right: 38%;
-        width: 20%;
-        height: 200px;
+        top: 45px;
+        right: 37.5%;
+        width: 370px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
         background-color: white;
         color: black;
         z-index: 10;
         border-radius: 10px;
         display: none;
+        z-index: 100;
+        margin: 0 auto;
     }
 
     .search-link {
@@ -453,7 +457,6 @@ body {
     .search-link p {
         padding: 10px;
         margin: 0;
-        border-radius: 10px;
     }
 
     .search-link p:hover {
@@ -477,14 +480,16 @@ body {
         border: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 10px;
         padding: 20px;
+        margin-top: 150px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 
     }
 
     .input {
         border-radius: 5px;
-        border: 0.3px solid black;
         height: 2vw;
-        background-color: #262626;
+        background-color: #191F26;
+        border:none;
         color: white;
         width: 100%;
     }
@@ -497,13 +502,14 @@ body {
         position: absolute;
         right: 5px;
         bottom: -45px;
-        background-color: black;
+        background-color: #0E0F11;
         color: white;
         border: 1px solid white;
         width: 150px;
         height: 30px;
         border-radius: 20px;
     }
+    
 
     .normal_button {
         background-color: black;
@@ -748,7 +754,7 @@ body {
     .post {
         width: 50%;
         height: 300px;
-        background-color: #0e0f11;
+        background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
@@ -837,6 +843,7 @@ body {
 
     .cortina-post {
         background-color: rgba(0, 0, 0, 0.7);
+        
         width: 100%;
         height: 100vh;
         position: fixed;
@@ -848,9 +855,11 @@ body {
     }
 
     .complete-Post {
-        background-color: black;
+        background-color: #0A0C10;
         width: 80%;
         height: 85%;
+        border-radius: 2.5%;
+       border: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .complete-post-image {
@@ -862,12 +871,13 @@ body {
     .complete-post-image p {
         border-bottom: rgba(255, 255, 255, 0.301);
         padding: 10px;
+        padding-top: 30px;
         margin: 0;
         padding-left: 50px;
     }
 
     .complete-post-image>img {
-        width: 50%;
+        width: 150%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
@@ -882,7 +892,7 @@ body {
 
     .coments {
         width: 100%;
-        background-color: black;
+        background-color: #0A0C10;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         display: flex;
         flex-direction: column;
@@ -908,7 +918,7 @@ body {
     }
 
     .coment-content:hover {
-        cursor: pointer;
+        
         background-color: #2e2e2e;
     }
 
@@ -918,6 +928,9 @@ body {
         margin-left: 5px;
 
     }
+    .coment-content a:hover {
+        cursor: pointer;
+    }
 
     .coment-contnt p {
         width: 80%;
@@ -926,18 +939,17 @@ body {
     .coment-input {
         width: 80%;
         border-radius: 5px;
-        border: 0.3px solid black;
         height: 4vh;
-        -background-color: #262626;
-        background-color: black;
+        background-color: #0A0C10;
         color: white;
         margin-right: 15px;
         margin-left: 15px;
+        border:none;
     }
 
     .coment-button {
         width: 12%;
-        background-color: black;
+        background-color: #0A0C10;
         border: none;
         height: 4vh;
         border-radius: 10%;
@@ -1013,6 +1025,45 @@ body {
     footer p {
         text-align: center;
         margin-top: 2vh;
+    }
+}
+
+@media(min-width:768px) and (max-width: 1990px){
+    
+    #result {
+        position: absolute;
+        top: 35px;
+        right: 36.7%;
+        width: 370px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
+        background-color: white;
+        color: black;
+        z-index: 10;
+        border-radius: 10px;
+        display: none;
+        z-index: 100;
+        margin: 0 auto;
+    }
+}
+@media(min-width:1991px) and (max-width: 3990px){
+    
+    #result {
+        position: absolute;
+        top: 40px;
+        right: 38.3%;
+        width: 370px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
+        background-color: white;
+        color: black;
+        z-index: 10;
+        border-radius: 10px;
+        display: none;
+        z-index: 100;
+        margin: 0 auto;
     }
 }
 
@@ -1131,14 +1182,18 @@ body {
     #result {
         position: absolute;
         top: 40px;
-        right: 41.5%;
-        width: 20%;
-        height: 200px;
+        right: 31.5%;
+        width: 370px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
         background-color: white;
         color: black;
         z-index: 10;
         border-radius: 10px;
         display: none;
+        z-index: 100;
+        margin: 0 auto;
     }
 
     .search-link {
@@ -1171,18 +1226,20 @@ body {
         background-color: #0A0C10;
         align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.301);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         border-radius: 10px;
         padding: 20px;
+        margin-top: 150px;
 
     }
 
     .input {
         border-radius: 5px;
-        border: 0.3px solid black;
         height: 2vw;
-        background-color: #262626;
+        background-color: #191F26;
         color: white;
         width: 100%;
+
     }
 
     .input-file {
@@ -1383,7 +1440,7 @@ body {
     .post {
         width: 50%;
         height: 300px;
-        background-color: #0e0f11;
+        background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
@@ -1499,7 +1556,7 @@ body {
     }
 
     .complete-post-image>img {
-        width: 50%;
+        width: 150%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
@@ -1908,6 +1965,7 @@ body {
         padding-left: 10px;
         padding-right: 10px;
         font-size: 1rem;
+        width: 190px;
     }
 
     .search-bar:focus {
@@ -2002,9 +2060,9 @@ body {
 
     #result {
         position: absolute;
-        top: 40px;
+        top: 35px;
         right: 41.5%;
-        width: 20%;
+        width: 190px;
         height: 200px;
         background-color: white;
         color: black;
@@ -2045,6 +2103,7 @@ body {
         background-color: #0A0C10;
         align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.301);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         border-radius: 10px;
         padding: 20px;
 
@@ -2052,11 +2111,11 @@ body {
 
     .input {
         border-radius: 5px;
-        border: 0.3px solid black;
         height: 30px;
-        background-color: #262626;
+        background-color: #191F26;
         color: white;
         width: 100%;
+        border:none;
     }
 
     .input-file {
@@ -2264,7 +2323,7 @@ body {
     .post {
         width: auto;
         height: auto;
-        background-color: #0e0f11;
+        background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
