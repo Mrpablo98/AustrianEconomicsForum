@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleComentClick(coment){
         event.preventDefault();
         var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
+        var coment1= coment.closest('.form-coment').querySelector('.coment-input');
             if(comentario.length>0){
             fetch('coment.php', {
                 method: 'POST',
@@ -177,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.text())
             .then(data => {console.log(data)
                 loadComents(selectedPostId);
-                comentario.value="";}
+                coment1.innerHTML="";}
             )
             .catch((error) => {
             console.error('Error:', error);
