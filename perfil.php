@@ -4,6 +4,8 @@
     session_start();
     require("connection.php");
     $user=$_SESSION['user'];
+    $amigoAcepted=false;
+    $amigo=false;
     if(!isset($user['username']) || strlen($user['username']) < 4){
         header("Location: log-in.html");
     }
@@ -24,6 +26,7 @@
     }else{
         $id=$_GET['id'];
         $userId='';
+        $userLogged=$user['user-id'];
         $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id  OR usuario_id2 = $id AND aceptada = 1");
         if($resultFriens){$numamigos=mysqli_num_rows($resultFriens);}else{echo 'Error: ' . mysqli_error($mysqli);};
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $id");
@@ -34,6 +37,16 @@
             $username = $row['nombre'];
         } else {
             echo "No se encontró ningún usuario con ese ID";
+        }
+        $resultAmigosAcepted=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id AND usuario_id2 = $userLogged AND aceptada = 1 OR usuario_id1 = $userLogged AND usuario_id2 = $id AND aceptada = 1");
+        if($resultAmigosAcepted){$numAmigosAcepted=mysqli_num_rows($resultAmigosAcepted);}else{echo 'Error: ' . mysqli_error($mysqli);};
+        if($numAmigosAcepted>0){
+            $amigoAcepted=true;
+        }
+        $resultAmigosPendiente=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id AND usuario_id2 = $userLogged AND aceptada = 0 OR usuario_id1 = $userLogged AND usuario_id2 = $id AND aceptada = 0");
+        if($resultAmigosPendiente){$numAmigosPendiente=mysqli_num_rows($resultAmigosPendiente);}else{echo 'Error: ' . mysqli_error($mysqli);};
+        if($numAmigosPendiente>0){
+            $amigo=true;
         }
     }
     
@@ -116,8 +129,12 @@
             <div class='perfil-data'>
                 <div class='perfil-name'>
                     <p style='color:white; '><?php  echo $username; ?></p>
-                    <?php $id=$_GET['id']; if($id==$user['user-id']){echo "<button class='normal_button'>Editar perfil</button>";}else{
-                       $userId=$_GET['id']; $user1=$user['user-id']; echo "<a href='new_friend.php?user1=$user1&user2=$userId'><button class='normal_button'>Solicitar amistad</button></a>";
+                    <?php $id=$_GET['id']; if($id==$user['user-id']){echo "<button class='normal_button'>Editar perfil</button>";}else if($amigoAcepted){
+                        echo "<a href='delete_friend.php?user1=$userLogged&user2=$id'><button class='normal_button'>Eliminar amigo</button></a>";
+                    }else if($amigo){
+                        echo "<button class='normal_button'>Pendiente</button>";
+                    }else{
+                        echo "<a href='new_friend.php?user1=$userLogged&user2=$id'><button class='normal_button'>Solicitar amistad</button></a>";
                     } ?>
                     
                 </div>

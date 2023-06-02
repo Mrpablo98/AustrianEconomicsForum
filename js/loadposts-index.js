@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onload = async function() {
             if (this.status === 200) {
                 var data = JSON.parse(this.responseText);
-                for(var i=start;i<data.length;i++){
-                    
-                }
+                console.log(data);
                 for(const post of data) {
                     let content=post.contenido;
                     if(content.length>100){

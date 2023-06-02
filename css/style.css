@@ -423,7 +423,6 @@ body {
         background-color: #191F26;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         color: white;
         position: absolute;
@@ -431,7 +430,6 @@ body {
         z-index: 0;
         min-height: 100vh;
         gap: 50px;
-        padding: 50px;
     }
 
     #result {
@@ -564,11 +562,32 @@ body {
         padding: 30px;
     }
 
-    label img {
+    .img-checked {
         width: 90px;
         height: auto;
+        opacity: 1;
+        transition: opacity 0.5s ease;
     }
 
+    .img-unchecked {
+        width: 90px;
+        height: auto;
+        opacity: 0.3;
+        transition: opacity 0.5s ease;
+    }
+
+    /*.img-checked:hover {
+        opacity: 0.3;
+
+    }
+
+    .img-unchecked:hover {
+        opacity: 1;
+    }*/
+
+    .form-container input {
+        visibility: hidden;
+    }
 
     .news img {
         width: 400px;
@@ -660,19 +679,35 @@ body {
     .form-periodicos {
         width: 100%;
         display: flex;
+        gap: 30px;
         justify-content: center;
         align-items: center;
         height: 80px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: #0A0C10;
 
+    }
+
+    .form-container {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
     }
 
     .form-periodicos label {
         cursor: pointer;
     }
 
+
+
     #loading {
         width: 30%;
         height: auto;
+        position: absolute;
+        top: 35%;
+        bottom: 35%;
     }
 
     /*perfil*/
@@ -938,7 +973,7 @@ body {
     }
 
     .overflow-post-content {
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: scroll;
         height: 75%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
@@ -986,9 +1021,9 @@ body {
         flex-direction: column;
         align-items: center;
         width: 10%;
-        height: 100vh;
+        height: 100%;
         background-color: #0A0C10;
-        gap: 1vw;
+        gap: 1vh;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         padding: 10px;
         position: fixed;
@@ -1030,6 +1065,7 @@ body {
     .menu_item:hover {
         background-color: #1F2833;
     }
+
 
     #search-button {
         cursor: pointer;
@@ -1073,11 +1109,10 @@ body {
     }
 
     .content-container {
-        width: 89%;
+        width: 88.5%;
         background-color: #191F26;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         color: white;
         position: absolute;
@@ -1280,11 +1315,27 @@ body {
         gap: 10px;
     }
 
-    #loading {
-        width: 87%;
+    .form-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .img-checked {
+        width: 70px;
         height: auto;
-        position: absolute;
-        right: 0;
+        opacity: 1;
+    }
+
+    .img-unchecked {
+        width: 70px;
+        height: auto;
+        opacity: 0.3;
+    }
+
+    #loading {
+        width: 50%;
+        margin: 0 auto;
+        height: auto;
     }
 
     /*perfil*/
@@ -1552,7 +1603,7 @@ body {
     }
 
     .overflow-post-content {
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: scroll;
         height: 75%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
@@ -1756,7 +1807,6 @@ body {
         background-color: #191F26;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         right: 0;
         color: white;
@@ -2018,7 +2068,7 @@ body {
     /*Noticias*/
     .news {
         background-color: #0A0C10;
-        width: 50%;
+        width: 80%;
         border-radius: 5%;
         border: 1px solid white;
         display: flex;
@@ -2032,10 +2082,11 @@ body {
 
     .news1 {
         background-color: #0A0C10;
-        width: 50%;
+        width: 80%;
         border-radius: 5%;
         border: 1px solid white;
         display: flex;
+        margin: 0 auto;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -2089,6 +2140,21 @@ body {
         margin: 0 auto;
     }
 
+    .img-checked {
+        width: 50px;
+        height: auto;
+        opacity: 1;
+    }
+
+    .img-unchecked {
+        width: 50px;
+        height: auto;
+        opacity: 0.3;
+    }
+
+    .check-periodico {
+        visibility: hidden;
+    }
 
 
     .mediaNews {
@@ -2119,7 +2185,7 @@ body {
     }
 
     .form-periodicos {
-        width: 70%;
+        width: 100%;
         font-size: 0.75em;
         display: flex;
         flex-direction: column;
@@ -2127,7 +2193,8 @@ body {
         align-items: center;
         height: auto;
         gap: 10px;
-        margin-bottom: 30px;
+        margin-bottom: 70px;
+        background-color: #0A0C10;
     }
 
     .form-container {
@@ -2414,7 +2481,7 @@ body {
     }
 
     .overflow-post-content {
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: scroll;
         height: 75%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);

@@ -35,24 +35,24 @@
         <div class="content-container" id='newsContainer'>
             <div class='form-periodicos' id='form-periodicos'>
                 <div class='form-container'>
-                    <input type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz' checked='true'></input>
-                    <label for="LaVoz"><img src="img/LaVoz.png"></label>
-                    <input type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true' ></input>
-                    <label for="LibreMercado"><img src="img/LibreMercado.png"></label>
-                    <input type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'></input>
-                    <label for="ElEconomista"><img src="img/eleconomista-logo.png"></label>
-                    <input type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'></input>
-                    <label for="ElPeriodico"><img src="img/elPeriodico.png"></label>
+                    <input class="check-periodico" type="checkbox" id='LaVoz' name='LaVoz' value='LaVoz' checked='true'></input>
+                    <label title="LaVozDeGalicia" for="LaVoz"><img class="img-periodico img-checked" src="img/LaVoz.png"></label>
+                    <input class="check-periodico" type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true' ></input>
+                    <label title="LibreMercado" for="LibreMercado"><img class="img-periodico img-checked" src="img/LibreMercado.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'></input>
+                    <label title="ElEconomista" for="ElEconomista"><img class="img-periodico img-checked" src="img/eleconomista-logo.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'></input>
+                    <label title="ElPeriodico" for="ElPeriodico"><img class="img-periodico img-checked" src="img/elPeriodico.png"></label>
                 </div>
                 <div class='form-container'>
-                    <input type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'></input>
-                    <label for="NosDiario"><img src="img/Nós_Diario.png"></label>
-                    <input type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'></input>
-                    <label for="LaVanguardia"><img src="img/LaVanguardia.png"></label>
-                    <input type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'></input>
-                    <label for="ElPais"><img src="img/ElPais.png"></label>
-                    <input type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'></input>
-                    <label for="ElMundo"><img src="img/ElMundo.png"></label>
+                    <input class="check-periodico" type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'></input>
+                    <label title="NòsDiario" for="NosDiario"><img class="img-periodico img-checked" src="img/Nós_Diario.png"></label>
+                    <input class="check-periodico" type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'></input>
+                    <label title="LaVanguardia" for="LaVanguardia"><img class="img-periodico img-checked" src="img/LaVanguardia.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'></input>
+                    <label title="ElPais" for="ElPais"><img class="img-periodico img-checked" src="img/ElPais.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'></input>
+                    <label title="ElMundo" for="ElMundo"><img class="img-periodico img-checked" src="img/ElMundo.png"></label>
                 </div>
                 <button type="submit" class='normal_button' id='filtrar'>Filtrar</button>
             </div>
@@ -111,6 +111,7 @@
     <script src='rss-periodicos.js'></script>
     <script src='js/options.js'></script>
     <script src='js/peticiones-amistad.js'></script>
+    <script src='js/imagenes-periodicos.js'></script>
     
 </body>
 </html>

@@ -307,3 +307,4 @@ newsArray.then(noticias =>{
     MostrarFiltro();
 });
 
+

@@ -46,6 +46,6 @@ if (!$error) {
         ];
 
 
-        header("Location: index.php");
+        header("Location: log-in.html");
     }
 }
