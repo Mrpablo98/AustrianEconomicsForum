@@ -52,16 +52,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 xhr.onload = function() {
                     if (this.status === 200) {
                         console.log(this.responseText);
+                        console.log(button)
                         if (this.responseText.trim() === '') {
                             console.log('La respuesta está vacía');
+                            console.log(button)
                         } else {
                             document.getElementById('lista-peticiones').innerHTML = this.responseText;
+                            console.log(button)
                         }
                     } else {
                         console.error('Hubo un error en la solicitud:', this.status, this.statusText);
+                        console.log(button)
                     }
                 }
                 var datos='userId='+encodeURIComponent(userId)+'&accion=aceptar';
+                console.log(datos);
                 xhr.send(datos);
             } else if (button.classList.contains('cancelar-button')) {
                 
@@ -75,70 +80,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 xhr.onload = function() {
                     if (this.status === 200) {
                         console.log(this.responseText);
+                        console.log(button)
                         if (this.responseText.trim() === '') {
                             console.log('La respuesta está vacía');
+                            console.log(button)
                         } else {
                             document.getElementById('lista-peticiones').innerHTML = this.responseText;
+                            console.log(button)
                         }
                     } else {
                         console.error('Hubo un error en la solicitud:', this.status, this.statusText);
+                        console.log(button)
                     }
                 }
                 var datos='userId='+encodeURIComponent(userId)+'&accion=cancelar';
+                console.log(datos);
                 xhr.send(datos);
             }
         });
-       /* var aceptarButton=document.querySelectorAll('.aceptar-button');
-        var cancelarButton=document.querySelectorAll('.cancelar-button');
-    
-        aceptarButton.forEach((button)=>{
-            button.addEventListener('click',()=>{
-                console.log('aceptar');
-                userId=button.previousElementSibling.value;
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'aceptar-rechazar-amistad.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onload = function() {
-                    if (this.status === 200) {
-                        console.log(this.responseText);
-                        if (this.responseText.trim() === '') {
-                            console.log('La respuesta está vacía');
-                        } else {
-                            document.getElementById('lista-peticiones').innerHTML = this.responseText;
-                        }
-                    } else {
-                        console.error('Hubo un error en la solicitud:', this.status, this.statusText);
-                    }
-                }
-                var datos='userId='+encodeURIComponent(userId)+'&accion=aceptar';
-                xhr.send(datos);
-            });
-        });
-    
-        cancelarButton.forEach((button)=>{
-            button.addEventListener('click',()=>{
-                console.log('cancelar');
-                let aceptarButton1=button.previousElementSibling;
-                userId=aceptarButton1.previousElementSibling.value;
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'aceptar-rechazar-amistad.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onload = function() {
-                    if (this.status === 200) {
-                        console.log(this.responseText);
-                        if (this.responseText.trim() === '') {
-                            console.log('La respuesta está vacía');
-                        } else {
-                            document.getElementById('lista-peticiones').innerHTML = this.responseText;
-                        }
-                    } else {
-                        console.error('Hubo un error en la solicitud:', this.status, this.statusText);
-                    }
-                }
-                var datos='userId='+encodeURIComponent(userId)+'&accion=aceptar';
-                xhr.send(datos);
-            });
-        });*/
+      
     };
 
     var peticiones=getPeticiones();
