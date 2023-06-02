@@ -129,7 +129,7 @@
             <div class='perfil-data'>
                 <div class='perfil-name'>
                     <p style='color:white; '><?php  echo $username; ?></p>
-                    <?php $id=$_GET['id']; if($id==$user['user-id']){echo "<button class='normal_button'>Editar perfil</button>";}else if($amigoAcepted){
+                    <?php $id=$_GET['id']; if($id==$user['user-id']){echo "<a href='edit-perfil.php?id=$userLogged'><button class='normal_button'>Editar perfil</button></a>";}else if($amigoAcepted){
                         echo "<a href='delete_friend.php?user1=$userLogged&user2=$id'><button class='normal_button'>Eliminar amigo</button></a>";
                     }else if($amigo){
                         echo "<button class='normal_button'>Pendiente</button>";
