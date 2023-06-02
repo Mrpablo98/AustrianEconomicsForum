@@ -1428,11 +1428,6 @@ body {
         transition: all 0.5s;
     }
 
-    .post img:hover {
-        cursor: pointer;
-        height: 320px;
-    }
-
     .post-arrow {
         display: flex;
         justify-content: center;

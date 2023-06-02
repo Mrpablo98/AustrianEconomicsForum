@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var startComent=0;
     var limitComent=25;
     var loading=false;
+    var numLikes=0;
     async function loadPosts() {
         if(loading){return;}
         loading=true;
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         const data = await response.text();
                         console.log(data);
-                        $numLikes=data;  
+                        numLikes=data;  
                         
                     } catch (error) {
                         console.error('Error:', error);
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 '</div>' +
                                                 '<div class="like-container">' +
                                                     '<img  class="like" src="'+ Likesrc +'">' +
-                                                    '<p class="numLikes">' + $numLikes + ' likes' + '</p>' +
+                                                    '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
                                                 '</div>' +
                                                 '<div class="comentar-container">' +
                                                     '<form class="form-coment">' +
@@ -187,7 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleLikeClick(like){
-
+        var countLikes=like.closest('.like-container').querySelector('.numLikes');
+        var numLikes=parseInt(countLikes.innerHTML);
         var like2=true;
             if(like.src === 'http://localhost/AustrianEconomicsForum/img/like_icon.svg'){
                 like2=false;
@@ -214,11 +216,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 like.src = 'img/like2_icon.svg';
                 like.style.transform = "scale(1.5)";
                 setTimeout(function() {like.style.transform = "scale(1)";}, 500);
+                numLikes++;
+                countLikes.innerHTML = numLikes + ' likes';
                 
 
             } else if (data === "unliked") {
             
                 like.src = 'img/like_icon.svg';
+                numLikes--;
+                countLikes.innerHTML = numLikes + ' likes';
             }else{
                 console.log("error");
             }
