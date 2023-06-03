@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }else{
                 listaPeticiones.style.visibility='hidden';
                 listaPeticiones.style.height='0px';
+                let buttonPeticion=listaPeticiones.getElementsByTagName('button');
+                console.log(buttonPeticion.length);
+                if(buttonPeticion.length==0){
+                    let notiBall=document.getElementById('noti-ball');
+                    notiBall.classList.remove('noti-ball');
+                    let notificacion=document.getElementById('notificacion');
+                    notificacion.classList.remove('notification');
+                }
                 noti=false;
             }
     
@@ -45,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (button.classList.contains('aceptar-button')) {
                 console.log('aceptar');
                 userId=button.previousElementSibling.value;
-                // ...resto del código para aceptar...
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', 'aceptar-rechazar-amistad.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -57,7 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.log('La respuesta está vacía');
                             console.log(button)
                         } else {
-                            document.getElementById('lista-peticiones').innerHTML = this.responseText;
+                            var response=document.createElement('p');
+                            response.innerHTML="No tienes notificaciones pendientes.";
+                            response.style.textAlign='center';
+                            var peticion=button.parentElement.parentElement;
+                            peticion.innerHTML='';
+                            document.getElementById('lista-peticiones').prepend(response);
                             console.log(button)
                         }
                     } else {
@@ -73,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('cancelar');
                 let aceptarButton1=button.previousElementSibling;
                 userId=aceptarButton1.previousElementSibling.value;
-                // ...resto del código para cancelar...
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', 'aceptar-rechazar-amistad.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -85,8 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.log('La respuesta está vacía');
                             console.log(button)
                         } else {
-                            document.getElementById('lista-peticiones').innerHTML = this.responseText;
-                            console.log(button)
+                            let response=document.createElement('p');
+                            response.innerHTML="No tienes notificaciones pendientes.";
+                            response.style.textAlign='center';
+                            let peticion=button.parentElement.parentElement;
+                            peticion.innerHTML='';
+                            document.getElementById('lista-peticiones').prepend(response);
                         }
                     } else {
                         console.error('Hubo un error en la solicitud:', this.status, this.statusText);

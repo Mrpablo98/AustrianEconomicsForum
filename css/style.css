@@ -756,9 +756,13 @@ body {
 
     .post {
         width: 50%;
+        min-height: 292px;
+        max-height: 300px;
         background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
+        justify-content: center;
+        align-items: center;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         transition: all 0.5s;
         gap: 20px;
@@ -802,10 +806,7 @@ body {
         transition: all 0.5s;
     }
 
-    .post img:hover {
-        cursor: pointer;
-        height: 320px;
-    }
+
 
     .post-arrow {
         display: flex;
@@ -1248,7 +1249,9 @@ body {
         z-index: 100;
         margin: 0 auto;
     }
-
+    #notificacion{
+        padding-left: 20px;
+    }
     .search-link {
         color: black;
         text-decoration: none;
@@ -1496,8 +1499,9 @@ body {
     }
 
     .post {
-        width: 50%;
-        height: 300px;
+        width: 80%;
+        height: auto;
+        max-height: 400px;
         background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
@@ -2429,6 +2433,7 @@ body {
         position: relative;
         width: auto;
         height: auto;
+        max-height: 230px;
         background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
@@ -2564,7 +2569,7 @@ body {
         width: auto;
         right: 20px;
         top: 0;
-        padding: 30px;
+        padding: 10px;
         font-size: large;
     }
     .post-options:hover{

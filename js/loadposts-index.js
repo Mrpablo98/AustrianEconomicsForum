@@ -50,19 +50,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     
                     var postHtml = '<div class="post" data-id="'+post.id+'">'; 
-                        if(post.usuario_id==userId){postHtml+='<div class="post-options"></div>';}
+                    if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
                         postHtml+= '<div class="post-content">' +
                                     '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
-                                    '</div>' +
-                                    '<div class="post-image">' +
+                                    '</div>';
+                                    if(post.url_recurso!=null){postHtml+='<div class="post-image">' +
                                         '<img id="post-img" src="' + post.url_recurso + '" />' +
-                                    '</div>' +
-                                    '<div class="post-arrow">' + 
+                                    '</div>';}
+                                    postHtml+='<div class="post-arrow">' + 
                                         '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<div class="cortina-post invisible">' +
+                                    '</div>';
+                                    if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
+                                postHtml+='</div>';
+                                
+                                postHtml+='<div class="cortina-post invisible">' +
                                         '<div class="complete-Post ">' +
                                             '<div class="complete-post-image invisible">' +
                                                 '<img src="' + post.url_recurso + '" />' +
@@ -89,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         '</div>' +
                                         '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
                                 '</div>';
+
 
                     document.querySelector('#posts').innerHTML += postHtml; 
                     

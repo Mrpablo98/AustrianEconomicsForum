@@ -15,5 +15,5 @@ if($accion=='aceptar'){
 $sql=$mysqli->prepare($sql);
 $sql->bind_param("ii",$userId1,$userId2);
 $sql->execute();
-echo "Id1: $userId1, Id2: $userId2, Accion: $accion, Response: $response";
+echo json_encode("Id1: $userId1, Id2: $userId2, Accion: $accion, Response: $response");
 

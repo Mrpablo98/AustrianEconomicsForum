@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         postHtml+= '<div class="post-content">' +
                                     '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
-                                    '</div>' +
-                                    '<div class="post-image">' +
+                                    '</div>';
+                                    if(post.url_recurso!=null){postHtml+='<div class="post-image">' +
                                         '<img id="post-img" src="' + post.url_recurso + '" />' +
-                                    '</div>' +
-                                    '<div class="post-arrow">' + 
+                                    '</div>';}
+                                    postHtml+='<div class="post-arrow">' + 
                                         '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
                                     '</div>';
                                     if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
