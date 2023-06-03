@@ -523,14 +523,14 @@ body {
 
 
     .normal_button:hover {
-        background-color: #0BF0FF;
+        background-color: #1877F2;
         color: black;
         border: 2px solid black;
         cursor: pointer;
     }
 
     .public-form button:hover {
-        background-color: #0BF0FF;
+        background-color: #1877F2;;
         color: black;
         border: 2px solid black;
         cursor: pointer;
@@ -756,7 +756,6 @@ body {
 
     .post {
         width: 50%;
-        height: 300px;
         background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
@@ -765,12 +764,15 @@ body {
         gap: 20px;
         border: 1px solid white;
         margin-bottom: 50px;
+        position: relative;
 
     }
+   
+
 
     .post:hover {
         width: 55%;
-        height: 350px;
+        transform: scale(1.05);
     }
 
     .post-image {
@@ -889,6 +891,52 @@ body {
     .complete-post-image div {
         width: 100%;
 
+    }
+
+    .post-optionsOpen{
+        padding-bottom: 150px;
+    }
+
+    .post-options{
+        position: absolute;
+        height: auto;
+        width: auto;
+        right: 20px;
+        top: 0;
+        padding: 30px;
+        font-size: large;
+    }
+    .post-options:hover{
+        cursor:pointer;
+    }
+    .container-delete{
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    }
+    .deleteButton{
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .deleteButton:hover{
+        cursor: pointer;
+    }
+    .editButton{
+        background-color: #1877F2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .editButton:hover{
+        cursor: pointer;
     }
 
 
@@ -1575,6 +1623,51 @@ body {
     .complete-post-image div {
         width: 100%;
 
+    }
+    .post-optionsOpen{
+        padding-bottom: 150px;
+    }
+
+    .post-options{
+        position: absolute;
+        height: auto;
+        width: auto;
+        right: 20px;
+        top: 0;
+        padding: 30px;
+        font-size: large;
+    }
+    .post-options:hover{
+        cursor:pointer;
+    }
+    .container-delete{
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    }
+    .deleteButton{
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .deleteButton:hover{
+        cursor: pointer;
+    }
+    .editButton{
+        background-color: #1877F2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .editButton:hover{
+        cursor: pointer;
     }
 
 
@@ -2333,6 +2426,7 @@ body {
     }
 
     .post {
+        position: relative;
         width: auto;
         height: auto;
         background-color: #0A0C10;
@@ -2458,6 +2552,52 @@ body {
     .complete-post-image div {
         width: 100%;
 
+    }
+
+    .post-optionsOpen{
+        padding-bottom: 150px;
+    }
+
+    .post-options{
+        position: absolute;
+        height: auto;
+        width: auto;
+        right: 20px;
+        top: 0;
+        padding: 30px;
+        font-size: large;
+    }
+    .post-options:hover{
+        cursor:pointer;
+    }
+    .container-delete{
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    }
+    .deleteButton{
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .deleteButton:hover{
+        cursor: pointer;
+    }
+    .editButton{
+        background-color: #1877F2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .editButton:hover{
+        cursor: pointer;
     }
 
     .overflow-post-content {

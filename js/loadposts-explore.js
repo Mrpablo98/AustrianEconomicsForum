@@ -22,12 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         xhr.onload = async function() {
             if (this.status === 200) {
-                var data = JSON.parse(this.responseText);
-                for(var i=start;i<data.length;i++){
-                    
-                }
+                var responseData = JSON.parse(this.responseText);
+                console.log(responseData);
+                var data=responseData.posts;
+                var userId=responseData.userId;
+                console.log(data);
                 for(const post of data) {
                     let content=post.contenido;
+                    Likesrc= await checkLikeButton(post.id);
                     try {
                         const response = await fetch('php/count-likes.php', {
                             method: 'POST',
@@ -37,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             body: 'postId=' + post.id
                         });
                         
-                        const data = await response.text();
-                        console.log(data);
-                        numLikes=data;  
+                        const likeData = await response.text();
+                        console.log(likeData);
+                        numLikes=likeData;  
                         
                     } catch (error) {
                         console.error('Error:', error);
@@ -47,9 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     if(content.length>100){
                         content=content.substring(0,100)+"...";
                     }
-                    Likesrc= await checkLikeButton(post.id);
-                    var postHtml = '<div class="post" data-id="'+post.id+'">' +
-                                    '<div class="post-content">' +
+                    
+                    var postHtml = '<div class="post" data-id="'+post.id+'">'; 
+                    if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
+                        postHtml+= '<div class="post-content">' +
                                     '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
                                     '</div>' +
@@ -58,9 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                     '</div>' +
                                     '<div class="post-arrow">' + 
                                         '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<div class="cortina-post invisible">' +
+                                    '</div>';
+                                    if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
+                                postHtml+='</div>';
+                                
+                                postHtml+='<div class="cortina-post invisible">' +
                                         '<div class="complete-Post ">' +
                                             '<div class="complete-post-image invisible">' +
                                                 '<img src="' + post.url_recurso + '" />' +
@@ -196,6 +201,7 @@ function handleComentClick(coment){
     }
 }
 
+
     function handleLikeClick(like){
         var countLikes=like.closest('.like-container').querySelector('.numLikes');
         var numLikes=parseInt(countLikes.innerHTML);
@@ -243,12 +249,53 @@ function handleComentClick(coment){
             });
     }
 
+    
+function handleOptionsClick(options){
+    let post=options.parentElement;
+    let deleteContainer=post.querySelector('.container-delete');
+    if(deleteContainer.classList.contains('invisible')){
+        deleteContainer.classList.remove('invisible');
+        console.log(post);
+        post.classList.add('post-optionsOpen');
+    }else{
+        deleteContainer.classList.add('invisible');
+        post.classList.remove('post-optionsOpen');
+    }
+}
+
+    function handleDeleteClick(deleteButton){
+        var post=deleteButton.closest('.post');
+        var postId=post.getAttribute('data-id');
+        console.log("is de post: "+postId);
+        fetch('php/delete-post.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'postId': postId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data==="deleted"){
+                post.remove();
+            }
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
 
     function attachListeners() {
             let moreIcons=document.querySelectorAll('.post-arrow .more-icon');
             let closeIcons=document.querySelectorAll('.closeIcon');
             let comentButtons=document.querySelectorAll('.coment-button');
             let likeButtons=document.querySelectorAll('.like');
+            let options=document.querySelectorAll('.post-options');
+            let deleteButtons=document.querySelectorAll('.deleteButton');
             moreIcons.forEach(function(icon){
                 if (icon.listener) {
                     icon.removeEventListener('click', icon.listener);
@@ -277,6 +324,21 @@ function handleComentClick(coment){
                 }
                 like.listener = function() { handleLikeClick(like) };
                 like.addEventListener('click', like.listener);
+            });
+            options.forEach(function(option){
+                if(option.listener){
+                    option.removeEventListener('click', option.listener);
+                }
+                option.listener = function() { handleOptionsClick(option) };
+                option.addEventListener('click', option.listener);
+
+            });
+            deleteButtons.forEach(function(deleteButton){
+                if(deleteButton.listener){
+                    deleteButton.removeEventListener('click', deleteButton.listener);
+                }
+                deleteButton.listener = function() { handleDeleteClick(deleteButton) };
+                deleteButton.addEventListener('click', deleteButton.listener);
             });
        
         
@@ -327,10 +389,12 @@ function handleComentClick(coment){
     }
 
 
+
     var posts=loadPosts();
     posts.then(function(){
         quitarLoading()
     });
+
 
 
     window.addEventListener('scroll', () => {

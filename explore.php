@@ -22,6 +22,7 @@
         $id=$user['user-id'];
     ?>
     <div class="container-all-index">
+        <div id="loading"></div>
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">

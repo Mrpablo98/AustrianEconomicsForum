@@ -108,7 +108,7 @@
         </div>
         
     <script src="js/search.js"></script>
-    <script src='rss-periodicos.js'></script>
+    <script src='js/rss-periodicos.js'></script>
     <script src='js/options.js'></script>
     <script src='js/peticiones-amistad.js'></script>
     <script src='js/imagenes-periodicos.js'></script>

@@ -16,5 +16,10 @@ while($row = $Postresult->fetch_assoc()) {
     $posts[] = $row;
 }
 
-echo json_encode($posts);
+$response = array(
+    "posts" => $posts,
+    "userId" => $userId
+);
+
+echo json_encode($response);
 ?>

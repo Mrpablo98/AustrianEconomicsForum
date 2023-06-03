@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     var id=getQueryParam('id');
-    if(id==null){id=getQueryParam('Iduser');}
     var selectedPostId = null;
     var start = 0;
     var limit = 15;
@@ -23,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         xhr.onload = async function() {
             if (this.status === 200) {
-                var data = JSON.parse(this.responseText);
+                var responseData = JSON.parse(this.responseText);
+                var data=responseData.posts;
+                var userId=responseData.userId;
                 console.log(data);
                 for(const post of data) {
                     let content=post.contenido;
@@ -37,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             body: 'postId=' + post.id
                         });
                         
-                        const data = await response.text();
-                        console.log(data);
-                        numLikes=data;  
+                        const likeData = await response.text();
+                        console.log(likeData);
+                        numLikes=likeData;  
                         
                     } catch (error) {
                         console.error('Error:', error);
@@ -48,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         content=content.substring(0,100)+"...";
                     }
                     
-                    var postHtml = '<div class="post" data-id="'+post.id+'">' +
-                                    '<div class="post-content">' +
+                    var postHtml = '<div class="post" data-id="'+post.id+'">'; 
+                        if(post.usuario_id==userId){postHtml+='<div class="post-options"></div>';}
+                        postHtml+= '<div class="post-content">' +
                                     '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
                                     '</div>' +
