@@ -250,18 +250,23 @@ function handleComentClick(coment){
     }
 
     
-function handleOptionsClick(options){
-    let post=options.parentElement;
-    let deleteContainer=post.querySelector('.container-delete');
-    if(deleteContainer.classList.contains('invisible')){
-        deleteContainer.classList.remove('invisible');
-        console.log(post);
-        post.classList.add('post-optionsOpen');
-    }else{
-        deleteContainer.classList.add('invisible');
-        post.classList.remove('post-optionsOpen');
+    function handleOptionsClick(options){
+        let post=options.parentElement;
+        let deleteContainer=post.querySelector('.container-delete');
+        let icon=options.firstElementChild;
+        if(deleteContainer.classList.contains('invisible')){
+            deleteContainer.classList.remove('invisible');
+            console.log(post);
+            post.classList.add('post-optionsOpen');
+            icon.classList.remove('fa-sort-down');
+            icon.classList.add('fa-sort-up');
+        }else{
+            deleteContainer.classList.add('invisible');
+            post.classList.remove('post-optionsOpen');
+            icon.classList.remove('fa-sort-up');
+            icon.classList.add('fa-sort-down');
+        }
     }
-}
 
     function handleDeleteClick(deleteButton){
         var post=deleteButton.closest('.post');
