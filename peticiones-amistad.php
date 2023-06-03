@@ -17,7 +17,7 @@ while ($row = $result->fetch_assoc()) {
     $result2=$sql->get_result();
     $row2=$result2->fetch_assoc();
     $peticiones[] = 
-    "<p style='text-align:center;'>". "<span style='font-weight:bold;'>". $row2['nombre']. "</span>" . " quiere ser tu amigo" . "</p>".
+    "<p style='text-align:center;'>". "<a href='perfil.php?id=$id2'><span style='font-weight:bold;'>". $row2['nombre']. "</span></a>" . " quiere ser tu amigo" . "</p>".
     "<div class='peticion-buttons'>". "<input type='hidden' id='userId' name='userId' value=". $id2 .">" ."<button class='aceptar-button'>Aceptar</button>".
     "<button class='cancelar-button'>Cancelar</button>"."</div>";
 }

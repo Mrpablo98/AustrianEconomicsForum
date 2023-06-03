@@ -7,6 +7,7 @@ $userId2=$_SESSION['user']['user-id'];
 if($accion=='aceptar'){
     $sql="UPDATE amigos SET aceptada = 1 WHERE usuario_id1 = ? AND usuario_id2 = ?";
     $response = "aceptada";
+    
 }else{
     $sql="DELETE FROM amigos WHERE usuario_id1 = ? AND usuario_id2 = ?";
     $response = "rechazada";
