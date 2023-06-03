@@ -212,7 +212,7 @@ function handleComentClick(coment){
             var lastComentHtml = '<div id="coments" class="coment">' +
                 '<div class="coment-content">' +
                 '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
-                '<p style="style="padding-left:50px; margin:0;">' + comentario + '</p>' +
+                '<p style="padding-left:50px; margin:0;">' + comentario + '</p>' +
                 '</div>' +
                 '</div>';
             document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
@@ -337,7 +337,7 @@ function handleComentClick(coment){
                     comentHtml+='<div id="coments" class="coment">' +
                     '<div class="coment-content">' +
                     '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +
-                    '<p style="style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
+                    '<p style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
                     '</div>' +
                     '</div>';
                     

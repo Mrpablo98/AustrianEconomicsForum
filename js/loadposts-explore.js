@@ -160,33 +160,41 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto';
         console.log('click');
     }
-    function handleComentClick(coment){
-        event.preventDefault();
-        var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
-        var coment1= coment.closest('.form-coment').querySelector('.coment-input');
-            if(comentario.length>0){
-            fetch('coment.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'comentario': comentario,
-                    'postId': selectedPostId
-                })
+    
+function handleComentClick(coment){
+    event.preventDefault();
+    var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
+    var coment1= coment.closest('.form-coment').querySelector('.coment-input');
+        if(comentario.length>0){
+        fetch('coment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'comentario': comentario,
+                'postId': selectedPostId
             })
-            .then(response => response.text())
-            .then(data => {console.log(data)
-                loadComents(selectedPostId);
-                coment1.innerHTML="";}
-            )
-            .catch((error) => {
-            console.error('Error:', error);
-            });
-        }else{
-            alert("No puedes enviar un comentario vacio");
-        }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            var lastComentHtml = '<div id="coments" class="coment">' +
+                '<div class="coment-content">' +
+                '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
+                '<p style="padding-left:50px; margin:0;">' + comentario + '</p>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
+        })
+        .then(coment1.value="")
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }else{
+        alert("No puedes enviar un comentario vacio");
     }
+}
 
     function handleLikeClick(like){
         var countLikes=like.closest('.like-container').querySelector('.numLikes');
@@ -275,16 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 
-    /*var comentsContainer=document.querySelectorAll('.coment');
-    comentsContainer.forEach(function(coment){
-        coment.addEventListener('scroll', () => {
-            const { scrollTop, scrollHeight, clientHeight } = coment;
-        
-            if (scrollTop + clientHeight >= scrollHeight - 5) {
-            loadComents(selectedPostId);
-            }
-        });
-    });*/
+
+
+
     function loadComents(id) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', `comentarios-post.php?startComent=${startComent}&limitComent=${limitComent}&postId=${id}`, true);  
@@ -297,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     comentHtml+='<div id="coments" class="coment">' +
                     '<div class="coment-content">' +
                     '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +
-                    '<p style="style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
+                    '<p style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
                     '</div>' +
                     '</div>';
                 });
@@ -319,8 +320,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    
+    function quitarLoading(){
+        document.getElementById('loading').style.display = 'none';
+        console.log('quitar filtro');
+    }
 
-    loadPosts();
+
+    var posts=loadPosts();
+    posts.then(function(){
+        quitarLoading()
+    });
+
 
     window.addEventListener('scroll', () => {
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;

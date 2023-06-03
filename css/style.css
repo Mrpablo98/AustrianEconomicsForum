@@ -716,6 +716,9 @@ body {
         position: absolute;
         top: 35%;
         bottom: 35%;
+        left: 40%;
+        right: 35%;
+        z-index: 20;
     }
 
     /*perfil*/
@@ -975,6 +978,8 @@ body {
         margin-right: 10px;
         font-size: 0.5em;
         padding-left: 5px;
+        padding-bottom: 20px;
+        font-weight: bold;
     }
 
     .like-container img:hover {
@@ -985,7 +990,7 @@ body {
     .like-container i:hover {
         cursor: pointer;
     }
-
+ 
     .coment-button:hover {
         cursor: pointer;
 
@@ -1286,11 +1291,11 @@ body {
     }
 
     .news img {
-        width: 400px;
+        width: 60%;
     }
 
     .news1 img {
-        width: 400px;
+        width: 60%;
     }
 
     .news a {
@@ -1375,9 +1380,10 @@ body {
     .form-periodicos {
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 80px;
+        height: 130px;
         gap: 10px;
     }
 
@@ -1400,8 +1406,12 @@ body {
 
     #loading {
         width: 50%;
-        margin: 0 auto;
         height: auto;
+        position: absolute;
+        top: 35%;
+        bottom: 35%;
+        left: 25%;
+        right: 25%;
     }
 
     /*perfil*/
@@ -1996,6 +2006,7 @@ body {
         flex-direction: column;
         width: 20px;
         cursor: pointer;
+        
     }
 
     .options-container form {
@@ -2035,6 +2046,7 @@ body {
         list-style: none;
         width: 100%;
         margin-bottom: 30px;
+        z-index: 1000;
     }
 
     .options-item {
@@ -2331,7 +2343,7 @@ body {
         gap: 20px;
         border: 1px solid rgba(255, 255, 255, 0.301);
         margin-bottom: 50px;
-
+        overflow: hidden;
     }
 
 
@@ -2409,7 +2421,7 @@ body {
     .cortina-post {
         background-color: rgba(0, 0, 0, 0.7);
         width: 100%;
-        height: 100vh;
+        height: 95vh;
         position: fixed;
         top: 0;
         z-index: 300;
@@ -2419,8 +2431,8 @@ body {
     }
 
     .complete-Post {
-        background-color: black;
-        width: 80%;
+        background-color: #0A0C10;
+        width: 90%;
         height: 85%;
     }
 
@@ -2428,18 +2440,17 @@ body {
         width: 100%;
         height: 100%;
         display: flex;
+        flex-direction: column;
     }
 
     .complete-post-image p {
         border-bottom: rgba(255, 255, 255, 0.301);
-        padding: 10px;
-        margin: 0;
-        padding-left: 50px;
+
     }
 
     .complete-post-image>img {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: 40%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
@@ -2449,11 +2460,18 @@ body {
 
     }
 
-
+    .overflow-post-content {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 300px;
+        max-height: 300px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        border-top: 1px solid rgba(255, 255, 255, 0.301);
+    }
 
     .coments {
         width: 100%;
-        background-color: black;
+        background-color:  #0A0C10;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         display: flex;
         flex-direction: column;
@@ -2495,12 +2513,11 @@ body {
     }
 
     .coment-input {
-        width: 85%;
+        width: 70%;
         border-radius: 5px;
-        border: 0.3px solid black;
         height: 4vh;
-        -background-color: #262626;
-        background-color: black;
+        border:none;
+        background-color: #0A0C10;;
         color: white;
         margin-right: 15px;
         margin-left: 15px;
@@ -2508,7 +2525,7 @@ body {
 
     .coment-button {
         width: 12%;
-        background-color: #111010;
+        background-color: #0A0C10;
         border: none;
         height: 4vh;
         border-radius: 10%;
@@ -2519,7 +2536,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        height: 5%;
+        height: auto;
         font-size: 30px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
     }
@@ -2539,22 +2556,28 @@ body {
     .like-container i:hover {
         cursor: pointer;
     }
+    .like-container img{
+        margin-right : 10px;
+    }
+    .like-container p{
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 0.5em;
+        padding-right: 10px;
+    }
 
     .coment-button:hover {
         cursor: pointer;
 
     }
 
-    .overflow-post-content {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        height: 75%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
-        border-top: 1px solid rgba(255, 255, 255, 0.301);
-    }
+
 
     .comentar-container {
         height: 7%;
+        margin-top: 5%;
     }
 
 
