@@ -5,6 +5,11 @@ require 'vendor/autoload.php';
 include('connection.php');
 use Google\Cloud\Storage\StorageClient;
 
+ini_set('upload_max_filesize', '100M');
+ini_set('post_max_size', '100M');
+ini_set('max_execution_time', '300');
+ini_set('max_input_time', '300');
+
 function upload_file($bucketName, $objectName, $source, $tipo)
 {
     //$finfo=finfo_open(FILEINFO_MIME_TYPE);

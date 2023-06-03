@@ -94,10 +94,13 @@
                 <input class='input' type='text' id='hagstag' name='hagstag' placeholder='Introduce temáticas relacionadas con el post: #inflacion #pesoargentino #2023'>
                 <button type="submit" class='normal_button public_button'>Publicar</button>
             </form>
+            <img class="loading-publi" src="img/gif_loading.gif">
+            <div class="archivo-subido"><p>El archivo se ha subido con éxito!</p><i class="fas fa-check" style="color: #00ff40;"></i></div>
         </div>
         <script src="js/search.js"></script>
         <script src='js/options.js'></script>
         <script src='js/peticiones-amistad.js'></script>
+        <script src="js/subir-publicacion.js"></script>
 </body>
 
 </html>

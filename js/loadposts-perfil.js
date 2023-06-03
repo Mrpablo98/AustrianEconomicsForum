@@ -56,9 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                     '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
                                     '</div>';
-                                    if(post.url_recurso!=null){postHtml+='<div class="post-image">' +
+                                    if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
                                         '<img id="post-img" src="' + post.url_recurso + '" />' +
-                                    '</div>';}
+                                    '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
+                                    '<video id="post-img" src="' + post.url_recurso + '" controls />' +
+                                '</div>';}}
                                     postHtml+='<div class="post-arrow">' + 
                                         '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
                                     '</div>';
@@ -67,9 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 
                                 postHtml+='<div class="cortina-post invisible">' +
                                         '<div class="complete-Post ">' +
-                                            '<div class="complete-post-image invisible">' +
-                                                '<img src="' + post.url_recurso + '" />' +
-                                                '<div>'+
+                                            '<div class="complete-post-image invisible">';
+                                                if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<img src="' + post.url_recurso + '" />';
+                                            }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}};
+                                               postHtml+= '<div>'+
                                                 '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
                                                 '<div class="overflow-post-content">' +
                                                 '<p>' + post.contenido + '</p>' +

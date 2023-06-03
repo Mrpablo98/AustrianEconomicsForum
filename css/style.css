@@ -539,6 +539,18 @@ body {
     textarea {
         resize: none;
     }
+    .loading-publi{
+        display: none;
+        width: 20%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .archivo-subido{
+        display: none;
+        color : rgb(8, 153, 8);
+        align-items: center;
+        justify-content: center;
+    }
 
     /*Noticias*/
 
@@ -886,6 +898,12 @@ body {
     }
 
     .complete-post-image>img {
+        width: 150%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+    }
+    .complete-post-image>video {
         width: 150%;
         height: 100%;
         object-fit: contain;
