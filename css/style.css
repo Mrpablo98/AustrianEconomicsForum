@@ -799,6 +799,9 @@ body {
 
 
     .post img {
+        
+    }
+    #post-img{
         width: 100%;
         height: 290px;
         border-radius: 5%;
@@ -1018,6 +1021,11 @@ body {
     }
 
     .like-container img {
+        color: #ffffff;
+        overflow: hidden;
+        width: 30px;
+    }
+    .like{
         color: #ffffff;
         overflow: hidden;
         width: 30px;

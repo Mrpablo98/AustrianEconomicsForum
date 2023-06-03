@@ -89,7 +89,7 @@
         <div class="content-container">
             <form class='public-form' action="validate-publi.php" method='POST' enctype="multipart/form-data">
                 <input class='input' id='title' name='title' type='text' placeholder='Título del post...'>
-                <textarea id='body' name='body' class='input' maxlength='1000' placeholder='Texto del post...' style="height:150px;"></textarea>
+                <textarea id='body' name='body' class='input' maxlength='10000' placeholder='Texto del post...' style="height:150px;"></textarea>
                 <input class="input-file" id='file' name='file' type="file" accept="image/*, video/*, audio/*,  text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf">
                 <input class='input' type='text' id='hagstag' name='hagstag' placeholder='Introduce temáticas relacionadas con el post: #inflacion #pesoargentino #2023'>
                 <button type="submit" class='normal_button public_button'>Publicar</button>

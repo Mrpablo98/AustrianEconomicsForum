@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.querySelector('#posts').innerHTML += postHtml; 
                     
                 };
+                likesShow(start);
                 if(data.length === 15){start += limit;}else{start+=data.length;}
                 loading=false;
                 attachListeners();
@@ -110,6 +111,17 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         xhr.send();
+    }
+    function likesShow(start){
+        var posts=document.querySelectorAll('.post');
+        
+        for(i=start;i<posts.length;i++){
+            let postContent=posts[i].querySelector('.post-content');
+            let cortinaPost=posts[i].nextElementSibling;
+            let likeContainer=cortinaPost.querySelector('.like-container');
+            let likes=likeContainer.innerHTML;
+            postContent.innerHTML+=likes;
+        }
     }
 
     async function checkLikeButton(postId) {
@@ -345,7 +357,7 @@ function handleComentClick(coment){
                 deleteButton.listener = function() { handleDeleteClick(deleteButton) };
                 deleteButton.addEventListener('click', deleteButton.listener);
             });
-       
+           
         
         
     }
