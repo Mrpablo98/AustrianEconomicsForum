@@ -13,7 +13,6 @@ LEFT JOIN post_likes_dislikes ON posts.id = post_likes_dislikes.post_id
 WHERE (amigos.usuario_id1 = ? OR amigos.usuario_id2= ?) AND posts.usuario_id != ?
 GROUP BY posts.id
 ORDER BY posts.id DESC LIMIT ?, ?');
-if(!$sql){ 'Error: ' . $mysqli->error;}
 $sql->bind_param("iiiii", $userId, $userId, $userId, $start, $limit);
 $sql->execute();
 $Postresult=$sql->get_result();
