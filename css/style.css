@@ -791,6 +791,8 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 10px;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
 
 
@@ -808,6 +810,21 @@ body {
 
     .post-audio {
         margin-bottom: 10px;
+    }
+
+    .cortina-audio {
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        background-image: url(../img/logo-dark.png);
+        width: 50%;
+        background-image: no-repeat;
+        object-fit: fill;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+
+    .cortina-audio audio {
+        width: 50%;
+        height: 80%;
     }
 
     .post-content {
@@ -924,7 +941,6 @@ body {
 
     .complete-post-image div {
         width: 100%;
-
     }
 
     .post-optionsOpen {
