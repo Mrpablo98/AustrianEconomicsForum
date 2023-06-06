@@ -172,19 +172,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     document.body.style.overflow = 'hidden';
         
-                    // Select the specific comments container for the opened post
+                    
                     let comentsContainerOverflow = completePost.querySelector('.overflow-post-content');
                     let comentsContainer = completePost.querySelector('.coments');
                     comentsContainer.innerHTML = "";
                     if(startComent==0){loadComents(selectedPostId);}
-        
-                    // Apply the scroll listener to the specific comments container
-                    comentsContainerOverflow.addEventListener('scroll', () => {
+                    const handleScroll = () => {
                         const { scrollTop, scrollHeight, clientHeight } = comentsContainerOverflow;
                         if (scrollTop + clientHeight >= scrollHeight - 5) {
+                            if(startComent==25){
                             loadComents(selectedPostId);
+                            }
                         }
-                    });
+                    };
+
+      
+                    comentsContainerOverflow.removeEventListener('scroll', handleScroll);
+                    comentsContainerOverflow.addEventListener('scroll', handleScroll);
     }
 
     function handleCloseIconClick(icon){
@@ -271,7 +275,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<button style="background-color:transparent; border:none;" class="deleteComent" data-comentId="'+data.comentId+'"><i class="fa-solid fa-trash" style="color: #ebebeb;"></i></button></div>' +
                     '</div>' +
                     '</div>';
-                //document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
                 document.getElementById('coments'+selectedPostId).insertAdjacentHTML('afterbegin', lastComentHtml);
                 attachListeners();
     
@@ -360,16 +363,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 
-    /*var comentsContainer=document.querySelectorAll('.coment');
-    comentsContainer.forEach(function(coment){
-        coment.addEventListener('scroll', () => {
-            const { scrollTop, scrollHeight, clientHeight } = coment;
-        
-            if (scrollTop + clientHeight >= scrollHeight - 5) {
-            loadComents(selectedPostId);
-            }
-        });
-    });*/
     function loadComents(id) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', `php/comentarios-post.php?startComent=${startComent}&limitComent=${limitComent}&postId=${id}`, true);  
@@ -394,7 +387,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     '</div>';
                     
                 });
-                document.getElementById('coments'+selectedPostId).innerHTML ="";
                 document.getElementById('coments'+selectedPostId).innerHTML += comentHtml; 
                 if(data.length === limitComent) { startComent += limitComent; } else { startComent += data.length; }
                 attachListeners();
@@ -412,6 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     }
+
 
     function quitarLoading(){
         document.getElementById('loading').style.display = 'none';

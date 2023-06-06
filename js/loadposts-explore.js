@@ -172,19 +172,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     document.body.style.overflow = 'hidden';
         
-                    // Select the specific comments container for the opened post
+                    
                     let comentsContainerOverflow = completePost.querySelector('.overflow-post-content');
                     let comentsContainer = completePost.querySelector('.coments');
                     comentsContainer.innerHTML = "";
                     if(startComent==0){loadComents(selectedPostId);}
-        
-                    // Apply the scroll listener to the specific comments container
-                    comentsContainerOverflow.addEventListener('scroll', () => {
+                    const handleScroll = () => {
                         const { scrollTop, scrollHeight, clientHeight } = comentsContainerOverflow;
                         if (scrollTop + clientHeight >= scrollHeight - 5) {
+                            if(startComent==25){
                             loadComents(selectedPostId);
+                            }
                         }
-                    });
+                    };
+
+      
+                    comentsContainerOverflow.removeEventListener('scroll', handleScroll);
+                    comentsContainerOverflow.addEventListener('scroll', handleScroll);
     }
 
     function handleCloseIconClick(icon){
@@ -449,7 +453,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     '</div>';
                     
                 });
-                document.getElementById('coments'+selectedPostId).innerHTML ="";
                 document.getElementById('coments'+selectedPostId).innerHTML += comentHtml; 
                 if(data.length === limitComent) { startComent += limitComent; } else { startComent += data.length; }
                 attachListeners();
