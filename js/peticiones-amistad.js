@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.log(button)
                         } else {
                             var response=document.createElement('p');
-                            response.innerHTML="No tienes notificaciones pendientes.";
+                            response.innerHTML="Petición aceptada!";
                             response.style.textAlign='center';
                             var peticion=button.parentElement.parentElement;
                             peticion.innerHTML='';
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.log(button)
                         } else {
                             let response=document.createElement('p');
-                            response.innerHTML="No tienes notificaciones pendientes.";
+                            response.innerHTML="Petición rechazada!";
                             response.style.textAlign='center';
                             let peticion=button.parentElement.parentElement;
                             peticion.innerHTML='';
