@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var searchQuery = this.value;
         
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'search.php', true);
+        xhr.open('POST', 'php/search.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onload = function() {
             if (this.status === 200) {

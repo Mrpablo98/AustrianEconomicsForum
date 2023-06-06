@@ -2,7 +2,7 @@
 session_start();
 $userId=$_SESSION['user']['user-id'];
 require 'vendor/autoload.php';
-include('connection.php');
+include('../connection.php');
 use Google\Cloud\Storage\StorageClient;
 
 ini_set('upload_max_filesize', '200M');
@@ -41,10 +41,12 @@ function upload_file($bucketName, $objectName, $source, $tipo)
     ];
 
 }
-extract($_POST);
-$title=trim($_POST['title']);
-$body=trim($_POST['body']);
+
+$title = isset($_POST['title']) ? trim($_POST['title']) : '';
+$body = isset($_POST['body']) ? trim($_POST['body']) : '';
 if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+    $idUser=$userId;
+    $_FILES['file']['name'] = $_FILES['file']['name'].strval($idUser);
     $fileName = $_FILES['file']['name'];
     $fileType = $_FILES['file']['type'];
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
@@ -53,6 +55,7 @@ if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     if(strpos($fileType, 'application')!==false || strpos($_FILES['file']['type'], 'text')!==false){$tipo='archivo';}
     if(strpos($fileType, 'image')!==false){$tipo='imagen';}
     if(strpos($fileType, 'video')!==false){$tipo='video';}
+    if(strpos($fileType, 'audio')!==false){$tipo='audio';}
     $datos=upload_file('austrian-economics-forum', $fileName, $fileName, $tipo);
    
 }

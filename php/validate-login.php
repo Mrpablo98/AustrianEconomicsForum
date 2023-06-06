@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("../connection.php");
 extract($_POST);
 $password=trim($_POST['password']);
 $sql = $mysqli->prepare('SELECT * FROM usuarios WHERE nombre = ?');

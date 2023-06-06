@@ -489,7 +489,7 @@ body {
         border-radius: 5px;
         height: 2vw;
         background-color: #191F26;
-        border:none;
+        border: none;
         color: white;
         width: 100%;
     }
@@ -509,7 +509,7 @@ body {
         height: 30px;
         border-radius: 20px;
     }
-    
+
 
     .normal_button {
         background-color: black;
@@ -530,7 +530,8 @@ body {
     }
 
     .public-form button:hover {
-        background-color: #1877F2;;
+        background-color: #1877F2;
+        ;
         color: black;
         border: 2px solid black;
         cursor: pointer;
@@ -539,15 +540,17 @@ body {
     textarea {
         resize: none;
     }
-    .loading-publi{
+
+    .loading-publi {
         display: none;
         width: 20%;
         height: auto;
         margin: 0 auto;
     }
-    .archivo-subido{
+
+    .archivo-subido {
         display: none;
-        color : rgb(8, 153, 8);
+        color: rgb(8, 153, 8);
         align-items: center;
         justify-content: center;
     }
@@ -783,7 +786,13 @@ body {
         position: relative;
 
     }
-   
+
+    .cortina-audio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 
 
     .post:hover {
@@ -795,6 +804,10 @@ body {
         width: 30%;
         display: flex;
         align-items: center;
+    }
+
+    .post-audio {
+        margin-bottom: 10px;
     }
 
     .post-content {
@@ -810,10 +823,8 @@ body {
     }
 
 
-    .post img {
-        
-    }
-    #post-img{
+
+    #post-img {
         width: 100%;
         height: 290px;
         border-radius: 5%;
@@ -864,7 +875,7 @@ body {
 
     .cortina-post {
         background-color: rgba(0, 0, 0, 0.7);
-        
+
         width: 100%;
         height: 100vh;
         position: fixed;
@@ -880,7 +891,7 @@ body {
         width: 80%;
         height: 85%;
         border-radius: 2.5%;
-       border: 1px solid rgba(255, 255, 255, 0.301);
+        border: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .complete-post-image {
@@ -898,13 +909,14 @@ body {
     }
 
     .complete-post-image>img {
-        width: 150%;
+        width: 50%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
+
     .complete-post-image>video {
-        width: 150%;
+        width: 50%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
@@ -915,11 +927,11 @@ body {
 
     }
 
-    .post-optionsOpen{
+    .post-optionsOpen {
         padding-bottom: 150px;
     }
 
-    .post-options{
+    .post-options {
         position: absolute;
         height: auto;
         width: auto;
@@ -928,10 +940,12 @@ body {
         padding: 30px;
         font-size: large;
     }
-    .post-options:hover{
-        cursor:pointer;
+
+    .post-options:hover {
+        cursor: pointer;
     }
-    .container-delete{
+
+    .container-delete {
         position: absolute;
         bottom: 50px;
         width: 100%;
@@ -939,25 +953,30 @@ body {
         justify-content: center;
         align-items: center;
         gap: 10%;
+        transition: all 0.5s;
     }
-    .deleteButton{
+
+    .deleteButton {
         background-color: #ff0000;
         color: white;
         border: none;
         border-radius: 5px;
         padding: 10px;
     }
-    .deleteButton:hover{
+
+    .deleteButton:hover {
         cursor: pointer;
     }
-    .editButton{
+
+    .editButton {
         background-color: #1877F2;
         color: white;
         border: none;
         border-radius: 5px;
         padding: 10px;
     }
-    .editButton:hover{
+
+    .editButton:hover {
         cursor: pointer;
     }
 
@@ -991,7 +1010,7 @@ body {
     }
 
     .coment-content:hover {
-        
+
         background-color: #2e2e2e;
     }
 
@@ -1001,6 +1020,7 @@ body {
         margin-left: 5px;
 
     }
+
     .coment-content a:hover {
         cursor: pointer;
     }
@@ -1017,7 +1037,7 @@ body {
         color: white;
         margin-right: 15px;
         margin-left: 15px;
-        border:none;
+        border: none;
     }
 
     .coment-button {
@@ -1027,6 +1047,10 @@ body {
         height: 4vh;
         border-radius: 10%;
         font-size: 20px;
+    }
+
+    .fa-trash:hover {
+        cursor: pointer;
     }
 
     .like-container {
@@ -1043,7 +1067,8 @@ body {
         overflow: hidden;
         width: 30px;
     }
-    .like{
+
+    .like {
         color: #ffffff;
         overflow: hidden;
         width: 30px;
@@ -1065,7 +1090,7 @@ body {
     .like-container i:hover {
         cursor: pointer;
     }
- 
+
     .coment-button:hover {
         cursor: pointer;
 
@@ -1108,8 +1133,8 @@ body {
     }
 }
 
-@media(min-width:768px) and (max-width: 1990px){
-    
+@media(min-width:768px) and (max-width: 1990px) {
+
     #result {
         position: absolute;
         top: 35px;
@@ -1127,8 +1152,9 @@ body {
         margin: 0 auto;
     }
 }
-@media(min-width:1991px) and (max-width: 3990px){
-    
+
+@media(min-width:1991px) and (max-width: 3990px) {
+
     #result {
         position: absolute;
         top: 40px;
@@ -1275,9 +1301,11 @@ body {
         z-index: 100;
         margin: 0 auto;
     }
-    #notificacion{
+
+    #notificacion {
         padding-left: 20px;
     }
+
     .search-link {
         color: black;
         text-decoration: none;
@@ -1566,8 +1594,6 @@ body {
     }
 
     .post img {
-        width: 100%;
-        height: 290px;
         border-radius: 5%;
         object-fit: contain;
         transition: all 0.5s;
@@ -1644,7 +1670,21 @@ body {
     }
 
     .complete-post-image>img {
-        width: 150%;
+        width: 50%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+    }
+
+    .complete-post-image>img {
+        width: 50%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+    }
+
+    .complete-post-image>video {
+        width: 50%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
@@ -1654,11 +1694,12 @@ body {
         width: 100%;
 
     }
-    .post-optionsOpen{
+
+    .post-optionsOpen {
         padding-bottom: 150px;
     }
 
-    .post-options{
+    .post-options {
         position: absolute;
         height: auto;
         width: auto;
@@ -1667,10 +1708,12 @@ body {
         padding: 30px;
         font-size: large;
     }
-    .post-options:hover{
-        cursor:pointer;
+
+    .post-options:hover {
+        cursor: pointer;
     }
-    .container-delete{
+
+    .container-delete {
         position: absolute;
         bottom: 50px;
         width: 100%;
@@ -1679,24 +1722,28 @@ body {
         align-items: center;
         gap: 10%;
     }
-    .deleteButton{
+
+    .deleteButton {
         background-color: #ff0000;
         color: white;
         border: none;
         border-radius: 5px;
         padding: 10px;
     }
-    .deleteButton:hover{
+
+    .deleteButton:hover {
         cursor: pointer;
     }
-    .editButton{
+
+    .editButton {
         background-color: #1877F2;
         color: white;
         border: none;
         border-radius: 5px;
         padding: 10px;
     }
-    .editButton:hover{
+
+    .editButton:hover {
         cursor: pointer;
     }
 
@@ -2129,7 +2176,7 @@ body {
         flex-direction: column;
         width: 20px;
         cursor: pointer;
-        
+
     }
 
     .options-container form {
@@ -2250,7 +2297,7 @@ body {
         background-color: #191F26;
         color: white;
         width: 100%;
-        border:none;
+        border: none;
     }
 
     .input-file {
@@ -2457,7 +2504,7 @@ body {
 
     .post {
         position: relative;
-        width: auto;
+        width: 95%;
         height: auto;
         max-height: 230px;
         background-color: #0A0C10;
@@ -2465,17 +2512,28 @@ body {
         display: flex;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         transition: all 0.5s;
-        gap: 20px;
         border: 1px solid rgba(255, 255, 255, 0.301);
         margin-bottom: 50px;
         overflow: hidden;
     }
 
+    .post h2 {
+        font-size: small;
+    }
+
+    .post p {
+        font-size: small;
+    }
+
 
     .post-image {
-        width: 30%;
+        max-width: 30%;
         display: flex;
         align-items: center;
+    }
+
+    .post-image img {
+        overflow: hidden;
     }
 
     .post-content {
@@ -2496,11 +2554,15 @@ body {
     }
 
     .post img {
-        width: 100%;
         height: 150px;
         border-radius: 5%;
         object-fit: contain;
         transition: all 0.5s;
+    }
+
+    .like {
+        width: 30px;
+
     }
 
 
@@ -2585,11 +2647,11 @@ body {
 
     }
 
-    .post-optionsOpen{
+    .post-optionsOpen {
         padding-bottom: 150px;
     }
 
-    .post-options{
+    .post-options {
         position: absolute;
         height: auto;
         width: auto;
@@ -2598,10 +2660,12 @@ body {
         padding: 10px;
         font-size: large;
     }
-    .post-options:hover{
-        cursor:pointer;
+
+    .post-options:hover {
+        cursor: pointer;
     }
-    .container-delete{
+
+    .container-delete {
         position: absolute;
         bottom: 50px;
         width: 100%;
@@ -2610,24 +2674,28 @@ body {
         align-items: center;
         gap: 10%;
     }
-    .deleteButton{
+
+    .deleteButton {
         background-color: #ff0000;
         color: white;
         border: none;
         border-radius: 5px;
         padding: 10px;
     }
-    .deleteButton:hover{
+
+    .deleteButton:hover {
         cursor: pointer;
     }
-    .editButton{
+
+    .editButton {
         background-color: #1877F2;
         color: white;
         border: none;
         border-radius: 5px;
         padding: 10px;
     }
-    .editButton:hover{
+
+    .editButton:hover {
         cursor: pointer;
     }
 
@@ -2642,7 +2710,7 @@ body {
 
     .coments {
         width: 100%;
-        background-color:  #0A0C10;
+        background-color: #0A0C10;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         display: flex;
         flex-direction: column;
@@ -2687,8 +2755,9 @@ body {
         width: 70%;
         border-radius: 5px;
         height: 4vh;
-        border:none;
-        background-color: #0A0C10;;
+        border: none;
+        background-color: #0A0C10;
+        ;
         color: white;
         margin-right: 15px;
         margin-left: 15px;
@@ -2727,10 +2796,12 @@ body {
     .like-container i:hover {
         cursor: pointer;
     }
-    .like-container img{
-        margin-right : 10px;
+
+    .like-container img {
+        margin-right: 10px;
     }
-    .like-container p{
+
+    .like-container p {
         margin-top: 0;
         margin-bottom: 0;
         padding-top: 0;

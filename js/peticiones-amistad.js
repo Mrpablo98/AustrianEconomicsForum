@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
    async function getPeticiones(){
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'peticiones-amistad.php', true);
+    xhr.open('POST', 'php/peticiones-amistad.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
         if (this.status === 200) {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let aceptarButton1=button.previousElementSibling;
                 userId=aceptarButton1.previousElementSibling.value;
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'aceptar-rechazar-amistad.php', true);
+                xhr.open('POST', 'php/aceptar-rechazar-amistad.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onload = function() {
                     if (this.status === 200) {

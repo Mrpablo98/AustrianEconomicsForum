@@ -1,5 +1,5 @@
 <?php
-require_once("connection.php");
+require_once("../connection.php");
 session_start();
 $userId=$_SESSION['user']['user-id'];
 $postId=$_POST['postId'];

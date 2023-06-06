@@ -209,60 +209,60 @@ var linksEconomia=[];
 var linksInternacional=[];
     if (values.includes('ElPais')){
 
-        linksEconomia.push('rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada');
-        linksInternacional.push('rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada');
+        linksEconomia.push('php/rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada');
+        linksInternacional.push('php/rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada');
     }else{
-       linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada');
+       linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada');
     }
     if (values.includes('ElMundo')){
-        linksEconomia.push('rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/economia.xml');
-        linksInternacional.push('rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/internacional.xml');
+        linksEconomia.push('php/rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/economia.xml');
+        linksInternacional.push('php/rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/internacional.xml');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/economia.xml');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/internacional.xml');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/economia.xml');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://e00-elmundo.uecdn.es/elmundo/rss/internacional.xml');
     }
     if (values.includes('ElEconomista')){
-        linksEconomia.push('rss-proxy.php?url=https://www.eleconomista.es/rss/rss-economia.php');
-        linksInternacional.push('rss-proxy.php?url=https://www.eleconomista.es/rss/rss-category.php?category=tecnologia');
+        linksEconomia.push('php/rss-proxy.php?url=https://www.eleconomista.es/rss/rss-economia.php');
+        linksInternacional.push('php/rss-proxy.php?url=https://www.eleconomista.es/rss/rss-category.php?category=tecnologia');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://www.eleconomista.es/rss/rss-economia.php');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://www.eleconomista.es/rss/rss-category.php?category=tecnologia');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://www.eleconomista.es/rss/rss-economia.php');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://www.eleconomista.es/rss/rss-category.php?category=tecnologia');
     }
     if (values.includes('LaVanguardia')){
-        linksEconomia.push('rss-proxy.php?url=https://www.lavanguardia.com/rss/economia.xml');
-        linksInternacional.push('rss-proxy.php?url=https://www.lavanguardia.com/rss/internacional.xml');
+        linksEconomia.push('php/rss-proxy.php?url=https://www.lavanguardia.com/rss/economia.xml');
+        linksInternacional.push('php/rss-proxy.php?url=https://www.lavanguardia.com/rss/internacional.xml');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://www.lavanguardia.com/rss/economia.xml');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://www.lavanguardia.com/rss/internacional.xml');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://www.lavanguardia.com/rss/economia.xml');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://www.lavanguardia.com/rss/internacional.xml');
     }
     if (values.includes('ElPeriodico')){
-        linksEconomia.push('rss-proxy.php?url=https://www.elperiodico.com/es/rss/economia/rss.xml');
-        linksInternacional.push('rss-proxy.php?url=https://www.elperiodico.com/es/rss/internacional/rss.xml');
+        linksEconomia.push('php/rss-proxy.php?url=https://www.elperiodico.com/es/rss/economia/rss.xml');
+        linksInternacional.push('php/rss-proxy.php?url=https://www.elperiodico.com/es/rss/internacional/rss.xml');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://www.elperiodico.com/es/rss/economia/rss.xml');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://www.elperiodico.com/es/rss/internacional/rss.xml');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://www.elperiodico.com/es/rss/economia/rss.xml');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://www.elperiodico.com/es/rss/internacional/rss.xml');
     }
     if (values.includes('LibreMercado')){
-        linksEconomia.push('rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/economia');
-        linksInternacional.push('rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/internacional');
+        linksEconomia.push('php/rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/economia');
+        linksInternacional.push('php/rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/internacional');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/economia');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/internacional');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/economia');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=http://feeds2.feedburner.com/libertaddigital/internacional');
     }
     if (values.includes('LaVoz')){
-        linksEconomia.push('rss-proxy.php?url=https://www.lavozdegalicia.es/economia/index.xml');
-        linksInternacional.push('rss-proxy.php?url=https://www.lavozdegalicia.es/internacional/index.xml');
+        linksEconomia.push('php/rss-proxy.php?url=https://www.lavozdegalicia.es/economia/index.xml');
+        linksInternacional.push('php/rss-proxy.php?url=https://www.lavozdegalicia.es/internacional/index.xml');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://www.lavozdegalicia.es/economia/index.xml');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://www.lavozdegalicia.es/internacional/index.xml');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://www.lavozdegalicia.es/economia/index.xml');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://www.lavozdegalicia.es/internacional/index.xml');
     }
     if (values.includes('NosDiario')){
-        linksEconomia.push('rss-proxy.php?url=https://www.nosdiario.gal/rss/economia');
-        linksInternacional.push('rss-proxy.php?url=https://www.nosdiario.gal/rss/internacional');
+        linksEconomia.push('php/rss-proxy.php?url=https://www.nosdiario.gal/rss/economia');
+        linksInternacional.push('php/rss-proxy.php?url=https://www.nosdiario.gal/rss/internacional');
     }else{
-        linksEconomia=linksEconomia.filter(item=> item!=='rss-proxy.php?url=https://www.nosdiario.gal/rss/economia');
-        linksInternacional=linksInternacional.filter(item=>item!=='rss-proxy.php?url=https://www.nosdiario.gal/rss/internacional');
+        linksEconomia=linksEconomia.filter(item=> item!=='php/rss-proxy.php?url=https://www.nosdiario.gal/rss/economia');
+        linksInternacional=linksInternacional.filter(item=>item!=='php/rss-proxy.php?url=https://www.nosdiario.gal/rss/internacional');
     }
     return [linksEconomia, linksInternacional];
 }

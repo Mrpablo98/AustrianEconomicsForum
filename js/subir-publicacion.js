@@ -1,5 +1,5 @@
 const uploadFile = (file, title, body) => {
-    const url = 'validate-publi.php';  
+    const url = 'php/validate-publi.php';  
     const formData = new FormData();
 
     // Añade los datos del archivo y los inputs al objeto FormData

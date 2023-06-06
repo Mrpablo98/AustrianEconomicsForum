@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(loading){return;}
         loading=true;
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', `posts-explorar.php?start=${start}&limit=${limit}&id=${id}`, true);  
+        xhr.open('GET', `php/posts-explorar.php?start=${start}&limit=${limit}&id=${id}`, true);  
 
         xhr.onload = async function() {
             if (this.status === 200) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         '<img id="post-img" src="' + post.url_recurso + '" />' +
                                     '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
                                     '<video id="post-img" src="' + post.url_recurso + '" controls />' +
-                                '</div>';}}
+                                '</div>';}if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}}
                                     postHtml+='<div class="post-arrow">' + 
                                         '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
                                     '</div>';
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         '<div class="complete-Post ">' +
                                             '<div class="complete-post-image invisible">';
                                                 if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<img src="' + post.url_recurso + '" />';
-                                            }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}};
+                                            }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}};
                                                postHtml+= '<div>'+
                                                 '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
                                                 '<div class="overflow-post-content">' +
@@ -127,8 +127,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function likesShowComplete(){
+        var posts=document.querySelectorAll('.post');
+
+        posts.forEach(function(post){
+            let postContent=post.querySelector('.post-content');
+            let cortinaPost=post.nextElementSibling;
+            let likeContainer=cortinaPost.querySelector('.like-container');
+            let likes=likeContainer.innerHTML;
+            let likesOld=postContent.querySelector('.like');
+            let numLikesOld=postContent.querySelector('.numLikes');
+            likesOld.remove();
+            numLikesOld.remove();
+            postContent.innerHTML+=likes;
+        });
+    }
+
     async function checkLikeButton(postId) {
-        let response= await fetch('check_like.php', {
+        let response= await fetch('php/check_like.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -179,42 +195,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         document.body.style.overflow = 'auto';
         console.log('click');
+        likesShowComplete();
     }
     
-function handleComentClick(coment){
-    event.preventDefault();
-    var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
-    var coment1= coment.closest('.form-coment').querySelector('.coment-input');
-        if(comentario.length>0){
-        fetch('coment.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'comentario': comentario,
-                'postId': selectedPostId
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            var lastComentHtml = '<div id="coments" class="coment">' +
-                '<div class="coment-content">' +
-                '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
-                '<p style="padding-left:50px; margin:0;">' + comentario + '</p>' +
-                '</div>' +
-                '</div>';
-            document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
-        })
-        .then(coment1.value="")
-        .catch((error) => {
-        console.error('Error:', error);
-        });
-    }else{
-        alert("No puedes enviar un comentario vacio");
-    }
-}
+
 
 
     function handleLikeClick(like){
@@ -226,7 +210,7 @@ function handleComentClick(coment){
                 console.log('like');
             }
             console.log(like2);
-            fetch('like.php', {
+            fetch('php/like.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -308,6 +292,70 @@ function handleComentClick(coment){
         });
     }
 
+    function handleComentClick(coment){
+        event.preventDefault();
+        var comentario = coment.closest('.form-coment').querySelector('.coment-input').value; 
+        var coment1= coment.closest('.form-coment').querySelector('.coment-input');
+            if(comentario.length>0){
+            fetch('php/coment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'comentario': comentario,
+                    'postId': selectedPostId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                var lastComentHtml = '<div class="coment" id="coment'+ data.comentId +'">' +
+                    '<div class="coment-content">' +
+                    '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
+                    '<div style="display:flex; justify-content:space-between;" ><p style="padding-left:50px; margin:0;">' + comentario + '</p>' +
+                    '<button style="background-color:transparent; border:none;" class="deleteComent" data-comentId="'+data.comentId+'"><i class="fa-solid fa-trash" style="color: #ebebeb;"></i></button></div>' +
+                    '</div>' +
+                    '</div>';
+                //document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
+                document.getElementById('coments'+selectedPostId).insertAdjacentHTML('afterbegin', lastComentHtml);
+                attachListeners();
+    
+            })
+            .then(coment1.value="")
+            .catch((error) => {
+            console.error('Error:', error);
+            });
+        }else{
+            alert("No puedes enviar un comentario vacio");
+        }
+    }
+
+    function handleDeleteComent(comentId){
+        console.log("is de coment: "+comentId);
+        let classComent="coment"+comentId;
+        let coment=document.getElementById(classComent);
+        fetch('php/delete-coment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'comentId': comentId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data==="deleted"){
+                coment.remove();
+            }
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
 
     function attachListeners() {
             let moreIcons=document.querySelectorAll('.post-arrow .more-icon');
@@ -316,6 +364,7 @@ function handleComentClick(coment){
             let likeButtons=document.querySelectorAll('.like');
             let options=document.querySelectorAll('.post-options');
             let deleteButtons=document.querySelectorAll('.deleteButton');
+            let deleteComentButtons=document.querySelectorAll('.deleteComent');
             moreIcons.forEach(function(icon){
                 if (icon.listener) {
                     icon.removeEventListener('click', icon.listener);
@@ -360,33 +409,50 @@ function handleComentClick(coment){
                 deleteButton.listener = function() { handleDeleteClick(deleteButton) };
                 deleteButton.addEventListener('click', deleteButton.listener);
             });
-           
+            deleteComentButtons.forEach(function(button){
+                if(button.listener){
+                    button.removeEventListener('click', button.listener);
+                }
+                button.listener = function() { 
+                    const comentId = parseInt(button.getAttribute('data-comentId'), 10);
+                    handleDeleteComent(comentId); 
+                };
+                button.addEventListener('click', button.listener);
+            });
         
         
     }
 
 
 
-
     function loadComents(id) {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', `comentarios-post.php?startComent=${startComent}&limitComent=${limitComent}&postId=${id}`, true);  
+        xhr.open('GET', `php/comentarios-post.php?startComent=${startComent}&limitComent=${limitComent}&postId=${id}`, true);  
 
         xhr.onload = function() {
             if (this.status === 200) {
-                var data = JSON.parse(this.responseText);
+                var responseData = JSON.parse(this.responseText);
+                var data=responseData.coments;
+                var userId=responseData.userId;
                 let comentHtml="";
+
                 data.forEach(function(coment) {
-                    comentHtml+='<div id="coments" class="coment">' +
+                    console.log(coment);
+                    comentHtml+='<div class="coment" id="coment'+ coment.id +'">' +
                     '<div class="coment-content">' +
-                    '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +
-                    '<p style="padding-left:50px; margin:0;">' + coment.contenido + '</p>' +
-                    '</div>' +
+                    '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +'<div style="display:flex; justify-content:space-between;" >' +
+                    '<p style="padding-left:50px; margin:0;">' + coment.contenido + '</p>';
+                    if(coment.usuario_id == userId){
+                        comentHtml+='<button style="background-color:transparent; border:none;" class="deleteComent" data-comentId="'+coment.id+'"><i class="fa-solid fa-trash" style="color: #ebebeb;"></i></button></div>';
+                    }
+                    comentHtml+='</div>' +
                     '</div>';
+                    
                 });
+                document.getElementById('coments'+selectedPostId).innerHTML ="";
                 document.getElementById('coments'+selectedPostId).innerHTML += comentHtml; 
                 if(data.length === limitComent) { startComent += limitComent; } else { startComent += data.length; }
-
+                attachListeners();
             } else {
             
                 console.error('Hubo un error al obtener los comentarios:', this.status, this.statusText);

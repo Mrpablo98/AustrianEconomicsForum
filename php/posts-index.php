@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connection.php");
+include("../connection.php");
 $userId=$_SESSION['user']['user-id'];
 
 $start = isset($_GET['start']) ? intval($_GET['start']) : 0;
