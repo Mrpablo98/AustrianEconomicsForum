@@ -816,7 +816,6 @@ body {
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         background-image: url(../img/logo-dark.png);
         width: 50%;
-        background-image: no-repeat;
         object-fit: fill;
         border-top-left-radius: 5%;
         border-bottom-left-radius: 5%;
@@ -1063,6 +1062,10 @@ body {
         height: 4vh;
         border-radius: 10%;
         font-size: 20px;
+    }
+
+    .deleteComent {
+        padding-right: 30px;
     }
 
     .fa-trash:hover {
