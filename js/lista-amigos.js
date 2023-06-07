@@ -33,13 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onload=function(){
             if(this.status===200){
                 console.log(this.responseText);
-                var data=JSON.parse(this.responseText);
+                var response=JSON.parse(this.responseText);
+                var data=response.amigos;
+                loggedUserId=response.loggedUserId;
                 if(data.length==0){
                     friendsList.innerHTML='<p>No tienes amigos</p>';
                 }else{
                     var friendDiv="";
                 for(const friend of data){
-                    friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><a href='perfil.php?id="+ friend.id +"'><p>"+ friend.nombre +"</p></a><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>";
+                    friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><a href='perfil.php?id="+ friend.id +"'><p>"+ friend.nombre +"</p>";if(id==loggedUserId){friendDiv+="</a><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>"};
                 };
                 friendsList.innerHTML=friendDiv;
                 var deleteButtons=friendsList.querySelectorAll('.deleteUser');

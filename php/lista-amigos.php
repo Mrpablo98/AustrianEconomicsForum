@@ -3,6 +3,7 @@
 session_start();
 require_once("../connection.php");
 $userId=$_GET['id'];
+$loggedUserId = $_SESSION['user']['user-id'];;
 $sql= "
 SELECT * 
 FROM usuarios 
@@ -25,5 +26,5 @@ $amigos = [];
 while($row = $result->fetch_assoc()) {
     $amigos[] = $row;
 }
-
-echo json_encode($amigos);
+$response=array("amigos"=>$amigos, "loggedUserId"=>$loggedUserId);
+echo json_encode($response);
