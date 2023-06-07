@@ -65,5 +65,5 @@ $sql->execute();
 if($sql->error){
     echo "Error al ejecutar la consulta" . $sql->error;
 }else{
-    header("Location: index.php?post=success");
+    header("Location: ../index.php?post=success");
 }

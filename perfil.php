@@ -139,17 +139,18 @@
                     
                 </div>
                 <div class='perfil-numbers'>
-                    <p style='color:white'><?php echo $numamigos ?> contactos</p>
+                    <p style='color:white' id='friends'><?php echo $numamigos ?> contactos</p>
                     <p style='color:white'><?php echo $numPosts ?> publicaciones</p>
                 </div>
             </div>
         </div>
         <div class="content-container" id='posts'>
+            <div class="friendsList"></div>
         </div>
     </div>
     <script src=js/loadposts-perfil.js></script>
-    <script src="js/search.js"></script>
     <script src='js/options.js'></script>
     <script src='js/peticiones-amistad.js'></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

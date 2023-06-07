@@ -22,7 +22,7 @@ if (!isset($Rpassword) || $password != $Rpassword) {
 }
 
 
-include("connection.php");
+include("../connection.php");
 
 if (!$error) {
 
@@ -46,6 +46,6 @@ if (!$error) {
         ];
 
 
-        header("Location: log-in.html");
+        header("Location: ../log-in.html");
     }
 }

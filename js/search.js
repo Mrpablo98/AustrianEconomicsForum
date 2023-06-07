@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 const buttonSearch=document.getElementById('search-button');
+const searchButton2=document.getElementById('searchButton2');
 const resultCont=document.getElementById('result');
 const searchContainer=document.getElementById('search-bar-container');
 
@@ -40,8 +41,27 @@ buttonSearch.addEventListener('click',()=>{
     }
 
 });
+if(searchButton2!=null){
+    searchButton2.addEventListener('click',()=>{
+        if(drop==false){
+            searchContainer.style.height='4vh';
+            searchContainer.style.borderBottom='1px solid rgba(255, 255, 255, 0.301)';
+            drop=true;
+        }else{
+            searchContainer.style.height='0vh';
+            searchContainer.style.border='none';
+            resultCont.style.display='none';
+            drop=false;
+        }
+
+    });
+}
+console.log("Ejecutado");
 document.addEventListener('click',function(e){
-    resultCont.style.display='none';
+    if (!resultCont.contains(e.target) && e.target !== searchContainer) {
+        resultCont.style.display='none';
+    }
+    console.log('pulsado');
 });
 
 });

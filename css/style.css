@@ -147,7 +147,6 @@ body {
 
     a {
         color: white;
-        margin: 0 auto;
     }
 
     .title {
@@ -318,6 +317,53 @@ body {
         cursor: pointer;
     }
 
+    .indexTitle {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        text-decoration: underline;
+    }
+
+    .buttonContainerIndex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        margin: auto;
+        gap: 200px;
+    }
+
+    .buttonContainerIndex button {
+        background-color: #1877F2;
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .buttonContainerIndex button:hover {
+        background-color: #0A0C10;
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-weight: bold;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;
+    }
+
+    .indexNoPost {
+        width: 80%;
+        margin-top: 20%;
+    }
+
+    .indexNoPost p {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bold;
+    }
+
     #search-button {
         cursor: pointer;
     }
@@ -430,6 +476,7 @@ body {
         z-index: 0;
         min-height: 100vh;
         gap: 50px;
+        padding-top: 50px;
     }
 
     #result {
@@ -767,6 +814,25 @@ body {
     .perfil-numbers {
         display: flex;
         gap: 30px;
+    }
+
+    #friends:hover {
+        cursor: pointer;
+    }
+
+    .friendsList {
+        width: 400px;
+        height: 700px;
+        border: 1px solid rgba(255, 255, 255, 0.301);
+
+    }
+
+    .friendsList1 {
+        width: 400px;
+        height: 700px;
+        border: 1px solid rgba(255, 255, 255, 0.301);
+        visibility: hidden;
+        display: none;
     }
 
     .post {
@@ -1175,8 +1241,8 @@ body {
 @media(min-width:1991px) and (max-width: 3990px) {
 
     #result {
-        position: absolute;
-        top: 40px;
+        position: fixed;
+        top: 42px;
         right: 38.3%;
         width: 370px;
         padding-top: 10px;
@@ -1301,6 +1367,7 @@ body {
         position: absolute;
         right: 0;
         z-index: 0;
+        padding-top: 50px;
 
     }
 

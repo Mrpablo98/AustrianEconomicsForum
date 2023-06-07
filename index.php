@@ -78,12 +78,15 @@
         </div>
         <div id='result'></div>
         <div class="content-container" id='posts'>
-            
+            <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
+            <div class="indexNoPost invisible"><p>¡Vaya, aún no tinenes gente a la que seguir!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
+            <div class="buttonContainerIndex"><a href="explore.php"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
         </div>
     </div>
-    <script src="js/search.js"></script>
+    
     <script src='js/options.js'></script>
     <script src='js/peticiones-amistad.js'></script>
     <script src="js/loadposts-index.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

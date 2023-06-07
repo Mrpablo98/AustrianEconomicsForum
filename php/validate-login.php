@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
         ];
         echo $_SESSION['user']['username'];
 
-        header("Location: index.php");
+        header("Location: ../index.php");
     } else {
         header("Location: log-in.html?error=password");
     }

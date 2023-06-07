@@ -120,4 +120,26 @@ document.addEventListener('DOMContentLoaded', function() {
     peticiones.then(()=>{
         attachListeners();
     });
+    const friends=document.getElementById('friends');
+    const friendsList=document.querySelector('.friendsList');
+    console.log(friends); 
+    console.log(friendsList);
+    if(friends && friendsList){
+        friends.addEventListener('click',(event)=>{
+            event.stopPropagation();
+            console.log(friendsList);
+            console.log(friendsList.classList);
+            setTimeout(()=>{
+                if (friendsList.classList.contains('friendsList')) {
+                    friendsList.style.visibility = 'none';
+                    friendsList.style.display = 'none';
+                    console.log('done');
+                }else{
+                friendsList.style.visibility='visible';
+                friendsList.style.display='block';
+                console.log('undone');
+            }
+        },100);
+        });
+}
 });

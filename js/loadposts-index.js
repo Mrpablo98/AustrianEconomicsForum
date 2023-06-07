@@ -26,78 +26,85 @@ document.addEventListener('DOMContentLoaded', function() {
                 var data=responseData.posts;
                 var userId=responseData.userId;
                 console.log(data);
-                for(const post of data) {
-                    let content=post.contenido;
-                    Likesrc= await checkLikeButton(post.id);
-                    try {
-                        const response = await fetch('php/count-likes.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: 'postId=' + post.id
-                        });
+                if(data.length>0){
+                    for(const post of data) {
+                        let content=post.contenido;
+                        Likesrc= await checkLikeButton(post.id);
+                        try {
+                            const response = await fetch('php/count-likes.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                },
+                                body: 'postId=' + post.id
+                            });
+                            
+                            const likeData = await response.text();
+                            console.log(likeData);
+                            numLikes=likeData;  
+                            
+                        } catch (error) {
+                            console.error('Error:', error);
+                        }
+                        if(content.length>100){
+                            content=content.substring(0,100)+"...";
+                        }
                         
-                        const likeData = await response.text();
-                        console.log(likeData);
-                        numLikes=likeData;  
-                        
-                    } catch (error) {
-                        console.error('Error:', error);
-                    }
-                    if(content.length>100){
-                        content=content.substring(0,100)+"...";
-                    }
-                    
-                    var postHtml = '<div class="post" data-id="'+post.id+'">'; 
-                    if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
-                        postHtml+= '<div class="post-content">' +
-                                    '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
-                                    '<p style="text-align:center;">' + content + '</p>' +
-                                    '</div>';
-                                    if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
-                                        '<img id="post-img" src="' + post.url_recurso + '" />' +
-                                    '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
-                                    '<video id="post-img" src="' + post.url_recurso + '" controls />' +
-                                '</div>';}if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}}
-                                    postHtml+='<div class="post-arrow">' + 
-                                        '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
-                                    '</div>';
-                                    if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
-                                postHtml+='</div>';
-                                
-                                postHtml+='<div class="cortina-post invisible">' +
-                                        '<div class="complete-Post ">' +
-                                            '<div class="complete-post-image invisible">';
-                                                if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<img src="' + post.url_recurso + '" />';
-                                            }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}};
-                                               postHtml+= '<div>'+
-                                                '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
-                                                '<div class="overflow-post-content">' +
-                                                '<p>' + post.contenido + '</p>' +
-                                                '<div id="coments' +post.id + '" class="coments"'+'>' +
-                                                    
-                                                '</div>' +
-                                                '</div>' +
-                                                '<div class="like-container">' +
-                                                    '<img  class="like" src="'+ Likesrc +'">' +
-                                                    '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
-                                                '</div>' +
-                                                '<div class="comentar-container">' +
-                                                    '<form class="form-coment">' +
-                                                        '<input type="hidden" name="postId" value="'+post.id+'">' +
-                                                        '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
-                                                        '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
-                                                    '</form>' +
+                        var postHtml = '<div class="post" data-id="'+post.id+'">'; 
+                        if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
+                            postHtml+= '<div class="post-content">' +
+                                        '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
+                                        '<p style="text-align:center;">' + content + '</p>' +
+                                        '</div>';
+                                        if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
+                                            '<img id="post-img" src="' + post.url_recurso + '" />' +
+                                        '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
+                                        '<video id="post-img" src="' + post.url_recurso + '" controls />' +
+                                    '</div>';}if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}}
+                                        postHtml+='<div class="post-arrow">' + 
+                                            '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
+                                        '</div>';
+                                        if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
+                                    postHtml+='</div>';
+                                    
+                                    postHtml+='<div class="cortina-post invisible">' +
+                                            '<div class="complete-Post ">' +
+                                                '<div class="complete-post-image invisible">';
+                                                    if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<img src="' + post.url_recurso + '" />';
+                                                }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}};
+                                                postHtml+= '<div>'+
+                                                    '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
+                                                    '<div class="overflow-post-content">' +
+                                                    '<p>' + post.contenido + '</p>' +
+                                                    '<div id="coments' +post.id + '" class="coments"'+'>' +
+                                                        
+                                                    '</div>' +
+                                                    '</div>' +
+                                                    '<div class="like-container">' +
+                                                        '<img  class="like" src="'+ Likesrc +'">' +
+                                                        '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
+                                                    '</div>' +
+                                                    '<div class="comentar-container">' +
+                                                        '<form class="form-coment">' +
+                                                            '<input type="hidden" name="postId" value="'+post.id+'">' +
+                                                            '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
+                                                            '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
+                                                        '</form>' +
+                                                    '</div>' +
                                                 '</div>' +
                                             '</div>' +
-                                        '</div>' +
-                                        '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
-                                '</div>';
+                                            '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
+                                    '</div>';
 
-                    document.querySelector('#posts').innerHTML += postHtml; 
-                    
-                };
+                        document.querySelector('#posts').innerHTML += postHtml; 
+                        
+                    };
+                }else{
+                        let indexNoPosts=document.querySelector('.indexNoPost');
+                        indexNoPosts.classList.remove('invisible');
+                        let indexTitle=document.querySelector('.indexTitle');
+                        indexTitle.classList.add('invisible');
+                }
                 likesShow(start);
                 if(data.length === 15){start += limit;}else{start+=data.length;}
                 loading=false;
