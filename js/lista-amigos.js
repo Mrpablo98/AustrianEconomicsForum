@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  
-    var Friends=getFriends();
+    function getQueryParam(name) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+    
        
 
-
+    var id=getQueryParam('id');
+    getFriends();
     const friends=document.getElementById('friends');
     const friendsList=document.getElementById('friendsList');
     var toggle=false;
@@ -25,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
    async function getFriends(){
         const xhr=new XMLHttpRequest();
-        xhr.open('GET','php/lista-amigos.php');
+        xhr.open('GET','php/lista-amigos.php?id='+id);
         xhr.onload=function(){
             if(this.status===200){
                 console.log(this.responseText);
@@ -55,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 getFriends();
                             }
                         };
-                        xhr.send('id='+userId);
+                        xhr.send('id='+id);
                     })
                 })
                 }

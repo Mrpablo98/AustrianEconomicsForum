@@ -2,7 +2,7 @@
 <?php
 session_start();
 require_once("../connection.php");
-$userId=$_SESSION['user']['user-id'];
+$userId=$_GET['id'];
 $sql= "
 SELECT * 
 FROM usuarios 
