@@ -339,6 +339,7 @@ body {
         height: 40px;
         font-weight: bold;
         font-family: 'Courier New', Courier, monospace;
+        box-shadow:  0px 20px 0px rgba(0, 0, 0, 0.75);
     }
 
     .buttonContainerIndex button:hover {
@@ -800,7 +801,7 @@ body {
         gap: 30px;
         justify-content: center;
         transition: all 0.5s ease;
-        -overflow: hidden;
+       
     }
 
     .perfil-photo {
@@ -1035,14 +1036,14 @@ body {
     }
 
     .complete-post-image>img {
-        width: 50%;
+        width: 150%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .complete-post-image>video {
-        width: 50%;
+        width: 150%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
@@ -1805,43 +1806,49 @@ body {
     }
 
     .complete-Post {
-        background-color: black;
+        background-color: #0A0C10;
         width: 80%;
         height: 85%;
     }
 
+  
     .complete-post-image {
         width: 100%;
         height: 100%;
         display: flex;
+        flex-direction: column;
     }
 
     .complete-post-image p {
         border-bottom: rgba(255, 255, 255, 0.301);
-        padding: 10px;
-        margin: 0;
-        padding-left: 50px;
+
     }
 
     .complete-post-image>img {
-        width: 50%;
-        height: 100%;
-        object-fit: contain;
-        border-right: 1px solid rgba(255, 255, 255, 0.301);
-    }
-
-    .complete-post-image>img {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: 40%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .complete-post-image>video {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: auto;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
+    }
+
+
+    .complete-post-image div {
+        width: 100%;
+    }
+    .post-image{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .complete-post-image div {
@@ -1913,7 +1920,7 @@ body {
 
     .coments {
         width: 100%;
-        background-color: black;
+        background-color: #0A0C10;
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         display: flex;
         flex-direction: column;
@@ -1957,10 +1964,9 @@ body {
     .coment-input {
         width: 80%;
         border-radius: 5px;
-        border: 0.3px solid black;
+        border: none;
         height: 4vh;
-        -background-color: #262626;
-        background-color: black;
+        background-color: #0A0C10;
         color: white;
         margin-right: 15px;
         margin-left: 15px;
@@ -1979,13 +1985,13 @@ body {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        height: 5%;
+        height: 15%;
         font-size: 30px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .like-container img {
-        margin-right: 50px;
+        margin-right: 5px;
         color: #ffffff;
         overflow: hidden;
         width: 30px;
@@ -2799,7 +2805,7 @@ body {
     .complete-Post {
         background-color: #0A0C10;
         width: 90%;
-        height: 85%;
+        height: auto;
     }
 
     .complete-post-image {
@@ -2820,6 +2826,14 @@ body {
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
+
+    .complete-post-image>video {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+    }
+
 
     .complete-post-image div {
         width: 100%;

@@ -4,7 +4,7 @@ include("../connection.php");
 $userId=$_SESSION['user']['user-id'];
 
 $start = isset($_GET['start']) ? intval($_GET['start']) : 0;
-$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 15;
+$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 10;
 $sql = $mysqli->prepare('SELECT usuarios.nombre, posts.id, posts.titulo, posts.contenido, posts.url_recurso, posts.tipo, posts.usuario_id, COUNT(post_likes_dislikes.usuario_id) AS likes
 FROM usuarios
 INNER JOIN amigos ON (usuarios.id = amigos.usuario_id2 OR usuarios.id = amigos.usuario_id1)

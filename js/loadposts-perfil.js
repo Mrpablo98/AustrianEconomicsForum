@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(id==null){id=getQueryParam('Iduser');}
     var selectedPostId = null;
     var start = 0;
-    var limit = 15;
+    var limit = 10;
     var startComent=0;
     var limitComent=25;
     var loading=false;
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';
                                             }else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}}
                                                postHtml+= '<div>'+
-                                                '<h2 style="text-align:center; height: 5%;">' +  post.titulo + ' - ' + post.nombre + '</h2>' +
+                                                '<h2 style="text-align:center; height: auto;">' +  post.titulo + ' - ' + post.nombre + '</h2>' +
                                                 '<div class="overflow-post-content">' +
                                                 '<p>' + post.contenido + '</p>' +
                                                 '<div id="coments' +post.id + '" class="coments"'+'>' +
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                 };
                 likesShow(start);
-                if(data.length === 15){start += limit;}else{start+=data.length;}
+                if(data.length === 10){start += limit;}else{start+=data.length;}
                 loading=false;
                 attachListeners();
             } else {
