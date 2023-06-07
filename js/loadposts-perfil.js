@@ -23,10 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onload = async function() {
             if (this.status === 200) {
                 var responseData = JSON.parse(this.responseText);
-                console.log(responseData);
                 var data=responseData.posts;
                 var userId=responseData.userId;
-                console.log(data);
                 for(const post of data) {
                     let content=post.contenido;
                     Likesrc= await checkLikeButton(post.id);
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                         
                         const likeData = await response.text();
-                        console.log(likeData);
                         numLikes=likeData;  
                         
                     } catch (error) {
@@ -202,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
     }
         document.body.style.overflow = 'auto';
-        console.log('click');
         likesShowComplete();
         if(video!==undefined && video!==null){
             video.pause();
@@ -231,7 +227,6 @@ function handleComentClick(coment){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             var lastComentHtml = '<div class="coment" id="coment'+ data.comentId +'">' +
                 '<div class="coment-content">' +
                 '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
@@ -259,9 +254,7 @@ function handleComentClick(coment){
         var like2=true;
             if(like.src === 'http://localhost/AustrianEconomicsForum/img/like_icon.svg'){
                 like2=false;
-                console.log('like');
             }
-            console.log(like2);
             fetch('php/like.php', {
                 method: 'POST',
                 headers: {
@@ -274,7 +267,6 @@ function handleComentClick(coment){
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 
            
             if (data === "liked") {
@@ -308,7 +300,6 @@ function handleComentClick(coment){
         let icon=options.firstElementChild;
         if(deleteContainer.classList.contains('invisible')){
             deleteContainer.classList.remove('invisible');
-            console.log(post);
             post.classList.add('post-optionsOpen');
             icon.classList.remove('fa-sort-down');
             icon.classList.add('fa-sort-up');
@@ -323,7 +314,6 @@ function handleComentClick(coment){
     function handleDeleteClick(deleteButton){
         var post=deleteButton.closest('.post');
         var postId=post.getAttribute('data-id');
-        console.log("is de post: "+postId);
         fetch('php/delete-post.php', {
             method: 'POST',
             headers: {
@@ -335,7 +325,6 @@ function handleComentClick(coment){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if(data==="deleted"){
                 post.remove();
             }
@@ -345,7 +334,6 @@ function handleComentClick(coment){
         });
     }
     function handleDeleteComent(comentId){
-        console.log("is de coment: "+comentId);
         let classComent="coment"+comentId;
         let coment=document.getElementById(classComent);
         fetch('php/delete-coment.php', {
@@ -359,7 +347,6 @@ function handleComentClick(coment){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if(data==="deleted"){
                 coment.remove();
             }
@@ -453,7 +440,6 @@ function handleComentClick(coment){
                 let comentHtml="";
 
                 data.forEach(function(coment) {
-                    console.log(coment);
                     comentHtml+='<div class="coment" id="coment'+ coment.id +'">' +
                     '<div class="coment-content">' +
                     '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +'<div style="display:flex; justify-content:space-between;" >' +

@@ -61,7 +61,7 @@ document.addEventListener('click',function(e){
     if (!resultCont.contains(e.target) && e.target !== searchContainer) {
         resultCont.style.display='none';
     }
-    console.log('pulsado');
+
 });
 
 });

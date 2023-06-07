@@ -125,7 +125,7 @@
         </div>
         <div id='result'></div>
         <div class='perfil-header'>
-            <img class='perfil-photo' src='img/icon.png'>
+            <div><img class='perfil-photo' src='img/icon.png'></div>
             <div class='perfil-data'>
                 <div class='perfil-name'>
                     <p style='color:white; '><?php  echo $username; ?></p>
@@ -143,14 +143,16 @@
                     <p style='color:white'><?php echo $numPosts ?> publicaciones</p>
                 </div>
             </div>
+            <div id="friendsList" class="friendsList1">Amigos</div>
         </div>
         <div class="content-container" id='posts'>
-            <div class="friendsList"></div>
+            
         </div>
     </div>
     <script src=js/loadposts-perfil.js></script>
     <script src='js/options.js'></script>
     <script src='js/peticiones-amistad.js'></script>
+    <script src='js/lista-amigos.js'></script>
     <script src="js/search.js"></script>
 </body>
 </html>

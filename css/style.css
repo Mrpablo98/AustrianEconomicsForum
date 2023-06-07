@@ -791,6 +791,8 @@ body {
         display: flex;
         gap: 30px;
         justify-content: center;
+        transition: all 0.5s ease;
+        -overflow: hidden;
     }
 
     .perfil-photo {
@@ -820,20 +822,34 @@ body {
         cursor: pointer;
     }
 
-    .friendsList {
+    #friendsList {
+        margin: 30px;
         width: 400px;
-        height: 700px;
-        border: 1px solid rgba(255, 255, 255, 0.301);
-
+        height: 0px;
+        transition: all 0.5s ease;
+        overflow-y: scroll;
     }
 
-    .friendsList1 {
-        width: 400px;
-        height: 700px;
-        border: 1px solid rgba(255, 255, 255, 0.301);
-        visibility: hidden;
-        display: none;
+    .friendDiv {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        color: white;
+        gap: 20px;
+        position: relative;
     }
+
+    .friendDiv p {
+        padding: 10px;
+    }
+
+    .friendDiv img {
+        width: 50px;
+        height: auto;
+    }
+
+
+
 
     .post {
         width: 50%;
@@ -1043,6 +1059,16 @@ body {
         border: none;
         border-radius: 5px;
         padding: 10px;
+    }
+
+    .deleteUser {
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
     }
 
     .deleteButton:hover {
@@ -1613,6 +1639,8 @@ body {
         display: flex;
         gap: 30px;
         justify-content: center;
+        overflow: hidden;
+        transition: all 0.5s ease;
     }
 
     .perfil-photo {
@@ -1637,6 +1665,15 @@ body {
         display: flex;
         gap: 30px;
     }
+
+    #friendsList {
+        margin: 30px;
+        width: 400px;
+        height: 0px;
+        transition: all 0.5s ease;
+        overflow-y: scroll;
+    }
+
 
     .post {
         width: 80%;
@@ -1810,6 +1847,14 @@ body {
     }
 
     .deleteButton {
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .deleteUser {
         background-color: #ff0000;
         color: white;
         border: none;
@@ -2579,6 +2624,23 @@ body {
         gap: 30px;
     }
 
+    #friendsList {
+        margin: 30px;
+        width: 400px;
+        height: 0px;
+        border: none;
+        transition: all 0.5s ease;
+        overflow-y: scroll;
+    }
+
+    .friendDiv {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+    }
+
+
+
     .normal_button {
         background-color: black;
         color: white;
@@ -2769,6 +2831,14 @@ body {
         padding: 10px;
     }
 
+    .deleteUser {
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
     .deleteButton:hover {
         cursor: pointer;
     }
@@ -2911,7 +2981,6 @@ body {
 
     .invisible {
         display: none;
-        visibility: hidden;
     }
 
     footer {
