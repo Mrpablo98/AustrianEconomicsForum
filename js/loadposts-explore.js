@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(data.length === 15){start += limit;}else{start+=data.length;}
                 loading=false;
                 attachListeners();
+                
             } else {
             
                 console.error('Hubo un error al obtener los posts:', this.status, this.statusText);
@@ -491,6 +492,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var posts=loadPosts();
     posts.then(function(){
+        setTimeout(1000);
         quitarLoading()
     });
 

@@ -284,9 +284,7 @@ filterButton.addEventListener('click', () =>{
     [linksEconomia, linksInternacional]=enlaces();
     loading.style.display = 'flex';
     newsArray=getAllNews(linksEconomia, linksInternacional);
-console.log(linksEconomia);
 newsArray.then(noticias =>{ 
-    console.log(noticias);
     displayNews(noticias);
     MostrarFiltro();
 });
@@ -299,10 +297,8 @@ newsArray.then(noticias =>{
 
 QuitarFiltro();
 let [linksEconomia, linksInternacional]=enlaces();
-console.log(linksEconomia);
 var newsArray=getAllNews(linksEconomia, linksInternacional);
 newsArray.then(noticias =>{ 
-    console.log(noticias);
     displayNews(noticias);
     MostrarFiltro();
 });
