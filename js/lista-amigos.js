@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }else{
                     var friendDiv="";
                 for(const friend of data){
-                    friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><p>"+ friend.nombre +"</p><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>";
+                    friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><a href='perfil.php?id="+ friend.id +"'><p>"+ friend.nombre +"</p></a><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>";
                 };
                 friendsList.innerHTML=friendDiv;
                 var deleteButtons=friendsList.querySelectorAll('.deleteUser');

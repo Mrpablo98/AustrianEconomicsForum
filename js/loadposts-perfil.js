@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var postHtml = '<div class="post" data-id="'+post.id+'">'; 
                     if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
                         postHtml+= '<div class="post-content">' +
-                                    '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
+                                    '<h2 style="text-align:center;">' +  post.titulo + ' - ' + post.nombre + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
                                     '</div>';
                                     if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<img src="' + post.url_recurso + '" />';
                                             }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}};
                                                postHtml+= '<div>'+
-                                                '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
+                                                '<h2 style="text-align:center; height: 5%;">' +  post.titulo + ' - ' + post.nombre + '</h2>' +
                                                 '<div class="overflow-post-content">' +
                                                 '<p>' + post.contenido + '</p>' +
                                                 '<div id="coments' +post.id + '" class="coments"'+'>' +

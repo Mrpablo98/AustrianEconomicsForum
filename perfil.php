@@ -134,7 +134,7 @@
                     }else if($amigo){
                         echo "<button class='normal_button'>Pendiente</button>";
                     }else{
-                        echo "<a href='new_friend.php?user1=$userLogged&user2=$id'><button class='normal_button'>Solicitar amistad</button></a>";
+                        echo "<a href='php/new_friend.php?user1=$userLogged&user2=$id'><button class='normal_button'>Solicitar amistad</button></a>";
                     } ?>
                     
                 </div>

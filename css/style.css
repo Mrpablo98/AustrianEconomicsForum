@@ -476,7 +476,7 @@ body {
         z-index: 0;
         min-height: 100vh;
         gap: 50px;
-        padding-top: 50px;
+
     }
 
     #result {
@@ -846,6 +846,14 @@ body {
     .friendDiv img {
         width: 50px;
         height: auto;
+    }
+
+    .friendDiv p:hover {
+        cursor: pointer;
+    }
+
+    .friendDiv button:hover {
+        cursor: pointer;
     }
 
 
@@ -1393,7 +1401,6 @@ body {
         position: absolute;
         right: 0;
         z-index: 0;
-        padding-top: 50px;
 
     }
 

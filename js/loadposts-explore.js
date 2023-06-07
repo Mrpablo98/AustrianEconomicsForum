@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(responseData);
                 var data=responseData.posts;
                 var userId=responseData.userId;
+                var username=responseData.username;
+                console.log(username);
                 console.log(data);
                 for(const post of data) {
                     let content=post.contenido;
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var postHtml = '<div class="post" data-id="'+post.id+'">'; 
                     if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
                         postHtml+= '<div class="post-content">' +
-                                    '<h2 style="text-align:center;">' + post.titulo + '</h2>' +
+                                    '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
                                     '<p style="text-align:center;">' + content + '</p>' +
                                     '</div>';
                                     if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
@@ -73,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<img src="' + post.url_recurso + '" />';
                                             }else if(post.tipo=="video"){postHtml+='<video src="' + post.url_recurso + '" controls ></video>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}};
                                                postHtml+= '<div>'+
-                                                '<h2 style="text-align:center; height: 5%;">' + post.titulo + '</h2>' +
+                                               '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center; height: 5%;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
                                                 '<div class="overflow-post-content">' +
                                                 '<p>' + post.contenido + '</p>' +
                                                 '<div id="coments' +post.id + '" class="coments"'+'>' +
@@ -194,12 +196,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleCloseIconClick(icon){
         let completePost=icon.parentElement;
         let alert=completePost.parentElement;
+        let video=completePost.getElementsByTagName('video')[0];
+        let audio=completePost.getElementsByTagName('audio')[0];
         if(alert!==null){
             alert.classList.add('invisible');
-        }
+            
+    }
         document.body.style.overflow = 'auto';
-        console.log('click');
         likesShowComplete();
+        if(video!==undefined && video!==null){
+            video.pause();
+        }
+        if(audio!==undefined && audio!==null){
+            audio.pause();
+        }
     }
     
 

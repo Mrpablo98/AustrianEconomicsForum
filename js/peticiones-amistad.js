@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('aceptar');
                 userId=button.previousElementSibling.value;
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'aceptar-rechazar-amistad.php', true);
+                xhr.open('POST', 'php/aceptar-rechazar-amistad.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onload = function() {
                     if (this.status === 200) {
