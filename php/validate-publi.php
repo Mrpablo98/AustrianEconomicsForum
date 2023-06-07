@@ -1,7 +1,7 @@
 <?php
 session_start();
 $userId=$_SESSION['user']['user-id'];
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 include('../connection.php');
 use Google\Cloud\Storage\StorageClient;
 

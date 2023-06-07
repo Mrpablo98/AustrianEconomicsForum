@@ -31,6 +31,10 @@ const uploadFile = (file, title, body) => {
             console.log('File uploaded successfully!');
             // Actualiza tu interfaz de usuario para reflejar la finalización de la carga aquí
         } else {
+            let subido=document.querySelector('.archivo-fallido');
+            subido.style.display='flex';
+            let loading=document.querySelector('.loading-publi');
+            loading.style.display='none';
             console.log('File upload failed.');
         }
     }, false);

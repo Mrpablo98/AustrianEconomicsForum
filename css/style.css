@@ -602,6 +602,14 @@ body {
         justify-content: center;
     }
 
+    .archivo-fallido {
+        display: none;
+        color: red;
+        align-items: center;
+        justify-content: center;
+    }
+
+
     /*Noticias*/
 
     .news {
@@ -877,6 +885,18 @@ body {
 
     }
 
+    .post-archivo {
+        margin: 0 auto;
+        display: flex;
+        gap: 20px;
+        background-color: black;
+        padding: 20px;
+        border-radius: 15%;
+        text-decoration: none;
+        font-size: large;
+
+    }
+
     .cortina-audio {
         display: flex;
         align-items: center;
@@ -1048,6 +1068,10 @@ body {
 
     .post-options:hover {
         cursor: pointer;
+    }
+
+    .complete-post-image .post-image {
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .container-delete {

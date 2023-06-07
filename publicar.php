@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icon.png">
     <script src="https://kit.fontawesome.com/7fc86cc57f.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
 
 </head>
 
@@ -95,7 +95,8 @@
                 <button type="submit" class='normal_button public_button'>Publicar</button>
             </form>
             <img class="loading-publi" src="img/gif_loading.gif">
-            <div class="archivo-subido"><p>El archivo se ha subido con éxito!</p><i class="fas fa-check" style="color: #00ff40;"></i></div>
+            <div class="archivo-subido"><p>La publicacion se ha subido con éxito!</p><i class="fas fa-check" style="color: #00ff40;"></i></div>
+            <div class="archivo-fallido"><p>El archivo no se ha podido subir con éxito!</p><i class="fa-solid fa-xmark" style="color: #red;"></i></i></div>
         </div>
         <script src="js/search.js"></script>
         <script src='js/options.js'></script>
