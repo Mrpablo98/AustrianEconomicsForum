@@ -218,6 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleLikeClick(like){
         var countLikes=like.closest('.like-container').querySelector('.numLikes');
         var numLikes=parseInt(countLikes.innerHTML);
+        console.log(selectedPostId);
         var like2=true;
             if(like.src === 'http://localhost/AustrianEconomicsForum/img/like_icon.svg'){
                 like2=false;
@@ -331,7 +332,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<button style="background-color:transparent; border:none;" class="deleteComent" data-comentId="'+data.comentId+'"><i class="fa-solid fa-trash" style="color: #ebebeb;"></i></button></div>' +
                     '</div>' +
                     '</div>';
-                //document.getElementById('coments'+selectedPostId).innerHTML = lastComentHtml + document.getElementById('coments'+selectedPostId).innerHTML;
                 document.getElementById('coments'+selectedPostId).insertAdjacentHTML('afterbegin', lastComentHtml);
                 attachListeners();
     

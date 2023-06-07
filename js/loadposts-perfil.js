@@ -248,49 +248,53 @@ function handleComentClick(coment){
     }
 }
 
-    function handleLikeClick(like){
-        var countLikes=like.closest('.like-container').querySelector('.numLikes');
-        var numLikes=parseInt(countLikes.innerHTML);
-        var like2=true;
-            if(like.src === 'http://localhost/AustrianEconomicsForum/img/like_icon.svg'){
-                like2=false;
-            }
-            fetch('php/like.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'postId': selectedPostId,
-                    'liked' : like2
-                })
+function handleLikeClick(like){
+    var countLikes=like.closest('.like-container').querySelector('.numLikes');
+    var numLikes=parseInt(countLikes.innerHTML);
+    console.log(selectedPostId);
+    var like2=true;
+        if(like.src === 'http://localhost/AustrianEconomicsForum/img/like_icon.svg'){
+            like2=false;
+            console.log('like');
+        }
+        console.log(like2);
+        fetch('php/like.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'postId': selectedPostId,
+                'liked' : like2
             })
-            .then(response => response.json())
-            .then(data => {
-                
-           
-            if (data === "liked") {
-                like.style.transition = "all 0.5s";
-                like.src = 'img/like2_icon.svg';
-                like.style.transform = "scale(1.5)";
-                setTimeout(function() {like.style.transform = "scale(1)";}, 500);
-                numLikes++;
-                countLikes.innerHTML = numLikes + ' likes';
-                
-
-            } else if (data === "unliked") {
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
             
-                like.src = 'img/like_icon.svg';
-                numLikes--;
-                countLikes.innerHTML = numLikes + ' likes';
-            }else{
-                console.log("error");
-            }
-            })
-            .catch((error) => {
-            console.error('Error:', error);
-            });
-    }
+       
+        if (data === "liked") {
+            like.style.transition = "all 0.5s";
+            like.src = 'img/like2_icon.svg';
+            like.style.transform = "scale(1.5)";
+            setTimeout(function() {like.style.transform = "scale(1)";}, 500);
+            numLikes++;
+            countLikes.innerHTML = numLikes + ' likes';
+            
+
+        } else if (data === "unliked") {
+        
+            like.src = 'img/like_icon.svg';
+            numLikes--;
+            countLikes.innerHTML = numLikes + ' likes';
+        }else{
+            console.log("error");
+        }
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+}
 
     
         
