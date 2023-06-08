@@ -100,12 +100,13 @@ $user=$_SESSION['user'];
         </div>
         <div class="content-container" id='posts'>
             <form class="edit-container"  method="POST" action="php/edicion-perfil.php">
-                <div class="edit-data"><label for="email">E-mail: </label><input disabled <?php  echo "value='". $email ."'" ?> placeholder="E-mail" type="email" name="email" id="email" ><i class="fa-solid fa-pen-to-square" style="color: #d6d6d6;"></i></div>
-                <div class="edit-data"><label for="username">Nombre de usuario: </label><input disabled <?php  echo "value='". $userName ."'" ?> placeholder="Nombre de usuario" type="text" name="username" id="username"><i class="fa-solid fa-pen-to-square" style="color: #d6d6d6;"></i></div>
-                <div class="edit-data"><label for="password">Nueva contraseña: </label><input disabled placeholder="Nueva contraseña" type="password" name="password" id="password"><i class="fa-solid fa-pen-to-square" style="color: #d6d6d6;"></i></div>
-                <div class="edit-data"><label for="old-password">Antigua contraseña: </label><input  placeholder="Antigua contraseña" type="password" name="old-password" id="old-password"></div>
-                <div class=editButton-container><button class="editButton" type="submit">Editar</button><button class="deleteButton">Borrar perfil</button></div>
+                <div class="edit-data"><label for="email">Nuevo E-mail: </label><input disabled <?php  echo "value='". $email ."'" ?> placeholder="Nuevo E-mail" type="email" name="email" id="email" ><i class="fa-solid fa-pen-to-square" style="color: #d6d6d6;"></i></div>
+                <div class="edit-data"><label for="username">Nuevo nombre de usuario: </label><input disabled <?php  echo "value='". $userName ."'" ?> placeholder="Nuevo nombre de usuario" type="text" name="username" id="username"></div>
+                <div class="edit-data"><label for="password">Nueva contraseña: </label><input disabled placeholder="Nueva contraseña" type="password" name="password" id="password"></div>
+                <div class="edit-data"><label for="old-password">Antigua contraseña: </label><input disabled  placeholder="Antigua contraseña" type="password" name="old-password" id="old-password"></div>
+                <div class=editButton-container><button class="editButton" type="submit">Editar</button></div>
             </form>
+            <a href='php/delete-user.php'><button class="deleteButton">Borrar perfil</button></a>
         </div>
     </div>
     <script src='js/options.js'></script>

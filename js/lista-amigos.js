@@ -8,22 +8,36 @@ document.addEventListener('DOMContentLoaded', function() {
        
 
     var id=getQueryParam('id');
-    getFriends();
+    
     const friends=document.getElementById('friends');
     const friendsList=document.getElementById('friendsList');
+    const friendsListMovil=document.getElementById('friendsListMovil');
     var toggle=false;
     friends.addEventListener('click',(event)=>{
-        event.preventDefault();
+        getFriends().then(()=>{
+            event.preventDefault();
         if(toggle==false){
+            if(window.innerWidth>1263){
             friendsList.style.height='700px';
             friendsList.style.border='1px solid rgba(255, 255, 255, 0.301)';
+        }else{
+            friendsListMovil.style.height='700px';
+            friendsListMovil.style.border='1px solid rgba(255, 255, 255, 0.301)';
+        }
             toggle=true;
            
         }else{
-            friendsList.style.height='0px';
-            friendsList.style.border='none';
+            if(window.innerWidth>1263){
+                friendsList.style.height='0px';
+                friendsList.style.border='none';
+            }else{
+                friendsListMovil.style.height='0px';
+                friendsListMovil.style.border='none';
+            }
             toggle=false;
         }
+        });
+        
 
     });
     
@@ -37,13 +51,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 var data=response.amigos;
                 loggedUserId=response.loggedUserId;
                 if(data.length==0){
-                    friendsList.innerHTML='<p>No tienes amigos</p>';
+                    if(window.innerWidth>1263){
+                        friendsList.innerHTML='<p>No tienes amigos</p>';
+                    }else{
+                        friendsListMovil.innerHTML='<p>No tienes amigos</p>';
+                    }
                 }else{
                     var friendDiv="";
                 for(const friend of data){
                     friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><a href='perfil.php?id="+ friend.id +"'><p>"+ friend.nombre +"</p>";if(id==loggedUserId){friendDiv+="</a><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>"};
                 };
-                friendsList.innerHTML=friendDiv;
+                if(window.innerWidth>1263){
+                    friendsList.innerHTML=friendDiv;
+                }else{
+                    friendsListMovil.innerHTML=friendDiv;
+                }
                 var deleteButtons=friendsList.querySelectorAll('.deleteUser');
                 console.log(deleteButtons);
                 deleteButtons.forEach((button)=>{

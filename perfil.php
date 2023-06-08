@@ -145,6 +145,7 @@
             </div>
             <div id="friendsList" class="friendsList1">Amigos</div>
         </div>
+        <div id="friendsListMovil" class="friendsList1Movil">Amigos</div>
         <div class="content-container" id='posts'>
             
         </div>

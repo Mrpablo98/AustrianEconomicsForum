@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 07-06-2023 a las 14:32:52
+-- Tiempo de generación: 08-06-2023 a las 11:34:44
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 8.1.0
 
@@ -42,7 +42,6 @@ INSERT INTO `amigos` (`usuario_id1`, `usuario_id2`, `aceptada`, `fecha_amistad`)
 (15, 14, 1, '2023-06-01 10:19:11'),
 (17, 14, 1, '2023-06-07 14:16:48'),
 (18, 14, 1, '2023-06-07 14:17:57'),
-(19, 14, 1, '2023-06-07 14:17:40'),
 (20, 14, 1, '2023-06-07 11:32:18');
 
 -- --------------------------------------------------------
@@ -148,7 +147,9 @@ INSERT INTO `comentarios` (`id`, `post_id`, `usuario_id`, `username`, `contenido
 (98, 38, 14, 'pablo', '4', '2023-06-06 14:27:08'),
 (99, 38, 14, 'pablo', '5', '2023-06-06 14:27:08'),
 (100, 38, 14, 'pablo', '6', '2023-06-06 14:27:09'),
-(101, 38, 14, 'pablo', '7', '2023-06-06 14:27:10');
+(101, 38, 14, 'pablo', '7', '2023-06-06 14:27:10'),
+(102, 53, 14, 'Pablo_pablete_pollo', 'buenisimaa', '2023-06-08 10:27:07'),
+(103, 53, 14, 'Pablo_pablete_pollo', 'olee', '2023-06-08 10:28:05');
 
 -- --------------------------------------------------------
 
@@ -198,7 +199,8 @@ INSERT INTO `posts` (`id`, `usuario_id`, `titulo`, `contenido`, `url_recurso`, `
 (49, 20, 'prueba archivo', 'prueba archivo', 'https://storage.googleapis.com/austrian-economics-forum/WCF%20Tutorial.pdf20?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=ah93SL3zmsoYFLORjul1AxjHDx5jw5y8dykdjJp%2BVsa4ajPdBZEQDC7msO36VE55oYzaw3jzZ5ZNpGyNeHBnzGQRkzDUVzv13uoImQhpjpvWf7NKO9oNSO70aowlLZFpZwqGee0RuLCNQvoG2OJIo7r594v8I2f3sWEjlcHrZWNIIrgNTocZZIa6J87fbe4e7geAhwZxn59tH23LPuqkJokgRU6SEtT%2BE4RSdK3SnPuryCByH8Qw%2FyHDVXRjlnRdhjFM6GxABvHiDoxq42S1N6Qh1gNMJ8fwlJ%2FTE7iE4%2BWwbkiB0fW%2BO3%2BlqPa2d2%2BpnGNNTB6BWjs1FMa4U1S9cw%3D%3D&generation=1686144494941255', 'archivo', '2023-06-07 11:28:06'),
 (50, 14, 'Recycled J - DIME ALGO (Audio Oficial)', 'Audio oficial de la canción de Recycled J \"DIME ALGO\" \r\n\r\nProducido por Pablo Rouss. Escrito por Jorge Escorial Moreno y Pablo Rouss. Grabado en Metropol Studios y por Pablo Rouss. Mezclado por Pablo Rouss. Masterizado por Alex Ferrer.', 'https://storage.googleapis.com/austrian-economics-forum/SnapSave.io-Recycled%20J%20-%20DIME%20ALGO%20%28Audio%20Oficial%29%28720p%29.mp414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=K6nFp%2FTOuNLNlFskSXJOv641M6AHfmuraaBUlgZ6IjfN3B3RgD%2Bs32Uw%2B5w328n%2Bs567DyoCd3aMejSs4PEpJjtK1j6iqoNXNKJ7HNILXEK9IWWNdHsTTJz4usOZSDfzgOSQYgKv1Lvm5Lk3Z%2FFL98TsOKeSzi4q3q2bqKjeHLJLC5P6IJTNhYE0Nlvs%2FTjQLEwNov1G1MfBKaTvIAGW9nl63s%2Fj3i0p64XeB5Z8O%2FfK27sYqOdZ3QVIqMhjcGlaTteRrN1ncR8h%2FZuhWseNNua0G8GhwwVeHNFobtIbs%2BPAJ5quu6gEdd9wNxNFf3xXzfcVe9tDETCIsjGVSWpSRA%3D%3D&generation=1686146418962710', 'video', '2023-06-07 12:00:10'),
 (51, 14, 'Recycled J, Selecta - LOS MUERTOS Y LAS FLORES (Audio Oficial)', 'Audio oficial de la canción de Recycled J \"LOS MUERTOS Y LAS FLORES\" junto a Selecta. Track 9 de CASANOVA.\r\n\r\nProducido por Selecta. Escrito por Jorge Escorial Moreno. Arreglos de guitarra por Pablo Rouss. Solo de guitarra por Juan Pablo Mejía. Grabado en Metropol Studios por Selecta. Mezclado por Pablo Jimenez. Masterizado por Alex Ferrer.', 'https://storage.googleapis.com/austrian-economics-forum/SnapSave.io-Recycled%20J%2C%20Selecta%20-%20LOS%20MUERTOS%20Y%20LAS%20FLORES%20%28Audio%20Oficial%29%28720p%29.mp414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=TO7BTQInQg6K1i7dX8DQXqz8Yz%2FSIKReWtPVixrtpwm5BqzSAp3YajL34LoeLDKmAcXSTLv4QbBOUr9vXiwAuxMiGCh9n8ik%2FhFVejN969jpOiWfnEAbctTzSLsolwlPEIIut97TVevKRImPSGiIHtGYK55TMfGSnHWFoD%2FjwQV8%2F7oD50LnGZ%2BYRT%2FcKZ2JePFU1YbnjyPgG8EE64ih2OaNstQG57zUGbnuzwk1pTluOa75F6tMhj2DgV5WUoD0MoinoL9d1BPELSW%2B76K0K8igrtycS%2Fw9SXdpDyQmsSN7WYbsLpcSK4s4Q028M%2FmkzuVv%2FGnxYdt%2BsQKj021X%2FQ%3D%3D&generation=1686147148301445', 'video', '2023-06-07 12:12:19'),
-(52, 14, 'El HOMBRE-MASA y la dictadura de la mayoría: por qué la actual democracia nos está destruyendo', 'Hoy la mayoría acepta que la democracia es la mejor forma de gobierno jamás concebida por el ser humano. Pero, ¿es realmente así? En su nuevo libro \"Contra la mayoría\", @JanoGarcia sostiene que, en democracia, el poder y la soberanía no los tiene el pueblo. Los mismos engranajes democráticos modernos impiden que el pueblo se gobierne a sí mismo y conducen inevitablemente a la peor de las dictaduras: un totalitarismo degenerado pero alegremente consentido y apoyado por la masa.', 'https://storage.googleapis.com/austrian-economics-forum/SnapSave.io-El%20HOMBRE-MASA%20y%20la%20dictadura%20de%20la%20mayor%C3%ADa_%20por%20qu%C3%A9%20la%20actual%20democracia%20nos%20est%C3%A1%20destruyendo%28720p%29.mp414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=ESa3AN4GViAYyA2V0HcpYC7NZAKvLxol%2FLyvQfMLB%2FljEEvpbQBiWF2hCiXHEHmXu5GbpsaztvGUYJgkjUzWes3Ce9XNOUTWW1O381JOGkHKsaU2TdmdDoWq7BpqKWd1Cj1T3BnvncIFAINc4tq3Bjjhlx%2BWyJ0eCfsjS4RgxLWgBZn2pm1C3RkALIADTt6GXxdVPau2rFyIam%2FtXsbxp5Dd8jUYV8iAYXMTSrIgYtwiY4SjOwFDbp1%2F3mEmccK8KZbKmFwjvfwCMaP2BqDnsGGjIbDV2NAOwWB3RNR%2BjHfcTvRCOB1%2BDit%2B7WlLM9Y%2BX8%2Bpsp4Jc0O78VTt3A0YWw%3D%3D&generation=1686148351930087', 'video', '2023-06-07 12:32:23');
+(52, 14, 'El HOMBRE-MASA y la dictadura de la mayoría: por qué la actual democracia nos está destruyendo', 'Hoy la mayoría acepta que la democracia es la mejor forma de gobierno jamás concebida por el ser humano. Pero, ¿es realmente así? En su nuevo libro \"Contra la mayoría\", @JanoGarcia sostiene que, en democracia, el poder y la soberanía no los tiene el pueblo. Los mismos engranajes democráticos modernos impiden que el pueblo se gobierne a sí mismo y conducen inevitablemente a la peor de las dictaduras: un totalitarismo degenerado pero alegremente consentido y apoyado por la masa.', 'https://storage.googleapis.com/austrian-economics-forum/SnapSave.io-El%20HOMBRE-MASA%20y%20la%20dictadura%20de%20la%20mayor%C3%ADa_%20por%20qu%C3%A9%20la%20actual%20democracia%20nos%20est%C3%A1%20destruyendo%28720p%29.mp414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=ESa3AN4GViAYyA2V0HcpYC7NZAKvLxol%2FLyvQfMLB%2FljEEvpbQBiWF2hCiXHEHmXu5GbpsaztvGUYJgkjUzWes3Ce9XNOUTWW1O381JOGkHKsaU2TdmdDoWq7BpqKWd1Cj1T3BnvncIFAINc4tq3Bjjhlx%2BWyJ0eCfsjS4RgxLWgBZn2pm1C3RkALIADTt6GXxdVPau2rFyIam%2FtXsbxp5Dd8jUYV8iAYXMTSrIgYtwiY4SjOwFDbp1%2F3mEmccK8KZbKmFwjvfwCMaP2BqDnsGGjIbDV2NAOwWB3RNR%2BjHfcTvRCOB1%2BDit%2B7WlLM9Y%2BX8%2Bpsp4Jc0O78VTt3A0YWw%3D%3D&generation=1686148351930087', 'video', '2023-06-07 12:32:23'),
+(53, 14, 'ODISEA CAPITULO II - Zelia Narros', 'Colaboración con la artista emergente independiente @i.am.zelianarros  \r\nEn esta sesión hemos integrado varios instrumentos y sonidos Andaluces, destacando sobre todo la caja, utilizada normalmente en las agrupaciones musicales de Semana Santa.', 'https://storage.googleapis.com/austrian-economics-forum/SnapSave.io-ODISEA%20CAPITULO%20II%20-%20Zelia%20Narros%28720p%29.mp414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=Oha9DCi2m8pw4CxhTxv9lzG69MvaVMYYytLplfILPnPym4UYUS8QnUn7yZnRkvgUdGCv57227c1w%2BM%2BqqcDnWazTP4hVcY%2Fh8bkVKr6wCh7awahxLbp3nj%2FteKibs2fGThXcQKBLioQv4Yp0hP1hxW9RMlmZ8VQS1o3cwHO%2Fnvx4YJefhqFJbTQLrFUs0w7Oy6k8rOxW03BBkMRLxw3joilgP67RzUgjFnh9VJv9LMxktSwC%2FQnsetLrKY2SMCdzbPhCPchRRSz%2FLcCvKip3YhpA9c1mwrMn7osE0F6kmxI9bg7g%2Fpz%2FBccG49paCfljRmDiWlFrKNkf5Czpu0%2FB6Q%3D%3D&generation=1686152851690256', 'video', '2023-06-07 13:47:20');
 
 -- --------------------------------------------------------
 
@@ -229,7 +231,9 @@ INSERT INTO `post_likes_dislikes` (`id`, `post_id`, `usuario_id`, `fecha`) VALUE
 (58, 48, 20, '2023-06-07 13:52:16'),
 (59, 48, 14, '2023-06-07 13:52:33'),
 (60, 50, 14, '2023-06-07 14:02:43'),
-(61, 51, 14, '2023-06-07 14:12:34');
+(61, 51, 14, '2023-06-07 14:12:34'),
+(62, 52, 14, '2023-06-07 14:36:15'),
+(64, 53, 14, '2023-06-08 10:37:12');
 
 -- --------------------------------------------------------
 
@@ -250,11 +254,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password_hash`, `fecha_registro`) VALUES
-(14, 'pablo', 'pabloskyisan1998@gmail.com', '$2y$10$5I1xnwCFCrMVmHIrmCr3iuZoue/SHEAD4VchPe6o9vRHyXYW6cLTO', '2023-05-02 07:09:37'),
+(14, 'pablete_pollo', 'pabloskyisan1998@gmail.com', '$2y$10$e8RK5kst3/eXQs55sjvdXOQJsNq7x7eeV8SzWqd8SQwO85kFQ62l6', '2023-05-02 07:09:37'),
 (15, 'oscar', 'mail@pruebas.com', '$2y$10$u/NR1gDYGBj2UVeDXBm7IOol2A6kD9J9HyEI.bpBodZfPTbk8qhyO', '2023-05-16 10:11:38'),
 (17, 'pruebas', 'mail1@pruebas.com', '$2y$10$2W1LpQs.ggSQQQ6XqcAe/uPMjmDFuwRhuxtaZj4gs9Ra8S7uQUv2W', '2023-06-02 09:17:38'),
 (18, 'prueba3', 'prueba3@gmail.com', '$2y$10$3XDu.9eq1.HfWz3ptXCeSO2OQZypKHy7G5orBMtf69gP.mAgTDLOK', '2023-06-02 10:36:18'),
-(19, 'pruebas4', 'mail2@pruebas.com', '$2y$10$GDajJj35JMRC0KZ3UdXSsOvxpeIo7kYbvhYvhwxuaVp09Y.K3P7Y6', '2023-06-02 10:40:34'),
 (20, 'pruebaIndex', 'pruebaIndex@gmail.com', '$2y$10$jzsFsrhQ6x1N2CFia/Qjou0Q1FHMWjG5QdQCHlirSUvjzY6cuF/q2', '2023-06-07 07:55:18');
 
 --
@@ -306,19 +309,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `post_likes_dislikes`
 --
 ALTER TABLE `post_likes_dislikes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -334,7 +337,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `amigos`
 --
 ALTER TABLE `amigos`
-  ADD CONSTRAINT `amigos_ibfk_1` FOREIGN KEY (`usuario_id1`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `amigos_ibfk_1` FOREIGN KEY (`usuario_id1`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `amigos_ibfk_2` FOREIGN KEY (`usuario_id2`) REFERENCES `usuarios` (`id`);
 
 --

@@ -6,6 +6,7 @@ $username=$_POST['username'];
 $email=$_POST['email'];
 $password=$_POST['password'];
 $oldPassword=$_POST['old-password'];
+$error=false;
 
 $sql=$mysqli->prepare('SELECT * FROM usuarios WHERE id = ?');
 $sql->bind_param("i", $userId);
@@ -14,7 +15,7 @@ $result = $sql->get_result();
 $user = $result->fetch_assoc();
 
 if(!password_verify($oldPassword, $user['password_hash'])){
-    $error=false;
+    $error=true;
 }
 if (!isset($username) || strlen($username) < 4) {
     $error = true;
@@ -37,6 +38,10 @@ if(!$error){
     $sql->execute();
     $sql->close();
     $mysqli->close();
+    $_SESSION['user']=[
+        'user-id' => $userId,
+        'username' => $username,
+    ];
     header("Location: ../edit-perfil.php?id=$userId");
 }else{
     header("Location: ../edit-perfil.php?error=error");
