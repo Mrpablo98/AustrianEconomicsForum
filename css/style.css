@@ -2432,6 +2432,11 @@ h2 {
     }
 
     .index-perfil-img {
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .friendDiv img {
         width: 60px;
         border-radius: 50%;
     }
