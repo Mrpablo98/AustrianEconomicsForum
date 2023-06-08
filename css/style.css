@@ -814,6 +814,7 @@ h2 {
 
     .perfil-name {
         display: flex;
+        align-items: center;
         gap: 30px;
     }
 
@@ -1779,11 +1780,14 @@ h2 {
 
     .post {
         width: 80%;
+        min-height: 550px;
         height: auto;
-        max-height: 400px;
         background-color: #0A0C10;
         border-radius: 5%;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         transition: all 0.5s;
         gap: 20px;
@@ -1791,13 +1795,17 @@ h2 {
 
     }
 
+    .post h2 {
+        font-size: medium;
+    }
+
     .post:hover {
-        width: 55%;
+        width: 80%;
         height: 350px;
     }
 
     .post-image {
-        width: 30%;
+        width: auto;
         display: flex;
         align-items: center;
     }
@@ -1819,6 +1827,14 @@ h2 {
     }
 
     .post img {
+        border-radius: 5%;
+        object-fit: contain;
+        transition: all 0.5s;
+    }
+
+    #post-img {
+        width: 30%;
+        height: auto;
         border-radius: 5%;
         object-fit: contain;
         transition: all 0.5s;
@@ -1929,6 +1945,7 @@ h2 {
 
     .post-optionsOpen {
         padding-bottom: 150px;
+        width: 100%;
     }
 
     .post-options {
@@ -2161,6 +2178,10 @@ h2 {
         font-size: 1rem;
         background-size: auto 100%;
         width: 100%;
+        background-color: #0A0C10;
+    }
+
+    html {
         background-color: #0A0C10;
     }
 
@@ -2411,7 +2432,7 @@ h2 {
     }
 
     .index-perfil-img {
-        width: 30px;
+        width: 60px;
         border-radius: 50%;
     }
 
@@ -2648,6 +2669,7 @@ h2 {
         text-align: center;
         align-items: center;
         max-width: 80%;
+        font-size: small;
     }
 
     .news p img {
@@ -2659,23 +2681,27 @@ h2 {
         max-width: 70%;
         text-align: center;
         margin: 0 auto;
+        font-size: medium;
     }
 
     .news1 p {
         max-width: 85%;
         text-align: center;
         align-items: center;
+        font-size: small;
     }
 
     .news1 p img {
         width: 100%;
         margin: 0 auto;
+
     }
 
     .news1 h2 {
         max-width: 70%;
         text-align: center;
         margin: 0 auto;
+        font-size: medium;
     }
 
     .img-checked {
@@ -2733,6 +2759,8 @@ h2 {
         gap: 10px;
         margin-bottom: 70px;
         background-color: #0A0C10;
+        padding-bottom: 50px;
+        padding-top: 30px;
     }
 
     .form-container {
@@ -2753,6 +2781,7 @@ h2 {
     /*perfil*/
     .perfil-header {
         width: 100%;
+        padding-bottom: 50px;
         margin-right: 0;
         margin-left: auto;
         display: flex;
@@ -2770,6 +2799,7 @@ h2 {
     .perfil-data {
         display: flex;
         flex-direction: column;
+        gap: 30px;
 
     }
 
@@ -2815,6 +2845,7 @@ h2 {
     .friendDiv {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         color: white;
         margin-bottom: 10px;
     }
@@ -2888,6 +2919,8 @@ h2 {
         object-fit: contain;
         transition: all 0.5s;
     }
+
+
 
     .like {
         width: 30px;
@@ -3039,7 +3072,8 @@ h2 {
         color: white;
         border: none;
         border-radius: 5px;
-        padding: 10px;
+        padding: 5px;
+        height: 75%;
     }
 
     .deleteButton:hover {
@@ -3062,7 +3096,7 @@ h2 {
         overflow-x: hidden;
         overflow-y: scroll;
         height: auto;
-        max-height: 350px;
+        max-height: 220px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
         border-top: 1px solid rgba(255, 255, 255, 0.301);
     }
@@ -3113,7 +3147,7 @@ h2 {
     .coment-input {
         width: 70%;
         border-radius: 5px;
-        height: 4vh;
+        height: 6vh;
         border: none;
         background-color: #0A0C10;
         ;

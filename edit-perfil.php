@@ -2,6 +2,7 @@
 session_start();
 require_once("connection.php");
 $userId=$_SESSION['user']['user-id'];
+$error=$_GET['error'];
 $sql="SELECT * FROM usuarios WHERE id = ?";
 $sql=$mysqli->prepare($sql);
 $sql->bind_param("i", $userId);
@@ -104,6 +105,7 @@ $user=$_SESSION['user'];
                 <div class="edit-data"><label for="username">Nuevo nombre de usuario: </label><input disabled <?php  echo "value='". $userName ."'" ?> placeholder="Nuevo nombre de usuario" type="text" name="username" id="username"></div>
                 <div class="edit-data"><label for="password">Nueva contraseña: </label><input disabled placeholder="Nueva contraseña" type="password" name="password" id="password"></div>
                 <div class="edit-data"><label for="old-password">Antigua contraseña: </label><input disabled  placeholder="Antigua contraseña" type="password" name="old-password" id="old-password"></div>
+                <?php  if($error){echo "<div class='edit-data'><p>Todos los campos son obligatorios</p></div>";}    ?>
                 <div class=editButton-container><button class="editButton" type="submit">Editar</button></div>
             </form>
             <a href='php/delete-user.php'><button class="deleteButton">Borrar perfil</button></a>
