@@ -3,7 +3,8 @@ body {
     font-size: 1rem;
     background-color: #0A0C10;
 }
-h2{
+
+h2 {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -342,7 +343,7 @@ h2{
         height: 40px;
         font-weight: bold;
         font-family: 'Courier New', Courier, monospace;
-        box-shadow:  0px 20px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
 
     .buttonContainerIndex button:hover {
@@ -658,15 +659,6 @@ h2{
         transition: opacity 0.5s ease;
     }
 
-    /*.img-checked:hover {
-        opacity: 0.3;
-
-    }
-
-    .img-unchecked:hover {
-        opacity: 1;
-    }*/
-
     .form-container input {
         visibility: hidden;
     }
@@ -804,7 +796,7 @@ h2{
         gap: 30px;
         justify-content: center;
         transition: all 0.5s ease;
-       
+
     }
 
     .perfil-photo {
@@ -1260,6 +1252,61 @@ h2{
     .invisible {
         display: none;
         visibility: hidden;
+    }
+
+    /*Edit-Perfil*/
+
+    .edit-container {
+        padding-top: 100px;
+        width: 100%;
+
+    }
+
+    .userName {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
+    }
+
+    .edit-data {
+        display: flex;
+        width: auto;
+        margin-left: 30%;
+    }
+
+    .edit-data label {
+        width: 150px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+    }
+
+    .edit-data input {
+        width: 450px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 30px;
+        margin-left: 10px;
+        margin-right: 30px;
+        color: black;
+    }
+
+    .fa-pen-to-square {
+        font-size: 20px;
+        margin-left: 10px;
+        height: 30px;
+    }
+
+    .fa-pen-to-square:hover {
+        cursor: pointer;
+    }
+
+    .editButton-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 50px;
     }
 
     /*footer*/
@@ -1814,7 +1861,7 @@ h2{
         height: 85%;
     }
 
-  
+
     .complete-post-image {
         width: 100%;
         height: 100%;
@@ -1845,7 +1892,8 @@ h2{
     .complete-post-image div {
         width: 100%;
     }
-    .post-image{
+
+    .post-image {
         width: 100%;
         height: 30%;
         display: flex;
@@ -2032,6 +2080,60 @@ h2{
         visibility: hidden;
     }
 
+    /*Edit-Perfil*/
+
+    .edit-container {
+        padding-top: 100px;
+        width: 100%;
+
+    }
+
+    .userName {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
+    }
+
+    .edit-data {
+        display: flex;
+        width: auto;
+        margin-left: 0;
+    }
+
+    .edit-data label {
+        width: 150px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+    }
+
+    .edit-data input {
+        width: 450px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 30px;
+        margin-left: 10px;
+        margin-right: 30px;
+        color: black;
+    }
+
+    .fa-pen-to-square {
+        font-size: 20px;
+        margin-left: 10px;
+        height: 30px;
+    }
+
+    .fa-pen-to-square:hover {
+        cursor: pointer;
+    }
+
+    .editButton-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
 }
 
 @media(max-width: 768px) {
@@ -2215,7 +2317,7 @@ h2{
 
     .content-container {
         width: 100%;
-        height: auto;
+        height: 100vh;
         background-color: #191F26;
         display: flex;
         flex-direction: column;
@@ -2513,13 +2615,11 @@ h2{
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
 
-    .news img
-    video {
+    .news img video {
         width: 80%;
     }
 
-    .news1 img
-    video {
+    .news1 img video {
         width: 80%;
     }
 
@@ -2842,7 +2942,8 @@ h2{
         width: 100%;
 
     }
-    .post-image video{
+
+    .post-image video {
         width: 100%;
         height: 100%;
         object-fit: contain;
@@ -3036,6 +3137,60 @@ h2{
 
     .invisible {
         display: none;
+    }
+
+    /*Edit-Perfil*/
+
+    .edit-container {
+        padding-top: 100px;
+        width: 100%;
+
+    }
+
+    .userName {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15px;
+    }
+
+    .edit-data {
+        display: flex;
+        width: auto;
+        margin-left: 0;
+    }
+
+    .edit-data label {
+        width: 150px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .edit-data input {
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 30px;
+        margin-left: 0px;
+        margin-right: 0px;
+        color: black;
+    }
+
+    .fa-pen-to-square {
+        font-size: 20px;
+        margin-left: 10px;
+        height: 30px;
+    }
+
+    .fa-pen-to-square:hover {
+        cursor: pointer;
+    }
+
+    .editButton-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 50px;
     }
 
     footer {
