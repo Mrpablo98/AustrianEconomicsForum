@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('connection.php');
+$user=$_SESSION['user'];
 $userId=$_SESSION['user']['user-id'];    
 $searchValue=$_POST['search-bar'];
 $searchWord = '%' . $searchValue . '%';
@@ -9,6 +10,7 @@ $stmt=$mysqli->prepare($sql);
 $stmt->bind_param('si',$searchWord, $userId);
 $stmt->execute();
 $result=$stmt->get_result();
+$id=$user['user-id'];
 if($result->num_rows==0){
     echo "<p>No se han encontrado resultados para $searchValue</p>";
 }else{
@@ -88,7 +90,7 @@ if($result->num_rows==0){
         </div>
         <div id='result'></div>
         <div class="content-container" id='posts'>
-            <h2 style="display:flex; align-items:center; justify-content:center; margin:0; width:100%; height:150px; background-color:#0A0C10; font-size:30px; text-decoration:underline;">Usuarios de AustrianEconomicsForum: </h2>
+            <h2 class="title-searching" style="display:flex; align-items:center; justify-content:center; margin:0; width:100%; height:150px; background-color:#0A0C10; text-decoration:underline;">Usuarios de AustrianEconomicsForum: </h2>
             <?php
                 foreach($users as $user){
                     echo $user;

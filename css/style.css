@@ -2218,6 +2218,60 @@ h2 {
         margin-top: 30px;
     }
 
+
+    /*Searching*/
+    .title-searching {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .user-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        padding-left: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        color: white;
+        font-size: 25px;
+    }
+
+    .user-container a {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .searchLink {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+
+
+    }
+
+    .user-container img {
+        width: 60px;
+        height: auto;
+    }
+
+    .user-container:hover {
+        cursor: pointer;
+        background-color: #93969b;
+    }
+
+    .user-container p:hover {
+        cursor: pointer;
+    }
+
+
 }
 
 @media(max-width: 768px) {
@@ -2406,6 +2460,7 @@ h2 {
     .content-container {
         width: 100%;
         height: auto;
+        min-height: 95vh;
         background-color: #191F26;
         display: flex;
         flex-direction: column;
@@ -3327,6 +3382,58 @@ h2 {
         margin-top: 30px;
         gap: 50px;
         margin-bottom: 20px;
+    }
+
+    /*Searching*/
+    .title-searching {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .user-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        padding-left: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        color: white;
+        font-size: 25px;
+    }
+
+    .user-container a {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .searchLink {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+
+
+    }
+
+    .user-container img {
+        width: 60px;
+        height: auto;
+    }
+
+    .user-container:hover {
+        cursor: pointer;
+        background-color: #93969b;
+    }
+
+    .user-container p:hover {
+        cursor: pointer;
     }
 
     footer {
