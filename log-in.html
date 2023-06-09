@@ -25,7 +25,9 @@
                         
                         <div class="inputText">
                             <input placeholder="Nombre de usuario" type="text" name="username" id="username">
+                            <p class="invisible" id="user-error" style="padding:10px; color: red; border: 1px solid red;">El usuario no existe!</p>
                             <input placeholder="Contraseña" type="password" name="password" id="password">
+                            <p class="invisible" id="password-error" style="padding:10px; color: red; border: 1px solid red;">La contraseña es incorrecta!</p>
                         </div>
                     </div>
                     <button class="loginButton" type="submit">Log in</button>
@@ -105,6 +107,7 @@
                 <p>© 2023 AustrianEconomicsForum</p>
     </footer>
 <script src="js/disclaimers.js"></script>
+<script src="js/validate-login.js"></script>
 </body>
 
 </html>
