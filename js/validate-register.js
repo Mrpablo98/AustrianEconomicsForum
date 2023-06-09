@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if(emailBool && usernameBool && passwordBool && RpasswordBool){
             registeBtn.disabled=false;
             registeBtn.style.opacity='1';
+        }else{
+            registeBtn.disabled=true;
+            registeBtn.style.opacity='0.5';
         }
     });
 
@@ -48,6 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if(emailBool && usernameBool && passwordBool && RpasswordBool){
             registeBtn.disabled=false;
             registeBtn.style.opacity='1';
+        }else{
+            registeBtn.disabled=true;
+            registeBtn.style.opacity='0.5';
         }
     });
 
@@ -65,6 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if(emailBool && usernameBool && passwordBool && RpasswordBool){
                 registeBtn.disabled=false;
                 registeBtn.style.opacity='1';
+            }else{
+                registeBtn.disabled=true;
+                registeBtn.style.opacity='0.5';
             }
     });
     Rpassword.addEventListener('input', function() {
@@ -81,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if(emailBool && usernameBool && passwordBool && RpasswordBool){
             registeBtn.disabled=false;
             registeBtn.style.opacity='1';
+        }else{
+            registeBtn.disabled=true;
+            registeBtn.style.opacity='0.5';
         }
     });
     
