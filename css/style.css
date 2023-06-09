@@ -1311,6 +1311,53 @@ h2 {
         margin-top: 30px;
     }
 
+    /*Searching*/
+    .user-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        padding-left: 50px;
+        font-family: 'Courier New', Courier, monospace;
+        color: white;
+        font-size: 25px;
+    }
+
+    .user-container a {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .searchLink {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+
+
+    }
+
+    .user-container img {
+        width: 60px;
+        height: auto;
+    }
+
+    .user-container:hover {
+        cursor: pointer;
+        background-color: #93969b;
+    }
+
+    .user-container p:hover {
+        cursor: pointer;
+    }
+
     /*footer*/
     footer {
         color: white;

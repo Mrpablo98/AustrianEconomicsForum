@@ -118,9 +118,9 @@
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form>
-                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
-                <button class='search-button normal_button' id='search-button2'>Buscar</button>
+            <form action="searching.php" method="POST">
+                <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
+                <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
             </form>
         </div>
         <div id='result'></div>

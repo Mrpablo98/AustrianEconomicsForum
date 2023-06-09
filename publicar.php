@@ -80,19 +80,19 @@
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form method='POST' action='search.php'>
-                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
-                <button type='submit' class='search-button normal_button'>Buscar</button>
+            <form action="searching.php" method="POST">
+                <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
+                <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
             </form>
         </div>
         <div id='result'></div>
         <div class="content-container">
             <form class='public-form' action="validate-publi.php" method='POST' enctype="multipart/form-data">
-                <input class='input' id='title' name='title' type='text' placeholder='Título del post...'>
+                <input autocomplete="off" class='input' id='title' name='title' type='text' placeholder='Título del post...'>
                 <textarea id='body' name='body' class='input' maxlength='10000' placeholder='Texto del post...' style="height:150px;"></textarea>
-                <input class="input-file" id='file' name='file' type="file" accept="image/*, video/*, audio/*,  text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf">
+                <input autocomplete="off" class="input-file" id='file' name='file' type="file" accept="image/*, video/*, audio/*,  text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf">
                 <p style="margin: 0 auto;">Tamaño máximo de archivos 60MB aprox.</p>
-                <input class='input' type='text' id='hagstag' name='hagstag' placeholder='Introduce temáticas relacionadas con el post: #inflacion #pesoargentino #2023'>
+                <!--<input autocomplete="off" class='input' type='text' id='hagstag' name='hagstag' placeholder='Introduce temáticas relacionadas con el post: #inflacion #pesoargentino #2023'>-->
                 <button type="submit" class='normal_button public_button'>Publicar</button>
             </form>
             <img class="loading-publi" src="img/gif_loading.gif">

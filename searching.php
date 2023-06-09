@@ -1,12 +1,23 @@
-
 <?php
-    session_start();
-        $user=$_SESSION['user'];
-        if(!isset($user['username']) || strlen($user['username']) < 4){
-            header("Location: log-in.html");
-        }
-        $id=$user['user-id'];
-    ?>
+session_start();
+require_once('connection.php');
+$userId=$_SESSION['user']['user-id'];    
+$searchValue=$_POST['search-bar'];
+$searchWord = '%' . $searchValue . '%';
+$sql="SELECT * FROM usuarios where nombre like ? and id != ?";
+$stmt=$mysqli->prepare($sql);
+$stmt->bind_param('si',$searchWord, $userId);
+$stmt->execute();
+$result=$stmt->get_result();
+if($result->num_rows==0){
+    echo "<p>No se han encontrado resultados para $searchValue</p>";
+}else{
+    while ($row = $result->fetch_assoc()) {
+        $users[] = '<a class="searchLink" href="perfil.php?id=' . $row['id'] . '"><div class="user-container"><img src="img/icon.png" class="index-perfil-img">'.'<p >' . $row['nombre'] . '</p>' . '</div></a>';
+    }
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +35,6 @@
 <body>
     
     <div class="container-all-index">
-    <img src='img/gif_loading.gif' id='loading'>
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">
@@ -78,15 +88,18 @@
         </div>
         <div id='result'></div>
         <div class="content-container" id='posts'>
-            <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
-            <div class="indexNoPost invisible"><p>¡Vaya, aún no tinenes gente a la que seguir!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
-            <div class="buttonContainerIndex"><a href="explore.php"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
+            <h2 style="display:flex; align-items:center; justify-content:center; margin:0; width:100%; height:150px; background-color:#0A0C10; font-size:30px; text-decoration:underline;">Usuarios de AustrianEconomicsForum: </h2>
+            <?php
+                foreach($users as $user){
+                    echo $user;
+                }
+            
+            ?>
         </div>
     </div>
     
     <script src='js/options.js'></script>
     <script src='js/peticiones-amistad.js'></script>
-    <script src="js/loadposts-index.js"></script>
     <script src="js/search.js"></script>
 </body>
 </html>

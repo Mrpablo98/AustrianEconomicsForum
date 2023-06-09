@@ -26,9 +26,9 @@
     <div class="container-all-index">
         
     <div class="search-bar-container" id="search-bar-container">
-            <form method='POST' action='search.php'>
-                <input placeholder="Search..." class="search-bar" id='search-bar' type="text">
-                <button type='submit' class='search-button normal_button'>Buscar</button>
+            <form action="searching.php" method="POST">
+                <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
+                <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
             </form>
         </div>
         <div id='result'></div>
