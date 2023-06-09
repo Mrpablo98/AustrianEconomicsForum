@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     username.addEventListener('input', function() {
             
-            if(username.value.length>4){
+            if(username.value.trim().length>4 ){
                 username.style.border='1px solid green';
             }else{
                 username.style.border='1px solid red';
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     password.addEventListener('input', function() {
                 
-                if(password.value.length>6){
+                if(password.value.trim().length>6){
                     password.style.border='1px solid green';
                 }else{
                     password.style.border='1px solid red';
