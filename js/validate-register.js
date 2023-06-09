@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
 
-        if(username.value.trim().length>4){
+        if(username.value.trim().length>=4){
             username.style.border='1px solid green';
             usernameBool=true;
         }else{
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
         
 
-            if(password.value.trim().length>6){
+            if(password.value.trim().length>=6){
                 password.style.border='1px solid green';
                 passwordBool=true;
             }else{
