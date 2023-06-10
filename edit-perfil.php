@@ -2,7 +2,11 @@
 session_start();
 require_once("connection.php");
 $userId=$_SESSION['user']['user-id'];
-$error=$_GET['error'];
+$errorOld=$_GET['errorOld'];
+$errorName=$_GET['errorName'];
+$errorMail=$_GET['errorMail'];
+$errorPassword=$_GET['errorPassword'];
+$errorRpassword=$_GET['errorRpassword'];
 $sql="SELECT * FROM usuarios WHERE id = ?";
 $sql=$mysqli->prepare($sql);
 $sql->bind_param("i", $userId);
@@ -102,10 +106,15 @@ $user=$_SESSION['user'];
         <div class="content-container" id='posts'>
             <form class="edit-container"  method="POST" action="php/edicion-perfil.php">
                 <div class="edit-data"><label for="email">Nuevo E-mail: </label><input disabled <?php  echo "value='". $email ."'" ?> placeholder="Nuevo E-mail" type="email" name="email" id="email" ><i class="fa-solid fa-pen-to-square" style="color: #d6d6d6;"></i></div>
+                <?php if($errorMail){echo "<p style='text-align:center; border:1px solid red; padding:10px; width:20%; margin:0 auto; color:red; border-radius:5%; margin-bottom:30px;'>El email introducido no es válido</p>";} ?>
                 <div class="edit-data"><label for="username">Nuevo nombre de usuario: </label><input disabled <?php  echo "value='". $userName ."'" ?> placeholder="Nuevo nombre de usuario" type="text" name="username" id="username"></div>
+                <?php if($errorName){echo "<p style='text-align:center; border:1px solid red; padding:10px; width:20%; margin:0 auto; color:red; border-radius:5%; margin-bottom:30px;'>El nombre de usuario introducido no es válido</p>";} ?>
                 <div class="edit-data"><label for="password">Nueva contraseña: </label><input disabled placeholder="Nueva contraseña" type="password" name="password" id="password"></div>
+                <?php if($errorPassword){echo "<p style='text-align:center; border:1px solid red; padding:10px; width:20%; margin:0 auto; color:red; border-radius:5%; margin-bottom:30px;'>La nueva contraseña introducida no es válida</p>";} ?>
+                <div class="edit-data"><label for="password">Repite la nueva contraseña: </label><input disabled placeholder="Repetir nueva contraseña" type="password" name="Rpassword" id="Rpassword"></div>
+                <?php if($errorRpassword){echo "<p style='text-align:center; border:1px solid red; padding:10px; width:20%; margin:0 auto; color:red; border-radius:5%; margin-bottom:30px;'>Las nuevas contraseñas deben ser iguales entre ellas</p>";} ?>
                 <div class="edit-data"><label for="old-password">Antigua contraseña: </label><input disabled  placeholder="Antigua contraseña" type="password" name="old-password" id="old-password"></div>
-                <?php  if($error){echo "<div class='edit-data'><p>Todos los campos son obligatorios</p></div>";}    ?>
+                <?php  if($errorOld){echo "<p style='text-align:center; border:1px solid red; padding:10px; width:20%; color:red; margin:0 auto; border-radius:5%; margin-bottom:30px;'>Tu antigua contraseña no es correcta</p>";}    ?>
                 <div class=editButton-container><button class="editButton" type="submit">Editar</button></div>
             </form>
             <a href='php/delete-user.php'><button class="deleteButton">Borrar perfil</button></a>

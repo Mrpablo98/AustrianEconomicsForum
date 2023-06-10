@@ -481,6 +481,7 @@ h2 {
         z-index: 0;
         min-height: 100vh;
         gap: 50px;
+        
 
     }
 
@@ -1030,17 +1031,24 @@ h2 {
         margin: 0;
         padding-left: 50px;
     }
-
-    .complete-post-image>img {
-        width: 65%;
+    .media{
+        width: 50%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 5%;
     }
 
-    .complete-post-image>video {
-        width: 65%;
+    .media>img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 5%;
+    }
+
+    .media>video {
+        width: 100%;
         height: 100%;
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
@@ -1357,6 +1365,50 @@ h2 {
     .user-container p:hover {
         cursor: pointer;
     }
+    /*Explore*/
+
+    .filtrosExplorar{
+
+        width: 100%;
+        height: 300px;
+        background-color: #0A0C10;
+        position: relative;
+    }
+    .filtrosLikes{
+        position: absolute;
+        bottom:0;
+        left:50px;
+        padding: 10px;
+    }
+    .filtrosFecha{
+        position: absolute;
+        bottom:0;
+        left:220px;
+        padding: 10px;
+    }
+    .filtrosLikes:hover{
+        cursor: pointer;
+    }
+    .filtroFecha:hover{
+        cursor: pointer;
+    }
+    .selected{
+        border-top : 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+    .unselected{
+        border-top : 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        opacity: 0.3;
+    }
+    .unselected:hover{
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+
 
     /*footer*/
     footer {
@@ -2271,6 +2323,50 @@ h2 {
         cursor: pointer;
     }
 
+    /*Explore*/
+
+    .filtrosExplorar{
+
+        width: 100%;
+        height: 300px;
+        background-color: #0A0C10;
+        position: relative;
+    }
+    .filtrosLikes{
+        position: absolute;
+        bottom:0;
+        left:50px;
+        padding: 10px;
+    }
+    .filtrosFecha{
+        position: absolute;
+        bottom:0;
+        left:220px;
+        padding: 10px;
+    }
+    .filtrosLikes:hover{
+        cursor: pointer;
+    }
+    .filtroFecha:hover{
+        cursor: pointer;
+    }
+    .selected{
+        border-top : 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+    .unselected{
+        border-top : 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        opacity: 0.3;
+    }
+    .unselected:hover{
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+
 
 }
 
@@ -2470,6 +2566,7 @@ h2 {
         z-index: 0;
         margin-bottom: 50px;
         overflow: hidden;
+        
 
     }
 
@@ -3119,6 +3216,29 @@ h2 {
         object-fit: contain;
         border-right: 1px solid rgba(255, 255, 255, 0.301);
     }
+    .media{
+        width: 50%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 5%;
+    }
+
+    .media>img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 5%;
+    }
+
+    .media>video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 5%;
+    }
 
 
     .complete-post-image div {
@@ -3202,8 +3322,8 @@ h2 {
     .overflow-post-content {
         overflow-x: hidden;
         overflow-y: scroll;
-        height: auto;
-        max-height: 220px;
+        height: 350px;
+        max-height: 350px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
         border-top: 1px solid rgba(255, 255, 255, 0.301);
     }
@@ -3467,4 +3587,50 @@ h2 {
         cursor: pointer;
 
     }
+    /*Explore*/
+
+    .filtrosExplorar{
+
+        width: 100%;
+        height: 100px;
+        background-color: #0A0C10;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .filtrosLikes{
+        position: absolute;
+        bottom:0;
+        left:10px;
+        padding: 10px;
+        font-size: small;
+    }
+    .filtrosFecha{
+        position: absolute;
+        bottom:0;
+        left:150px;
+        padding: 10px;
+        font-size: small;
+    }
+    .filtrosLikes:hover{
+        cursor: pointer;
+    }
+    .filtroFecha:hover{
+        cursor: pointer;
+    }
+    .selected{
+        border-top : 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+    .unselected{
+        border-top : 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        opacity: 0.3;
+    }
+    .unselected:hover{
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
 }

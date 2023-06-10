@@ -5,9 +5,15 @@ $userId=$_SESSION['user']['user-id'];
 $username=$_POST['username'];
 $email=$_POST['email'];
 $password=$_POST['password'];
+$Rpassword=$_POST['Rpassword'];
 $oldPassword=$_POST['old-password'];
 $error=false;
-
+$oldPasswordError=false;
+$emailError=false;
+$usernameError=false;
+$passwordError=false;
+$RpasswordError=false;
+$url='Location: ../edit-perfil.php?id='.$userId;
 $sql=$mysqli->prepare('SELECT * FROM usuarios WHERE id = ?');
 $sql->bind_param("i", $userId);
 $sql->execute();
@@ -16,18 +22,29 @@ $user = $result->fetch_assoc();
 
 if(!password_verify($oldPassword, $user['password_hash'])){
     $error=true;
+    $oldPasswordError=true;
+    $url=$url.'&errorOld=oldPassword';
 }
 if (!isset($username) || strlen($username) < 4) {
     $error = true;
-    echo 'El nombre se usuario debe contener al menos 4 caracteres';
+    $usernameError=true;
+    $url=$url.'&errorName=username';
+    
 }
 if (!isset($email) || filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
     $error = true;
-    echo 'Introduce un e_mail valido';
+    $emailError=true;
+    $url=$url.'&errorMail=email';
 }
 if (!isset($password) || strlen($password) < 6) {
     $error = true;
-    echo 'La contraseña debe contener al menos 6 caracteres';
+    $passwordError=true;
+    $url=$url.'&errorPassword=password';
+}
+if ($password != $Rpassword) {
+    $error = true;
+    $RpasswordError=true;
+    $url=$url.'&errorRpassword=Rpassword';
 }
 
 
@@ -43,8 +60,19 @@ if(!$error){
         'username' => $username,
     ];
     header("Location: ../edit-perfil.php?id=$userId");
-}else{
-    header("Location: ../edit-perfil.php?error=error");
+}else if($error){
+    if($oldPasswordError){
+        header($url);
+    }else if($usernameError){
+        header($url);
+    }else if($emailError){
+        header($url);
+    }else if($passwordError){
+        header($url);
+    }
+    else if($RpasswordError){
+        header($url);
+    }
 }
 
 
