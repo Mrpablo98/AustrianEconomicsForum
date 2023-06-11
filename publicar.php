@@ -88,7 +88,7 @@
         <div id='result'></div>
         <div class="content-container">
             <form class='public-form' action="validate-publi.php" method='POST' enctype="multipart/form-data">
-                <input required autocomplete="off" class='input' id='title' name='title' type='text' placeholder='Título del post...'>
+                <input autocomplete="off" class='input' id='title' name='title' type='text' placeholder='Título del post...' required>
                 <textarea id='body' name='body' class='input' maxlength='10000' placeholder='Texto del post...' style="height:150px;"></textarea>
                 <input autocomplete="off" class="input-file" id='file' name='file' type="file" accept="image/*, video/*, audio/*,  text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf">
                 <p style="margin: 0 auto;">Tamaño máximo de archivos 60MB aprox.</p>
@@ -97,7 +97,7 @@
             </form>
             <img class="loading-publi" src="img/gif_loading.gif">
             <div class="archivo-subido"><p>La publicacion se ha subido con éxito!</p><i class="fas fa-check" style="color: #00ff40;"></i></div>
-            <div class="archivo-fallido"><p>El archivo no se ha podido subir con éxito!</p><i class="fa-solid fa-xmark" style="color: #red;"></i></i></div>
+            <div class="archivo-fallido"><p>El archivo no se ha podido subir con éxito!</p><i class="fa-solid fa-xmark" style="color: red;"></i></i></div>
         </div>
         <script src="js/search.js"></script>
         <script src='js/options.js'></script>
