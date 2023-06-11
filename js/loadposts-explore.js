@@ -1,9 +1,15 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+
+
+/*document.addEventListener('DOMContentLoaded', function() {*/
+   
     function getQueryParam(name) {
         var urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
     }
+    
+    
+       
     
     var id=getQueryParam('id');
     if(id==null){id=getQueryParam('Iduser');}
@@ -19,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loading=true;
         var xhr = new XMLHttpRequest();
         xhr.open('GET', `php/posts-explorar.php?start=${start}&limit=${limit}&id=${id}`, true);  
-
+    
         xhr.onload = async function() {
             if (this.status === 200) {
                 var responseData = JSON.parse(this.responseText);
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         '</div>' +
                                         '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
                                 '</div>';
-
+    
                     document.querySelector('#posts').innerHTML += postHtml; 
                     
                 };
@@ -111,13 +117,121 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Hubo un error al obtener los posts:', this.status, this.statusText);
             }
         };
-
+    
         xhr.onerror = function() {
             console.error('Hubo un error al hacer la solicitud:', this.status, this.statusText);
         };
-
+    
         xhr.send();
     }
+    
+    async function loadPostsDate() {
+        if(loading){return;}
+        loading=true;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `php/posts-explorar-fechas.php?start=${start}&limit=${limit}&id=${id}`, true);  
+    
+        xhr.onload = async function() {
+            if (this.status === 200) {
+                var responseData = JSON.parse(this.responseText);
+                console.log(responseData);
+                var data=responseData.posts;
+                var userId=responseData.userId;
+                var username=responseData.username;
+                console.log(username);
+                console.log(data);
+                for(const post of data) {
+                    let content=post.contenido;
+                    Likesrc= await checkLikeButton(post.id);
+                    try {
+                        const response = await fetch('php/count-likes.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: 'postId=' + post.id
+                        });
+                        
+                        const likeData = await response.text();
+                        console.log(likeData);
+                        numLikes=likeData;  
+                        
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                    if(content.length>100){
+                        content=content.substring(0,100)+"...";
+                    }
+                    
+                    var postHtml = '<div class="post" data-id="'+post.id+'">'; 
+                    if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
+                        postHtml+= '<div class="post-content">' +
+                                    '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
+                                    '<p style="text-align:center;">' + content + '</p>' +
+                                    '</div>';
+                                    if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
+                                        '<img id="post-img" src="' + post.url_recurso + '" />' +
+                                    '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
+                                    '<video id="post-img" src="' + post.url_recurso + '" controls />' +
+                                '</div>';}else if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}}
+                                    postHtml+='<div class="post-arrow">' + 
+                                        '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
+                                    '</div>';
+                                    if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
+                                postHtml+='</div>';
+                                
+                                postHtml+='<div class="cortina-post invisible">' +
+                                        '<div class="complete-Post ">' +
+                                            '<div class="complete-post-image invisible">';
+                                                if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
+                                            }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
+                                               postHtml+= '<div>'+
+                                               '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center; height: auto;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
+                                                '<div class="overflow-post-content">' +
+                                                '<p>' + post.contenido + '</p>' +
+                                                '<div id="coments' +post.id + '" class="coments"'+'>' +
+                                                    
+                                                '</div>' +
+                                                '</div>' +
+                                                '<div class="like-container">' +
+                                                    '<img  class="like" src="'+ Likesrc +'">' +
+                                                    '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
+                                                '</div>' +
+                                                '<div class="comentar-container">' +
+                                                    '<form class="form-coment">' +
+                                                        '<input type="hidden" name="postId" value="'+post.id+'">' +
+                                                        '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
+                                                        '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
+                                                    '</form>' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
+                                '</div>';
+    
+                    document.querySelector('#posts').innerHTML += postHtml; 
+                    
+                };
+                likesShow(start);
+                if(data.length === 10){start += limit;}else{start+=data.length;}
+                loading=false;
+                attachListeners();
+                
+            } else {
+            
+                console.error('Hubo un error al obtener los posts:', this.status, this.statusText);
+            }
+        };
+    
+        xhr.onerror = function() {
+            console.error('Hubo un error al hacer la solicitud:', this.status, this.statusText);
+        };
+    
+        xhr.send();
+    }
+   
+    
+
     function likesShow(start){
         var posts=document.querySelectorAll('.post');
         
@@ -508,6 +622,36 @@ document.addEventListener('DOMContentLoaded', function() {
   
     
 
-});
-        
-    
+//});
+
+
+
+function postfecha(){
+    var fecha = document.getElementById('filtrosFecha');
+    var likes = document.getElementById('filtrosLikes');
+    var filtros=document.querySelector('.filtrosExplorar');
+    start=0;
+
+    if(fecha.classList.contains('unselected')){
+        document.querySelector('#posts').innerHTML =""; 
+        fecha.classList.remove('unselected');
+        fecha.classList.add('selected');
+        likes.classList.remove('selected');
+        likes.classList.add('unselected');
+    }
+    loadPostsDate();
+}
+function postlikes(){
+    var fecha = document.getElementById('filtrosFecha');
+    var likes = document.getElementById('filtrosLikes');
+    start=0;
+
+    if(likes.classList.contains('unselected')){
+        document.querySelector('#posts').innerHTML =""; 
+        likes.classList.remove('unselected');
+        likes.classList.add('selected');
+        fecha.classList.remove('selected');
+        fecha.classList.add('unselected');
+    }
+    loadPosts();
+}

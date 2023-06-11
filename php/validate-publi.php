@@ -12,9 +12,7 @@ ini_set('max_input_time', '300');
 
 function upload_file($bucketName, $objectName, $source, $tipo)
 {
-    //$finfo=finfo_open(FILEINFO_MIME_TYPE);
-    //$tipo=finfo_file($finfo, $source);
-    //finfo_close($finfo);
+    
     $expiration = new \DateTime('2099-01-18');
 
     $storage = new StorageClient([
@@ -47,7 +45,7 @@ $body = isset($_POST['body']) ? trim($_POST['body']) : '';
 if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $idUser=$userId;
     $_FILES['file']['name'] = $_FILES['file']['name'].strval($idUser);
-    $fileName = $_FILES['file']['name'];
+    $fileName = $_FILES['file']['name'] . $userId;
     $fileType = $_FILES['file']['type'];
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
     $tipo='archivo';
@@ -59,8 +57,8 @@ if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $datos=upload_file('austrian-economics-forum', $fileName, $fileName, $tipo);
    
 }
-$sql=$mysqli->prepare("INSERT INTO posts (usuario_id, titulo, contenido, url_recurso, tipo, fecha_publicacion) VALUES (?,?,?,?,?,?)");
-$sql->bind_param("isssss", $userId, $title, $body, $datos['url'], $tipo, $fecha);
+$sql=$mysqli->prepare("INSERT INTO posts (usuario_id, titulo, contenido, url_recurso, objectName, tipo, fecha_publicacion) VALUES (?,?,?,?,?,?,?)");
+$sql->bind_param("issssss", $userId, $title, $body, $datos['url'], $fileName, $tipo, $fecha);
 $sql->execute();
 if($sql->error){
     echo "Error al ejecutar la consulta" . $sql->error;

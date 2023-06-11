@@ -1,0 +1,31 @@
+<?php
+session_start();
+include("../connection.php");
+$userId=$_SESSION['user']['user-id'];
+
+$start = isset($_GET['start']) ? intval($_GET['start']) : 0;
+$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 10;
+$sql = $mysqli->prepare('SELECT usuarios.nombre, posts.id, posts.titulo, posts.contenido, posts.url_recurso, posts.tipo, posts.usuario_id, posts.fecha_publicacion, COUNT(post_likes_dislikes.usuario_id) AS likes
+FROM posts
+LEFT JOIN post_likes_dislikes ON posts.id = post_likes_dislikes.post_id
+INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+GROUP BY posts.id
+ORDER BY posts.fecha_publicacion DESC LIMIT ?, ?');
+if ($sql === false) {
+    die("Error en la consulta: " . $mysqli->error);
+}
+$sql->bind_param("ii", $start, $limit);
+$sql->execute();
+$Postresult=$sql->get_result();
+
+$posts = [];
+while($row = $Postresult->fetch_assoc()) {
+    $posts[] = $row;
+}
+$response = array(
+    "posts" => $posts,
+    "userId" => $userId,
+);
+
+echo json_encode($response);
+?>

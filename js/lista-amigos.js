@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.open('GET','php/lista-amigos.php?id='+id);
         xhr.onload=function(){
             if(this.status===200){
-                console.log(this.responseText);
                 var response=JSON.parse(this.responseText);
                 var data=response.amigos;
                 loggedUserId=response.loggedUserId;
@@ -69,21 +68,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 var deleteButtons=friendsList.querySelectorAll('.deleteUser');
                 console.log(deleteButtons);
                 deleteButtons.forEach((button)=>{
-                    console.log(button);
                     button.addEventListener('click',(event)=>{
                         userId=button.dataset.id;
                         event.preventDefault();
                         console.log(userId);
                         const xhr=new XMLHttpRequest();
-                        xhr.open('POST','php/delete-friend.php');
+                        xhr.open('POST','php/delete-friend2.php');
                         xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                         xhr.onload=function(){
                             if(this.status===200){
                                 console.log(this.responseText);
                                 getFriends();
+                            }else{
+                                console.log(this.status);
                             }
                         };
-                        xhr.send('id='+id);
+                        xhr.send('id='+userId);
                     })
                 })
                 }

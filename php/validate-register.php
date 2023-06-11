@@ -2,29 +2,46 @@
 extract($_POST);
 $password = trim($_POST['password']);
 $Rpassword = trim($_POST['Rpassword']);
-$error = false;
+$error = '';
+include("../connection.php");
+$sql = $mysqli->prepare('SELECT id FROM usuarios WHERE nombre=?');
+$sql->bind_param("s", $username);
+$sql->execute();
+$result = $sql->get_result();
+if ($result->num_rows > 0) {
+    $error = 'username';
+    echo 'El nombre de usuario ya existe';
+}
+$sql = $mysqli->prepare('SELECT id FROM usuarios WHERE email=?');
+$sql->bind_param("s", $email);
+$sql->execute();
+$result = $sql->get_result();
+if ($result->num_rows > 0) {
+    $error = 'email';
+    echo 'El e_mail ya existe';
+}
 
 if (!isset($username) || strlen($username) < 4) {
-    $error = true;
+    $error = "name";
     echo 'El nombre se usuario debe contener al menos 4 caracteres';
 }
 if (!isset($email) || filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-    $error = true;
+    $error = 'email';
     echo 'Introduce un e_mail valido';
 }
 if (!isset($password) || strlen($password) < 6) {
-    $error = true;
+    $error = 'password';
     echo 'La contraseña debe contener al menos 6 caracteres';
 }
 if (!isset($Rpassword) || $password != $Rpassword) {
-    $error = true;
+    $error = 'Rpassword';
     echo 'Las contraseñas no coinciden';
 }
 
 
-include("../connection.php");
 
-if (!$error) {
+
+if (strlen($error)==0) {
 
 
 
@@ -48,4 +65,6 @@ if (!$error) {
 
         header("Location: ../log-in.html");
     }
+}else{
+    header("Location: ../register.html?error=$error");
 }

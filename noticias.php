@@ -46,7 +46,7 @@
                 </div>
                 <div class='form-container'>
                     <input class="check-periodico" type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'></input>
-                    <label title="NòsDiario" for="NosDiario"><img class="img-periodico img-checked" src="img/Nós_Diario.png"></label>
+                    <label title="NòsDiario" for="NosDiario"><img class="img-periodico img-checked" src="img/Nos_Diario.png"></label>
                     <input class="check-periodico" type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'></input>
                     <label title="LaVanguardia" for="LaVanguardia"><img class="img-periodico img-checked" src="img/LaVanguardia.png"></label>
                     <input class="check-periodico" type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'></input>

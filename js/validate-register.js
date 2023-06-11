@@ -1,5 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+
+    function getQueryParam(name) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+    error=getQueryParam('error');
+    console.log(error);
+    if(error==='username'){
+        var errorMesage=document.getElementById('username-error');
+        errorMesage.classList.remove('.invisible');
+    }else if(error==='email'){
+        console.log('email');
+        var errorMesage=document.getElementById('email-error');
+        console.log(errorMesage);
+        errorMesage.classList.remove('invisible');
+    }
+
     function isValidEmail(email) {
         var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return pattern.test(email);

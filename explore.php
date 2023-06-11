@@ -75,12 +75,13 @@
             </form>
         </div>
         <div id='result'></div>
-        <div class="content-container" id='posts'>
-            <div class="filtrosExplorar">
-                <div class="filtrosLikes selected"><p>Ord. por Nº de likes</p></div>
-                <div class="filtrosFecha unselected"><p>Ord. por fecha de publicación</p></div>
+        <div class="filtrosExplorar">
+                <button onclick="postlikes()" id="filtrosLikes" class="selected"><p>Ord. por Nº de likes</p></button>
+                <button onclick="postfecha()" id="filtrosFecha" class="unselected"><p>Ord. por fecha de publicación</p></button>
             </div>
             
+        <div class="content-container" id='posts'>
+           
         </div>
     </div>
     <script src="js/search.js"></script>
