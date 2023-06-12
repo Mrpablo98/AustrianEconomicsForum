@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 11, 2023 at 11:15 PM
+-- Generation Time: Jun 12, 2023 at 04:12 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -66,12 +66,8 @@ INSERT INTO `comentarios` (`id`, `post_id`, `usuario_id`, `username`, `contenido
 (3, 23, 14, 'pablo', 'prueba dinámica', '2023-05-31 09:35:06'),
 (4, 23, 14, 'pablo', 'prueba dinámica 2', '2023-05-31 10:16:32'),
 (5, 23, 14, 'pablo', 'prueba rANDOM 3', '2023-05-31 10:21:35'),
-(6, 24, 14, 'pablo', 'prueba rANDOM 3', '2023-05-31 10:21:54'),
 (7, 23, 14, 'pablo', 'prueba random x', '2023-05-31 10:32:56'),
 (8, 23, 14, 'pablo', 'adios', '2023-05-31 10:33:32'),
-(9, 24, 14, 'pablo', 'adios', '2023-05-31 10:33:39'),
-(10, 24, 14, 'pablo', 'prueba', '2023-05-31 10:37:22'),
-(11, 24, 14, 'pablo', 'prueba dinámica x', '2023-05-31 10:54:22'),
 (12, 23, 14, 'pablo', 'prueba scroll', '2023-05-31 10:55:35'),
 (13, 23, 14, 'pablo', 'prueba scroll 2', '2023-05-31 10:55:45'),
 (14, 23, 14, 'pablo', 'prueba scroll 3', '2023-05-31 10:55:50'),
@@ -79,7 +75,6 @@ INSERT INTO `comentarios` (`id`, `post_id`, `usuario_id`, `username`, `contenido
 (18, 43, 14, 'pablo', 'gracias por tu comentario de prueba guapo', '2023-06-02 09:01:51'),
 (19, 47, 14, 'pablo', 'Una estafa piramidal de toda la vida', '2023-06-06 09:11:29'),
 (20, 44, 14, 'pablo', 'holaa', '2023-06-06 09:30:38'),
-(22, 24, 14, 'pablo', 'eee', '2023-06-06 09:33:03'),
 (23, 23, 18, 'prueba3', 'eseeeee', '2023-06-06 09:54:25'),
 (24, 25, 14, 'pablo', 'juujuju', '2023-06-06 10:43:19'),
 (25, 23, 14, 'pablo', 'jujuju', '2023-06-06 10:46:09'),
@@ -147,7 +142,20 @@ INSERT INTO `comentarios` (`id`, `post_id`, `usuario_id`, `username`, `contenido
 (100, 38, 14, 'pablo', '6', '2023-06-06 14:27:09'),
 (101, 38, 14, 'pablo', '7', '2023-06-06 14:27:10'),
 (102, 53, 14, 'Pablo_pablete_pollo', 'buenisimaa', '2023-06-08 10:27:07'),
-(103, 53, 14, 'Pablo_pablete_pollo', 'olee', '2023-06-08 10:28:05');
+(103, 53, 14, 'Pablo_pablete_pollo', 'olee', '2023-06-08 10:28:05'),
+(110, 58, 14, 'pablete_pollo', 'hol', '2023-06-12 00:32:58'),
+(111, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:58'),
+(112, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:58'),
+(113, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:59'),
+(114, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:59'),
+(115, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:59'),
+(116, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:59'),
+(117, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:32:59'),
+(118, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:33:00'),
+(119, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:33:00'),
+(120, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:33:00'),
+(121, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:33:00'),
+(122, 58, 14, 'pablete_pollo', 'S', '2023-06-12 00:33:00');
 
 -- --------------------------------------------------------
 
@@ -172,7 +180,6 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `usuario_id`, `titulo`, `contenido`, `url_recurso`, `objectName`, `tipo`, `fecha_publicacion`) VALUES
 (23, 14, 'funcionalidad tipos', 'prueba de la funcionalidad tipos', 'https://storage.googleapis.com/austrian-economics-forum/icon.png?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=HiYxJYi6yKCBwjwzFMSdQHy6XFbclEGXUAg9LlwpTkkj%2FFYyGfK0grEWm5zumgG8%2FEzsqhydEYMT1LfLnbX6u2W6LT%2BqLFYTRMP%2BiF7W0kQakBlZArfsGPhJnIYoOeLC08DyFa47JxyJ9WrSr34HWH7AQiyGfmsIf5kG2nFrLQO6gn7oP%2FSLYmD3Dx5u16Taa9RbnRUr%2FSIpNQ%2BP4bhPqqXc8IypqbBKOy6KgwPNxrqLHDcdROSiZYR5gP4NR2drmt1KdM1NnZMmkKVXMSZ0%2FwCIAzK31SiWT%2FjyvlU2Tp8%2F3v5kYniF6Q6PqrqWcRa9vV3q0fZtliZ9WBnxVSAhGA%3D%3D&generation=1684220578916605', '', 'imagen', '2023-05-16 05:02:46'),
-(24, 14, 'post 1 de 15', 'post 1 de 15', 'https://storage.googleapis.com/austrian-economics-forum/Captura%20de%20pantalla%202023-03-29%20115522.png?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=dAq8O8AqBIAEqWAxkIbMEoU%2Fgm%2BiyVM3gutV4W9dUZHSk3cXkMmBP3ehZdOWM2UxzdxIZ8MjpF7KxRfb%2BuxyGDhbVOAfqfxo07R6BEEbBllZMtoFbGVtaJBJ2hvRVe3PwJexxMFzV1RvlZkXWJQNArAlObyDi7MHaczlqmembcPdsuBd%2FzorlzRGZSmOcCHnlpvvy6kK8g07G34HCpcH%2Fk0AnkaT9h3haop%2F%2BmxV8fnp2xBFO7OQ%2BZHR7aekQYHN3sQ1Fxm62iJRu76vKiu20%2Fh0ZR38gNFW%2B7NMBWpyzJ3VYPUtUgrSzJiBAZCpabTC%2FMoB6HCXgbywtDLre0xUzg%3D%3D&generation=1684222951595246', '', 'imagen', '2023-05-16 05:42:21'),
 (25, 14, 'post 2 de 15', 'post 2 de 15', 'https://storage.googleapis.com/austrian-economics-forum/Captura%20de%20pantalla%202023-04-14%20115542.png?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=af9W28ySRBYka%2BLKp2eCgVxskveC0gkcW7vs86PdlcXNnNhK5LSouQNvH5udyT2VxELI7pAXq7HCwxyXfRtZJcNVayAeu%2FYXsBqNhSMhWTz%2FoQ9lgFsSUiu7YxQcfIUWnprAM3GEFWONx2TcWF88T0JlGphI2%2BxH%2F6FwiGdR33Vpde6f%2Be0bgb9q7PwN%2BeOCsBJYupCaeFZ1lTcM1d9w7RcnKrgtsYQ%2B93LBacTGThFI0%2FhY78gflYFZvAxwcD2Rc3jWFLuNp55a8vjuD6KeSGMMFjmeMRkV9wNvj9wiIKVEbI2K9L%2FDTJt6zUGpfYXM0C1GtQdTnuhqXe6e5W8q%2FA%3D%3D&generation=1684222968451853', '', 'imagen', '2023-05-16 05:42:38'),
 (26, 14, 'post 3 de 15', 'post 3 de 15', 'https://storage.googleapis.com/austrian-economics-forum/Captura%20de%20pantalla%202023-04-26%20123446.png?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=lG0XWpWzrYKutY1jQuWVy6Xi5eUnfvMgtBO7PF4Le%2FJGJa5c0po8kSBwxfhXUSiZUTPBGiNvJ%2FyyenCEonh7T6Vza6oyZANaXKtnLYNBIrETY4N4YG%2F0%2FlEJGse44y6%2BepE%2F0s2YCSGUYywaW1sKVCmdd%2BWPr%2FeFTMwIOJbhR%2B0s4rcZJnMcmBTaMTLdd0zodzq7DXaueTVn2IyX%2F30QOFoC70S64%2FzqdjGEhu7baSFqVy3PijBBEHUwcivSQ%2BWAP02E5qt1mb1eRBc3mgffd3q4ZKYhiBPdAZ0YEstCy6N6HZKIHw4dBahwpwdO3g6bB3jl%2BnJmpwQ8f9VkRPbb%2Bw%3D%3D&generation=1684222983838513', '', 'imagen', '2023-05-16 05:42:53'),
 (27, 14, 'post 4 de 15', 'post 4 de 15', 'https://storage.googleapis.com/austrian-economics-forum/Captura%20de%20pantalla%202023-04-26%20125141.png?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=M14av6qJggMqlgpBfHK30yQXHZqz9HFMMExVz%2F8TgrMcwg8dKoUadetf%2Fct%2Bu%2FM183BESN3ERUMQ7PQInwwlw69UPRtSv3A7j0XRZRnTM0InweuK9tAXKeWmdr3SaUjGzxNSxIayjS%2BU6XloE6Ng77Uj2%2FRmFsn5DNhMqfnwp9shUWQa2LNOuA42W3ZFnm46J0JzJFuLL6xDW40eo6hzlecdThTiod4XovC%2BQw9FIUeyoyfh1%2Bhfo6O1DODVlEItsWX89U%2F8Hjy08Tj5AWn4Cb81zHlMGGcNycieX8P%2FbEVnc1%2FYhIZ7G59rrjVB36GRjumJsuU1pRUhXnrD6njyHg%3D%3D&generation=1684223001458169', '', 'imagen', '2023-05-16 05:43:11'),
@@ -203,9 +210,7 @@ INSERT INTO `posts` (`id`, `usuario_id`, `titulo`, `contenido`, `url_recurso`, `
 (56, 14, 'prueba imagen', 'prueba imagen 125', 'https://storage.googleapis.com/austrian-economics-forum/Aragorn.webp14?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=QefcyxgyolqJbV%2B%2Bv6FzwKyaDx1m22l1POWtT0EnAgeepL6fhYITNNRIHqxX1U%2F5Lwld4%2FzQrtu1t1Q%2BuAnDJcMh2kno%2BMCzt%2FeAhETI2xIWQf3zMnq2emvXpaXbTIVS4RBIBahnNKpgOcsseQ0tNUvRBgpjZEwHB3o89VIiam8N03zEPfz0qd1NHlgN1zj3ZAXoq6TPv%2FM0dtaW8napXVozGJFCdsXfMwhH25NmUKkSWS%2FsvLLHlMip0zkCYplXiQ0lBlFVIguAy2BBBYCBlp894AOwvY3Ke6NWCWihBPHuSn%2FlJY%2BmC%2BUkmU8cu6Aeu0T%2F8d637bMKASkI6qDC5A%3D%3D&generation=1686504724741348', '', 'imagen', '2023-06-11 15:32:04'),
 (57, 14, 'prueba video', 'prueba video 130', 'https://storage.googleapis.com/austrian-economics-forum/Aprende%20a%20usar%20estos%20m%C3%A9todos%20de%20Array%20en%20JavaScript%20para%20mejorar%20tu%20c%C3%B3digo.mp414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=LYjJXcgRPx3cXxugfyahKa4zft8znquLuDj1BKMF5DhvtcXD42IDIK42rbMf%2F7w%2B9aUcpm8cNWWKv%2FsWPIOYinvktBIVM0Q0wqL74cq69BKej%2Fr6qOEpOhswZftFdlzJCcAQ0sWuX0ADdbunhdT%2FfIIwLOYF2Sys%2BoiqdgmSqtIIG0MAaPVLv04oIRdmt5iWwXCbJ2CQE6Ne0GDOtieNyEfLqgWyv08oKWf%2BGyE9kIGfxjZySZbXhdWaekJXDHvi%2BYdHEYOHJDnevzHjfxXcyhXlxbEVNJ7pDEKAUMcSfulJQISv3tDlYVSIfTwfPntm%2BC6ps93G7I5E5%2B5d8dY62g%3D%3D&generation=1686504781276410', '', 'video', '2023-06-11 15:32:57'),
 (58, 14, 'prueba eliminacion de objetos en google storage', 'prueba eliminacion de objetos en google storage', 'https://storage.googleapis.com/austrian-economics-forum/Ni%C3%B1o%20Anarquista%20-%20Un%20Rey%20En%20Nueva%20York%20%28charles%20chaplin%29.mp41414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=Lf5raRDjIW8wunGrAsn6SH6mKeH7%2B0ST4hUROMVJWeZ4%2FXPcy2ISNNmOCd4xIcK8wVicWy6qS9EBYpEv3V4nveXGrvK15MRdJhYQqRU6arE7q5JrtQ4w%2Faj0%2BqYmguELXCQIO6ISy66kKMggRRSl6GZhR3rWgyLmdwKL92cTpbwDXWvB6XnwjrF1QY8FpRgpUERDW96Jtz%2BV3DC5cbJ%2FN%2FBIST3kvVgCh8i%2FhuUtrmkxCR%2BFUDqMLBeZ15yMBbSV6eo1MUJqV9bhKUWTJKtPPVCVou12cgXmaupJIrMgmpKYStI59Styux9oKqtnceoKysPks2qhoCU8A6Wgw5knRQ%3D%3D&generation=1686505724073442', 'Niño Anarquista - Un Rey En Nueva York (charles chaplin).mp41414', 'video', '2023-06-11 15:48:39'),
-(59, 14, 'Murray Rothbard', 'Murray Rothbard', 'https://storage.googleapis.com/austrian-economics-forum/511-2cc0883763f598364c16600902008735-640-0.png1414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=nF2H%2BkcDmbZiNGWnYGbLuCdykcirJwqFIqopDM8liVmDPwdxhpchQEoQD4EnJ6m2L20VVMbzH7kkZjPRfek5mOkox8wtEbmXItpvQCeCAgmCU4euyE7mJSC%2F5eEC7yYeHJ1%2Fs1iTPVS2wPR5GIFKFtOIXq5vrFrkKTLPQnPKyiRi7HrDxz0xwWUjNXcIkyPPX8DoPFw3lhfdRtX3xXQlW4Db0eAFj7JNCw2jle128PNIr7COSt2xP2LT%2Fue8c2rtrJZPcRHkfq2p%2FhOPXt01EHc%2B%2B2qVw%2BmVzb%2BWf0JllUYtYKzNtMw4ek48aqzAezfhKjz34DhEGAgLbKXJnTTuNw%3D%3D&generation=1686521377113403', '511-2cc0883763f598364c16600902008735-640-0.png1414', 'imagen', '2023-06-11 20:09:36'),
-(60, 14, 'prueba CACA', 'prueba CACA', 'https://storage.googleapis.com/austrian-economics-forum/WhatsApp%20Image%202021-03-10%20at%2017.51.06.jpeg1414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=FC5BbWGO0pDwa9Y85%2Bsc9ngUYyS5M3dScYmp8daZaxShPgZRXAgYh%2F2Uss2V6o%2FY2yn3JEsmrblp6QiRMeJY1AbSNUVmbV1o4XSHGkvhOwAurc1RnTSEdZeBy948RUXklzP%2FnriS3aHJBwS3%2B7FtO%2Bu0QNCFoiHfqwLDXbQAVFN6SgNjBXaM2zMY%2BwGAqLor8zw1SfaNyCNdAbF7lMMVcYUalPu2nuF4k0NKMdQacNGj6uGnWiYHqWDAvj4SAmIIr9RvYnAlamK%2FBJsrDNohSyVbOv792dU4%2FexuNj%2FzVE8gh1OBI%2BgqFJ8wto0xVAnmApwiDjpFiTalpHyfgg3ikQ%3D%3D&generation=1686524570457789', 'WhatsApp Image 2021-03-10 at 17.51.06.jpeg1414', 'imagen', '2023-06-11 21:02:50'),
-(61, 14, '', '', NULL, NULL, NULL, '2023-06-11 23:04:22');
+(59, 14, 'Murray Rothbard', 'Murray Rothbard', 'https://storage.googleapis.com/austrian-economics-forum/511-2cc0883763f598364c16600902008735-640-0.png1414?GoogleAccessId=pablo-prueba%40hardy-baton-385508.iam.gserviceaccount.com&Expires=4072377600&Signature=nF2H%2BkcDmbZiNGWnYGbLuCdykcirJwqFIqopDM8liVmDPwdxhpchQEoQD4EnJ6m2L20VVMbzH7kkZjPRfek5mOkox8wtEbmXItpvQCeCAgmCU4euyE7mJSC%2F5eEC7yYeHJ1%2Fs1iTPVS2wPR5GIFKFtOIXq5vrFrkKTLPQnPKyiRi7HrDxz0xwWUjNXcIkyPPX8DoPFw3lhfdRtX3xXQlW4Db0eAFj7JNCw2jle128PNIr7COSt2xP2LT%2Fue8c2rtrJZPcRHkfq2p%2FhOPXt01EHc%2B%2B2qVw%2BmVzb%2BWf0JllUYtYKzNtMw4ek48aqzAezfhKjz34DhEGAgLbKXJnTTuNw%3D%3D&generation=1686521377113403', '511-2cc0883763f598364c16600902008735-640-0.png1414', 'imagen', '2023-06-11 20:09:36');
 
 -- --------------------------------------------------------
 
@@ -227,7 +232,6 @@ CREATE TABLE `post_likes_dislikes` (
 INSERT INTO `post_likes_dislikes` (`id`, `post_id`, `usuario_id`, `fecha`) VALUES
 (9, 38, 14, '2023-06-02 11:46:22'),
 (32, 25, 14, '2023-06-02 11:56:57'),
-(38, 24, 14, '2023-06-06 08:15:36'),
 (41, 47, 14, '2023-06-06 09:10:47'),
 (44, 44, 20, '2023-06-07 08:01:38'),
 (47, 43, 14, '2023-06-07 12:58:49'),
@@ -239,7 +243,8 @@ INSERT INTO `post_likes_dislikes` (`id`, `post_id`, `usuario_id`, `fecha`) VALUE
 (61, 51, 14, '2023-06-07 14:12:34'),
 (62, 52, 14, '2023-06-07 14:36:15'),
 (64, 53, 14, '2023-06-08 10:37:12'),
-(65, 49, 14, '2023-06-11 17:26:10');
+(65, 49, 14, '2023-06-11 17:26:10'),
+(69, 59, 14, '2023-06-11 23:26:45');
 
 -- --------------------------------------------------------
 
@@ -315,7 +320,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -327,7 +332,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `post_likes_dislikes`
 --
 ALTER TABLE `post_likes_dislikes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
@@ -350,8 +355,8 @@ ALTER TABLE `amigos`
 -- Constraints for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
-  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `posts`
@@ -363,7 +368,7 @@ ALTER TABLE `posts`
 -- Constraints for table `post_likes_dislikes`
 --
 ALTER TABLE `post_likes_dislikes`
-  ADD CONSTRAINT `post_likes_dislikes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
+  ADD CONSTRAINT `post_likes_dislikes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `post_likes_dislikes_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
