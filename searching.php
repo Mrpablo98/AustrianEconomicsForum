@@ -11,8 +11,9 @@ $stmt->bind_param('si',$searchWord, $userId);
 $stmt->execute();
 $result=$stmt->get_result();
 $id=$user['user-id'];
+$error=false;
 if($result->num_rows==0){
-    echo "<p>No se han encontrado resultados para $searchValue</p>";
+    $error=true;
 }else{
     while ($row = $result->fetch_assoc()) {
         $users[] = '<a class="searchLink" href="perfil.php?id=' . $row['id'] . '"><div class="user-container"><img src="img/icon.png" class="index-perfil-img">'.'<p >' . $row['nombre'] . '</p>' . '</div></a>';
@@ -92,6 +93,7 @@ if($result->num_rows==0){
         <div class="content-container" id='posts'>
             <h2 class="title-searching" style="display:flex; align-items:center; justify-content:center; margin:0; width:100%; height:150px; background-color:#0A0C10; text-decoration:underline;">Usuarios de AustrianEconomicsForum: </h2>
             <?php
+                if($error){echo "<p>No se han encontrado resultados para $searchValue</p>";}
                 foreach($users as $user){
                     echo $user;
                 }

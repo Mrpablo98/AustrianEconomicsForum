@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
                                     }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
                                        postHtml+= '<div>'+
-                                       '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center; height: auto;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
+                                       '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
                                         '<div class="overflow-post-content">' +
                                         '<p>' + post.contenido + '</p>' +
                                         '<div id="coments' +post.id + '" class="coments"'+'>' +
