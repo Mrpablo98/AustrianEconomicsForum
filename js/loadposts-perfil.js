@@ -486,7 +486,18 @@ function handleLikeClick(like){
         }
     });
   
-    
+    if(window.screen.width<768){
+
+        document.querySelector('.content-container').addEventListener('scroll', () => {
+            const container = document.querySelector('.content-container');
+            const { scrollTop, scrollHeight, clientHeight } = container;
+            
+            if (scrollTop + clientHeight >= scrollHeight - 5) {
+                loadPosts();
+            }
+        });
+        
+    }
 
 });
         
