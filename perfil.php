@@ -12,7 +12,7 @@
     if(isset($_GET['Iduser'])){
         $userId=$_GET['Iduser'];
         $user1=$user['user-id'];
-        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $userId OR usuario_id2 = $userId AND aceptada = 1");
+        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE (usuario_id1 = $userId OR usuario_id2 = $userId) AND aceptada = 1");
         if($resultFriens){$numamigos=mysqli_num_rows($resultFriens);}else{echo 'Error: ' . mysqli_error($mysqli);};
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $userId");
         if($resultPosts){$numPosts=mysqli_num_rows($resultPosts);}else{echo 'Error: ' . mysqli_error($mysqli);};
@@ -27,7 +27,7 @@
         $id=$_GET['id'];
         $userId='';
         $userLogged=$user['user-id'];
-        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE usuario_id1 = $id  OR usuario_id2 = $id AND aceptada = 1");
+        $resultFriens=mysqli_query($mysqli,"SELECT * FROM amigos WHERE (usuario_id1 = $id  OR usuario_id2 = $id) AND aceptada = 1");
         if($resultFriens){$numamigos=mysqli_num_rows($resultFriens);}else{echo 'Error: ' . mysqli_error($mysqli);};
         $resultPosts=mysqli_query($mysqli,"SELECT * FROM posts WHERE usuario_id = $id");
         if($resultPosts){$numPosts=mysqli_num_rows($resultPosts);}else{echo 'Error: ' . mysqli_error($mysqli);};
