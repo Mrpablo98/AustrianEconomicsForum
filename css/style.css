@@ -345,7 +345,6 @@ h2 {
         height: 40px;
         font-weight: bold;
         font-family: 'Courier New', Courier, monospace;
-        box-shadow: 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
 
     .buttonContainerIndex button:hover {
@@ -1548,6 +1547,47 @@ h2 {
         cursor: pointer;
     }
 
+    .buttonContainerIndex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        margin: auto;
+        gap: 200px;
+    }
+
+    .buttonContainerIndex button {
+        background-color: #1877F2;
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .buttonContainerIndex button:hover {
+        background-color: #0A0C10;
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-weight: bold;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;
+    }
+
+    .indexNoPost {
+        width: 80%;
+        margin-top: 20%;
+    }
+
+    .indexNoPost p {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bold;
+    }
+
     .index-perfil-img {
         width: 30px;
         border-radius: 50%;
@@ -2479,6 +2519,7 @@ h2 {
         gap: 3vh;
         padding: 1em;
         margin: 0 auto;
+        margin-bottom: 200px;
 
     }
 
@@ -2708,6 +2749,48 @@ h2 {
         background-color: #0A0C10;
         padding:30px;
     }
+
+    .buttonContainerIndex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        margin: auto;
+        gap: 200px;
+    }
+
+    .buttonContainerIndex button {
+        background-color: #1877F2;
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .buttonContainerIndex button:hover {
+        background-color: #0A0C10;
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-weight: bold;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;
+    }
+
+    .indexNoPost {
+        width: 80%;
+        margin-top: 20%;
+    }
+
+    .indexNoPost p {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bold;
+    }
+
     .search-bar {
         background-color: #262626;
         color: grey;
