@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 '</div>' +
                                 '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
                         '</div>';
+    
 
                     document.querySelector('#posts').innerHTML += postHtml; 
                     
@@ -318,6 +319,7 @@ function handleLikeClick(like){
     function handleDeleteClick(deleteButton){
         var post=deleteButton.closest('.post');
         var postId=post.getAttribute('data-id');
+        console.log(postId);
         fetch('php/delete-post.php', {
             method: 'POST',
             headers: {

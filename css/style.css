@@ -2607,6 +2607,7 @@ h2 {
         border-top: 1px solid rgba(255, 255, 255, 0.301);
         z-index: 5;
         gap: 5vw;
+        padding-bottom: 20px;
     }
 
 
@@ -3171,7 +3172,7 @@ h2 {
     }
 
     .fa-times {
-        font-size: 50px;
+        font-size: 30px;
         position: absolute;
         top: 10px;
         right: 10%;
@@ -3196,8 +3197,8 @@ h2 {
     .complete-Post {
         background-color: #0A0C10;
         width: 90%;
-        height: auto;
-        max-height: 80%;
+        height: 90%;
+        max-height: 90%;
     }
 
     .complete-post-image {
@@ -3227,17 +3228,17 @@ h2 {
     }
     .media{
         width: 50%;
-        height: 100%;
+        height: 50%;
         object-fit: contain;
-        border-right: 1px solid rgba(255, 255, 255, 0.301);
-        border-radius: 5%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
     }
 
     .media>img {
         width: 100%;
-        height: 100%;
+        height: auto;
+        max-height: 100%;
         object-fit: contain;
-        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 5%;
     }
 
@@ -3245,13 +3246,14 @@ h2 {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        border-right: 1px solid rgba(255, 255, 255, 0.301);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 5%;
     }
 
 
     .complete-post-image div {
         width: 100%;
+        max-height: 70%;
 
     }
 
@@ -3331,8 +3333,8 @@ h2 {
     .overflow-post-content {
         overflow-x: hidden;
         overflow-y: scroll;
-        height: 350px;
-        max-height: 350px;
+        height: 150%;
+        max-height: 150%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
         border-top: 1px solid rgba(255, 255, 255, 0.301);
     }
@@ -3347,6 +3349,8 @@ h2 {
         transition: all 0.5s;
         margin-top: 20px;
         margin-right: 5px;
+        overflow-y: scroll;
+        overflow-x: hidden;
 
     }
 

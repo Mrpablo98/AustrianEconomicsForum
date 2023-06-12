@@ -24,7 +24,7 @@ putenv('GOOGLE_CLOUD_PHP_REST_HTTP_CLIENT_TLS_VERIFY=false');
     $object->delete();
     printf('Deleted gs://%s/%s' . PHP_EOL, $bucketName, $objectName);
 }
-$postId=$_POST['postId'];
+
 $sql=$mysqli->prepare("SELECT posts.objectName FROM posts WHERE id=?");
 $sql->bind_param("i", $postId);
 $sql->execute();
@@ -33,7 +33,7 @@ if ($sql->fetch()) {
     delete_object('austrian-economics-forum', $objectName);
 }
 $sql->close();*/
-
+$postId=$_POST['postId'];
 $sql=$mysqli->prepare("DELETE FROM posts WHERE id=?");
 $error="error";
 

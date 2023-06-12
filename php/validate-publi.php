@@ -61,7 +61,7 @@ $sql=$mysqli->prepare("INSERT INTO posts (usuario_id, titulo, contenido, url_rec
 $sql->bind_param("issssss", $userId, $title, $body, $datos['url'], $fileName, $tipo, $fecha);
 $sql->execute();
 if($sql->error){
-    echo "Error al ejecutar la consulta" . $sql->error;
-}else{
-    header("Location: ../index.php?post=success");
+     die("Error al ejecutar la consulta" . $sql->error);
 }
+$sql->close();
+echo json_encode("publicado");

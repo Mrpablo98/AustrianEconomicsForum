@@ -2,11 +2,11 @@
 session_start();
 require_once("connection.php");
 $userId=$_SESSION['user']['user-id'];
-$errorOld=$_GET['errorOld'];
-$errorName=$_GET['errorName'];
-$errorMail=$_GET['errorMail'];
-$errorPassword=$_GET['errorPassword'];
-$errorRpassword=$_GET['errorRpassword'];
+$errorOld = isset($_GET['errorOld']) ? intval($_GET['errorOld']) : null;
+$errorName=isset($_GET['errorName']) ? intval($_GET['errorName']) : null;
+$errorMail=isset($_GET['errorMail']) ? intval($_GET['errorMail']) : null;
+$errorPassword=isset($_GET['errorPassword']) ? intval($_GET['errorPassword']) : null;
+$errorRpassword=isset($_GET['errorRpassword']) ? intval($_GET['errorRpassword']) : null;
 $sql="SELECT * FROM usuarios WHERE id = ?";
 $sql=$mysqli->prepare($sql);
 $sql->bind_param("i", $userId);
