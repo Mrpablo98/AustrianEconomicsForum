@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icon.png">
-    <script src="https://kit.fontawesome.com/7fc86cc57f.js" crossorigin="anonymous"></script>
+    <script src="php/icon-proxy.php?url=https://kit.fontawesome.com/b685f735ab.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
