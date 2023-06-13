@@ -13,7 +13,10 @@ const uploadFile = (file, title, body) => {
     // Event listener for upload progress
     xhr.upload.addEventListener('progress', (event) => {
         if (event.lengthComputable) {
-            const percentComplete = event.loaded / event.total * 100;
+            var percentComplete = event.loaded / event.total * 100;
+            let progress=document.querySelector("#progress");
+            percentComplete=percentComplete.toFixed(2);
+            progress.innerHTML=percentComplete + '%';
             console.log(`File upload progress: ${percentComplete}%`);
 
             // Actualiza tu interfaz de usuario con percentComplete aquí

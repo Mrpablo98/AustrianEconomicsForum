@@ -96,6 +96,7 @@
                 <!--<input autocomplete="off" class='input' type='text' id='hagstag' name='hagstag' placeholder='Introduce temáticas relacionadas con el post: #inflacion #pesoargentino #2023'>-->
                 <button type="submit" class='normal_button public_button'>Publicar</button>
             </form>
+            <h2 id="progress"></h2>
             <img class="loading-publi" src="img/gif_loading.gif">
             <div class="archivo-subido"><p>La publicacion se ha subido con éxito!</p><i class="fas fa-check" style="color: #00ff40;"></i></div>
             <div class="archivo-fallido"><p>El archivo no se ha podido subir con éxito!</p><i class="fa-solid fa-xmark" style="color: red;"></i></i></div>
