@@ -610,30 +610,25 @@
         setTimeout(1000);
         quitarLoading()
     });
-
-    if(window.screen.width<768){
-
-        document.querySelector('.content-container').addEventListener('scroll', () => {
-            const container = document.querySelector('.content-container');
-            const { scrollTop, scrollHeight, clientHeight } = container;
-            
-            if (scrollTop + clientHeight >= scrollHeight - 5) {
-                loadPosts();
-            }
-        });
-        
-    }
-
-
-
-
-    window.addEventListener('scroll', () => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    function handleScroll() {
+        let filtrosFecha=document.getElementById('filtrosFecha');
+        const { scrollY, innerHeight } = window;
+        const { scrollHeight } = document.documentElement;
     
-        if (scrollTop + clientHeight >= scrollHeight - 5) {
-        loadPosts();
+        if (scrollY + innerHeight >= scrollHeight - 5) {
+            if(filtrosFecha.classList.contains('selected')){
+            loadPostsDate();
+        }else{
+            loadPosts();
         }
-    });
+        }
+    }
+    
+    // Escuchar el evento scroll para navegadores de escritorio
+    window.addEventListener('scroll', handleScroll);
+    
+    // Escuchar el evento touchmove para dispositivos móviles
+    window.addEventListener('touchmove', handleScroll);
   
     
 

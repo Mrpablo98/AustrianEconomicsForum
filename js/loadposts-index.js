@@ -136,6 +136,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    let isLoading = false;
+
+    let timeout;
+    function handleScroll() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            const { scrollY, innerHeight } = window;
+            const { scrollHeight } = document.documentElement;
+            
+            if (scrollY + innerHeight >= scrollHeight - 5 && !isLoading) {
+                isLoading = true;
+                
+                loadPosts().then(responseData => {
+                    displayPosts(responseData);
+                    isLoading = false;
+                }).catch(error => {
+                    console.error('Hubo un error al obtener los posts:', error);
+                    isLoading = false;
+                });
+            }
+        }, 200); // Esto retrasa la ejecución de la función por 200ms
+    }
+    
+    // Escuchar el evento scroll para navegadores de escritorio
+    window.addEventListener('scroll', handleScroll);
+    
+    // Escuchar el evento touchmove para dispositivos móviles
+    window.addEventListener('touchmove', handleScroll);
+
 
     function likesShow(start){
         var posts=document.querySelectorAll('.post');
@@ -449,26 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Hubo un error al obtener los posts:', error);
     });
 
-    window.addEventListener('scroll', () => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    
-        if (scrollTop + clientHeight >= scrollHeight - 5) {
-        loadPosts();
-        }
-    });
-
-    if(window.screen.width<768){
-
-        document.querySelector('.content-container').addEventListener('scroll', () => {
-            const container = document.querySelector('.content-container');
-            const { scrollTop, scrollHeight, clientHeight } = container;
-            
-            if (scrollTop + clientHeight >= scrollHeight - 5) {
-                loadPosts();
-            }
-        });
-        
-    }
+  
 
   
     

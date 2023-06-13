@@ -190,14 +190,22 @@ function MostrarFiltro(){
     filter.style.display = 'flex';
     loading.style.display = 'none';
 }
-window.addEventListener('scroll', () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  
-    if (scrollTop + clientHeight >= scrollHeight - 5) {
-      newsArray.then((noticias) => displayNews(noticias));
-    }
-  });
 
+function handleScroll() {
+    let filtrosFecha=document.getElementById('filtrosFecha');
+    const { scrollY, innerHeight } = window;
+    const { scrollHeight } = document.documentElement;
+
+    if (scrollY + innerHeight >= scrollHeight - 5) {
+        newsArray.then((noticias) => displayNews(noticias));
+    }
+}
+
+// Escuchar el evento scroll para navegadores de escritorio
+window.addEventListener('scroll', handleScroll);
+
+// Escuchar el evento touchmove para dispositivos móviles
+window.addEventListener('touchmove', handleScroll);
  
 const filtro= document.getElementById('form-periodicos');
 

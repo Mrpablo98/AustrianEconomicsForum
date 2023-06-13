@@ -115,6 +115,22 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
 
+      
+    function handleScroll() {
+        const { scrollY, innerHeight } = window;
+        const { scrollHeight } = document.documentElement;
+    
+        if (scrollY + innerHeight >= scrollHeight - 5) {
+            loadPosts();
+        }
+    }
+    
+    // Escuchar el evento scroll para navegadores de escritorio
+    window.addEventListener('scroll', handleScroll);
+    
+    // Escuchar el evento touchmove para dispositivos móviles
+    window.addEventListener('touchmove', handleScroll);
+
     function likesShow(start){
         var posts=document.querySelectorAll('.post');
         
@@ -478,26 +494,7 @@ function handleLikeClick(like){
 
     loadPosts();
 
-    window.addEventListener('scroll', () => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    
-        if (scrollTop + clientHeight >= scrollHeight - 5) {
-        loadPosts();
-        }
-    });
   
-    if(window.screen.width<768){
-
-        document.querySelector('.content-container').addEventListener('scroll', () => {
-            const container = document.querySelector('.content-container');
-            const { scrollTop, scrollHeight, clientHeight } = container;
-            
-            if (scrollTop + clientHeight >= scrollHeight - 5) {
-                loadPosts();
-            }
-        });
-        
-    }
 
 });
         
