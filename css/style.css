@@ -2710,6 +2710,25 @@ h2 {
 
     }
 
+    .notification {
+        border: 2px solid rgb(231, 72, 72);
+        height: 40px;
+        position: relative;
+    }
+
+    .noti-ball {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: rgb(231, 72, 72);
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+
+    }
+
+
     .navbar>a {
         color: white;
         text-decoration: none;
@@ -2719,6 +2738,7 @@ h2 {
         cursor: pointer;
     }
 
+ 
     .index-perfil-img {
         width: 30px;
         border-radius: 50%;
@@ -2814,12 +2834,42 @@ h2 {
     .lista-peticiones {
         background-color: #0A0C10;
         color: white;
-        display: none;
-        overflow: hidden;
+        overflow-y: scroll;
         border: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 10px;
+        position: absolute;
+        max-height:550px;
+        bottom:60px;
         visibility: hidden;
+        padding: 10px;
     }
+
+    .peticion-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .aceptar-button {
+        background-color: #3946fa;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .cancelar-button {
+        background-color: #292929;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
+
 
     .options {
         height: 48px;
