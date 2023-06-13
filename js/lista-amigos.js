@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }else{
                     var friendDiv="";
                 for(const friend of data){
-                    friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><a href='perfil.php?id="+ friend.id +"'><p>"+ friend.nombre +"</p>";if(id==loggedUserId){friendDiv+="</a><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>"};
+                    friendDiv+="<div class='friendDiv'><img src='img/icon.png' class='index-perfil-img'><a href='perfil.php?id="+ friend.id +"'><p>"+ friend.nombre +"</p>";if(id==loggedUserId){friendDiv+="</a><button class='deleteUser' data-id="+ friend.id +">Eliminar</button></div>"}else{friendDiv+="</a></div>"};
                 };
                 if(window.innerWidth>1263){
                     friendsList.innerHTML=friendDiv;
