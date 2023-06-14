@@ -3188,6 +3188,9 @@ h2 {
         top: 25%;
         bottom: 25%;
     }
+    .loading2{
+        width: 60%;
+    }
 
     /*perfil*/
     .perfil-header {

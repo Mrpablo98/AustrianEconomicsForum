@@ -10,7 +10,7 @@ FROM posts
 LEFT JOIN post_likes_dislikes ON posts.id = post_likes_dislikes.post_id
 INNER JOIN usuarios ON posts.usuario_id = usuarios.id
 GROUP BY posts.id
-ORDER BY posts.fecha_publicacion DESC LIMIT ?, ?');
+ORDER BY posts.id DESC LIMIT ?, ?');
 if ($sql === false) {
     die("Error en la consulta: " . $mysqli->error);
 }
