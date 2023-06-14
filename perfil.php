@@ -148,7 +148,7 @@
         </div>
         <div id="friendsListMovil" class="friendsList1Movil">Amigos</div>
         <div class="content-container" id='posts'>
-            
+        <img src='img/gif_loading.gif' id='loading'>
         </div>
     </div>
     <script src=js/loadposts-perfil.js></script>

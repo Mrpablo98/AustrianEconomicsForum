@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     content=content.substring(0,100)+"...";
                 }
                 
-                var postHtml = '<div class="post" data-id="'+post.id+'">'; 
+                var postHtml = '<div style="display:none;" class="post" data-id="'+post.id+'">'; 
             if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
                 postHtml+= '<div class="post-content">' +
                             '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
@@ -147,10 +147,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (scrollY + innerHeight >= scrollHeight - 5 && !isLoading) {
                 isLoading = true;
-                
+                let contentContainer=document.querySelector('.content-container');
+                contentContainer.innerHTML+='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
                 loadPosts().then(responseData => {
-                    displayPosts(responseData);
-                    isLoading = false;
+                    displayPosts(responseData).then(() => {quitarLoading();isLoading = false;});
+                    
                 }).catch(error => {
                     console.error('Hubo un error al obtener los posts:', error);
                     isLoading = false;
@@ -467,13 +468,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function quitarLoading(){
         document.getElementById('loading').style.display = 'none';
+        let loading2=document.querySelectorAll('.loading2');
+        if(loading2){loading2.forEach(function(loading2){loading2.style.display = 'none';})};
+        let posts=document.querySelectorAll('.post');
+        posts.forEach(function(post){
+            post.style.display="flex";
+        });
         console.log('quitar filtro');
     }
 
 
     loadPosts().then(responseData => {
-        quitarLoading();
-        displayPosts(responseData);
+        
+        displayPosts(responseData).then(() => {quitarLoading();});
     }).catch(error => {
         console.error('Hubo un error al obtener los posts:', error);
     });

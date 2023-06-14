@@ -20,217 +20,155 @@
     var limitComent=25;
     var loading=false;
     var numLikes=0;
+
+
+    
     async function loadPosts() {
         if(loading){return;}
         loading=true;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', `php/posts-explorar.php?start=${start}&limit=${limit}&id=${id}`, true);  
     
-        xhr.onload = async function() {
-            if (this.status === 200) {
-                var responseData = JSON.parse(this.responseText);
-                console.log(responseData);
-                var data=responseData.posts;
-                var userId=responseData.userId;
-                var username=responseData.username;
-                console.log(username);
-                console.log(data);
-                for(const post of data) {
-                    let content=post.contenido;
-                    Likesrc= await checkLikeButton(post.id);
-                    try {
-                        const response = await fetch('php/count-likes.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: 'postId=' + post.id
-                        });
-                        
-                        const likeData = await response.text();
-                        console.log(likeData);
-                        numLikes=likeData;  
-                        
-                    } catch (error) {
-                        console.error('Error:', error);
-                    }
-                    if(content.length>100){
-                        content=content.substring(0,100)+"...";
-                    }
-                    
-                    var postHtml = '<div class="post" data-id="'+post.id+'">'; 
-                    if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
-                        postHtml+= '<div class="post-content">' +
-                                    '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
-                                    '<p style="text-align:center;">' + content + '</p>' +
-                                    '</div>';
-                                    if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
-                                        '<img id="post-img" src="' + post.url_recurso + '" />' +
-                                    '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
-                                    '<video id="post-img" src="' + post.url_recurso + '" controls />' +
-                                '</div>';}else if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}}
-                                    postHtml+='<div class="post-arrow">' + 
-                                        '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
-                                    '</div>';
-                                    if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
-                                postHtml+='</div>';
-                                
-                                postHtml+='<div class="cortina-post invisible">' +
-                                '<div class="complete-Post ">' +
-                                    '<div class="complete-post-image invisible">';
-                                        if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
-                                    }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
-                                       postHtml+= '<div>'+
-                                       '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center; height: auto;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
-                                        '<div class="overflow-post-content">' +
-                                        '<p>' + post.contenido + '</p>' +
-                                        '<div id="coments' +post.id + '" class="coments"'+'>' +
-                                            
-                                        '</div>' +
-                                        '</div>' +
-                                        '<div class="like-container">' +
-                                            '<img  class="like" src="'+ Likesrc +'">' +
-                                            '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
-                                        '</div>' +
-                                        '<div class="comentar-container">' +
-                                            '<form class="form-coment">' +
-                                                '<input type="hidden" name="postId" value="'+post.id+'">' +
-                                                '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
-                                                '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
-                                            '</form>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
-                        '</div>';
-         
+        try {
+            const response = await fetch(`php/posts-explorar.php?start=${start}&limit=${limit}&id=${id}`);
     
-                    document.querySelector('#posts').innerHTML += postHtml; 
-                    
-                };
-                likesShow(start);
-                if(data.length === 10){start += limit;}else{start+=data.length;}
-                loading=false;
-                attachListeners();
-                
-            } else {
-            
-                console.error('Hubo un error al obtener los posts:', this.status, this.statusText);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        };
     
-        xhr.onerror = function() {
-            console.error('Hubo un error al hacer la solicitud:', this.status, this.statusText);
-        };
+            var responseData = await response.json();
+            console.log(responseData);
+            return responseData;
     
-        xhr.send();
+            // El resto de tu código...
+        } catch (error) {
+            console.error('Hubo un error al obtener los posts:', error);
+        } finally {
+            loading = false;
+        }
     }
+
+    async function displayPosts(responseData) {
+
+        var data=responseData.posts;
+        var userId=responseData.userId;
+        console.log(responseData);
+        console.log(data);
+        if(data.length>0){
+            for(const post of data) {
+                let content=post.contenido;
+                Likesrc= await checkLikeButton(post.id);
+                try {
+                    const response = await fetch('php/count-likes.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'postId=' + post.id
+                    });
+                    
+                    const likeData = await response.text();
+                    console.log(likeData);
+                    numLikes=likeData;  
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+                if(content.length>100){
+                    content=content.substring(0,100)+"...";
+                }
+                
+                var postHtml = '<div style="display: none;" class="post" data-id="'+post.id+'">'; 
+            if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
+                postHtml+= '<div class="post-content">' +
+                            '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
+                            '<p style="text-align:center;">' + content + '</p>' +
+                            '</div>';
+                            if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
+                                '<img id="post-img" src="' + post.url_recurso + '" />' +
+                            '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
+                            '<video id="post-img" src="' + post.url_recurso + '" controls />' +
+                        '</div>';}else if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}}
+                            postHtml+='<div class="post-arrow">' + 
+                                '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
+                            '</div>';
+                            if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
+                        postHtml+='</div>';
+                        
+                        postHtml+='<div class="cortina-post invisible">' +
+                        '<div class="complete-Post ">' +
+                            '<div class="complete-post-image invisible">';
+                                if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
+                            }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
+                               postHtml+= '<div>'+
+                               '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
+                                '<div class="overflow-post-content">' +
+                                '<p>' + post.contenido + '</p>' +
+                                '<div id="coments' +post.id + '" class="coments"'+'>' +
+                                    
+                                '</div>' +
+                                '</div>' +
+                                '<div class="like-container">' +
+                                    '<img  class="like" src="'+ Likesrc +'">' +
+                                    '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
+                                '</div>' +
+                                '<div class="comentar-container">' +
+                                    '<form class="form-coment">' +
+                                        '<input type="hidden" name="postId" value="'+post.id+'">' +
+                                        '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
+                                        '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
+                                    '</form>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                        '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
+                '</div>';
+
     
+
+
+                document.querySelector('#posts').innerHTML += postHtml; 
+                
+            };
+        }else if(data.length==0 && start==0){
+                let indexNoPosts=document.querySelector('.indexNoPost');
+                indexNoPosts.classList.remove('invisible');
+                let indexTitle=document.querySelector('.indexTitle');
+                indexTitle.classList.add('invisible');
+        }
+        likesShow(start);
+        if(data.length === 10){start += limit;}else{start+=data.length;}
+        loading=false;
+        attachListeners();
+
+
+
+    }
+
+
+
     async function loadPostsDate() {
         if(loading){return;}
         loading=true;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', `php/posts-explorar-fechas.php?start=${start}&limit=${limit}&id=${id}`, true);  
     
-        xhr.onload = async function() {
-            if (this.status === 200) {
-                var responseData = JSON.parse(this.responseText);
-                console.log(responseData);
-                var data=responseData.posts;
-                var userId=responseData.userId;
-                var username=responseData.username;
-                console.log(username);
-                console.log(data);
-                for(const post of data) {
-                    let content=post.contenido;
-                    Likesrc= await checkLikeButton(post.id);
-                    try {
-                        const response = await fetch('php/count-likes.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: 'postId=' + post.id
-                        });
-                        
-                        const likeData = await response.text();
-                        console.log(likeData);
-                        numLikes=likeData;  
-                        
-                    } catch (error) {
-                        console.error('Error:', error);
-                    }
-                    if(content.length>100){
-                        content=content.substring(0,100)+"...";
-                    }
-                    
-                    var postHtml = '<div class="post" data-id="'+post.id+'">'; 
-                    if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
-                        postHtml+= '<div class="post-content">' +
-                                    '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
-                                    '<p style="text-align:center;">' + content + '</p>' +
-                                    '</div>';
-                                    if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
-                                        '<img id="post-img" src="' + post.url_recurso + '" />' +
-                                    '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
-                                    '<video id="post-img" src="' + post.url_recurso + '" controls />' +
-                                '</div>';}else if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}}
-                                    postHtml+='<div class="post-arrow">' + 
-                                        '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
-                                    '</div>';
-                                    if(post.usuario_id==userId){postHtml+='<div class="container-delete invisible"><button class="deleteButton">Eliminar</button><button class="editButton">Editar</button></div>'};
-                                postHtml+='</div>';
-                                
-                                postHtml+='<div class="cortina-post invisible">' +
-                                '<div class="complete-Post ">' +
-                                    '<div class="complete-post-image invisible">';
-                                        if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
-                                    }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
-                                       postHtml+= '<div>'+
-                                       '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center; height: auto;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
-                                        '<div class="overflow-post-content">' +
-                                        '<p>' + post.contenido + '</p>' +
-                                        '<div id="coments' +post.id + '" class="coments"'+'>' +
-                                            
-                                        '</div>' +
-                                        '</div>' +
-                                        '<div class="like-container">' +
-                                            '<img  class="like" src="'+ Likesrc +'">' +
-                                            '<p class="numLikes">' + numLikes + ' likes' + '</p>' +
-                                        '</div>' +
-                                        '<div class="comentar-container">' +
-                                            '<form class="form-coment">' +
-                                                '<input type="hidden" name="postId" value="'+post.id+'">' +
-                                                '<input class="coment-input" type="text" id="comentario" name="comentario" placeholder="Comentario" required>' +
-                                                '<button name="submit" class="coment-button"><i class="far fa-comment" style="color: #e6e6e6;"></i></button>' +
-                                            '</form>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<i class="closeIcon fas fa-times" style="color: #d9d9d9;"></i>' +
-                        '</div>';
+        try {
+            const response = await fetch(`php/posts-explorar-fechas.php?start=${start}&limit=${limit}&id=${id}`);
     
-                    document.querySelector('#posts').innerHTML += postHtml; 
-                    
-                };
-                likesShow(start);
-                if(data.length === 10){start += limit;}else{start+=data.length;}
-                loading=false;
-                attachListeners();
-                
-            } else {
-            
-                console.error('Hubo un error al obtener los posts:', this.status, this.statusText);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        };
     
-        xhr.onerror = function() {
-            console.error('Hubo un error al hacer la solicitud:', this.status, this.statusText);
-        };
+            var responseData = await response.json();
+            console.log(responseData);
+            return responseData;
     
-        xhr.send();
+            // El resto de tu código...
+        } catch (error) {
+            console.error('Hubo un error al obtener los posts:', error);
+        } finally {
+            loading = false;
+        }
     }
-   
+    
+  
     
 
     function likesShow(start){
@@ -600,29 +538,65 @@
     
     function quitarLoading(){
         document.getElementById('loading').style.display = 'none';
+        let loading2=document.querySelectorAll('.loading2');
+        if(loading2){loading2.forEach(function(loading2){loading2.style.display = 'none';})};
+        let posts=document.querySelectorAll('.post');
+        posts.forEach(function(post){
+            post.style.display="flex";
+        });
         console.log('quitar filtro');
     }
 
 
 
-    var posts=loadPosts();
-    posts.then(function(){
-        setTimeout(1000);
-        quitarLoading()
+    loadPosts().then(responseData => {
+        
+        displayPosts(responseData).then(() => {quitarLoading();});
+    }).catch(error => {
+        console.error('Hubo un error al obtener los posts:', error);
     });
+
+
+
+    let isLoading = false;
+
+    let timeout;
     function handleScroll() {
-        let filtrosFecha=document.getElementById('filtrosFecha');
-        const { scrollY, innerHeight } = window;
-        const { scrollHeight } = document.documentElement;
-    
-        if (scrollY + innerHeight >= scrollHeight - 5) {
-            if(filtrosFecha.classList.contains('selected')){
-            loadPostsDate();
-        }else{
-            loadPosts();
-        }
-        }
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            const { scrollY, innerHeight } = window;
+            const { scrollHeight } = document.documentElement;
+            
+            if (scrollY + innerHeight >= scrollHeight - 5 && !isLoading) {
+                isLoading = true;
+                if(filtrosFecha.classList.contains('selected')){
+                let contentContainer=document.querySelector('.content-container');
+                contentContainer.innerHTML+='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
+                loadPosts().then(responseData => {
+                    displayPosts(responseData).then(() => {quitarLoading();isLoading = false;});
+                    
+                }).catch(error => {
+                    console.error('Hubo un error al obtener los posts:', error);
+                    isLoading = false;
+                });
+            }else{
+                let contentContainer=document.querySelector('.content-container');
+                contentContainer.innerHTML+='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
+                loadPosts().then(responseData => {
+                    displayPosts(responseData).then(() => {quitarLoading();isLoading = false;});
+                    
+                }).catch(error => {
+                    console.error('Hubo un error al obtener los posts:', error);
+                    //isLoading = false;
+                });
+            }
+            }
+        }, 200); // Esto retrasa la ejecución de la función por 200ms
     }
+    
+
+
+
     
     // Escuchar el evento scroll para navegadores de escritorio
     window.addEventListener('scroll', handleScroll);
@@ -649,7 +623,8 @@ function postfecha(){
         likes.classList.remove('selected');
         likes.classList.add('unselected');
     }
-    loadPostsDate();
+    document.getElementById('loading').style.display = 'flex';
+    loadPostsDate().then(responseData => {displayPosts(responseData).then(()=>{quitarLoading();})}).catch(error => {});
 }
 function postlikes(){
     var fecha = document.getElementById('filtrosFecha');
@@ -663,5 +638,11 @@ function postlikes(){
         fecha.classList.remove('selected');
         fecha.classList.add('unselected');
     }
-    loadPosts();
+    document.getElementById('loading').style.display = 'flex';
+    loadPosts().then(responseData => {
+        
+        displayPosts(responseData).then(() => {quitarLoading();});
+    }).catch(error => {
+        console.error('Hubo un error al obtener los posts:', error);
+    });
 }
