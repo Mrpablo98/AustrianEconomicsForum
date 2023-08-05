@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }else{
                     friendsListMovil.innerHTML=friendDiv;
                 }
-                var deleteButtons=friendsList.querySelectorAll('.deleteUser');
+                var deleteButtons=document.querySelectorAll('.deleteUser');
                 console.log(deleteButtons);
                 deleteButtons.forEach((button)=>{
                     button.addEventListener('click',(event)=>{

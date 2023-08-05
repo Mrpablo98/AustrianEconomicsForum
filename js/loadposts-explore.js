@@ -618,13 +618,14 @@ function postfecha(){
 
     if(fecha.classList.contains('unselected')){
         document.querySelector('#posts').innerHTML =""; 
+        document.querySelector('#posts').innerHTML +="<img src='img/gif_loading.gif' id='loading'>";
         fecha.classList.remove('unselected');
         fecha.classList.add('selected');
         likes.classList.remove('selected');
         likes.classList.add('unselected');
+        loadPostsDate().then(responseData => {displayPosts(responseData).then(()=>{quitarLoading();})}).catch(error => {});
     }
-    document.getElementById('loading').style.display = 'flex';
-    loadPostsDate().then(responseData => {displayPosts(responseData).then(()=>{quitarLoading();})}).catch(error => {});
+
 }
 function postlikes(){
     var fecha = document.getElementById('filtrosFecha');
@@ -633,16 +634,17 @@ function postlikes(){
 
     if(likes.classList.contains('unselected')){
         document.querySelector('#posts').innerHTML =""; 
+        document.querySelector('#posts').innerHTML +="<img src='img/gif_loading.gif' id='loading'>";
         likes.classList.remove('unselected');
         likes.classList.add('selected');
         fecha.classList.remove('selected');
         fecha.classList.add('unselected');
-    }
-    document.getElementById('loading').style.display = 'flex';
     loadPosts().then(responseData => {
         
         displayPosts(responseData).then(() => {quitarLoading();});
     }).catch(error => {
         console.error('Hubo un error al obtener los posts:', error);
     });
+    }
+    
 }

@@ -23,7 +23,6 @@
         $id=$user['user-id'];
     ?>
     <div class="container-all-index">
-    <img src='img/gif_loading.gif' id='loading'>
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">
@@ -82,7 +81,7 @@
             </div>
             
         <div class="content-container" id='posts'>
-           
+        <img src='img/gif_loading.gif' id='loading'>
         </div>
     </div>
     <script src="js/search.js"></script>
