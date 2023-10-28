@@ -38,7 +38,6 @@
             console.log(responseData);
             return responseData;
     
-            // El resto de tu código...
         } catch (error) {
             console.error('Hubo un error al obtener los posts:', error);
         } finally {
@@ -160,7 +159,6 @@
             console.log(responseData);
             return responseData;
     
-            // El resto de tu código...
         } catch (error) {
             console.error('Hubo un error al obtener los posts:', error);
         } finally {
@@ -606,7 +604,7 @@
   
     
 
-//});
+
 
 
 
