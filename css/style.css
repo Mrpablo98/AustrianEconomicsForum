@@ -1,5 +1,6 @@
+
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: sans-serif, Helvetica, Arial;
     font-size: 1rem;
     background-color: #0A0C10;
 }
@@ -631,6 +632,7 @@ h2 {
         gap: 30px;
         padding: 30px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        position: relative;
     }
 
     .news1 {
@@ -645,6 +647,11 @@ h2 {
         gap: 30px;
         padding: 30px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        position: relative;
+    }
+    .fuentesImg{
+        width:15%;
+        height: auto;
     }
 
     .img-checked {
@@ -665,13 +672,6 @@ h2 {
         visibility: hidden;
     }
 
-    .news img {
-        width: 400px;
-    }
-
-    .news1 img {
-        width: 400px;
-    }
 
     .news a {
         text-decoration: none;
@@ -2643,7 +2643,6 @@ h2 {
 
     .content-container {
         width: 100%;
-        padding-top: 50px;
         height: auto;
         min-height: 95vh;
         background-color: #191F26;
@@ -3038,7 +3037,7 @@ h2 {
     /*Noticias*/
     .news {
         background-color: #0A0C10;
-        width: 80%;
+        width: 70%;
         border-radius: 5%;
         border: 1px solid white;
         display: flex;
@@ -3053,7 +3052,7 @@ h2 {
 
     .news1 {
         background-color: #0A0C10;
-        width: 80%;
+        width: 70%;
         border-radius: 5%;
         border: 1px solid white;
         display: flex;
@@ -3066,14 +3065,17 @@ h2 {
         margin-bottom: 70px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
-
-    .news img video {
+    .fuentesImg{
+        width:25%;
+        height: auto;
+    }
+    /*.news img video {
         width: 80%;
     }
 
     .news1 img video {
         width: 80%;
-    }
+    }*/
 
     .news p {
         max-width: 85%;
@@ -3092,7 +3094,7 @@ h2 {
         max-width: 70%;
         text-align: center;
         margin: 0 auto;
-        font-size: medium;
+        font-size: larger;
     }
 
     .news1 p {
@@ -3133,7 +3135,7 @@ h2 {
 
 
     .mediaNews {
-        width: 80%;
+        width: 60%;
         margin: 0 auto;
     }
 

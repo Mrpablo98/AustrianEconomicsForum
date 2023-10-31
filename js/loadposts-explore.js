@@ -36,14 +36,16 @@
     
             var responseData = await response.json();
             console.log(responseData);
+            if(responseData.posts.length==0){
+                window.removeEventListener('scroll', handleScroll);
+                window.removeEventListener('touchmove', handleScroll);
+           }
             return responseData;
     
-            // El resto de tu código...
+            
         } catch (error) {
             console.error('Hubo un error al obtener los posts:', error);
-        } finally {
-            loading = false;
-        }
+        } 
     }
 
     async function displayPosts(responseData) {
@@ -137,6 +139,7 @@
         likesShow(start);
         if(data.length === 10){start += limit;}else{start+=data.length;}
         loading=false;
+        console.log(loading);
         attachListeners();
 
 
@@ -160,7 +163,6 @@
             console.log(responseData);
             return responseData;
     
-            // El resto de tu código...
         } catch (error) {
             console.error('Hubo un error al obtener los posts:', error);
         } finally {
@@ -551,7 +553,13 @@
 
     loadPosts().then(responseData => {
         
-        displayPosts(responseData).then(() => {quitarLoading();});
+        displayPosts(responseData).then(() => {quitarLoading();
+         // Escuchar el evento scroll para navegadores de escritorio
+    window.addEventListener('scroll', handleScroll);
+    
+    // Escuchar el evento touchmove para dispositivos móviles
+    window.addEventListener('touchmove', handleScroll);
+});
     }).catch(error => {
         console.error('Hubo un error al obtener los posts:', error);
     });
@@ -562,6 +570,7 @@
 
     let timeout;
     function handleScroll() {
+        let filtrosFecha=document.getElementById('filtrosFecha');
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             const { scrollY, innerHeight } = window;
@@ -572,7 +581,7 @@
                 if(filtrosFecha.classList.contains('selected')){
                 let contentContainer=document.querySelector('.content-container');
                 contentContainer.innerHTML+='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
-                loadPosts().then(responseData => {
+                loadPostsDate().then(responseData => {
                     displayPosts(responseData).then(() => {quitarLoading();isLoading = false;});
                     
                 }).catch(error => {
@@ -598,11 +607,7 @@
 
 
     
-    // Escuchar el evento scroll para navegadores de escritorio
-    window.addEventListener('scroll', handleScroll);
-    
-    // Escuchar el evento touchmove para dispositivos móviles
-    window.addEventListener('touchmove', handleScroll);
+   
   
     
 
@@ -623,7 +628,10 @@ function postfecha(){
         fecha.classList.add('selected');
         likes.classList.remove('selected');
         likes.classList.add('unselected');
-        loadPostsDate().then(responseData => {displayPosts(responseData).then(()=>{quitarLoading();})}).catch(error => {});
+        likes.classList.add('invisible');
+        loadPostsDate().then(responseData => {displayPosts(responseData).then(()=>{quitarLoading();
+        likes.classList.remove('invisible');
+        })}).catch(error => {});
     }
 
 }
@@ -639,9 +647,12 @@ function postlikes(){
         likes.classList.add('selected');
         fecha.classList.remove('selected');
         fecha.classList.add('unselected');
+        fecha.classList.add('invisible');
     loadPosts().then(responseData => {
         
-        displayPosts(responseData).then(() => {quitarLoading();});
+        displayPosts(responseData).then(() => {quitarLoading();
+        fecha.classList.remove('invisible');
+        });
     }).catch(error => {
         console.error('Hubo un error al obtener los posts:', error);
     });

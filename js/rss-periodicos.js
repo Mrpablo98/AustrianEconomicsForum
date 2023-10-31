@@ -37,15 +37,15 @@ function getNoticiasFromFeed(url) {
                     var mediaUrlNode = item.getElementsByTagName('enclosure')[0] || item.getElementsByTagName('media:content')[0];
                     var mediaUrl = mediaUrlNode ? mediaUrlNode.getAttribute('url') : '';
                     var fuente='';
-                    if(url.includes('libertaddigital')) fuente='LibreMercado';
-                    else if(url.includes('elpais')) fuente='ElPais';
-                    else if(url.includes('lavanguardia')) fuente='LaVanguardia';
-                    else if(url.includes('elmundo')) fuente='ElMundo';
-                    else if(url.includes('vozdegalicia')) fuente='LaVozDeGalicia';
-                    else if(url.includes('nosdiario')) fuente='NòsDiario';
-                    else if(url.includes('elperiodico')) fuente='Elperiodico';
-                    else if(url.includes('eleconomista')) fuente='ElEconómista';
-                    titulo=titulo+' - '+fuente;
+                    if(url.includes('libertaddigital')) fuente='img/LibreMercado.png';
+                    else if(url.includes('elpais')) fuente='img/ElPais.png';
+                    else if(url.includes('lavanguardia')) fuente='img/LaVanguardia.png';
+                    else if(url.includes('elmundo')) fuente='img/ElMundo.png';
+                    else if(url.includes('vozdegalicia')) fuente='img/LaVoz.png';
+                    else if(url.includes('nosdiario')) fuente='img/Nos_Diario.png';
+                    else if(url.includes('elperiodico')) fuente='img/elPeriodico.png';
+                    else if(url.includes('eleconomista')) fuente='img/eleconomista-logo.png';
+                    titulo=titulo;
                     noticias.push(new Noticia(titulo, descripcion, link, mediaUrl, fecha, fuente));
                 }
 
@@ -70,8 +70,8 @@ function getNoticiasFromFeedElMundo(url) {
                     var fecha = new Date(item.getElementsByTagName('pubDate')[0].textContent).getTime() / 1000;
                     var mediaUrlNode = item.getElementsByTagName('media:content')[0];
                     var mediaUrl = mediaUrlNode ? mediaUrlNode.getAttribute('url') : '';
-                    var fuente='ElMundo';
-                    titulo=titulo+' - '+fuente;
+                    var fuente='img/ElMundo.png';
+                    titulo=titulo;
                     noticias.push(new Noticia(titulo, descripcion, link, mediaUrl, fecha, fuente));
                 }
 
@@ -129,12 +129,16 @@ function displayNews(news) {
         let newsTitle = document.createElement('h2');
         let newsDescription = document.createElement('p');
         let EnlaceTitle= document.createElement('a');
+        let fuentes= document.createElement('img');
         EnlaceTitle.setAttribute('target', '_blank');
         EnlaceTitle.setAttribute('class', 'EnlaceTitle');
         EnlaceTitle.setAttribute('href', noticia.link);
         newsTitle.setAttribute('class', 'newsTitle');
+        fuentes.setAttribute('class', 'fuentesImg');
         newsTitle.textContent = noticia.titulo;
+        fuentes.setAttribute('src', noticia.fuente);
         let media;
+        console.log(noticia.mediaUrl);
         if(noticia.mediaUrl.includes('.mp4')){
             media = document.createElement('video');
             media.setAttribute('src', noticia.mediaUrl);
@@ -162,12 +166,13 @@ function displayNews(news) {
             newsDate.textContent = convertUnixToSpanishDate(noticia.fecha);
             newsTitle.textContent = noticia.titulo;
             newsDescription.setAttribute('class', 'newsDescription');
-            newsDescription.textContent = noticia.descripcion;
+            newsDescription.innerHTML = noticia.descripcion;
             newsContainer.appendChild(newsDiv);
+            newsDiv.appendChild(fuentes);
             newsDiv.appendChild(EnlaceTitle);
             EnlaceTitle.appendChild(newsTitle);
             if(noticia.link.includes('elperiodico')){
-                newsDiv.innerHTML = "<a target='_blank' href="+noticia.link+"><h2>"+noticia.titulo+"</h2></a>" + noticia.descripcion;
+                newsDiv.innerHTML = "<img class='fuentesImg' src='img/elPeriodico.png'><a target='_blank' href="+noticia.link+"><h2>"+noticia.titulo+"</h2></a>" + noticia.descripcion;
             }else{
                 
                 newsDiv.appendChild(media);

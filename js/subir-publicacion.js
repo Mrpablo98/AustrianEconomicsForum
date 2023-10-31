@@ -39,6 +39,7 @@ const uploadFile = (file, title, body) => {
             let loading=document.querySelector('.loading-publi');
             loading.style.display='none';
             console.log('File upload failed.');
+            console.error('Error en la carga del archivo:', xhr.statusText);
         }
     }, false);
 

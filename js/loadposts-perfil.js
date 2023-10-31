@@ -35,9 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // El resto de tu código...
         } catch (error) {
             console.error('Hubo un error al obtener los posts:', error);
-        } finally {
-            loading = false;
-        }
+        } 
     }
 
 
@@ -156,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let contentContainer=document.querySelector('.content-container');
                 contentContainer.innerHTML+='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
                 loadPosts().then(responseData => {
+                    
                     displayPosts(responseData).then(() => {quitarLoading();isLoading = false;});
                     
                 }).catch(error => {
@@ -163,15 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     isLoading = false;
                 });
             }
-        }, 200); // Esto retrasa la ejecución de la función por 200ms
+        }, 200); 
     }
     
     
-    // Escuchar el evento scroll para navegadores de escritorio
-    window.addEventListener('scroll', handleScroll);
-    
-    // Escuchar el evento touchmove para dispositivos móviles
-    window.addEventListener('touchmove', handleScroll);
+   
 
     function likesShow(start){
         var posts=document.querySelectorAll('.post');
@@ -390,8 +385,10 @@ function handleLikeClick(like){
         .then(response => response.json())
         .then(data => {
             if(data==="deleted"){
+                console.log('deleted');
                 post.remove();
             }
+            console.log(data);
         })
         .catch((error) => {
         console.error('Error:', error);
@@ -545,7 +542,13 @@ function handleLikeClick(like){
 
     loadPosts().then(responseData => {
         
-        displayPosts(responseData).then(() => {quitarLoading();});
+        displayPosts(responseData).then(() => {quitarLoading();
+         // Escuchar el evento scroll para navegadores de escritorio
+    window.addEventListener('scroll', handleScroll);
+    
+    // Escuchar el evento touchmove para dispositivos móviles
+    window.addEventListener('touchmove', handleScroll);
+});
     }).catch(error => {
         console.error('Hubo un error al obtener los posts:', error);
     });
