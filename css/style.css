@@ -94,6 +94,7 @@ h2 {
         border-radius: 10px;
         gap: 3vh;
         padding: 1em;
+        margin-bottom:150px;
 
     }
 
@@ -280,9 +281,10 @@ h2 {
         color: white;
         width: 100%;
         height: 0;
-        overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.301);
         border-radius: 10px;
+        max-height: 400px;
+        overflow-y:scroll;
         visibility: hidden;
     }
 
@@ -323,10 +325,14 @@ h2 {
     }
 
     .indexTitle {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 2.5rem;
-        text-decoration: underline;
-        background-color: #0A0C10;
+           font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5rem;
+            text-decoration: underline;
+            background-color: #0A0C10;
+            width: 100vw;
+            text-align: center;
+            margin-top: 0;
+            padding: 30px;
     }
 
     .buttonContainerIndex {
@@ -631,6 +637,7 @@ h2 {
         gap: 30px;
         padding: 30px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        position: relative;
     }
 
     .news1 {
@@ -645,6 +652,11 @@ h2 {
         gap: 30px;
         padding: 30px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        position: relative;
+    }
+    .fuentesImg{
+        width:15%;
+        height: auto;
     }
 
     .img-checked {
@@ -664,14 +676,10 @@ h2 {
     .form-container input {
         visibility: hidden;
     }
-
-    .news img {
-        width: 400px;
+     .loading2{
+        width: 40%;
     }
-
-    .news1 img {
-        width: 400px;
-    }
+    
 
     .news a {
         text-decoration: none;
@@ -872,7 +880,6 @@ h2 {
         max-height: 300px;
         background-color: #0A0C10;
         border-radius: 5%;
-        display: none;
         justify-content: center;
         align-items: center;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
@@ -1393,16 +1400,22 @@ h2 {
         width: auto;
         height: auto;
         background-color: transparent;
+        display:flex;
+        align-items:center;
+        gap : 10px;
     }
     #filtrosFecha{
         position: absolute;
         color: white;
         bottom:0;
-        left:220px;
+        left:175px;
         padding: 10px;
         width: auto;
         height: auto;
         background-color: transparent;
+        display:flex;
+        align-items:center;
+        gap : 10px;
     }
     .filtrosLikes:hover{
         cursor: pointer;
@@ -1769,14 +1782,11 @@ h2 {
         padding: 30px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
-
-    .news img {
-        width: 60%;
+     .fuentesImg{
+        width:25%;
+        height: auto;
     }
-
-    .news1 img {
-        width: 60%;
-    }
+   
 
     .news a {
         text-decoration: none;
@@ -2412,21 +2422,31 @@ h2 {
         background-color: #0A0C10;
         position: relative;
     }
-    #filtrosLikes{
+      #filtrosLikes{
         position: absolute;
         bottom:0;
-        left:50px;
-        background-color: transparent;
+        left:20px;
         padding: 10px;
         color: white;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        display:flex;
+        align-items:center;
+        gap : 10px;
     }
     #filtrosFecha{
         position: absolute;
-        bottom:0;
         color: white;
-        left:220px;
+        bottom:0;
+        left:145px;
         padding: 10px;
+        width: auto;
+        height: auto;
         background-color: transparent;
+        display:flex;
+        align-items:center;
+        gap : 10px;
     }
 
     .filtrosLikes:hover{
@@ -2519,7 +2539,7 @@ h2 {
         gap: 3vh;
         padding: 1em;
         margin: 0 auto;
-        margin-bottom: 200px;
+
 
     }
 
@@ -2536,7 +2556,7 @@ h2 {
     .inputText {
         display: flex;
         flex-direction: column;
-        gap: 2em;
+        gap: 1em;
         width: 100%;
 
 
@@ -2602,6 +2622,7 @@ h2 {
         background-color: #0A0C10;
     }
 
+  
     .titleDisclaimer {
         color: white;
         font-size: 1.25rem;
@@ -2643,7 +2664,6 @@ h2 {
 
     .content-container {
         width: 100%;
-        padding-top: 50px;
         height: auto;
         min-height: 95vh;
         background-color: #191F26;
@@ -2709,7 +2729,7 @@ h2 {
         height: 50px;
 
     }
-
+    
     .notification {
         border: 2px solid rgb(231, 72, 72);
         height: 40px;
@@ -2727,8 +2747,7 @@ h2 {
         transform: translate(50%, -50%);
 
     }
-
-
+    
     .navbar>a {
         color: white;
         text-decoration: none;
@@ -2738,7 +2757,6 @@ h2 {
         cursor: pointer;
     }
 
- 
     .index-perfil-img {
         width: 30px;
         border-radius: 50%;
@@ -2769,6 +2787,8 @@ h2 {
         text-decoration: underline;
         background-color: #0A0C10;
         padding:30px;
+        margin-top: 0;
+        text-align: center;
     }
 
     .buttonContainerIndex {
@@ -2831,6 +2851,7 @@ h2 {
         display: none;
     }
 
+    
     .lista-peticiones {
         background-color: #0A0C10;
         color: white;
@@ -2839,7 +2860,7 @@ h2 {
         border-radius: 10px;
         position: absolute;
         max-height:550px;
-        bottom:60px;
+        bottom:6vh;
         visibility: hidden;
         padding: 10px;
     }
@@ -3038,7 +3059,7 @@ h2 {
     /*Noticias*/
     .news {
         background-color: #0A0C10;
-        width: 80%;
+        width: 70%;
         border-radius: 5%;
         border: 1px solid white;
         display: flex;
@@ -3053,7 +3074,7 @@ h2 {
 
     .news1 {
         background-color: #0A0C10;
-        width: 80%;
+        width: 70%;
         border-radius: 5%;
         border: 1px solid white;
         display: flex;
@@ -3066,14 +3087,17 @@ h2 {
         margin-bottom: 70px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
-
-    .news img video {
+    .fuentesImg{
+        width:25%;
+        height: auto;
+    }
+    /*.news img video {
         width: 80%;
     }
 
     .news1 img video {
         width: 80%;
-    }
+    }*/
 
     .news p {
         max-width: 85%;
@@ -3089,7 +3113,7 @@ h2 {
     }
 
     .news h2 {
-        max-width: 70%;
+        max-width: 100%;
         text-align: center;
         margin: 0 auto;
         font-size: medium;
@@ -3109,7 +3133,7 @@ h2 {
     }
 
     .news1 h2 {
-        max-width: 70%;
+        max-width: 100%;
         text-align: center;
         margin: 0 auto;
         font-size: medium;
@@ -3138,7 +3162,7 @@ h2 {
     }
 
     .NomediaNews {
-        width: 30%;
+        width: 50%;
         height: 100px;
         background-color: #444654;
         margin: 0 auto;
@@ -3188,7 +3212,7 @@ h2 {
         top: 25%;
         bottom: 25%;
     }
-    .loading2{
+     .loading2{
         width: 60%;
     }
 
@@ -3205,8 +3229,9 @@ h2 {
     }
 
     .perfil-photo {
-        width: 155px;
+        width: 105px;
         height: auto;
+        margin-left:15px;
 
     }
 
@@ -3215,7 +3240,7 @@ h2 {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 15px;
 
     }
    
@@ -3246,7 +3271,7 @@ h2 {
 
     #friendsList {
         margin: 30px;
-        width: 400px;
+        width: 0px;
         height: 0px;
         border: none;
         transition: all 0.5s ease;
@@ -3293,7 +3318,8 @@ h2 {
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
         transition: all 0.5s;
         border: 1px solid rgba(255, 255, 255, 0.301);
-        margin-bottom: 50px;
+        margin-bottom: 25px;
+        margin-top:25px;
     }
     .post-image{
         display: flex;
@@ -3443,6 +3469,7 @@ h2 {
         height: 50%;
         object-fit: contain;
         border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        display:flex;
     }
 
     .media>img {
@@ -3466,7 +3493,15 @@ h2 {
     .complete-post-image div {
         width: 100%;
         max-height: 50%;
+        
 
+    }
+    .cortina-audio{
+        height:50%;
+        max-height:50%;
+        display:flex;
+        justify-content: center;
+        align-items:center;
     }
 
     .complete-post-image h2 {
@@ -3637,6 +3672,9 @@ h2 {
         cursor: pointer;
         color: #444654;
     }
+     .post:first-child{
+        margin-top:50px;
+    }
 
     .like-container i:hover {
         cursor: pointer;
@@ -3683,7 +3721,7 @@ h2 {
 
     .userName {
         font-family: 'Courier New', Courier, monospace;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .edit-data {
@@ -3787,7 +3825,7 @@ h2 {
         width: 100%;
         height: 10vh;
         margin-top: 4vh;
-        position: absolute;
+        position: fixed;
         bottom: 0;
 
     }
@@ -3820,7 +3858,6 @@ h2 {
         height: 100px;
         background-color: #0A0C10;
         position: relative;
-        margin-bottom: 20px;
     }
     #filtrosLikes{
         position: absolute;
@@ -3830,15 +3867,21 @@ h2 {
         padding: 10px;
         font-size: small;
         background-color: transparent;
+        display : flex;
+        align-items:center;
+        gap:10px;
     }
     #filtrosFecha{
         position: absolute;
         bottom:0;
         color: white;
-        left:150px;
+        left:120px;
         padding: 10px;
         font-size: small;
         background-color: transparent;
+           display : flex;
+        align-items:center;
+        gap:10px;
     }
     .filtrosLikes:hover{
         cursor: pointer;
