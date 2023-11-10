@@ -3,7 +3,7 @@
 $server="localhost";
 $usernamebd="root";
 $passwordbd="root";
-/*!q[Oux6ww!t]R\l+*/
+
 $db="austrianeconomicsforum";
 
 $mysqli=new mysqli($server,$usernamebd,$passwordbd,$db);
