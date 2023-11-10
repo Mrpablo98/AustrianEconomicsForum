@@ -25,7 +25,7 @@
 <body>
     
     <div class="container-all-index">
-    <img src='img/gif_loading.gif' id='loading'>
+    
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">
@@ -79,6 +79,7 @@
         </div>
         <div id='result'></div>
         <div class="content-container" id='posts'>
+        <img src='img/gif_loading.gif' id='loading'>
             <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
             <div class="indexNoPost invisible"><p>¡Vaya, aún no tinenes gente a la que seguir!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
             <div class="buttonContainerIndex"><a href="explore.php"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
