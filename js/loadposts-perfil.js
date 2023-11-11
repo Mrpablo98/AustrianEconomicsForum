@@ -124,10 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             };
         }else if(data.length==0 && start==0){
-                let indexNoPosts=document.querySelector('.indexNoPost');
-                indexNoPosts.classList.remove('invisible');
-                let indexTitle=document.querySelector('.indexTitle');
-                indexTitle.classList.add('invisible');
+                let indexNoPosts=document.querySelector('#loading');
+                indexNoPosts.classList.add('invisible');
         }
         likesShow(start);
         if(data.length === 10){start += limit;}else{start+=data.length;}

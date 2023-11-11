@@ -1,6 +1,6 @@
 <?php
 require("../connection.php");
-session.start();
+session_start();
 if (!isset($_SESSION['user'])) {
     // Si el usuario no está autenticado, devolver un error 403
     http_response_code(403);
@@ -19,6 +19,6 @@ $sql = $mysqli->prepare('INSERT INTO amigos (usuario_id1, usuario_id2, aceptada)
 $aceptada=false;    
 $sql->bind_param("iii", $Id1, $Id2, $aceptada);
 $sql->execute();
-header("Location: ../perfil?id=$Id2");
+header("Location: ../perfil.php?id=$Id2");
 
 ?>

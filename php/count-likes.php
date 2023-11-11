@@ -1,7 +1,13 @@
 <?php
 
 require_once("../connection.php");
-
+session_start();
+if (!isset($_SESSION['user'])) {
+    // Si el usuario no está autenticado, devolver un error 403
+    http_response_code(403);
+    echo json_encode(['error' => 'No autorizado para acceder a este recurso.']);
+    exit;
+}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['postId'])) {
     $postId = $_POST['postId'];

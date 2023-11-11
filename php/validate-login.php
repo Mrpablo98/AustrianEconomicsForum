@@ -26,12 +26,12 @@ if ($result->num_rows > 0) {
         ];
         echo $_SESSION['user']['username'];
 
-        header("Location: ../index");
+        header("Location: ../index.php");
     } else {
-        header("Location: ../log-in?error=password");
+        header("Location: ../log-in.hmtl?error=password");
     }
 } else {
-    header("Location: ../log-in?error=username");
+    header("Location: ../log-in.html?error=username");
    
 }
 

@@ -64,8 +64,8 @@ if (strlen($error)==0) {
         ];
 
 
-        header("Location: ../log-in");
+        header("Location: ../log-in.html");
     }
 }else{
-    header("Location: ../register?error=$error");
+    header("Location: ../register.html?error=$error");
 }
