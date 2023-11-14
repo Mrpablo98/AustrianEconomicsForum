@@ -71,18 +71,20 @@
                 <div class='menu_item options' id='options-button'><i id='bars' class="fa-sharp fa-solid fa-bars fa-lg"></i><p>Opciones</p></div>
             </div>
         </div>
-        <div class="search-bar-container" id="search-bar-container">
-            <form action="searching.php" method="POST">
-                <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
-                <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
-            </form>
-        </div>
-        <div id='result'></div>
-        <div class="content-container" id='posts'>
-        <img src='img/gif_loading.gif' id='loading'>
-            <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
-            <div class="indexNoPost invisible"><p>¡Vaya, aún no tinenes gente a la que seguir!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
-            <div class="buttonContainerIndex"><a href="explore.php"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
+        <div class="second-container">
+            <div class="search-bar-container" id="search-bar-container">
+                <form action="searching.php" method="POST">
+                    <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
+                    <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
+                </form>
+            </div>
+            <div id='result'></div>
+            <div class="content-container" id='posts'>
+            <img src='img/gif_loading.gif' id='loading'>
+                <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
+                <div class="indexNoPost invisible"><p>¡Vaya, aún no tinenes gente a la que seguir!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
+                <div class="buttonContainerIndex"><a href="explore.php"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
+            </div>
         </div>
     </div>
     

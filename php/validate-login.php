@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
 
         header("Location: ../index.php");
     } else {
-        header("Location: ../log-in.hmtl?error=password");
+        header("Location: ../log-in.html?error=password");
     }
 } else {
     header("Location: ../log-in.html?error=username");

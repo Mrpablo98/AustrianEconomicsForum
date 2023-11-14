@@ -53,7 +53,6 @@ $title = isset($_POST['title']) ? trim($_POST['title']) : '';
 $body = isset($_POST['body']) ? trim($_POST['body']) : '';
 if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $idUser=$userId;
-    $_FILES['file']['name'] = $_FILES['file']['name'];
     $fileName = $userId . $_FILES['file']['name'];
     $fileType = $_FILES['file']['type'];
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);

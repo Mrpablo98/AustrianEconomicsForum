@@ -40,20 +40,20 @@
                     <label title="LaVozDeGalicia" for="LaVoz"><img class="img-periodico img-checked" src="img/LaVoz.png"></label>
                     <input class="check-periodico" type="checkbox" id='LibreMercado' name='LibreMercado' value='LibreMercado' checked='true' ></input>
                     <label title="LibreMercado" for="LibreMercado"><img class="img-periodico img-checked" src="img/LibreMercado.png"></label>
-                    <input class="check-periodico" type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista' checked='true'></input>
-                    <label title="ElEconomista" for="ElEconomista"><img class="img-periodico img-checked" src="img/eleconomista-logo.png"></label>
-                    <input class="check-periodico" type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico' checked='true'></input>
-                    <label title="ElPeriodico" for="ElPeriodico"><img class="img-periodico img-checked" src="img/elPeriodico.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElEconomista' name='ElEconomista' value='ElEconomista'></input>
+                    <label title="ElEconomista" for="ElEconomista"><img class="img-periodico img-unchecked" src="img/eleconomista-logo.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElPeriodico' name='ElPeriodico' value='ElPeriodico'></input>
+                    <label title="ElPeriodico" for="ElPeriodico"><img class="img-periodico img-unchecked" src="img/elPeriodico.png"></label>
                 </div>
                 <div class='form-container'>
-                    <input class="check-periodico" type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario' checked='true'></input>
-                    <label title="NòsDiario" for="NosDiario"><img class="img-periodico img-checked" src="img/Nos_Diario.png"></label>
+                    <input class="check-periodico" type="checkbox" id='NosDiario' name='NosDiario' value='NosDiario'></input>
+                    <label title="NòsDiario" for="NosDiario"><img class="img-periodico img-unchecked" src="img/Nos_Diario.png"></label>
                     <input class="check-periodico" type="checkbox" id='LaVanguardia' name='LaVanguardia' value='LaVanguardia' checked='true'></input>
                     <label title="LaVanguardia" for="LaVanguardia"><img class="img-periodico img-checked" src="img/LaVanguardia.png"></label>
                     <input class="check-periodico" type="checkbox" id='ElPais' naame='ElPais' value='ElPais' checked='true'></input>
                     <label title="ElPais" for="ElPais"><img class="img-periodico img-checked" src="img/ElPais.png"></label>
-                    <input class="check-periodico" type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo' checked='true'></input>
-                    <label title="ElMundo" for="ElMundo"><img class="img-periodico img-checked" src="img/ElMundo.png"></label>
+                    <input class="check-periodico" type="checkbox" id='ElMundo' name='ElMundo' value='ElMundo'></input>
+                    <label title="ElMundo" for="ElMundo"><img class="img-periodico img-unchecked" src="img/ElMundo.png"></label>
                 </div>
                 <button type="submit" class='normal_button' id='filtrar'>Filtrar</button>
             </div>
