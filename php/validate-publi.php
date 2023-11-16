@@ -26,7 +26,7 @@ function upload_file($bucketName, $objectName, $source, $tipo)
 
     $storage = new StorageClient([
         'projectId' => 'hardy-baton-385508',
-        'keyFilePath' => '/home/u483069059/domains/aeforum.es/public_html/hardy-baton-385508-d296bb99ca54.json',
+        'keyFilePath' => '../hardy-baton-385508-d296bb99ca54.json',
         'restOptions' => [
             'verify' => false
         ]
