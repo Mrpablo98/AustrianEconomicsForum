@@ -14,10 +14,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AustrianEconomicsForum</title>
+    <title>Inicio | AustrianEconomicsForum</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icon.png">
+
+
     <script src="php/icon-proxy.php?url=https://kit.fontawesome.com/b685f735ab.js" crossorigin="anonymous"></script>
 
 
@@ -29,7 +31,7 @@
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">
-                <a href="index.php" ><div class="menu_item">
+                <a href="index.php." ><div class="menu_item">
                     <i class="fa-solid fa-house fa-lg" style="color: #ffffff;"></i><p>Inicio</p>
                 </div></a>
 
@@ -71,20 +73,18 @@
                 <div class='menu_item options' id='options-button'><i id='bars' class="fa-sharp fa-solid fa-bars fa-lg"></i><p>Opciones</p></div>
             </div>
         </div>
-        <div class="second-container">
-            <div class="search-bar-container" id="search-bar-container">
-                <form action="searching.php" method="POST">
-                    <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
-                    <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
-                </form>
-            </div>
-            <div id='result'></div>
-            <div class="content-container" id='posts'>
+        <div class="search-bar-container" id="search-bar-container">
+            <form action="searching" method="POST">
+                <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
+                <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
+            </form>
+        </div>
+        <div id='result'></div>
+        <div class="content-container" id='posts'>
             <img src='img/gif_loading.gif' id='loading'>
-                <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
-                <div class="indexNoPost invisible"><p>¡Vaya, aún no tinenes gente a la que seguir!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
-                <div class="buttonContainerIndex"><a href="explore.php"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
-            </div>
+            <h2 class="indexTitle">Explora los posts de tus amigos: </h2>
+            <div class="indexNoPost invisible"><p>¡Vaya, aún no tienes publicaciones en tu feed!<br>Puedes explorar las publicaciones más famosas o buscar nuevos amigos en las siguientes secciones</p>
+            <div class="buttonContainerIndex"><a href="explore"><button>Explorar</button></a><button id="searchButton2">Buscar</button></div></div>
         </div>
     </div>
     

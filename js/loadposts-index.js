@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var loading=false;
     var numLikes=0;
     var data=0;
-    async function displayPosts(responseData) {
+      async function displayPosts(responseData) {
 
         var data=responseData.posts;
         var userId=responseData.userId;
-        console.log(responseData);
-        console.log(data);
         if(data.length>0){
             for(const post of data) {
                 let content=post.contenido;
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     
                     const likeData = await response.text();
-                    console.log(likeData);
                     numLikes=likeData;  
                     
                 } catch (error) {
@@ -44,16 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     content=content.substring(0,100)+"...";
                 }
                 
-                var postHtml = '<div style="display:none;" class="post" data-id="'+post.id+'">'; 
+                var postHtml = '<div style="display: none;" class="post" data-id="'+post.id+'">'; 
             if(post.usuario_id==userId){postHtml+='<div class="post-options"><i class="fas fa-sort-down fa-lg" style="color: #c0c0c0;"></i></div>';}
                 postHtml+= '<div class="post-content">' +
-                            '<h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2>' +
+                            '<h2 style="text-align:center;">' + post.titulo + ' || ' +'<a href="perfil?id='+ post.usuario_id + '">' + post.nombre + '</a>' + '</h2>' +
                             '<p style="text-align:center;">' + content + '</p>' +
                             '</div>';
                             if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="post-image">' +
-                                '<img id="post-img" src="' + post.url_recurso + '" />' +
+                                '<img class="post-img" src="' + post.url_recurso + '" />' +
                             '</div>';}else if(post.tipo=="video"){postHtml+='<div class="post-image">' +
-                            '<video id="post-img" src="' + post.url_recurso + '" controls />' +
+                            '<video class="post-img" src="' + post.url_recurso + '" controls />' +
                         '</div>';}else if(post.tipo=="audio"){postHtml+='<div class="post-image">' + "<audio class='post-audio' src='" + post.url_recurso + "' controls></audio>" + '</div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}}
                             postHtml+='<div class="post-arrow">' + 
                                 '<i class="more-icon fas fa-chevron-right fa-lg" style="color: #d9d9d9;"></i>' +
@@ -66,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             '<div class="complete-post-image invisible">';
                                 if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
                             }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
-                               postHtml+= '<div>'+
-                               '<a href="perfil.php?id='+ post.usuario_id + '"><h2 style="text-align:center;">' + post.titulo + ' - ' + post.nombre + '</h2></a>' +
+                              postHtml+= '<div>'+
+                              '<h2 style="text-align:center;">' + post.titulo + ' || ' + '<a href="perfil?id='+ post.usuario_id + '">' + post.nombre + '</h2></a>' +
                                 '<div class="overflow-post-content">' +
                                 '<p>' + post.contenido + '</p>' +
                                 '<div id="coments' +post.id + '" class="coments"'+'>' +
@@ -92,8 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-
-                document.querySelector('#posts').innerHTML += postHtml; 
+                document.querySelector('#posts').insertAdjacentHTML('beforeend', postHtml);
                 
             };
         }else if(data.length==0 && start==0){
@@ -111,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
-  
+
 
     async function loadPosts() {
         if(loading){return;}
@@ -125,7 +121,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     
             var responseData = await response.json();
-            console.log(responseData);
+             if(responseData.posts.length==0){
+                 window.removeEventListener('scroll', handleScroll);
+                 window.removeEventListener('touchmove', handleScroll);
+            }
             return responseData;
     
             // El resto de tu código...
@@ -135,8 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loading = false;
         }
     }
-    
-    let isLoading = false;
+  let isLoading = false;
 
     let timeout;
     function handleScroll() {
@@ -148,7 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (scrollY + innerHeight >= scrollHeight - 5 && !isLoading) {
                 isLoading = true;
                 let contentContainer=document.querySelector('.content-container');
-                contentContainer.innerHTML+='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
+                let loading2='<img class="loading2" style="with:20%; margin:0 auto;" src="img/gif_loading.gif">';
+                 contentContainer.insertAdjacentHTML('beforeend', loading2);
                 loadPosts().then(responseData => {
                     displayPosts(responseData).then(() => {quitarLoading();isLoading = false;});
                     
@@ -189,11 +188,28 @@ document.addEventListener('DOMContentLoaded', function() {
             let likes=likeContainer.innerHTML;
             let likesOld=postContent.querySelector('.like');
             let numLikesOld=postContent.querySelector('.numLikes');
-            likesOld.remove();
-            numLikesOld.remove();
             postContent.innerHTML+=likes;
         });
     }
+    
+    function likesShowBig(){
+        var posts=document.querySelectorAll('.post');
+
+        posts.forEach(function(post){
+            let postContent=post.querySelector('.post-content');
+            let cortinaPost=post.nextElementSibling;
+            let likeContainer=cortinaPost.querySelector('.like-container');
+            let likes=postContent.querySelector('.numLikes');
+            let likeImg=postContent.querySelector('.like');
+            let likeContainerImg=likeContainer.querySelector('.like');
+            let numLikesContainer=likeContainer.querySelector('.numLikes');
+            likeContainerImg.remove();
+            numLikesContainer.remove();
+            likeContainer.appendChild(likeImg);
+            likeContainer.appendChild(likes);
+        });
+    }
+    
 
     async function checkLikeButton(postId) {
         let response= await fetch('php/check_like.php', {
@@ -223,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         completePostImg.classList.remove('invisible');
                     }
                     document.body.style.overflow = 'hidden';
-        
+                    likesShowBig();
                     
                     let comentsContainerOverflow = completePost.querySelector('.overflow-post-content');
                     let comentsContainer = completePost.querySelector('.coments');
@@ -254,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
         document.body.style.overflow = 'auto';
         likesShowComplete();
+        attachListeners();
         if(video!==undefined && video!==null){
             video.pause();
         }
@@ -264,15 +281,25 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 
-    function handleLikeClick(like){
-        var countLikes=like.closest('.like-container').querySelector('.numLikes');
-        var numLikes=parseInt(countLikes.innerHTML);
-        var like2=true;
+     function handleLikeClick(like){
+        let container = like.closest('.like-container');
+        let countLikes=null;
+        if (container !== null) {
+          countLikes = container.querySelector('.numLikes');
+        // Realizar operaciones con numLikes
+        } else {
+         countLikes=like.nextElementSibling;
+         let postcontent=like.parentNode;
+         let post=postcontent.parentNode;
+         selectedPostId=post.getAttribute('data-id');
+         
+        }
+        let numLikes=parseInt(countLikes.innerHTML);
+        let like2=true;
+        console.log(like.src)
             if(like.src === 'http://localhost/AustrianEconomicsForum/img/like_icon.svg'){
                 like2=false;
-                console.log('like');
             }
-            console.log(like2);
             fetch('php/like.php', {
                 method: 'POST',
                 headers: {
@@ -285,9 +312,8 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 
-           
+                console.log(data);
             if (data === "liked") {
                 like.style.transition = "all 0.5s";
                 like.src = 'img/like2_icon.svg';
@@ -302,8 +328,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 like.src = 'img/like_icon.svg';
                 numLikes--;
                 countLikes.innerHTML = numLikes + ' likes';
-            }else{
-                console.log("error");
             }
             })
             .catch((error) => {
@@ -327,7 +351,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 var lastComentHtml = '<div class="coment" id="coment'+ data.comentId +'">' +
                     '<div class="coment-content">' +
                     '<a href=perfil.php?id=' + data.id +'><p style="padding:10px; margin:0; font-weight:bold;">' + data.username + '</p></a>' +
@@ -348,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     function handleDeleteComent(comentId){
-        console.log("is de coment: "+comentId);
         let classComent="coment"+comentId;
         let coment=document.getElementById(classComent);
         fetch('php/delete-coment.php', {
@@ -362,7 +384,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if(data==="deleted"){
                 coment.remove();
             }
@@ -435,10 +456,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let comentHtml="";
 
                 data.forEach(function(coment) {
-                    console.log(coment);
                     comentHtml+='<div class="coment" id="coment'+ coment.id +'">' +
                     '<div class="coment-content">' +
-                    '<a href=perfil.php?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +'<div style="display:flex; justify-content:space-between;" >' +
+                    '<a href=perfil?id='+ coment.usuario_id +'><p style="padding:10px; margin:0; font-weight:bold;">' + coment.username + '</p></a>' +'<div style="display:flex; justify-content:space-between;" >' +
                     '<p style="padding-left:50px; margin:0;">' + coment.contenido + '</p>';
                     if(coment.usuario_id == userId){
                         comentHtml+='<button style="background-color:transparent; border:none;" class="deleteComent" data-comentId="'+coment.id+'"><i class="fa-solid fa-trash" style="color: #ebebeb;"></i></button></div>';
@@ -474,22 +494,21 @@ document.addEventListener('DOMContentLoaded', function() {
         posts.forEach(function(post){
             post.style.display="flex";
         });
-        console.log('quitar filtro');
     }
 
-
-    loadPosts().then(responseData => {
+   loadPosts().then(responseData => {
         
         displayPosts(responseData).then(() => {quitarLoading();});
     }).catch(error => {
         console.error('Hubo un error al obtener los posts:', error);
     });
 
-  
 
-  
-    
 
-});
+       
         
     
+
+
+});
+  

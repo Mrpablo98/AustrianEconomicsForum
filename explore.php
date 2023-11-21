@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AustrianEconomicsForum</title>
+    <title>Explore | AustrianEconomicsForum</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icon.png">
@@ -23,6 +23,7 @@
         $id=$user['user-id'];
     ?>
     <div class="container-all-index">
+ 
         <div class="menu">
             <a href="index.php"><img src="img/logo-dark-menu.png" class="menu_logo"></a>
             <nav class="navbar">
@@ -69,19 +70,19 @@
             </div>
         </div>
         <div class="search-bar-container" id="search-bar-container">
-            <form action="searching.php" method="POST">
+            <form action="searching" method="POST">
                 <input autocomplete="off" placeholder="Search..." class="search-bar" id='search-bar' name='search-bar' type="text"></input>
                 <button class='search-button normal_button' id='search-button2' type="submit">Buscar</button>
             </form>
         </div>
         <div id='result'></div>
         <div class="filtrosExplorar">
-                <button onclick="postlikes()" id="filtrosLikes" class="selected"><p>Ord. por Nº de likes</p></button>
-                <button onclick="postfecha()" id="filtrosFecha" class="unselected"><p>Ord. por fecha de publicación</p></button>
+                <button onclick="postlikes()" id="filtrosLikes" class="selected"><p>Nº de likes</p><i class="fa-solid fa-heart" style="color: #ffffff;"></i></button>
+                <button onclick="postfecha()" id="filtrosFecha" class="unselected"><p>Fecha de publicación</p><i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i></button>
             </div>
             
         <div class="content-container" id='posts'>
-        <img src='img/gif_loading.gif' id='loading'>
+           <img src='img/gif_loading.gif' id='loading'>
         </div>
     </div>
     <script src="js/search.js"></script>
