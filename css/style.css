@@ -889,6 +889,17 @@ h2 {
         position: relative;
 
     }
+    .share-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        padding-left: 15px;       
+    }
+    .share{
+        margin-right: 20px;
+        cursor: pointer;
+    }
     .post:last-child {
         margin-bottom: 50px;
     }
@@ -1986,6 +1997,17 @@ h2 {
         gap: 20px;
         border: 1px solid rgba(255, 255, 255, 0.301);
 
+    }
+    .share-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        padding-left: 15px;       
+    }
+    .share{
+        margin-right: 20px;
+        cursor: pointer;
     }
 
     .post h2 {
@@ -3330,6 +3352,17 @@ h2 {
         border: 1px solid rgba(255, 255, 255, 0.301);
         margin-bottom: 25px;
         margin-top:25px;
+    }
+    .share-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        padding-left: 15px;       
+    }
+    .share{
+        margin-right: 20px;
+        cursor: pointer;
     }
     .post-image{
         display: flex;

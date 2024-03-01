@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 if(post.url_recurso!=null){if(post.tipo=="imagen"){postHtml+='<div class="media"><img src="' + post.url_recurso + '" /></div>';
                             }else if(post.tipo=="video"){postHtml+='<div class="media"><video src="' + post.url_recurso + '" controls ></video></div>';}else if(post.tipo=="audio"){postHtml+='<div class="cortina-audio"><audio src="' + post.url_recurso + '" controls ></audio></div>';}else if(post.tipo=="archivo"){postHtml+='<div class="post-image">' + "<a class='post-archivo' href='" + post.url_recurso + "'>"+ post.titulo +"<i class='fa-solid fa-file-arrow-down' style='color: #dbdbdb;'></i></a>" + '</div>';}};
                               postHtml+= '<div>'+
-                              '<h2 style="text-align:center;">' + post.titulo + ' || ' + '<a href="perfil?id='+ post.usuario_id + '">' + post.nombre + '</h2></a>' +
+                              '<div class="share-div"><h2 style="text-align:center;">' + post.titulo + ' || ' + '<a href="perfil?id='+ post.usuario_id + '">' + post.nombre + '</h2></a>' + '<svg class="share" post-id="'+post.id+'" fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 458.624 458.624" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M339.588,314.529c-14.215,0-27.456,4.133-38.621,11.239l-112.682-78.67c1.809-6.315,2.798-12.976,2.798-19.871 c0-6.896-0.989-13.557-2.798-19.871l109.64-76.547c11.764,8.356,26.133,13.286,41.662,13.286c39.79,0,72.047-32.257,72.047-72.047 C411.634,32.258,379.378,0,339.588,0c-39.79,0-72.047,32.257-72.047,72.047c0,5.255,0.578,10.373,1.646,15.308l-112.424,78.491 c-10.974-6.759-23.892-10.666-37.727-10.666c-39.79,0-72.047,32.257-72.047,72.047s32.256,72.047,72.047,72.047 c13.834,0,26.753-3.907,37.727-10.666l113.292,79.097c-1.629,6.017-2.514,12.34-2.514,18.872c0,39.79,32.257,72.047,72.047,72.047 c39.79,0,72.047-32.257,72.047-72.047C411.635,346.787,379.378,314.529,339.588,314.529z"></path> </g> </g> </g></svg></div>' +
                                 '<div class="overflow-post-content">' +
                                 '<p>' + post.contenido + '</p>' +
                                 '<div id="coments' +post.id + '" class="coments"'+'>' +
@@ -222,6 +222,10 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         });
         let data = await response.text();
+        let img_like=document.querySelector('.like');
+        if(img_like){
+            img_like.src = data;
+        }
         return data;
     }
 
@@ -393,6 +397,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function handleShareClick(postId){
+        let texto="http://localhost/AustrianEconomicsForum/post.php?p="+postId;
+        navigator.clipboard.writeText(texto)
+        .then(() => {
+            alert("Enlace copiado al portapapeles: " + texto);
+        })
+        .catch(err => {
+            console.error('Error al copiar al portapapeles: ', err);
+            alert('No se pudo copiar al portapapeles');
+        });
+    }
+
 
     function attachListeners() {
             let moreIcons=document.querySelectorAll('.post-arrow .more-icon');
@@ -400,6 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let comentButtons=document.querySelectorAll('.coment-button');
             let likeButtons=document.querySelectorAll('.like');
             let deleteComentButtons=document.querySelectorAll('.deleteComent');
+            let shareButtons=document.querySelectorAll('.share');
             moreIcons.forEach(function(icon){
                 if (icon.listener) {
                     icon.removeEventListener('click', icon.listener);
@@ -439,7 +456,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 button.addEventListener('click', button.listener);
             });
-       
+            shareButtons.forEach(function(share){
+                if(share.listener){
+                    share.removeEventListener('click', share.listener);
+                }
+                share.listener = function() { 
+                    let postId = parseInt(share.getAttribute('post-id'), 10);
+                    console.log(postId);
+                    handleShareClick(postId); 
+                };
+                share.addEventListener('click', share.listener);
+            });
         
         
     }
@@ -487,7 +514,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function quitarLoading(){
-        document.getElementById('loading').style.display = 'none';
+        let loading=document.getElementById('loading');
+        if(loading){
+            loading.style.display = 'none';
+        }
         let loading2=document.querySelectorAll('.loading2');
         if(loading2){loading2.forEach(function(loading2){loading2.style.display = 'none';})};
         let posts=document.querySelectorAll('.post');
@@ -496,12 +526,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-   loadPosts().then(responseData => {
-        
-        displayPosts(responseData).then(() => {quitarLoading();});
-    }).catch(error => {
-        console.error('Hubo un error al obtener los posts:', error);
-    });
+   
+    
+    // Verificar si la URL no contiene la palabra "post"
+    if (window.location.href.toLowerCase().indexOf('post') === -1) {
+        loadPosts().then(responseData => {
+            displayPosts(responseData).then(() => {
+                quitarLoading();
+            });
+        }).catch(error => {
+            console.error('Hubo un error al obtener los posts:', error);
+        });
+    } else {
+        let postId = getQueryParam('p');
+        attachListeners();
+        checkLikeButton(postId);
+    }
 
 
 

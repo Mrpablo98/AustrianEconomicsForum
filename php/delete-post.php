@@ -44,10 +44,16 @@ if ($postId === null) {
 }
 
 try {
-    $sql = $mysqli->prepare("SELECT posts.objectName FROM posts WHERE id=?");
+    $sql = $mysqli->prepare("SELECT posts.objectName, posts.usuario_id FROM posts WHERE id=?");
+    
     $sql->bind_param("i", $postId);
     $sql->execute();
-    $sql->bind_result($objectName);
+    $sql->bind_result($objectName, $userId);
+    if ($_SESSION['user-id'] != $userId) {
+        http_response_code(403);
+        echo json_encode(['error' => 'No autorizado para acceder a este recurso.']);
+        exit;
+    }
     if ($objectName!=null) {
         delete_object('austrian-economics-forum', $objectName);
     }
@@ -63,4 +69,4 @@ try {
     echo json_encode(['error' => 'Error en la operación de base de datos: ' . $e->getMessage()]);
     exit;
 }
-?>
+
